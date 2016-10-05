@@ -8,9 +8,29 @@
 	</extension>
 	<extension point="xbmc.addon.metadata">
 		<summary>Demagorgon Addons</summary>
-		<description>The demagorgon will take you to the next dimension of Kodi! ;)</description>
+		<description>The Demagorgon takes you to the next dimension of Kodi! ;)</description>
 		<disclaimer></disclaimer>
 		<platform>all</platform>
 	</extension>
+</addon>
+
+<addon id="plugin.video.cinefix" name="Cinefix" version="0.1" provider-name="Cinefix">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.addon.common" version="2.0.0"/>
+    <import addon="plugin.video.youtube" />
+  </requires>
+
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">The ultimate destination for movie buffs</summary>
+    <description lang="en">CineFix is the ultimate destination for true movie buffs and filmmakers.</description>
+    <platform>all</platform>
+    <forum></forum>
+    <website></website>
+  </extension>
 </addon>
 </addons>
