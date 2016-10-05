@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.irmaospiologo"
+	name="Irmaos Piologo"
+	version="1.0.0"
+	provider-name="Zumbanacaneca">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.addon.common" version="2.0.0"/>
+    <import addon="plugin.video.youtube" version="5.0.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Irmaos Piologo</summary>
+    <description lang="en">Os irmaos Piologo sao uma dupla de comedia brasileira que ultrapassa todos os limites - ate os do bom senso!</description>
+    <platform>all</platform>
+    <forum></forum>
+    <source></source>
+    <website></website>
+    <email></email>
+  </extension>
+</addon>
