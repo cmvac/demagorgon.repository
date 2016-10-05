@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Mafarricos-kodi-demo-repo
 =========================
 
@@ -29,3 +30,9 @@ Demonstration of a basic repository for kodi (To use as template)
 10. You should do the same to the new repo that you created.
 11. In the end run addons_xml_generator.py so addons.xml.md5 and addons.xml is recriated.
 12. Push and sync changes on your PC to github and you can share the zip file with your repo and addons.
+=======
+# demagorgon.repository
+Demagorgon Kodi Addons Repository
+
+Demagorgon's addons are based on legal online content with the intention of improving the overall Kodi experience.
+>>>>>>> origin/master
