@@ -1,0 +1,20 @@
+Version 7.0.6
+- New version
+
+Version 7.0.5
+- Support only OpenELEC and LibreELEC version 7.0
+
+Version 7.0.4
+- Change Source and Add Support to LibreELEC
+
+Version 7.0.3
+- Change source
+
+Version 7.0.2
+- Add Support for Openelec 6.0 and 7.0
+
+Version 7.0.1
+- Fix Repo
+
+Version 7.0.0
+- First release

@@ -1,0 +1,17 @@
+[B]Version 4.0.1[/B]
+- EPiC XvBMC code cosmetics VooDoo ;-P
+
+[B]Version 4.0.0[/B]
+- EPiC XvBMC VooDoo stuff ;-P
+
+[B]Version 3.0.1[/B]
+- EPiC v3 code cosmetics ;-P 
+
+[B]Version 3.0.0[/B]
+- EPiC v3 code cosmetics :P 
+
+[B]Version 2.0.0[/B]
+- EPiC code cosmetics ;) 
+
+[B]Version 1.0.0[/B]
+- initial release :D 

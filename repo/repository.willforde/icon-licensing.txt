@@ -1,0 +1,4 @@
+icon.png
+Author: Oxygen Team
+License: GNU Lesser General Public License
+http://www.iconarchive.com/show/oxygen-icons-by-oxygen-icons.org/Places-repository-icon.html
