@@ -1,8 +1,0 @@
-Version 7.0.2
-- New version to OpenELEC e LibreELEC
-
-Version 7.0.1
-- Update color name
-
-Version 7.0.0
-- First release
