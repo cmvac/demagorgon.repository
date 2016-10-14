@@ -2,9 +2,9 @@
 <addons>
 <addon id="demagorgon.repository" name="Demagorgon repository" version="0.0.1" provider-name="Demagorgon">
 	<extension point="xbmc.addon.repository" name="Demagorgon Add-on Repository">
-		<info compressed="false">https://github.com/cmvac/demagorgon.repository/fa440d2f14b3a3e5aa32a69d21e5f4ab1dce176a/addons.xml?raw=true</info>
-		<checksum>https://github.com/cmvac/demagorgon.repository/fa440d2f14b3a3e5aa32a69d21e5f4ab1dce176a/addons.xml.md5?raw=true</checksum>
-		<datadir zip="true">http://github.com/cmvac/demagorgon.repository/master/repo/?raw=true</datadir>
+		<info compressed="false">https://raw.github.com/cmvac/demagorgon.repository/fa440d2f14b3a3e5aa32a69d21e5f4ab1dce176a/addons.xml</info>
+		<checksum>https://raw.github.com/cmvac/demagorgon.repository/fa440d2f14b3a3e5aa32a69d21e5f4ab1dce176a/addons.xml.md5</checksum>
+		<datadir zip="true">http://raw.github.com/cmvac/demagorgon.repository/master/repo/</datadir>
 	</extension>
 	<extension point="xbmc.addon.metadata">
 		<summary>Demagorgon Addons</summary>
