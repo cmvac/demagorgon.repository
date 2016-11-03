@@ -1,0 +1,8 @@
+v1.0.0 
+- Initial Release
+v1.0.1 
+- Improved commands
+v1.0.2 
+- improved docs
+v1.0.3 
+- changed <provides> tag to video in xml
