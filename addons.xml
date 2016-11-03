@@ -35,7 +35,7 @@
 </addon>
 
 <addon id="plugin.video.hyperionoff" name="Hyperion Off" version="1.0.3" provider-name="Demagorgon">
-    <requires>
+	<requires>
 		<import addon="xbmc.python" version="2.14.0"/>
 	</requires>
 	<extension point="xbmc.python.pluginsource" library="addon.py">
@@ -54,7 +54,7 @@
 </addon>
 
 <addon id="plugin.video.hyperionon" name="Hyperion On" version="1.0.3" provider-name="Demagorgon">
-    <requires>
+	<requires>
 		<import addon="xbmc.python" version="2.14.0"/>
 	</requires>
 	<extension point="xbmc.python.pluginsource" library="addon.py">
