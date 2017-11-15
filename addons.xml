@@ -3,12 +3,12 @@
 <addon id="demagorgon.repository" name="Demagorgon repository" version="0.0.2" provider-name="Demagorgon">
 	<extension point="xbmc.addon.repository" name="Demagorgon Add-on Repository">
 		<info compressed="false">https://raw.githubusercontent.com/cmvac/demagorgon.repository/master/addons.xml</info>
-		<checksum>https://raw.githubusercontent.com/cmvac/demagorgon.repository/master/addons.xml</checksum>
+		<checksum>https://raw.githubusercontent.com/cmvac/demagorgon.repository/master/addons.xml.md5</checksum>
 		<datadir zip="true">http://raw.github.com/cmvac/demagorgon.repository/master/repo/</datadir>
 	</extension>
 	<extension point="xbmc.addon.metadata">
 		<summary>Demagorgon Addons</summary>
-		<description>The Demagorgon takes you to the upside down</description>
+		<description>The Demagorgon takes you to the next dimension of Kodi! ;)</description>
 		<disclaimer></disclaimer>
 		<platform>all</platform>
 	</extension>
@@ -35,7 +35,7 @@
 </addon>
 
 <addon id="plugin.video.hyperionoff" name="Hyperion Off" version="1.0.3" provider-name="Demagorgon">
-	<requires>
+    <requires>
 		<import addon="xbmc.python" version="2.14.0"/>
 	</requires>
 	<extension point="xbmc.python.pluginsource" library="addon.py">
@@ -54,7 +54,7 @@
 </addon>
 
 <addon id="plugin.video.hyperionon" name="Hyperion On" version="1.0.3" provider-name="Demagorgon">
-	<requires>
+    <requires>
 		<import addon="xbmc.python" version="2.14.0"/>
 	</requires>
 	<extension point="xbmc.python.pluginsource" library="addon.py">
@@ -114,7 +114,10 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.metallicatv" name="Metallica TV" version="1.0.0" provider-name="Demagorgon">
+<addon id="plugin.video.metallicatv"
+	name="Metallica TV"
+	version="1.0.0"
+	provider-name="Demagorgon">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.addon.common" version="2.0.0"/>
@@ -132,24 +135,37 @@
     <website></website>
     <email></email>
   </extension>
+</addon>
 
-<addon id="plugin.video.pt.docs.hd" name="PT Docs HD" version="5.0" provider-name="FrenchDJ Demagorgon and AMOBox">
+<addon id="plugin.video.pt.docs.hd"
+       name="PT.DocS.HD"
+       version="5.0"
+       provider-name="frenchdj, Demagorgon e AMObox">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
-    <import addon="script.module.addon.common" version="2.0.0"/>
-    <import addon="plugin.video.youtube" version="5.0.0"/>
+    <import addon="script.module.beautifulsoup" version="3.2.1"/>
+    <import addon="script.module.simple.downloader" version="0.9.4"/>
+    <import addon="script.module.beautifulsoup4" />
+    <import addon="script.module.requests" />
+    <import addon="script.module.httplib2" />
+    <import addon="script.module.liveresolver" version="0.1.24" optional="true"/>
+    <import addon="script.module.youtube.dl" optional="true"/>
+    <import addon="plugin.video.youtube" optional="true" />
+    <import addon="script.module.urlresolver" optional="true"/>
+    <import addon="script.module.simplejson" />
+     <import addon="script.module.livestreamer" optional="true"/>
+     <import addon="script.module.pyamf" optional="true"/>
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
     <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">PT Docs HD</summary>
-    <description lang="en">Documentários em Português!</description>
+    <summary lang="en">PT.DocS.HD</summary>
+    <description>Documentarios em [COLOR lime][PT][/COLOR] e [COLOR yellow][BR][/COLOR] com qualidade HD.
+Playlists organizadas por categorias com assuntos historicos e da actualidade.
+Toda a fonte  vem de utilizadores do Youtube.
+[B][COLOR lime][ Aconselhado a ultima versao do youtube 5.*.* ][/B][/COLOR]</description>
     <platform>all</platform>
-    <forum></forum>
-    <source></source>
-    <website></website>
-    <email></email>
   </extension>
 </addon>
 </addons>
