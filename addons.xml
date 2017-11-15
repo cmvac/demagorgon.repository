@@ -135,5 +135,28 @@
     <website></website>
     <email></email>
   </extension>
+  
+  
+<addon id="plugin.video.pt.docs.hd"
+	name="PT.Docs.HD"
+	version="5.0"
+	provider-name="FrenchDJ, Demagorgon and AMOBox">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.addon.common" version="2.0.0"/>
+    <import addon="plugin.video.youtube" version="5.0.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">PT.Docs.HD</summary>
+    <description lang="en">Documentários em Português!</description>
+    <platform>all</platform>
+    <forum></forum>
+    <source></source>
+    <website></website>
+    <email></email>
+  </extension>
 </addon>
 </addons>
