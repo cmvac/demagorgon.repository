@@ -135,8 +135,7 @@
     <website></website>
     <email></email>
   </extension>
-  
-  
+
 <addon id="plugin.video.pt.docs.hd"
 	name="PT.Docs.HD"
 	version="5.0"
