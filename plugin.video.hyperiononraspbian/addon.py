@@ -6,6 +6,6 @@ addon       = xbmcaddon.Addon()
 addonname   = addon.getAddonInfo('name')
 
      # kill hyperiond and rename config files
-cmd = "/storage/hyperion/bin/hyperiond.sh /storage/.config/hyperion.config.json </dev/null >/dev/null 2>&1 &"
+cmd = "sudo systemctl start hyperion.service 2>/dev/null ; sudo /etc/init.d/hyperion start 2>/dev/null ; sudo /sbin/initctl start hyperion 2>/dev/null"
 os.system(cmd) 
 xbmcgui.Dialog().ok(addonname, "Ambilight is now turned on.")
