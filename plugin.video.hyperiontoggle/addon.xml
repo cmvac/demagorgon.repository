@@ -8,8 +8,8 @@
 	</extension>
 	<extension point="xbmc.addon.metadata">
 		<platform>all</platform>
-		<summary lang="en">Hyperion Toggle</summary>
-		<description lang="en">Allows you to switch between Hyperion Grabber and Kodi. This addon requires you to make another config file called hyperion.config1.json and put it in the same directory with/without v4l2 code. one config file will be with , one without v4l2 configuration. When this addon is run, it toggles between the two config files.</description>
+		<summary lang="en">Hyperion Toggle for LibreELEC/OpenELEC</summary>
+		<description lang="en">Allows you to switch between Hyperion Grabber and Kodi. This addon requires you to make another config file called hyperion.config1.json and put it in the same folder with/without v4l2 code. one config file will be with , one without v4l2 configuration. When this addon is run, it toggles between the two config files.  DISCLAIMER: This add-on only works in LibreELEC/OpenELEC!</description>
 		<license>GNU General Public License, v2</license>
 		<language></language>
 		<forum></forum>
