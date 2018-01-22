@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.hyperiontoggleraspbian" name="Hyperion Toggle" version="1.2" provider-name="Demagorgon">
+<addon id="plugin.video.hyperiontoggleraspbian" name="Hyperion Toggle" version="1.2.1" provider-name="Demagorgon">
     <requires>
 		<import addon="xbmc.python" version="2.14.0"/>
 	</requires>
@@ -9,7 +9,10 @@
 	<extension point="xbmc.addon.metadata">
 		<platform>all</platform>
 		<summary lang="en">Hyperion Toggle</summary>
-		<description lang="en">Allows you to switch between Hyperion Grabber and Kodi. This addon requires you to make another config file called hyperion.config1.json and put it in the same directory with/without v4l2 code. one config file will be with , one without v4l2 configuration. When this addon is run, it toggles between the two config files. For all systems EXCEPT LibreELEC and OpenELEC!</description>
+		<description lang="en">Allows you to switch between Hyperion Grabber and Kodi. 
+		This addon requires you to make another config file called hyperion.config1.json and put it in the same directory with/without v4l2 code. One config file will be with the other without v4l2 configuration. 
+		When this addon is run, it toggles between the two config files. 
+		For all systems EXCEPT LibreELEC and OpenELEC!</description>
 		<license>GNU General Public License, v2</license>
 		<language></language>
 		<forum></forum>
