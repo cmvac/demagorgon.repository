@@ -13,4 +13,3 @@ os.rename("/storage/.config/hyperion.config1.json", "/storage/.config/hyperion.c
 os.rename("/storage/.config/hyperion.config2.json", "/storage/.config/hyperion.config1.json")
 cmd = "/storage/hyperion/bin/hyperiond.sh /storage/.config/hyperion.config.json </dev/null >/dev/null 2>&1 &"
 os.system(cmd)
-xbmcgui.Dialog().ok(addonname, "Config files swapped. You an swap between internal and external sources now")

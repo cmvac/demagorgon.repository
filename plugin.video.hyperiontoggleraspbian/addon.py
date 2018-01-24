@@ -13,4 +13,3 @@ os.rename("/etc/hyperion/hyperion.config1.json", "/etc/hyperion/hyperion.config.
 os.rename("/etc/hyperion/hyperion.config2.json", "/etc/hyperion/hyperion.config1.json")
 cmd = "sudo systemctl start hyperion.service 2>/dev/null ; sudo /etc/init.d/hyperion start 2>/dev/null ; sudo /sbin/initctl start hyperion 2>/dev/null"
 os.system(cmd)
-xbmcgui.Dialog().ok(addonname, "Config files swapped. You an swap between internal and external sources now")
