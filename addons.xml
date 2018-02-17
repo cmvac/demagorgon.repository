@@ -257,4 +257,33 @@ Toda a fonte  vem de utilizadores do Youtube.
     <platform>all</platform>
   </extension>
 </addon>
+
+<addon id="screensaver.praiaspt" name="PraiasPT" version="1.0" provider-name="demagorgon, forked from Enen92's Areal">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0"/>
+	</requires>
+	<extension point="xbmc.ui.screensaver" library="entrypointscreensaver.py" />
+	<extension point="xbmc.python.script" library="entrypointscript.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.service" library="service.py" start="login"/>
+	<extension point="xbmc.addon.metadata">
+	    <platform>all</platform>
+	    <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+	    <source></source>
+	    <forum></forum>
+	    <summary lang="en">Portuguese Beaches Screensaver in Kodi</summary>
+	    <description lang="en">This screensaver addon enables the portuguese beach webcams in Kodi</description>
+        <news>
+		</news>
+        <assets>
+	        <icon>icon.png</icon>
+	        <fanart>fanart.jpg</fanart>
+	        <screenshot>resources/screenshots/screenshot-01.jpg</screenshot>
+	        <screenshot>resources/screenshots/screenshot-02.jpg</screenshot>
+	        <screenshot>resources/screenshots/screenshot-03.jpg</screenshot>
+	        <screenshot>resources/screenshots/screenshot-04.jpg</screenshot>
+        </assets>
+    </extension>
+</addon>
 </addons>

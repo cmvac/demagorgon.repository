@@ -1,0 +1,426 @@
+[
+   {
+      "id" : "73F3F654-9EC5-4876-8BF6-474E22029A49",
+      "assets" : [
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/conceicao/playlist.m3u8",
+            "accessibilityLabel" : "Cascais",
+            "type" : "video",
+            "id" : "D388F00A-5A32-4431-A95C-38BF7FF7268D",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/praiadasavencas/playlist.m3u8",
+            "accessibilityLabel" : "Cascais",
+            "type" : "video",
+            "id" : "2F11E857-4F77-4476-8033-4A1E4610AFCC",
+            "timeOfDay" : "night"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/saopedroestoria/playlist.m3u8",
+            "accessibilityLabel" : "Cascais",
+            "type" : "video",
+            "id" : "687B36CB-BA5D-4434-BA99-2F2B8B6EC163",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/carcavelos/playlist.m3u8",
+            "accessibilityLabel" : "Cascais",
+            "type" : "video",
+            "id" : "2A57BB93-1825-484C-9609-FF8580CAE77B",
+            "timeOfDay" : "night"
+         }
+      ]
+   },
+   {
+      "id" : "465A051C-3DDE-4C87-B0A4-846AF5422FE1",
+      "assets" : [
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/santoamaro/playlist.m3u8",
+            "accessibilityLabel" : "Oeiras",
+            "type" : "video",
+            "id" : "102C19D1-9D9F-48EC-B492-074C985C4D9F",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/praiagrande/playlist.m3u8",
+            "accessibilityLabel" : "Sintra",
+            "type" : "video",
+            "id" : "B813A62B-F910-4C86-B2B4-51C7FCB73314",
+            "timeOfDay" : "night"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/ericeiraspots/playlist.m3u8",
+            "accessibilityLabel" : "Mafra",
+            "type" : "video",
+            "id" : "9CCB8297-E9F5-4699-AE1F-890CFBD5E29C",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/conceicao/playlist.m3u8",
+            "accessibilityLabel" : "Cascais",
+            "type" : "video",
+            "id" : "7D4710EB-5BA4-42E6-AA60-68D77F67D9B9",
+            "timeOfDay" : "night"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/lecadapalmeira/playlist.m3u8",
+            "accessibilityLabel" : "Norte",
+            "type" : "video",
+            "id" : "88025454-6D58-48E8-A2DB-924988FAD7AC",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/madeirajardimdomar/playlist.m3u8",
+            "accessibilityLabel" : "Madeira",
+            "type" : "video",
+            "id" : "B3BDC635-756D-4B82-B01A-A2620D1DBF10",
+            "timeOfDay" : "night"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/praiaguinchosul/playlist.m3u8",
+            "accessibilityLabel" : "Cascais",
+            "type" : "video",
+            "id" : "30047FDA-3AE3-4E74-9575-3520AD77865B",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/ribeiradilhas/playlist.m3u8",
+            "accessibilityLabel" : "Mafra",
+            "type" : "video",
+            "id" : "B876B645-3955-420E-99DF-60139E451CF3",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/praiagrande/playlist.m3u8",
+            "accessibilityLabel" : "Sintra",
+            "type" : "video",
+            "id" : "BEED64EC-2DB7-47E1-A67E-59C101E73C04",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/ribeiradilhas/playlist.m3u8",
+            "accessibilityLabel" : "Madeira",
+            "type" : "video",
+            "id" : "15F9B681-9EA8-4DD1-AD26-F111BC5CF64B",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/bctorre/playlist.m3u8",
+            "accessibilityLabel" : "Oeiras",
+            "type" : "video",
+            "id" : "560E09E8-E89D-4ADB-8EEA-4754415383D4",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/praiagrande2/playlist.m3u8",
+            "accessibilityLabel" : "Sintra",
+            "type" : "video",
+            "id" : "60CD8E2E-35CD-4192-A5A4-D5E10BFE158B",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/ribeiradilhas/playlist.m3u8",
+            "accessibilityLabel" : "Madeira",
+            "type" : "video",
+            "id" : "02EA5DBE-3A67-4DFA-8528-12901DFD6CC1",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/ribeiradilhas/playlist.m3u8",
+            "accessibilityLabel" : "Mafra",
+            "type" : "video",
+            "id" : "D5E76230-81A3-4F65-A1BA-51B8CADED625",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/ribeiradilhas/playlist.m3u8",
+            "accessibilityLabel" : "Madeira",
+            "type" : "video",
+            "id" : "D34A7B19-EC33-4300-B4ED-0C8BC494C035",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/parcos/playlist.m3u8",
+            "accessibilityLabel" : "Oeiras",
+            "type" : "video",
+            "id" : "4B16F739-372D-400D-B7F9-1327EF58CFDC",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/ribeiradilhas/playlist.m3u8",
+            "accessibilityLabel" : "Madeira",
+            "type" : "video",
+            "id" : "DFA399FA-620A-4517-94D6-BF78BF8C5E5A",
+            "timeOfDay" : "day"
+         }
+      ]
+   },
+   {
+      "id" : "b1",
+      "assets" : [
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/fontedatelha/playlist.m3u8",
+            "accessibilityLabel" : "Caparica",
+            "type" : "video",
+            "id" : "b1-1",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/lagide/playlist.m3u8",
+            "accessibilityLabel" : "Oeste",
+            "type" : "video",
+            "id" : "b1-2",
+            "timeOfDay" : "night"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/arrifana/playlist.m3u8",
+            "accessibilityLabel" : "Algarve",
+            "type" : "video",
+            "id" : "b1-3",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/zambujeira/playlist.m3u8",
+            "accessibilityLabel" : "Alentejo",
+            "type" : "video",
+            "id" : "b1-4",
+            "timeOfDay" : "night"
+         }
+      ]
+   },
+   {
+      "id" : "b2",
+      "assets" : [
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/ericeiraspots/playlist.m3u8",
+            "accessibilityLabel" : "Mafra",
+            "type" : "video",
+            "id" : "b2-1",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/fontedatelha/playlist.m3u8",
+            "accessibilityLabel" : "Caparica",
+            "type" : "video",
+            "id" : "b2-2",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/luz/playlist.m3u8",
+            "accessibilityLabel" : "Algarve",
+            "type" : "video",
+            "id" : "b2-3",
+            "timeOfDay" : "night"
+         }
+      ]
+   },
+   {
+      "id" : "b3",
+      "assets" : [
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/meiapraia/playlist.m3u8",
+            "accessibilityLabel" : "Algarve",
+            "type" : "video",
+            "id" : "b3-1",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/espinho/playlist.m3u8",
+            "accessibilityLabel" : "Norte",
+            "type" : "video",
+            "id" : "b3-2",
+            "timeOfDay" : "day"
+         }
+      ]
+   },
+   {
+      "id" : "b4",
+      "assets" : [
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/costacaparicacds/playlist.m3u8",
+            "accessibilityLabel" : "Caparica",
+            "type" : "video",
+            "id" : "b4-1",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/alvor/playlist.m3u8",
+            "accessibilityLabel" : "Algarve",
+            "type" : "video",
+            "id" : "b4-2",
+            "timeOfDay" : "night"
+         }
+      ]
+   },
+   {
+      "id" : "b5",
+      "assets" : [
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/costacaparicasaojoao/playlist.m3u8",
+            "accessibilityLabel" : "Caparica",
+            "type" : "video",
+            "id" : "b5-1",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/supertubos/playlist.m3u8",
+            "accessibilityLabel" : "Oeste",
+            "type" : "video",
+            "id" : "b5-2",
+            "timeOfDay" : "day"
+         }
+      ]
+   },
+   {
+      "id" : "b6",
+      "assets" : [
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/lagide/playlist.m3u8",
+            "accessibilityLabel" : "Oeste",
+            "type" : "video",
+            "id" : "b6-1",
+            "timeOfDay" : "day"
+         }
+      ]
+   },
+   {
+      "id" : "b7",
+      "assets" : [
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/praiadarocha/playlist.m3u8",
+            "accessibilityLabel" : "Algarve",
+            "type" : "video",
+            "id" : "b7-1",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/bcgale/playlist.m3u8",
+            "accessibilityLabel" : "Algarve",
+            "type" : "video",
+            "id" : "b7-2",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/evaristo/playlist.m3u8",
+            "accessibilityLabel" : "Algarve",
+            "type" : "video",
+            "id" : "b7-3",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/vilamoura/playlist.m3u8",
+            "accessibilityLabel" : "Algarve",
+            "type" : "video",
+            "id" : "b7-4",
+            "timeOfDay" : "day"
+         }
+      ]
+   },
+   {
+      "id" : "b8",
+      "assets" : [
+		 {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/esmoriz/playlist.m3u8",
+            "accessibilityLabel" : "Norte",
+            "type" : "video",
+            "id" : "b8-1",
+            "timeOfDay" : "night"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/furadouro/playlist.m3u8",
+            "accessibilityLabel" : "Norte",
+            "type" : "video",
+            "id" : "b8-2",
+            "timeOfDay" : "night"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/torreira/playlist.m3u8",
+            "accessibilityLabel" : "Norte",
+            "type" : "video",
+            "id" : "b8-3",
+            "timeOfDay" : "night"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/aveiro/playlist.m3u8",
+            "accessibilityLabel" : "Norte",
+            "type" : "video",
+            "id" : "b8-4",
+            "timeOfDay" : "night"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/vagueira/playlist.m3u8",
+            "accessibilityLabel" : "Norte",
+            "type" : "video",
+            "id" : "b8-5",
+            "timeOfDay" : "night"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/bcmira/playlist.m3u8",
+            "accessibilityLabel" : "Norte",
+            "type" : "video",
+            "id" : "b8-6",
+            "timeOfDay" : "night"
+         },		 
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/figueiradafoz/playlist.m3u8",
+            "accessibilityLabel" : "Oeste",
+            "type" : "video",
+            "id" : "b8-7",
+            "timeOfDay" : "night"
+         },			 
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/nazareparadonorte/playlist.m3u8",
+            "accessibilityLabel" : "Oeste",
+            "type" : "video",
+            "id" : "b8-8",
+            "timeOfDay" : "night"
+         }
+      ]
+   },
+   {
+      "id" : "b9",
+      "assets" : [
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/carvalhal/playlist.m3u8",
+            "accessibilityLabel" : "Alentejo",
+            "type" : "video",
+            "id" : "b9-1",
+            "timeOfDay" : "day"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/santacruz/playlist.m3u8",
+            "accessibilityLabel" : "Oeste",
+            "type" : "video",
+            "id" : "b9-2",
+            "timeOfDay" : "night"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/saotorpes/playlist.m3u8",
+            "accessibilityLabel" : "Alentejo",
+            "type" : "video",
+            "id" : "b9-3",
+            "timeOfDay" : "day"
+         }
+      ]
+   },
+   {
+      "id" : "b10",
+      "assets" : [
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/bcamoreira/playlist.m3u8",
+            "accessibilityLabel" : "Alentejo",
+            "type" : "video",
+            "id" : "b10-1",
+            "timeOfDay" : "night"
+         },
+         {
+            "url" : "http://video-auth1.iol.pt:1935/beachcam/zambujeira/playlist.m3u8",
+            "accessibilityLabel" : "Alentejo",
+            "type" : "video",
+            "id" : "b10-2",
+            "timeOfDay" : "day"
+         }			 
+      ]
+   }
+]
