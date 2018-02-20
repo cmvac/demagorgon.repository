@@ -286,7 +286,6 @@ Toda a fonte  vem de utilizadores do Youtube.
         </assets>
     </extension>
 </addon>
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="plugin.video.youtube" name="YouTube" version="6.0.0.beta1" provider-name="bromix">
     <requires>
         <import addon="xbmc.python" version="2.20.0"/>
