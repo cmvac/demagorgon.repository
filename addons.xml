@@ -258,7 +258,7 @@ Toda a fonte  vem de utilizadores do Youtube.
   </extension>
 </addon>
 
-<addon id="plugin.video.youtube" name="YouTube" version="6.0.0.beta1" provider-name="bromix">
+<addon id="plugin.video.youtube" name="YouTube" version="6.0.0beta1" provider-name="bromix">
     <requires>
         <import addon="xbmc.python" version="2.20.0"/>
         <import addon="script.module.six"/>
@@ -311,6 +311,7 @@ Toda a fonte  vem de utilizadores do Youtube.
         <size>1776578</size>
     </extension>
 </addon>
+<!-- unofficial -->
 
 <addon id="screensaver.praiaspt" name="PraiasPT" version="1.0" provider-name="demagorgon, forked from Enen92's Areal">
 	<requires>
