@@ -15,7 +15,7 @@ local   = xbmcaddon.Addon(id=addonID)
 icon    = local.getAddonInfo('icon')
 base    = 'plugin://plugin.video.youtube/'
 
-fan01 = 'special://home/addons/plugin.video.behindmovies/resources/fan01.png'
+fan01 = 'special://home/addons/plugin.video.behindmovies/resources/fan01.jpg'
 icon = 'special://home/addons/plugin.video.behindmovies/resources/icon.png'
 icon00 = 'special://home/addons/plugin.video.behindmovies/resources/icon00.png'
 icon01 = 'special://home/addons/plugin.video.behindmovies/resources/icon01.png'
