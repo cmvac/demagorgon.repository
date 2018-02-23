@@ -43,6 +43,26 @@
   </extension>
 </addon>
 
+<addon id="plugin.video.behindmovies" name="Behind Movies" version="1.0" provider-name="Demagorgon">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.addon.common" version="2.0.0"/>
+    <import addon="plugin.video.youtube" />
+  </requires>
+
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">The ultimate destination for movie and tv buffs</summary>
+    <description lang="en">Behind Movies is a colection of the best youtube entertainment news channels.</description>
+    <platform>all</platform>
+    <forum></forum>
+    <website></website>
+  </extension>
+</addon>
+
 <addon id="plugin.video.cinefix" name="Cinefix" version="0.1" provider-name="Cinefix">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
