@@ -143,6 +143,7 @@ def get_params():
                     commands[command] = ""
     
     _log("get_params "+repr(commands))
+		
     return commands
 
 # Fetch text content from an URL

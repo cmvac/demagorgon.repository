@@ -223,26 +223,23 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.metallicatv"
-	name="Metallica TV"
-	version="1.0.0"
-	provider-name="Demagorgon">
+<addon id="plugin.video.metallicatv" name="Metallica TV" version="2.0" provider-name="Demagorgon">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.addon.common" version="2.0.0"/>
-    <import addon="plugin.video.youtube" version="5.0.0"/>
+    <import addon="plugin.video.youtube" />
   </requires>
+
   <extension point="xbmc.python.pluginsource" library="default.py">
     <provides>video</provides>
   </extension>
+
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">Metallica TV</summary>
-    <description lang="en">We give you Metallica TV!</description>
+    <summary lang="en">We give you Metallica TV!</summary>
+    <description lang="en">MetallicaTV is dedicated to your favorite band, with all the official videos from Metallica, plus full album streaming.</description>
     <platform>all</platform>
     <forum></forum>
-    <source></source>
     <website></website>
-    <email></email>
   </extension>
 </addon>
 
