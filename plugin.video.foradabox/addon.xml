@@ -23,7 +23,7 @@
   </extension>
   <extension point="xbmc.addon.metadata">
     <summary lang="en">Fora da Box</summary>
-    <description>Tudo o que o media center já tinha, mais aquilo que ainda lhe faltava.</description>
+    <description>Tudo o que o media center já tinha, mais aquilo que ainda lhe faltava. Todo o conteudo deste addon provém do Youtube.</description>
     <platform>all</platform>
   </extension>
 </addon>
