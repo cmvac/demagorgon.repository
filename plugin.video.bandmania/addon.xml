@@ -23,7 +23,8 @@
   </extension>
   <extension point="xbmc.addon.metadata">
     <summary lang="en">Bandmania</summary>
-    <description>All your favourite bands, organized by music style. All sources are Youtube-based. To play all videos as a playlist, open the context menu on the first video you want to see, and press "play from here".</description>
+    <description>All your favourite bands, organized by music style. All sources are Youtube-based. 
+	To play all videos as a playlist, open the context menu on the first video you want to see, and press "play from here".</description>
     <platform>all</platform>
   </extension>
 </addon>
