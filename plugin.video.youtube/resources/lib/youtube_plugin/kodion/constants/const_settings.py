@@ -23,18 +23,11 @@ VIEW_OVERRIDE = 'kodion.view.override'  # (bool)
 VIEW_DEFAULT = 'kodion.view.default'  # (int)
 VIEW_X = 'kodion.view.%s'  # (int)
 
-LOGIN_USERNAME = 'kodion.login.username'
-LOGIN_PASSWORD = 'kodion.login.password'
-LOGIN_HASH = 'kodion.login.hash'
-
-ACCESS_TOKEN = 'kodion.access_token'
-REFRESH_TOKEN = 'kodion.refresh_token'
-ACCESS_TOKEN_EXPIRES = 'kodion.access_token.expires'
-
 ALLOW_DEV_KEYS = 'youtube.allow.dev.keys'  # (bool)
 
 DASH_PROXY = 'kodion.mpd.proxy'  # (bool)
 HTTPD_PORT = 'kodion.mpd.proxy.port'  # (number)
 HTTPD_LISTEN = 'kodion.http.listen'  # (string)
+HTTPD_WHITELIST = 'kodion.http.ip.whitelist'  # (string)
 
-API_LAST_ORIGIN = 'youtube.api.last.origin'  # (string)
+API_CONFIG_PAGE = 'youtube.api.config.page'  # (bool)
