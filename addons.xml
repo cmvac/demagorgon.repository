@@ -14,6 +14,23 @@
 	</extension>
 </addon>
 
+    <addon id="lanik.repo" name="Lanik Repository" version="1.0.2" provider-name="Dalibor Lanik">
+        <requires>
+            <import addon="xbmc.addon" version="12.0.0"/>
+        </requires>
+        <extension point="xbmc.addon.repository" name="Lanik Repository">
+            <info compressed="false">http://kodi.lanik.org/_repo/addons.xml</info>
+            <checksum>http://kodi.lanik.org/_repo/addons.xml.md5</checksum>
+            <datadir zip="true">http://kodi.lanik.org/_repo/</datadir>
+            <hashes>false</hashes>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+            <summary>Repository for my KODI plugins</summary>
+            <description>KODI Repository for stuff made by D. Lanik</description>
+            <platform>all</platform>
+    </extension>
+</addon>
+
 <addon id="plugin.video.bandmania"
        name="Bandmania"
        version="1.2"
@@ -502,6 +519,25 @@ Toda a fonte  vem de utilizadores do Youtube.
 	        <screenshot>resources/screenshots/screenshot-03.jpg</screenshot>
 	        <screenshot>resources/screenshots/screenshot-04.jpg</screenshot>
         </assets>
+    </extension>
+</addon>
+
+<addon id="script.keymap"
+       name="Keymap Editor"
+       version="1.0.10"
+       provider-name="takoi">
+    <requires>
+        <import addon="xbmc.python" version="2.19.0"/>
+    </requires>
+    <extension point="xbmc.python.script" library="main.py"/>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">An editor for keymap files</summary>
+        <description lang="en">Keymap Editor is a GUI for configuring mappings for remotes, keyboard and other inputs supported by xbmc. Note: existing user defined key mappings will be removed.</description>
+        <platform>all</platform>
+        <language/>
+        <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+        <forum>http://forum.xbmc.org/showthread.php?tid=168767</forum>
+        <source>https://github.com/tamland/xbmc-keymap-editor</source>
     </extension>
 </addon>
 
