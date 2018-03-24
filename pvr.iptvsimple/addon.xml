@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon
+  id="pvr.iptvsimple"
+  version="17.0.0"
+  name="PVR IPTV Simple Client"
+  provider-name="primaeval">
+  <requires>
+    <c-pluff version="0.1"/>
+    <import addon="xbmc.pvr" version="5.2.1"/>
+  </requires>
+  <extension
+    point="xbmc.pvrclient"
+    library_windows="pvr.iptvsimple.dll"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="cs_CZ">Kodi PVR addon for IPTV support. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
+    <summary lang="de_DE">Kodi PVR Addon für IPTV Unterstützung. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
+    <summary lang="en_AU">Kodi PVR addon for IPTV support. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
+    <summary lang="en_GB">Kodi PVR addon for IPTV support. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
+    <summary lang="en_NZ">Kodi PVR addon for IPTV support. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
+    <summary lang="en_US">Kodi PVR addon for IPTV support. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
+    <summary lang="pt_BR">Addon de PVR no Kodi com suporte a IPTV. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
+    <summary lang="pt_PT">Add-on Kodi PVR para suporte a IPTV. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
+    <description lang="de_DE">IPTV Simple PVR Client unterstützt m3u Wiedergabelisten, Streaming von Live TV für Multicast/Unicast Quellen, Radiosender und EPG.</description>
+    <description lang="en_AU">IPTV Simple PVR Client support m3u playlists, streaming of Live TV for multicast/unicast sources, listening to Radio channels and EPG.</description>
+    <description lang="en_GB">IPTV Simple PVR Client support m3u playlists, streaming of Live TV for multicast/unicast sources, listening to Radio channels and EPG.</description>
+    <description lang="en_NZ">IPTV Simple PVR Client support m3u playlists, streaming of Live TV for multicast/unicast sources, listening to Radio channels and EPG.</description>
+    <description lang="en_US">IPTV Simple PVR Client support m3u playlists, streaming of Live TV for multicast/unicast sources, listening to Radio channels and EPG.</description>
+    <description lang="pt_BR">O cliente de PVR IPTV Simple Client oferece suporte para listas m3u, transmissão de TV ao vivo de fontes multicast/unicast, transmissão de rádios e, ainda, suporte a guia de programação eletrônico - EPG.</description>
+    <description lang="pt_PT">Cliente IPTV Simple PVR com suporte a listas de reprodução m3u, transmissão de TV em direto de fontes multidifusão/unidifusão, ouvir estações de rádio e EPG.</description>
+    <disclaimer lang="de_DE">Dies ist instabile Software! Die Autoren sind in keiner Weise verantwortlich für fehlgeschlagene Wiedergaben, falsche EPG Zeiten, verschwendete Zeit oder unerwünschte Effekte jeglicher Art.</disclaimer>
+    <disclaimer lang="en_AU">This is unstable software! The authors are in no way responsible for failed playings, incorrect EPG times, wasted hours, or any other undesirable effects.</disclaimer>
+    <disclaimer lang="en_GB">This is unstable software! The authors are in no way responsible for failed playings, incorrect EPG times, wasted hours, or any other undesirable effects.</disclaimer>
+    <disclaimer lang="en_NZ">This is unstable software! The authors are in no way responsible for failed playings, incorrect EPG times, wasted hours, or any other undesirable effects.</disclaimer>
+    <disclaimer lang="en_US">This is unstable software! The authors are in no way responsible for failed playings, incorrect EPG times, wasted hours, or any other undesirable effects.</disclaimer>
+    <disclaimer lang="pt_BR">Este é um software instável! Os autores não são responsáveis por falhas nas reproduções, horários incorretos no EPG, horas perdidas ou quaisquer outros efeitos indesejáveis.</disclaimer>
+    <disclaimer lang="pt_PT">Este software é instável! Os autores não podem ser responsabilizados por gravações falhadas, temporizadores incorretos, horas desperdiçadas ou qualquer outro tipo de efeitos indesejáveis...</disclaimer>
+    <platform>windows</platform>
+  </extension>
+</addon>
