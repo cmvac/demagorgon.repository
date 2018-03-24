@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<strings>
+    <string id="30001">Наћи адоне без репозиторија</string>
+    <string id="30002">Датабаза текстура</string>
+    <string id="30003">Очистити базу текстура</string>
+    <string id="30004">Чисти све</string>
+    <string id="30005">Базе података</string>
+    <string id="30006">Провере</string>
+
+    <string id="30010">KCleaner - Потврдите чишћење:</string>
+    <string id="30011">Скенирање привремених фајлова</string>
+    <string id="30012">Провера путева...</string>
+    <string id="30013">Чишћење: </string>
+    <string id="30014">Обрисано: </string>
+    <string id="30015">Ставки у адресару: </string>
+
+    <string id="30016">Скенирање база података</string>
+    <string id="30017">Компресује се: </string>
+    <string id="30018">Компресовано: </string>
+
+    <string id="30019">Скенирам репозиторије</string>
+
+    <string id="30020">Очистити </string>
+    <string id="30021">Изаберите акцију:</string>
+    <string id="30022">Подешавања</string>
+    <string id="30023">Компресуј све датабазе</string>
+    <string id="30024">Провери некоришћене репозиторије</string>
+
+    <string id="30025">Проверавам: </string>
+    <string id="30026">Проверено: </string>
+
+    <string id="30027">Чисти све + Компресуј све датабазе</string>
+    <string id="30028">Потврди акцију:</string>
+
+    <string id="30030">Чишћење [COLOR red]прекинуто[/COLOR].</string>
+    <string id="30031">Чишћење [COLOR red]завршено[/COLOR].</string>
+
+    <string id="30040">Игнорисати Адоне</string>
+    <string id="30041">Игнорисати остало</string>
+    <string id="30042">Остало</string>
+    <string id="30043">Ауто-чишћење</string>
+    <string id="30044">Личне путање</string>
+
+    <string id="30051">WTF</string>
+    <string id="30052">4oD</string>
+    <string id="30053">BBC iPlayer</string>
+    <string id="30054">Simple Downloader</string>
+    <string id="30055">ITV</string>
+    <string id="30056">MP3 Streams</string>
+    <string id="30057">ArtistSlideshow</string>
+    <string id="30058">Titlovi</string>
+    <string id="30059">Titulky</string>
+    <string id="30060">Artwork Downloader</string>
+    <string id="30061">Spotitube</string>
+    <string id="30062">Retrospect</string>
+    <string id="30063">Database Pre-Wash Scrub</string>
+
+    <string id="30071">Анимирани Гифови у Thumbnails</string>
+    <string id="30072">Брисати само иконице које нису у ДБ</string>
+    <string id="30073">Оставити бекап пакета</string>
+    <string id="30074">Брза провера иконица</string>
+
+    <string id="30081">Дибаг лог (у Кодијев лог)</string>
+
+    <string id="30091">Аутоматско чишћење</string>
+    <string id="30092">Изаберите шта чистити:</string>
+    <string id="30093">Кеш</string>
+    <string id="30094">Пакети</string>
+    <string id="30095">Иконице</string>
+    <string id="30096">Адонови</string>
+    <string id="30097">Компресија база</string>
+    <string id="30098">Пустити по старту за (мин)</string>
+    <string id="30099">Очистити базу текстура</string>
+    <string id="30100">Неискоришћени дата адресари</string>
+    <string id="30101">ATV Screensaver фајлови</string>
+
+    <string id="30110">Датабазе </string>
+    <string id="30111"> компресовано:</string>
+    <string id="30112">Мб</string>
+    <string id="30113"> очишћено:</string>
+
+    <string id="30114">Скенирање базе текстура...</string>
+    <string id="30115">Проверавам...</string>
+    <string id="30116">Проверавам запис ИД: </string>
+    <string id="30117">Проверавам неискоришћене дата адресаре</string>
+    <string id="30118">Проверавам путеве за компресовање...</string>
+
+    <string id="30120">ПРАЗАН ИЛИ ГРЕШКА ПРИ ЧИТАЊУ</string>
+    <string id="30121">НЕ САДРЖИ ЛОКАЛНЕ АДОНЕ</string>
+
+    <string id="30130">Тотал чишћења:</string>
+    <string id="30131">Тотал компресовања:</string>
+    <string id="30132">Репозитори који не садрже адоне:</string>
+    <string id="30133">Извештај чишћења:</string>
+
+    <string id="30134">Адони који немају репо:</string>
+    <string id="30135">Чишћење базе текстура:</string>
+    <string id="30136">Обрисано</string>
+    <string id="30137">нисправних записа из Textures13.db базе</string>
+    <string id="30138">Обрисано неискоришћених дата адресара:</string>
+    <string id="30139">Компресовано путева у подешаваима:</string>
+
+    <string id="30140">Пуштати сваки</string>
+    <string id="30141">Дан</string>
+    <string id="30142">Недељу</string>
+    <string id="30143">Месец</string>
+    <string id="30144">3 месеца</string>
+    <string id="30145">При старту Кодија</string>
+
+    <string id="30150">Ниједна датотека није била избрисана.</string>
+    <string id="30151">Ниједна база није била компресована.</string>
+    <string id="30152">Ниједан запис није био избрисан.</string>
+    <string id="30153">Ниједан пут није био компресован.</string>
+
+    <string id="30160">Очистити кеш</string>
+    <string id="30161">Очистити пакете</string>
+    <string id="30162">Очистити иконице</string>
+    <string id="30163">Очистити адонове</string>
+    <string id="30164">Компресија путева у подешавањима на special://</string>
+
+    <string id="30170"> /Све</string>
+    <string id="30171"> /Ако нису у ДБ</string>
+    <string id="30172"> /Ако нису у ДБ (Брза)</string>
+
+    <string id="30180">Приказати при ауто-чишћењу</string>
+    <string id="30181">Прогрес и нотификацију</string>
+    <string id="30182">Само прогрес</string>
+    <string id="30183">Само нотификацију</string>
+    <string id="30184">Ништа</string>
+
+    <string id="30190">Број личних путања</string>
+    <string id="30191">Путања 1</string>
+    <string id="30192">Путања 2</string>
+    <string id="30193">Путања 3</string>
+    <string id="30194">Путања 4</string>
+</strings>

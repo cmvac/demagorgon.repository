@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<strings>
+    <string id="30001">Zjistit addony bez repository</string>
+    <string id="30002">Databaze textur</string>
+    <string id="30003">Vyčistit DB textur</string>
+    <string id="30004">Vyčistit vše</string>
+    <string id="30005">Databaze</string>
+    <string id="30006">Kontroly</string>
+
+    <string id="30010">KCleaner - Potvrdtě vyčištěni:</string>
+    <string id="30011">Skenováni dočasnych souboru</string>
+    <string id="30012">Ověřuji cesty...</string>
+    <string id="30013">Čištěni: </string>
+    <string id="30014">Smazano: </string>
+    <string id="30015">Položek v adresaři: </string>
+
+    <string id="30016">Skenováni databazi</string>
+    <string id="30017">Komprimovani: </string>
+    <string id="30018">Komprimovano: </string>
+
+    <string id="30019">Skenovani repository</string>
+
+    <string id="30020">Vyčistit </string>
+    <string id="30021">Vyberte akci:</string>
+    <string id="30022">Nastaveni</string>
+    <string id="30023">Komprimovat vše databaze</string>
+    <string id="30024">Zjistit nepoužite repository</string>
+
+    <string id="30025">Oveřuji: </string>
+    <string id="30026">Oveřeno: </string>
+
+    <string id="30027">Vyčistit vše + Komprimovat vše databaze</string>
+    <string id="30028">Potvrďte akci:</string>
+
+    <string id="30030">Čištěni [COLOR red]přerušeno[/COLOR].</string>
+    <string id="30031">Čištěni [COLOR red]dokončeno[/COLOR].</string>
+
+    <string id="30040">Ignorovat Addony</string>
+    <string id="30041">Ignorovat jine</string>
+    <string id="30042">Ostatni</string>
+    <string id="30043">Auto-čištěni</string>
+    <string id="30044">Vlastní cesty</string>
+
+    <string id="30051">WTF</string>
+    <string id="30052">4oD</string>
+    <string id="30053">BBC iPlayer</string>
+    <string id="30054">Simple Downloader</string>
+    <string id="30055">ITV</string>
+    <string id="30056">MP3 Streams</string>
+    <string id="30057">ArtistSlideshow</string>
+    <string id="30058">Titlovi</string>
+    <string id="30059">Titulky</string>
+    <string id="30060">Artwork Downloader</string>
+    <string id="30061">Spotitube</string>
+    <string id="30062">Retrospect</string>
+    <string id="30063">Database Pre-Wash Scrub</string>
+
+    <string id="30071">Animovany Gify v foldru Thumbnails</string>
+    <string id="30072">Mazat jen miniatury nenalezene v DB</string>
+    <string id="30073">Nechat backup paketu</string>
+    <string id="30074">Rychla kontrola miniatur</string>
+
+    <string id="30081">Debug logovani (do Kodi logu)</string>
+
+    <string id="30091">Automatické čištěni</string>
+    <string id="30092">Vyberte co se ma čistit automaticky:</string>
+    <string id="30093">Cache</string>
+    <string id="30094">Pakety</string>
+    <string id="30095">Miniatury</string>
+    <string id="30096">Addony</string>
+    <string id="30097">Komprimovani Databaze</string>
+    <string id="30098">Spustit po startu (min)</string>
+    <string id="30099">Vyčistit DB textur</string>
+    <string id="30100">Nepoužite addon data adresaře</string>
+    <string id="30101">Soubory ATV šetřiče obrazovky</string>
+
+    <string id="30110">Databaze </string>
+    <string id="30111"> komprimovano:</string>
+    <string id="30112">Mb</string>
+    <string id="30113"> vyčištěno:</string>
+
+    <string id="30114">Skenovaní databaze Textur...</string>
+    <string id="30115">Oveřuji...</string>
+    <string id="30116">Oveřuji záznam ID: </string>
+    <string id="30117">Kontroluji nepoužite data adresaře</string>
+    <string id="30118">Oveřuji cesty na komprese...</string>
+
+    <string id="30120">PRAZDNY NEBO CHYBA PŘI ČTENI</string>
+    <string id="30121">NEOBSAHUJE LOKALNI ADDONY</string>
+
+    <string id="30130">Total vyčištěno:</string>
+    <string id="30131">Total komprimovano:</string>
+    <string id="30132">Nasledujici repository neobsahuji Addony:</string>
+    <string id="30133">Výkaz čištěni:</string>
+
+    <string id="30134">Nasledujici addony nemaji repo:</string>
+    <string id="30135">Vyčišteni databaze textur:</string>
+    <string id="30136">Smazal</string>
+    <string id="30137">neplatnych zaznamu z databaze Textures13.db</string>
+    <string id="30138">Smazane nepoužite data adresaře:</string>
+    <string id="30139">Komprimovano cest v nastaveni:</string>
+
+    <string id="30140">Spusti se každy</string>
+    <string id="30141">Den</string>
+    <string id="30142">Týden</string>
+    <string id="30143">Měsíc</string>
+    <string id="30144">Čtvrtročně</string>
+    <string id="30145">Při startu Kodi</string>
+
+    <string id="30150">Žadny soubory nebyly vymazany.</string>
+    <string id="30151">Žadna databaze nebyla komprimovana.</string>
+    <string id="30152">Žadny zaznamy nebyly vymazany.</string>
+    <string id="30153">Žadna cesta nebyla kopresovana.</string>
+
+    <string id="30160">Vyčistit cache</string>
+    <string id="30161">Vyčistit Pakety</string>
+    <string id="30162">Vyčistit miniatury</string>
+    <string id="30163">Vyčistit Addony</string>
+    <string id="30164">Komprese cest v nastaveni na special://</string>
+
+    <string id="30170"> /Vše</string>
+    <string id="30171"> /Jen mimo DB</string>
+    <string id="30172"> /Jen mimo DB (Rychla)</string>
+
+    <string id="30180">Zobrazit při auto čištěni</string>
+    <string id="30181">Progres a notifikace</string>
+    <string id="30182">Jen progres</string>
+    <string id="30183">Jen notifikace</string>
+    <string id="30184">Nic</string>
+
+    <string id="30190">Počet vlastních cest</string>
+    <string id="30191">Cesta 1</string>
+    <string id="30192">Cesta 2</string>
+    <string id="30193">Cesta 3</string>
+    <string id="30194">Cesta 4</string>
+</strings>

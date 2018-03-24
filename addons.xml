@@ -522,23 +522,37 @@ Toda a fonte  vem de utilizadores do Youtube.
     </extension>
 </addon>
 
-<addon id="script.keymap"
-       name="Keymap Editor"
-       version="1.0.10"
-       provider-name="takoi">
-    <requires>
-        <import addon="xbmc.python" version="2.19.0"/>
-    </requires>
-    <extension point="xbmc.python.script" library="main.py"/>
-    <extension point="xbmc.addon.metadata">
-        <summary lang="en">An editor for keymap files</summary>
-        <description lang="en">Keymap Editor is a GUI for configuring mappings for remotes, keyboard and other inputs supported by xbmc. Note: existing user defined key mappings will be removed.</description>
-        <platform>all</platform>
-        <language/>
-        <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
-        <forum>http://forum.xbmc.org/showthread.php?tid=168767</forum>
-        <source>https://github.com/tamland/xbmc-keymap-editor</source>
-    </extension>
+<addon id="script.kcleaner" name="KCleaner" version="2.71" provider-name="Dalibor Lanik"> <!-- Unique ID and name of the addon -->
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/> <!-- Be able to use python in the addon -->
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.service" library="service.py" start="startup"> <!-- Extend KODI with a service. Start the addon when starting KODI, and run "default.py" -->
+        <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata"> <!-- Additional addon information -->
+    <platform>all</platform>
+    <website>http://projects.lanik.org/KodiProject_KCleaner.htm</website>
+    <summary lang="en">Clean up temporary files in Kodi.</summary>
+    <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+    <forum>http://forum.kodi.tv/showthread.php?tid=307919</forum>
+    <email>dalibor@lanik.org</email>
+    <description lang="en">Clean up temporary files in Kodi.</description>
+    <news>v2.71 [CR]
+- Bug Fix [CR]
+</news>
+    <assets>
+        <icon>icon.png</icon>
+        <fanart>fanart.jpg</fanart>
+        <screenshot>resources/screenshot-01.jpg</screenshot>
+        <screenshot>resources/screenshot-02.jpg</screenshot>
+        <screenshot>resources/screenshot-03.jpg</screenshot>
+        <banner>resources/banner.jpg</banner>
+        <logo>resources/logo.png</logo>
+    </assets>
+  </extension>
 </addon>
 
 <addon id="skin.aeon.nox.silvo.mod" version="6.0.13" name="Aeon Nox: SiLVO mod" provider-name="SiLVO">

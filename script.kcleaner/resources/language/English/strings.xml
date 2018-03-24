@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<strings>
+    <string id="30001">Check for addons without repo</string>
+    <string id="30002">Textures database</string>
+    <string id="30003">Clean textures DB</string>
+    <string id="30004">Clean All</string>
+    <string id="30005">Databases</string>
+    <string id="30006">Checks</string>
+
+    <string id="30010">KCleaner - Confirm cleanup of:</string>
+    <string id="30011">Scanning for temporary files</string>
+    <string id="30012">Checking paths...</string>
+    <string id="30013">Cleaning: </string>
+    <string id="30014">Deleted: </string>
+    <string id="30015">Items in this folder: </string>
+
+    <string id="30016">Scanning databases</string>
+    <string id="30017">Compacting: </string>
+    <string id="30018">Compacted: </string>
+
+    <string id="30019">Scanning repositories</string>
+
+    <string id="30020">Clean </string>
+    <string id="30021">Choose action:</string>
+    <string id="30022">Settings</string>
+    <string id="30023">Compact all databases</string>
+    <string id="30024">Check for unused repositories</string>
+
+    <string id="30025">Checking: </string>
+    <string id="30026">Checked: </string>
+
+    <string id="30027">Clean All + Compact all databases</string>
+    <string id="30028">Confirm action:</string>
+
+    <string id="30030">Cleanup [COLOR red]interrupted[/COLOR].</string>
+    <string id="30031">Cleanup [COLOR red]done[/COLOR].</string>
+
+    <string id="30040">Ignore Addons</string>
+    <string id="30041">Ignore Other</string>
+    <string id="30042">Etc</string>
+    <string id="30043">Auto-Clean</string>
+    <string id="30044">Custom Paths</string>
+
+    <string id="30051">WTF</string>
+    <string id="30052">4oD</string>
+    <string id="30053">BBC iPlayer</string>
+    <string id="30054">Simple Downloader</string>
+    <string id="30055">ITV</string>
+    <string id="30056">MP3 Streams</string>
+    <string id="30057">ArtistSlideshow</string>
+    <string id="30058">Titlovi</string>
+    <string id="30059">Titulky</string>
+    <string id="30060">Artwork Downloader</string>
+    <string id="30061">Spotitube</string>
+    <string id="30062">Retrospect</string>
+    <string id="30063">Database Pre-Wash Scrub</string>
+
+    <string id="30071">Animated Gifs in Thumbnails</string>
+    <string id="30072">Delete only thumbs not in database</string>
+    <string id="30073">Leave package backup</string>
+    <string id="30074">Fast thumb check</string>
+
+    <string id="30081">Debug logging (to Kodi log)</string>
+
+    <string id="30091">Automatic Cleaning</string>
+    <string id="30092">Choose what should be auto cleaned:</string>
+    <string id="30093">Cache</string>
+    <string id="30094">Packages</string>
+    <string id="30095">Thumbnails</string>
+    <string id="30096">Addons</string>
+    <string id="30097">Database Compact</string>
+    <string id="30098">Delay on startup (min)</string>
+    <string id="30099">Clean textures DB</string>
+    <string id="30100">Unused addon data folders</string>
+    <string id="30101">ATV Screensaver files</string>
+
+    <string id="30110">Database </string>
+    <string id="30111"> compacted:</string>
+    <string id="30112">Mb</string>
+    <string id="30113"> cleaned:</string>
+
+    <string id="30114">Scanning Textures database...</string>
+    <string id="30115">Checking...</string>
+    <string id="30116">Checking record ID: </string>
+    <string id="30117">Checking unused data folders</string>
+    <string id="30118">Checking paths to be compacted...</string>
+
+    <string id="30120">EMPTY OR ERROR READING</string>
+    <string id="30121">CONTAINS NO LOCAL ADDONS</string>
+
+    <string id="30130">Cleaning totals:</string>
+    <string id="30131">Compacting totals:</string>
+    <string id="30132">Following repos have no addons:</string>
+    <string id="30133">Cleanup report:</string>
+
+    <string id="30134">Following addons have no repo:</string>
+    <string id="30135">Clean Textures Database:</string>
+    <string id="30136">Deleted</string>
+    <string id="30137">stale records from Textures13.db database</string>
+    <string id="30138">Deleted unused addon data folders:</string>
+    <string id="30139">Compacted settings paths:</string>
+
+    <string id="30140">Runs every</string>
+    <string id="30141">Day</string>
+    <string id="30142">Week</string>
+    <string id="30143">Month</string>
+    <string id="30144">Quarter</string>
+    <string id="30145">On Kodi start</string>
+
+    <string id="30150">No files deleted.</string>
+    <string id="30151">No database compacted.</string>
+    <string id="30152">No records deleted.</string>
+    <string id="30153">No paths compacted.</string>
+
+    <string id="30160">Clean cache</string>
+    <string id="30161">Clean packages</string>
+    <string id="30162">Clean Thumbnails</string>
+    <string id="30163">Clean Add-ons</string>
+    <string id="30164">Compact settings paths to special://</string>
+
+    <string id="30170"> /All</string>
+    <string id="30171"> /Not in DB</string>
+    <string id="30172"> /Not in DB (Fast)</string>
+
+    <string id="30180">Display on auto-clean</string>
+    <string id="30181">Progress and notification</string>
+    <string id="30182">Progress only</string>
+    <string id="30183">Notification only</string>
+    <string id="30184">Nothing</string>
+
+    <string id="30190">Number of custom paths</string>
+    <string id="30191">Path 1</string>
+    <string id="30192">Path 2</string>
+    <string id="30193">Path 3</string>
+    <string id="30194">Path 4</string>
+</strings>
