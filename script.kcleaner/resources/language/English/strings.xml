@@ -61,6 +61,8 @@
     <string id="30074">Fast thumb check</string>
 
     <string id="30081">Debug logging (to Kodi log)</string>
+    <string id="30082">Force list view in menu</string>
+    <string id="30083">Disable confirmations</string>
 
     <string id="30091">Automatic Cleaning</string>
     <string id="30092">Choose what should be auto cleaned:</string>

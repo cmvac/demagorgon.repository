@@ -25,6 +25,8 @@
     </category>
     <category label="30042">
         <setting label="30081" type="bool"   id="debug"  default="false" />
+        <setting label="30082" type="bool"   id="listview"  default="true" />
+        <setting label="30083" type="bool"   id="confirm"  default="false" />
     </category>
     <category label="30043">
         <setting label="30091" type="bool"   id="autoclean"  default="false" />

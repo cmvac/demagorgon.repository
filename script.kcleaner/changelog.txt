@@ -1,3 +1,9 @@
+v2.9
+- Option to disable confirmation
+
+v2.8
+- Optional Thumbnail view
+
 v2.71
 - Bug Fix
 

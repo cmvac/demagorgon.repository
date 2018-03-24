@@ -522,7 +522,7 @@ Toda a fonte  vem de utilizadores do Youtube.
     </extension>
 </addon>
 
-<addon id="script.kcleaner" name="KCleaner" version="2.71" provider-name="Dalibor Lanik"> <!-- Unique ID and name of the addon -->
+<addon id="script.kcleaner" name="KCleaner" version="2.9" provider-name="Dalibor Lanik"> <!-- Unique ID and name of the addon -->
   <requires>
     <import addon="xbmc.python" version="2.1.0"/> <!-- Be able to use python in the addon -->
   </requires>
@@ -540,8 +540,8 @@ Toda a fonte  vem de utilizadores do Youtube.
     <forum>http://forum.kodi.tv/showthread.php?tid=307919</forum>
     <email>dalibor@lanik.org</email>
     <description lang="en">Clean up temporary files in Kodi.</description>
-    <news>v2.71 [CR]
-- Bug Fix [CR]
+    <news>v2.9 [CR]
+- Option to disable confirmation [CR]
 </news>
     <assets>
         <icon>icon.png</icon>

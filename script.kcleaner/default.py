@@ -1,5 +1,5 @@
 # ============================================================
-# KCleaner - Version 2.71 by D. Lanik (2017)
+# KCleaner - Version 2.9 by D. Lanik (2017)
 # ------------------------------------------------------------
 # Clean up Kodi
 # ------------------------------------------------------------
@@ -1215,6 +1215,7 @@ def GetSettings():
     global ignoreAniGifs
     global booDebug
     global booBackgroundRun
+    global booConfirm
     global ignore_existing_thumbs
     global ignore_packages
     global ignore1
@@ -1235,9 +1236,11 @@ def GetSettings():
     global path_3
     global path_4
     global fast_thumb_check
+    global listview
 
     ignoreAniGifs = bool(strtobool(str(__addon__.getSetting('ignore0').title())))
     booDebug = bool(strtobool(str(__addon__.getSetting('debug').title())))
+    booConfirm = bool(strtobool(str(__addon__.getSetting('confirm').title())))
     booBackgroundRun = bool(strtobool(str(__addon__.getSetting('autoclean').title())))
 
     ignore1 = bool(strtobool(str(__addon__.getSetting('ignore1').title())))
@@ -1256,6 +1259,7 @@ def GetSettings():
     fast_thumb_check = bool(strtobool(str(__addon__.getSetting('fast_thumb_check').title())))
     ignore_packages = int(__addon__.getSetting('ignore_packages'))
     numberOfPaths = int(__addon__.getSetting('numberOfPaths'))
+    listview = bool(strtobool(str(__addon__.getSetting('listview').title())))
 
     path_1 = __addon__.getSetting('path_1')
     path_2 = __addon__.getSetting('path_2')
@@ -1309,8 +1313,10 @@ def showResults():
 def mainMenu():
     global __addon__
     global totalSizes
+    global listview
 
-    xbmc.executebuiltin("Container.SetViewMode(500)")
+    if listview:
+        xbmc.executebuiltin("Container.SetViewMode(500)")
 
     addDir(__addon__.getLocalizedString(30020) + " (" + str(totalSizes[7][1]) + __addon__.getLocalizedString(30112) + ")", 'url', 1, os.path.join(mediaPath, "folder_clean.png"))        # Clean
     addDir(__addon__.getLocalizedString(30005), 'url', 2, os.path.join(mediaPath, "folder_db.png"))           # Databases
@@ -1328,8 +1334,10 @@ def CleanMenu():
     global __addon__
     global totalSizes
     global ignore_existing_thumbs
+    global listview
 
-    xbmc.executebuiltin("Container.SetViewMode(500)")
+    if listview:
+        xbmc.executebuiltin("Container.SetViewMode(500)")
 
     addItem(__addon__.getLocalizedString(30160) + " (" + str(totalSizes[0][1]) + __addon__.getLocalizedString(30112) + ")",
             'url', 10, os.path.join(mediaPath, "clean.png"))    # Clean Cache
@@ -1373,8 +1381,10 @@ def CleanMenu():
 
 def DatabasesMenu():
     global __addon__
+    global listview
 
-    xbmc.executebuiltin("Container.SetViewMode(500)")
+    if listview:
+        xbmc.executebuiltin("Container.SetViewMode(500)")
 
     addItem(__addon__.getLocalizedString(30003), 'url', 20, os.path.join(mediaPath, "db.png"))                # Clean + Compact Textures DB
     addItem(__addon__.getLocalizedString(30023), 'url', 21, os.path.join(mediaPath, "db.png"))                # Compact all databases
@@ -1386,8 +1396,10 @@ def DatabasesMenu():
 
 def ChecksMenu():
     global __addon__
+    global listview
 
-    xbmc.executebuiltin("Container.SetViewMode(500)")
+    if listview:
+        xbmc.executebuiltin("Container.SetViewMode(500)")
 
     addItem(__addon__.getLocalizedString(30024), 'url', 30, os.path.join(mediaPath, "check.png"))             # Check for unused repositories
     addItem(__addon__.getLocalizedString(30001), 'url', 31, os.path.join(mediaPath, "check.png"))             # Check for addons without repo
@@ -1493,7 +1505,9 @@ ignoreAniGifs = False
 ignore_packages = 0
 booDebug = False
 booBackgroundRun = False
+booConfirm = False
 numberOfPaths = 0
+listview = True
 
 path_1 = ""
 path_2 = ""
@@ -1624,12 +1638,15 @@ if __name__ == '__main__':
         ChecksMenu()
 
     elif mode == 4:                                                                                                # CLEAN ALL + COMPACT DB
-        dialog = xbmcgui.Dialog()
-
-        if dialog.yesno(__addon__.getLocalizedString(30028), __addon__.getLocalizedString(30027)):                 # Confirm action: / # Clean All + Compact DBs
+        if booConfirm:
             intCancel, intMbDel = DeleteFiles(actionToken[6], 0)
         else:
-            intCancel = 1
+            dialog = xbmcgui.Dialog()
+
+            if dialog.yesno(__addon__.getLocalizedString(30028), __addon__.getLocalizedString(30027)):             # Confirm action: / # Clean All + Compact DBs
+                intCancel, intMbDel = DeleteFiles(actionToken[6], 0)
+            else:
+                intCancel = 1
 
         if intCancel == 0:
             intCancel, intMbTxt = deleteAddonData(0)
@@ -1660,11 +1677,14 @@ if __name__ == '__main__':
 
         WhatToClean = WhatToClean[:-2]
 
-        dialog = xbmcgui.Dialog()
-        if dialog.yesno(__addon__.getLocalizedString(30010), WhatToClean):           # KCleaner - Confirm cleanup of:
+        if booConfirm:
             intCancel, intMbDel = DeleteFiles(actionToken[mode], 0)
         else:
-            intCancel = 1
+            dialog = xbmcgui.Dialog()
+            if dialog.yesno(__addon__.getLocalizedString(30010), WhatToClean):           # KCleaner - Confirm cleanup of:
+                intCancel, intMbDel = DeleteFiles(actionToken[mode], 0)
+            else:
+                intCancel = 1
 
         showResults()
 
@@ -1680,11 +1700,14 @@ if __name__ == '__main__':
 
         WhatToClean = WhatToClean[:-2]
 
-        dialog = xbmcgui.Dialog()
-        if dialog.yesno(__addon__.getLocalizedString(30010), WhatToClean):           # KCleaner - Confirm cleanup of:
+        if booConfirm:
             intCancel, intMbDel = DeleteFiles(actionToken[mode], 0)
         else:
-            intCancel = 1
+            dialog = xbmcgui.Dialog()
+            if dialog.yesno(__addon__.getLocalizedString(30010), WhatToClean):           # KCleaner - Confirm cleanup of:
+                intCancel, intMbDel = DeleteFiles(actionToken[mode], 0)
+            else:
+                intCancel = 1
 
         showResults()
 
@@ -1700,11 +1723,14 @@ if __name__ == '__main__':
 
         WhatToClean = WhatToClean[:-2]
 
-        dialog = xbmcgui.Dialog()
-        if dialog.yesno(__addon__.getLocalizedString(30010), WhatToClean):           # KCleaner - Confirm cleanup of:
+        if booConfirm:
             intCancel, intMbDel = DeleteFiles(actionToken[mode], 0)
         else:
-            intCancel = 1
+            dialog = xbmcgui.Dialog()
+            if dialog.yesno(__addon__.getLocalizedString(30010), WhatToClean):           # KCleaner - Confirm cleanup of:
+                intCancel, intMbDel = DeleteFiles(actionToken[mode], 0)
+            else:
+                intCancel = 1
 
         showResults()
 
@@ -1720,20 +1746,26 @@ if __name__ == '__main__':
 
         WhatToClean = WhatToClean[:-2]
 
-        dialog = xbmcgui.Dialog()
-        if dialog.yesno(__addon__.getLocalizedString(30010), WhatToClean):           # KCleaner - Confirm cleanup of:
+        if booConfirm:
             intCancel, intMbDel = DeleteFiles(actionToken[mode], 0)
         else:
-            intCancel = 1
+            dialog = xbmcgui.Dialog()
+            if dialog.yesno(__addon__.getLocalizedString(30010), WhatToClean):           # KCleaner - Confirm cleanup of:
+                intCancel, intMbDel = DeleteFiles(actionToken[mode], 0)
+            else:
+                intCancel = 1
 
         showResults()
 
     elif mode == 14:                                                                                               # X - UNUSED DATA FOLDERS
-        dialog = xbmcgui.Dialog()
-        if dialog.yesno(__addon__.getLocalizedString(30010), __addon__.getLocalizedString(30100)):   # KCleaner - Confirm cleanup of: / # Unused addon data folders
+        if booConfirm:
             intCancel, intMbTxt = deleteAddonData(0)
         else:
-            intCancel = 1
+            dialog = xbmcgui.Dialog()
+            if dialog.yesno(__addon__.getLocalizedString(30010), __addon__.getLocalizedString(30100)):   # KCleaner - Confirm cleanup of: / # Unused addon data folders
+                intCancel, intMbTxt = deleteAddonData(0)
+            else:
+                intCancel = 1
 
         showResults()
 
@@ -1750,11 +1782,14 @@ if __name__ == '__main__':
 
         WhatToClean = WhatToClean[:-2]
 
-        dialog = xbmcgui.Dialog()
-        if dialog.yesno(__addon__.getLocalizedString(30010), WhatToClean):           # KCleaner - Confirm cleanup of:
+        if booConfirm:
             intCancel, intMbDel = DeleteFiles(actionToken[mode], 0)
         else:
-            intCancel = 1
+            dialog = xbmcgui.Dialog()
+            if dialog.yesno(__addon__.getLocalizedString(30010), WhatToClean):           # KCleaner - Confirm cleanup of:
+                intCancel, intMbDel = DeleteFiles(actionToken[mode], 0)
+            else:
+                intCancel = 1
 
         showResults()
 
@@ -1771,11 +1806,14 @@ if __name__ == '__main__':
 
         WhatToClean = WhatToClean[:-2]
 
-        dialog = xbmcgui.Dialog()
-        if dialog.yesno(__addon__.getLocalizedString(30010), WhatToClean):           # KCleaner - Confirm cleanup of:
+        if booConfirm:
             intCancel, intMbDel = DeleteFiles(actionToken[mode], 0)
         else:
-            intCancel = 1
+            dialog = xbmcgui.Dialog()
+            if dialog.yesno(__addon__.getLocalizedString(30010), WhatToClean):           # KCleaner - Confirm cleanup of:
+                intCancel, intMbDel = DeleteFiles(actionToken[mode], 0)
+            else:
+                intCancel = 1
 
         showResults()
 
@@ -1791,11 +1829,14 @@ if __name__ == '__main__':
 
         WhatToClean = WhatToClean + __addon__.getLocalizedString(30100)
 
-        dialog = xbmcgui.Dialog()
-        if dialog.yesno(__addon__.getLocalizedString(30010), WhatToClean):           # KCleaner - Confirm cleanup of:
+        if booConfirm:
             intCancel, intMbDel = DeleteFiles(actionToken[mode], 0)
         else:
-            intCancel = 1
+            dialog = xbmcgui.Dialog()
+            if dialog.yesno(__addon__.getLocalizedString(30010), WhatToClean):           # KCleaner - Confirm cleanup of:
+                intCancel, intMbDel = DeleteFiles(actionToken[mode], 0)
+            else:
+                intCancel = 1
 
         if intCancel == 0:
             intCancel, intMbTxt = deleteAddonData(0)
@@ -1805,47 +1846,62 @@ if __name__ == '__main__':
         showResults()
 
     elif mode == 20:                                                                                               # 20 - TEXTURES DATABASE
-        dialog = xbmcgui.Dialog()
-        if dialog.yesno(__addon__.getLocalizedString(30010), __addon__.getLocalizedString(30002)):   # KCleaner - Confirm cleanup of: / # Textures database
+        if booConfirm:
             intCancel, intMbTxt = CleanTextures(0)
         else:
-            intCancel = 1
+            dialog = xbmcgui.Dialog()
+            if dialog.yesno(__addon__.getLocalizedString(30010), __addon__.getLocalizedString(30002)):   # KCleaner - Confirm cleanup of: / # Textures database
+                intCancel, intMbTxt = CleanTextures(0)
+            else:
+                intCancel = 1
 
         showResults()
 
     elif mode == 21:                                                                                               # 21 - COMPACT DATABASES
-        dialog = xbmcgui.Dialog()
-        if dialog.yesno(__addon__.getLocalizedString(30010), __addon__.getLocalizedString(30023)):   # KCleaner - Confirm cleanup of: / # Compact all databases
+        if booConfirm:
             intCancel, intMbCom = CompactDatabases(0)
         else:
-            intCancel = 1
+            dialog = xbmcgui.Dialog()
+            if dialog.yesno(__addon__.getLocalizedString(30010), __addon__.getLocalizedString(30023)):   # KCleaner - Confirm cleanup of: / # Compact all databases
+                intCancel, intMbCom = CompactDatabases(0)
+            else:
+                intCancel = 1
 
         showResults()
 
     elif mode == 30:                                                                                               # 30 - CHECK UNUSED REPO
-        dialog = xbmcgui.Dialog()
-        if dialog.yesno(__addon__.getLocalizedString(30010), __addon__.getLocalizedString(30024)):   # KCleaner - Confirm cleanup of: / # Check for unused repositories
+        if booConfirm:
             intCancel = ProcessRepos(0)
         else:
-            intCancel = 1
+            dialog = xbmcgui.Dialog()
+            if dialog.yesno(__addon__.getLocalizedString(30010), __addon__.getLocalizedString(30024)):   # KCleaner - Confirm cleanup of: / # Check for unused repositories
+                intCancel = ProcessRepos(0)
+            else:
+                intCancel = 1
 
         showResults()
 
     elif mode == 31:                                                                                               # 31 - CHECK ADDONS
-        dialog = xbmcgui.Dialog()
-        if dialog.yesno(__addon__.getLocalizedString(30010), __addon__.getLocalizedString(30001)):   # KCleaner - Confirm cleanup of: / # Check for addons without repo
+        if booConfirm:
             intCancel = ProcessAddons(0)
         else:
-            intCancel = 1
+            dialog = xbmcgui.Dialog()
+            if dialog.yesno(__addon__.getLocalizedString(30010), __addon__.getLocalizedString(30001)):   # KCleaner - Confirm cleanup of: / # Check for addons without repo
+                intCancel = ProcessAddons(0)
+            else:
+                intCancel = 1
 
         showResults()
 
     elif mode == 40:                                                                                               # 40 - COMPACT PATHS
-        dialog = xbmcgui.Dialog()
-        if dialog.yesno(__addon__.getLocalizedString(30028), __addon__.getLocalizedString(30164)):   # KCleaner - Confirm action: / # Compact settings paths to special://
+        if booConfirm:
             intCancel, intCnt = ProcessSpecial(0)
         else:
-            intCancel = 1
+            dialog = xbmcgui.Dialog()
+            if dialog.yesno(__addon__.getLocalizedString(30028), __addon__.getLocalizedString(30164)):   # KCleaner - Confirm action: / # Compact settings paths to special://
+                intCancel, intCnt = ProcessSpecial(0)
+            else:
+                intCancel = 1
 
         showResults()
 
