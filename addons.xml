@@ -33,7 +33,7 @@
 
 <addon id="plugin.audio.m80"
        name="M80 Radio"
-       version="1.1"
+       version="1.2"
        provider-name="Demagorgon">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
