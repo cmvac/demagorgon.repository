@@ -6,7 +6,7 @@ try:
     
 except Exception:
     print 'importing Error. You need youtubedl module which is in official xbmc.org'
-    xbmc.executebuiltin("XBMC.Notification(m80,Install [COLOR yellow]  Youtube-dl[/COLOR] module ,10000,"")")
+    xbmc.executebuiltin("XBMC.Notification(praiaspt,Install [COLOR yellow]  Youtube-dl[/COLOR] module ,10000,"")")
     
 def single_YD(url,download=False,dl_info=False,audio=False):
     if dl_info:

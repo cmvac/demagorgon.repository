@@ -110,7 +110,7 @@ def makeRequest(url, headers=None):
 def getSources():
         try:
             if os.path.exists(favorites) == True:
-                addDir('[B][COLOR deepskyblue][ m80 Favoritos ][/COLOR][/B]','[B][COLOR deepskyblue][ m80 Favoritos ][/COLOR][/B]',4,'http://imgur.com/4z8iGDK.png' , os.path.join(home, 'fanart.jpg'),FANART,'','','','')
+                addDir('[B][COLOR deepskyblue][ m80 Favoritos ][/COLOR][/B]','[B][COLOR deepskyblue][ m80 Favoritos ][/COLOR][/B]',4,'http://imgur.com/4z8iGDK.png' , os.path.join(home, 'fanart.gif'),FANART,'','','','')
             if addon.getSetting("browse_xml_database") == "true":
                 addDir('XML Database','http://xbmcplus.xb.funpic.de/www-data/filesystem/',15,icon,FANART,'','','','')
             if addon.getSetting("browse_community") == "true":
