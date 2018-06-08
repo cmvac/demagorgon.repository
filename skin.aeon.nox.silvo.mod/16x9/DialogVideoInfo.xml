@@ -3,13 +3,15 @@
 	<onload>SetFocus(900171)</onload>
 	<onload condition="!String.IsEqual(Skin.String(CinemaVision.Button),$LOCALIZE[31232]) | !System.HasAddon(script.cinemavision)">SetFocus(8)</onload>
 	<onload condition="String.IsEqual(Skin.String(CinemaVision.Button),$LOCALIZE[31232]) + System.HasAddon(script.cinemavision)">SetFocus(909)</onload>
-	<onload condition="System.HasAddon(script.colorbox) + Skin.HasSetting(Enable.BlurredVideoInfo)">RunScript(script.colorbox,info=blur,id=$VAR[PosterVar],prefix=DialogInfo,blursize=10,quality=10)</onload>
 	<!-- Replace With Extended Info -->
 	<!-- <onload condition="System.HasAddon(script.extendedinfo) + Window.IsActive(videos) + Skin.HasSetting(Enable.UseExtendedInfo) + [String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow)]">Action(close)</onload> -->
 	<!-- <onload condition="System.HasAddon(script.extendedinfo) + Window.IsActive(videos) + Skin.HasSetting(Enable.UseExtendedInfo) + String.IsEqual(ListItem.DBType,movie)">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.Title])</onload> -->
 	<!-- <onload condition="System.HasAddon(script.extendedinfo) + Window.IsActive(videos) + Skin.HasSetting(Enable.UseExtendedInfo) + String.IsEqual(ListItem.DBType,tvshow)">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.Title])</onload> -->
-	<onunload>ClearProperty(DialogInfo.ImageFilter,Home)</onunload>
 	<controls>
+		<control type="multiimage" id="7975">
+			<include>HiddenObject</include>
+			<imagepath background="true">$VAR[PosterVar]</imagepath>
+		</control>
 		<include condition="System.HasAddon(script.extendedinfo)">HiddenActorList</include>
 		<control type="group">
 			<!-- Replace With Extended Info -->
@@ -55,7 +57,7 @@
 					<width>1192</width>
 					<height>1080</height>
 					<aspectratio align="center">scale</aspectratio>
-					<texture background="true">$INFO[Window(Home).Property(DialogInfo.ImageFilter)]</texture>
+					<texture background="true">$INFO[Window(Home).Property(ImageFilterFIVE)]</texture>
 					<fadetime>400</fadetime>
 					<visible>Skin.HasSetting(Enable.BlurredVideoInfo)</visible>
 				</control>
@@ -619,21 +621,21 @@
 						<left>-16</left>
 						<control type="button" id="210">
 							<top>516</top>
-							<width>632</width>
+							<width>548</width>
 							<texturenofocus />
 							<disabledcolor>grey</disabledcolor>
-							<font>font30_title</font>
+							<font>font30_title_bold</font>
 							<align>left</align>
 							<textoffsetx>16</textoffsetx>
 							<include>ButtonInfoDialogsCommonValues</include>
-							<label>[B]$VAR[VideoInfoButtonLabelVar][/B]</label>
+							<label>$VAR[VideoInfoButtonLabelVar]</label>
 							<onclick>noop</onclick>
 							<enable>no</enable>
 						</control>
 						<control type="grouplist" id="9000">
-							<left>596</left>
+							<left>526</left>
 							<top>517</top>
-							<width>596</width>
+							<width>666</width>
 							<height>60</height>
 							<onleft>9000</onleft>
 							<onright>9000</onright>
@@ -695,6 +697,23 @@
 								<height>60</height>
 								<texture border="1">separator3.png</texture>
 								<visible>Control.IsVisible(910)</visible>
+							</control>
+							<control type="button" id="908">
+								<description>Special Features</description>
+								<font>IconMediumMD</font>
+								<width>70</width>
+								<texturenofocus />
+								<include>ButtonInfoDialogsCommonValues</include>
+								<label></label>
+								<onclick>Dialog.Close(MovieInformation)</onclick>
+								<onclick>RunScript(plugin.video.specialfeatures,listitem)</onclick>
+								<visible>System.HasAddon(plugin.video.specialfeatures) + String.IsEqual(Window(home).Property(SpecialFeatures.Visible),true)</visible>
+							</control>
+							<control type="image" id="907">
+								<width>2</width>
+								<height>60</height>
+								<texture border="1">separator3.png</texture>
+								<visible>Control.IsVisible(908)</visible>
 							</control>
 							<control type="button" id="11">
 								<description>Play Trailer</description>

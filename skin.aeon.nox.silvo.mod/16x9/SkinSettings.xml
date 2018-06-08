@@ -2,6 +2,7 @@
 <window>
 	<defaultcontrol always="true">9000</defaultcontrol>
 	<onunload condition="System.HasAddon(script.skinshortcuts)">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;levels=2&amp;options=noGroups)</onunload>
+	<onunload condition="System.HasAddon(script.colorbox)">RunScript(script.colorbox,daemon=True)</onunload>
 	<onunload condition="!String.IsEmpty(Skin.String(FanartTimePerImage))">RunScript(script.grab.fanart,mode=random,refresh=$INFO[Skin.String(FanartTimePerImage)])</onunload>
 	<onunload condition="String.IsEmpty(Skin.String(FanartTimePerImage))">RunScript(script.grab.fanart,mode=random,refresh=7)</onunload>
 	<onunload condition="!String.IsEmpty(Window(Home).Property(OverlayUnwatched)) + !String.IsEmpty(Window(Home).Property(OverlayWatched)) + !Skin.HasSetting(coloredflags)">SetProperty(Overlay.Path,overlays/showcase/1/,Home)</onunload>
@@ -712,7 +713,7 @@
 						<align>center</align>
 						<textcolor>grey</textcolor>
 						<font>font_skinversion</font>
-						<label>$INFO[System.AddonVersion(skin.aeon.nox.silvo.mod),v,]</label>
+						<label>$INFO[System.AddonVersion(skin.aeon.nox.silvo),v,]</label>
 					</control>
 					<control type="group" id="7900">
 						<height>138</height>

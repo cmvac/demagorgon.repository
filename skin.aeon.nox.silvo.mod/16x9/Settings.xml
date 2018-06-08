@@ -2,6 +2,7 @@
 <window>
 	<defaultcontrol always="true">9000</defaultcontrol>
 	<menucontrol>9051</menucontrol>
+	<onunload condition="System.HasAddon(script.colorbox)">RunScript(script.colorbox,daemon=True)</onunload>
 	<controls>
 		<include>CommonBackground</include>
 		<include>Topbar</include>
