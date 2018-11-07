@@ -22,14 +22,25 @@ import os
 import json
 from copy import deepcopy
 
+import xbmcaddon
 import xbmcvfs
 import xbmc
+
+from .. import logger
 
 
 class JSONStore(object):
     def __init__(self, filename):
-        self.base_path = 'special://profile/addon_data/plugin.video.youtube/'
-        self.filename = xbmc.translatePath(self.base_path + filename)
+        addon_id = 'plugin.video.youtube'
+        addon = xbmcaddon.Addon(addon_id)
+
+        try:
+            self.base_path = xbmc.translatePath(addon.getAddonInfo('profile')).decode('utf-8')
+        except AttributeError:
+            self.base_path = xbmc.translatePath(addon.getAddonInfo('profile'))
+
+        self.filename = os.path.join(self.base_path, filename)
+
         self._data = None
         self.load()
         self.set_defaults()
@@ -42,10 +53,10 @@ class JSONStore(object):
             self._data = deepcopy(data)
             if not xbmcvfs.exists(self.base_path):
                 if not self.make_dirs(self.base_path):
-                    xbmc.log('[plugin.video.youtube] JSONStore Save |{filename}| failed to create directories.'.format(filename=self.filename), xbmc.LOGDEBUG)
+                    logger.log_debug('JSONStore Save |{filename}| failed to create directories.'.format(filename=self.filename.encode("utf-8")))
                     return
             with open(self.filename, 'w') as jsonfile:
-                xbmc.log('[plugin.video.youtube] JSONStore Save |{filename}|'.format(filename=self.filename), xbmc.LOGDEBUG)
+                logger.log_debug('JSONStore Save |{filename}|'.format(filename=self.filename.encode("utf-8")))
                 json.dump(self._data, jsonfile, indent=4, sort_keys=True)
 
     def load(self):
@@ -53,7 +64,7 @@ class JSONStore(object):
             with open(self.filename, 'r') as jsonfile:
                 data = json.load(jsonfile)
                 self._data = data
-                xbmc.log('[plugin.video.youtube] JSONStore Load |{filename}|'.format(filename=self.filename), xbmc.LOGDEBUG)
+                logger.log_debug('JSONStore Load |{filename}|'.format(filename=self.filename.encode("utf-8")))
         else:
             self._data = dict()
 
@@ -62,7 +73,7 @@ class JSONStore(object):
 
     def make_dirs(self, path):
         if not path.endswith('/'):
-            path += '/'
+            path = ''.join([path, '/'])
         path = xbmc.translatePath(path)
         if not xbmcvfs.exists(path):
             try:

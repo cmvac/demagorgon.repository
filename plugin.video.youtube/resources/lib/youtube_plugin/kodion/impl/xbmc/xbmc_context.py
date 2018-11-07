@@ -1,9 +1,10 @@
 from six.moves import urllib
 
-import sys
-import weakref
 import datetime
 import json
+import os
+import sys
+import weakref
 
 import xbmc
 import xbmcaddon
@@ -13,7 +14,6 @@ import xbmcvfs
 from ..abstract_context import AbstractContext
 from .xbmc_plugin_settings import XbmcPluginSettings
 from .xbmc_context_ui import XbmcContextUI
-from .xbmc_system_version import XbmcSystemVersion
 from .xbmc_playlist import XbmcPlaylist
 from .xbmc_player import XbmcPlayer
 from ... import utils
@@ -27,8 +27,6 @@ class XbmcContext(AbstractContext):
             self._addon = xbmcaddon.Addon(id=plugin_id)
         else:
             self._addon = xbmcaddon.Addon(id='plugin.video.youtube')
-
-        self._system_version = None
 
         """
         I don't know what xbmc/kodi is doing with a simple uri, but we have to extract the information from the
@@ -45,7 +43,7 @@ class XbmcContext(AbstractContext):
             if len(sys.argv) > 2:
                 params = sys.argv[2][1:]
                 if len(params) > 0:
-                    self._uri = self._uri + '?' + params
+                    self._uri = '?'.join([self._uri, params])
 
                     self._params = {}
                     params = dict(urllib.parse.parse_qsl(params))
@@ -68,9 +66,11 @@ class XbmcContext(AbstractContext):
         """
         Set the data path for this addon and create the folder
         """
-        self._data_path = xbmc.translatePath('special://profile/addon_data/%s' % self._plugin_id)
-        if isinstance(self._data_path, str):
-            self._data_path = self._data_path
+        try:
+            self._data_path = xbmc.translatePath(self._addon.getAddonInfo('profile')).decode('utf-8')
+        except AttributeError:
+            self._data_path = xbmc.translatePath(self._addon.getAddonInfo('profile'))
+
         if not xbmcvfs.exists(self._data_path):
             xbmcvfs.mkdir(self._data_path)
 
@@ -88,7 +88,7 @@ class XbmcContext(AbstractContext):
         if isinstance(_time_obj, datetime.time):
             _time_obj = datetime.time(_time_obj.hour, _time_obj.minute, _time_obj.second)
 
-        return _time_obj.strftime(time_format)
+        return _time_obj.strftime(time_format.replace("%H%H", "%H"))
 
     def get_language(self):
         """
@@ -109,12 +109,6 @@ class XbmcContext(AbstractContext):
             self.log_error('Failed to get system language (%s)', ex.__str__())
             return 'en-US'
         """
-
-    def get_system_version(self):
-        if not self._system_version:
-            self._system_version = XbmcSystemVersion(version='', releasename='', appname='')
-
-        return self._system_version
 
     def get_video_playlist(self):
         if not self._video_playlist:
@@ -147,6 +141,13 @@ class XbmcContext(AbstractContext):
     def get_data_path(self):
         return self._data_path
 
+    def get_debug_path(self):
+        if not self._debug_path:
+            self._debug_path = os.path.join(self.get_data_path(), 'debug')
+            if not xbmcvfs.exists(self._debug_path):
+                xbmcvfs.mkdir(self._debug_path)
+        return self._debug_path
+
     def get_native_path(self):
         return self._native_path
 
@@ -174,7 +175,6 @@ class XbmcContext(AbstractContext):
     def set_content_type(self, content_type):
         self.log_debug('Setting content-type: "%s" for "%s"' % (content_type, self.get_path()))
         xbmcplugin.setContent(self._plugin_handle, content_type)
-        self.get_ui().set_view_mode(content_type)
 
     def add_sort_method(self, *sort_methods):
         for sort_method in sort_methods:
@@ -220,7 +220,7 @@ class XbmcContext(AbstractContext):
             message = response['error']['message']
             code = response['error']['code']
             error = 'Requested |%s| received error |%s| and code: |%s|' % (rpc_request, message, code)
-            xbmc.log(error, xbmc.LOGDEBUG)
+            self.log_debug(error)
             return False
 
     def set_addon_enabled(self, addon_id, enabled=True):
@@ -237,7 +237,7 @@ class XbmcContext(AbstractContext):
             message = response['error']['message']
             code = response['error']['code']
             error = 'Requested |%s| received error |%s| and code: |%s|' % (rpc_request, message, code)
-            xbmc.log(error, xbmc.LOGDEBUG)
+            self.log_debug(error)
             return False
 
     def send_notification(self, method, data):
@@ -246,9 +246,28 @@ class XbmcContext(AbstractContext):
         data = '\\"[\\"%s\\"]\\"' % urllib.parse.quote(data)
         self.execute('NotifyAll(plugin.video.youtube,%s,%s)' % (method, data))
 
-    @staticmethod
-    def inputstream_adaptive_capabilities(capability=None):
+    def use_inputstream_adaptive(self):
+        addon_enabled = self.addon_enabled('inputstream.adaptive')
+        if self._settings.use_dash() and not addon_enabled:
+            if self.get_ui().on_yes_no_input(self.get_name(), self.localize(30579)):
+                use_dash = self.set_addon_enabled('inputstream.adaptive')
+            else:
+                use_dash = False
+        elif self._settings.use_dash() and addon_enabled:
+            use_dash = True
+        else:
+            use_dash = False
+        return use_dash
+
+    def inputstream_adaptive_capabilities(self, capability=None):
         # return a list inputstream.adaptive capabilities, if capability set return version required
+
+        use_dash = self.use_inputstream_adaptive()
+        if not use_dash and capability is not None:
+            return None
+        if not use_dash and capability is None:
+            return []
+
         if capability is None:
             try:
                 inputstream_version = xbmcaddon.Addon('inputstream.adaptive').getAddonInfo('version')
@@ -259,12 +278,16 @@ class XbmcContext(AbstractContext):
             ia_loose_version = utils.loose_version(inputstream_version)
             if ia_loose_version >= utils.loose_version('2.0.12'):
                 capabilities.append('live')
-            if ia_loose_version >= utils.loose_version('2.2.0'):
+            if ia_loose_version >= utils.loose_version('2.2.12'):
+                capabilities.append('drm')
+            if ia_loose_version >= utils.loose_version('9999.9.9'):
                 capabilities.append('webm')
             return capabilities
         elif capability == 'live':
             return '2.0.12'
+        elif capability == 'drm':
+            return '2.2.12'
         elif capability == 'webm':
-            return '2.2.0'
+            return '9999.9.9'  # can be included, but currently unsupported
         else:
             return None

@@ -1,6 +1,5 @@
 __author__ = 'bromix'
 
-import xbmc
 import xbmcgui
 import xbmcplugin
 
@@ -56,19 +55,12 @@ class XbmcRunner(AbstractProviderRunner):
             xbmcplugin.endOfDirectory(
                 self.handle, succeeded=True,
                 cacheToDisc=options.get(AbstractProvider.RESULT_CACHE_TO_DISC, True))
-
-            # set alternative view mode
-            if context.get_settings().is_override_view_enabled():
-                view_mode = context.get_ui().get_view_mode()
-                if view_mode is not None:
-                    context.log_debug('Override view mode to "%d"' % view_mode)
-                    xbmc.executebuiltin('Container.SetViewMode(%d)' % view_mode)
         else:
             # handle exception
             pass
 
     def _set_resolved_url(self, context, base_item, succeeded=True):
-        item = xbmc_items.to_item(context, base_item)
+        item = xbmc_items.to_playback_item(context, base_item)
         item.setPath(base_item.get_uri())
         xbmcplugin.setResolvedUrl(self.handle, succeeded=succeeded, listitem=item)
 
@@ -105,6 +97,7 @@ class XbmcRunner(AbstractProviderRunner):
                                      replaceItems=directory_item.replace_context_menu())
 
         item.setInfo(type=u'video', infoLabels=info_labels.create_from_item(context, directory_item))
+        item.setPath(directory_item.get_uri())
 
         xbmcplugin.addDirectoryItem(handle=self.handle,
                                     url=directory_item.get_uri(),
@@ -114,7 +107,7 @@ class XbmcRunner(AbstractProviderRunner):
 
     def _add_video(self, context, video_item, item_count=0):
         item = xbmc_items.to_video_item(context, video_item)
-
+        item.setPath(video_item.get_uri())
         xbmcplugin.addDirectoryItem(handle=self.handle,
                                     url=video_item.get_uri(),
                                     listitem=item,
@@ -140,6 +133,7 @@ class XbmcRunner(AbstractProviderRunner):
 
         item.setInfo(type=u'picture', infoLabels=info_labels.create_from_item(context, image_item))
 
+        item.setPath(image_item.get_uri())
         xbmcplugin.addDirectoryItem(handle=self.handle,
                                     url=image_item.get_uri(),
                                     listitem=item,
@@ -147,7 +141,7 @@ class XbmcRunner(AbstractProviderRunner):
 
     def _add_audio(self, context, audio_item, item_count):
         item = xbmc_items.to_audio_item(context, audio_item)
-
+        item.setPath(audio_item.get_uri())
         xbmcplugin.addDirectoryItem(handle=self.handle,
                                     url=audio_item.get_uri(),
                                     listitem=item,

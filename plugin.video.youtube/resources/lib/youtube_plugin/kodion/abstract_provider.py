@@ -3,7 +3,6 @@ import re
 from .exceptions import KodionException
 from . import items
 from . import constants
-from . import utils
 
 
 class AbstractProvider(object):
@@ -25,10 +24,10 @@ class AbstractProvider(object):
 
         # register some default paths
         self.register_path('^/$', '_internal_root')
-        self.register_path('^/' + constants.paths.WATCH_LATER + '/(?P<command>add|remove|list)/?$',
+        self.register_path(''.join(['^/', constants.paths.WATCH_LATER, '/(?P<command>add|remove|list)/?$']),
                            '_internal_watch_later')
-        self.register_path('^/' + constants.paths.FAVORITES + '/(?P<command>add|remove|list)/?$', '_internal_favorite')
-        self.register_path('^/' + constants.paths.SEARCH + '/(?P<command>input|query|list|remove|clear|rename)/?$',
+        self.register_path(''.join(['^/', constants.paths.FAVORITES, '/(?P<command>add|remove|list)/?$']), '_internal_favorite')
+        self.register_path(''.join(['^/', constants.paths.SEARCH, '/(?P<command>input|query|list|remove|clear|rename)/?$']),
                            '_internal_search')
         self.register_path('(?P<path>.*\/)extrafanart\/([\?#].+)?$', '_internal_on_extra_fanart')
 
@@ -56,29 +55,10 @@ class AbstractProvider(object):
         self._dict_path[re_path] = method_name
 
     def _process_wizard(self, context):
-        def _setup_views(_context, _view):
-            view_manager = utils.ViewManager(_context)
-            if not view_manager.update_view_mode(_context.localize(self._local_map['kodion.wizard.view.%s' % _view]),
-                                                 _view):
-                return
-
-            _context.get_settings().set_bool(constants.setting.VIEW_OVERRIDE, True)
-
         # start the setup wizard
         wizard_steps = []
         if context.get_settings().is_setup_wizard_enabled():
             context.get_settings().set_bool(constants.setting.SETUP_WIZARD, False)
-            if utils.ViewManager(context).has_supported_views():
-                views = self.get_wizard_supported_views()
-                for view in views:
-                    if view in utils.ViewManager.SUPPORTED_VIEWS:
-                        wizard_steps.append((_setup_views, [context, view]))
-                    else:
-                        context.log_warning('[Setup-Wizard] Unsupported view "%s"' % view)
-            else:
-                skin_id = context.get_ui().get_skin_id()
-                context.log("ViewManager: Unknown skin id '%s'" % skin_id)
-
             wizard_steps.extend(self.get_wizard_steps(context))
 
         if wizard_steps and context.get_ui().on_yes_no_input(context.get_name(),
@@ -219,13 +199,15 @@ class AbstractProvider(object):
             channel_id = context.get_param('channel_id', '')
             if result:
                 # context.execute('Container.Update(%s)' % context.create_uri([constants.paths.SEARCH, 'query'], item_params))
+                # Container.Update doesn't work with Remotes(Yatse)
                 try:
                     if not incognito and not channel_id:
                         search_history.update(query)
+                    context.set_path('/kodion/search/query/')
                     return self.on_search(query, context, re_match)
                 except:
                     return list()
-            # return True
+            return True
         elif command == 'query':
             incognito = str(context.get_param('incognito', False)).lower() == 'true'
             channel_id = context.get_param('channel_id', '')
@@ -237,11 +219,13 @@ class AbstractProvider(object):
             except:
                 return list()
         else:
-            context.set_content_type(constants.content_type.VIDEOS)
+            context.set_content_type(constants.content_type.FILES)
             result = []
 
+            location = str(context.get_param('location', False)).lower() == 'true'
+
             # 'New Search...'
-            new_search_item = items.NewSearchItem(context, fanart=self.get_alternative_fanart(context))
+            new_search_item = items.NewSearchItem(context, fanart=self.get_alternative_fanart(context), location=location)
             result.append(new_search_item)
 
             for search in search_history.list():
@@ -250,8 +234,7 @@ class AbstractProvider(object):
                     search = search.get_name()
 
                 # we create a new instance of the SearchItem
-                search_history_item = items.SearchHistoryItem(context, search,
-                                                              fanart=self.get_alternative_fanart(context))
+                search_history_item = items.SearchHistoryItem(context, search, fanart=self.get_alternative_fanart(context), location=location)
                 result.append(search_history_item)
 
             if search_history.is_empty():
