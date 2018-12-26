@@ -1,1 +1,1 @@
-PT.DocS.HD 5.0.2
+PT.DocS.HD 6.0
