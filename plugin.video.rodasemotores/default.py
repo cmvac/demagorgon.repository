@@ -984,7 +984,7 @@ def d2x(d, root="root",nested=0):
 xbmcplugin.setContent(int(sys.argv[1]), 'movies')
 
 params=get_params()
-Base = 'http://psycho.pe.hu/AddonPTdocs/rodasemotores.xml'
+Base = 'http://psychomc.xyz/AddonPTdocs/rodasemotores.xml'
 url=None
 name=None
 mode=None

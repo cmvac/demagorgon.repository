@@ -407,7 +407,7 @@ Toda a fonte  vem de utilizadores do Youtube.
 
 <addon id="plugin.video.rodasemotores"
        name="Rodas e Motores"
-       version="2.0"
+       version="2.1"
        provider-name="Demagorgon">
  <requires>
 	<import addon="xbmc.python" version="2.1.0"/>
