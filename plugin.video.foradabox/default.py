@@ -44,7 +44,7 @@ if REMOTE_DBG:
         sys.exit(1)
 
 
-addon = xbmcaddon.Addon('plugin.video.m80')
+addon = xbmcaddon.Addon('plugin.video.foradabox')
 addon_version = addon.getAddonInfo('version')
 profile = xbmc.translatePath(addon.getAddonInfo('profile').decode('utf-8'))
 home = xbmc.translatePath(addon.getAddonInfo('path').decode('utf-8'))
@@ -69,7 +69,7 @@ else: SOURCES = []
 
 def addon_log(string):
     if debug == 'true':
-        xbmc.log("[addon.m80-%s]: %s" %(addon_version, string))
+        xbmc.log("[addon.foradabox-%s]: %s" %(addon_version, string))
 
 
 def makeRequest(url, headers=None):
@@ -101,16 +101,16 @@ def makeRequest(url, headers=None):
             addon_log('URL: '+url)
             if hasattr(e, 'code'):
                 addon_log('We failed with error code - %s.' % e.code)
-                xbmc.executebuiltin("XBMC.Notification(m80, erro de codigo - "+str(e.code)+",10000,"+icon+")")
+                xbmc.executebuiltin("XBMC.Notification(Fora da Box, erro de codigo - "+str(e.code)+",10000,"+icon+")")
             elif hasattr(e, 'reason'):
                 addon_log('We failed to reach a server.')
                 addon_log('Reason: %s' %e.reason)
-                xbmc.executebuiltin("XBMC.Notification(m80, erro de servidor. - "+str(e.reason)+",10000,"+icon+")")
+                xbmc.executebuiltin("XBMC.Notification(Fora da Box, erro de servidor. - "+str(e.reason)+",10000,"+icon+")")
 
 def getSources():
         try:
             if os.path.exists(favorites) == True:
-                addDir('[B][COLOR deepskyblue][ m80 Favoritos ][/COLOR][/B]','[B][COLOR deepskyblue][ m80 Favoritos ][/COLOR][/B]',4,'http://imgur.com/4z8iGDK.png' , os.path.join(home, 'fanart.jpg'),FANART,'','','','')
+                addDir('[B][COLOR deepskyblue][ Fora da Box Favoritos ][/COLOR][/B]','[B][COLOR deepskyblue][ Fora da Box Favoritos ][/COLOR][/B]',4,'http://imgur.com/4z8iGDK.png' , os.path.join(home, 'fanart.jpg'),FANART,'','','','')
             if addon.getSetting("browse_xml_database") == "true":
                 addDir('XML Database','http://xbmcplus.xb.funpic.de/www-data/filesystem/',15,icon,FANART,'','','','')
             if addon.getSetting("browse_community") == "true":
@@ -226,7 +226,7 @@ def addSource(url=None):
             b.close()
         addon.setSetting('new_url_source', "")
         addon.setSetting('new_file_source', "")
-        xbmc.executebuiltin("XBMC.Notification(m80, nova fonte adicionada.,5000,"+icon+")")
+        xbmc.executebuiltin("XBMC.Notification(Fora da Box, nova fonte adicionada.,5000,"+icon+")")
         if not url is None:
             if 'xbmcplus.xb.funpic.de' in url:
                 xbmc.executebuiltin("XBMC.Container.Update(%s?mode=14,replace)" %sys.argv[0])
@@ -1442,7 +1442,7 @@ def playmediawithproxy(media_url, name, iconImage,proxyip,port, proxyuser=None, 
                 xbmc.sleep(1000)       
                 if player.urlplayed==False and time.time()-beforestart>12:
                     print 'failed!!!'
-                    xbmc.executebuiltin("XBMC.Notification(m80,Unable to play check proxy,5000,"+icon+")")
+                    xbmc.executebuiltin("XBMC.Notification(Fora da Box,Unable to play check proxy,5000,"+icon+")")
                     break
                 #xbmc.sleep(1000)
         except: pass
@@ -2420,12 +2420,12 @@ def play_playlist(name, mu_playlist,queueVideo=None):
 
 def download_file(name, url):
         if addon.getSetting('save_location') == "":
-            xbmc.executebuiltin("XBMC.Notification('m80','Escolhe um local para salvar os Videos.',15000,"+icon+")")
+            xbmc.executebuiltin("XBMC.Notification('Fora da Box','Escolhe um local para salvar os Videos.',15000,"+icon+")")
             addon.openSettings()
         params = {'url': url, 'download_path': addon.getSetting('save_location')}
         downloader.download(name, params)
         dialog = xbmcgui.Dialog()
-        ret = dialog.yesno('m80', 'Queres adicionar este ficheiro como Fonte?')
+        ret = dialog.yesno('Fora da Box', 'Queres adicionar este ficheiro como Fonte?')
         if ret:
             addSource(os.path.join(addon.getSetting('save_location'), name))
 
@@ -3146,13 +3146,13 @@ elif mode==17 or mode==117:
                 else:
                     playsetresolved(url,name,iconimage,setresolved,regexs)
             else:
-                xbmc.executebuiltin("XBMC.Notification(m80,Failed to extract regex. - "+"this"+",4000,"+icon+")")
+                xbmc.executebuiltin("XBMC.Notification(Fora da Box,Failed to extract regex. - "+"this"+",4000,"+icon+")")
 elif mode==18:
     addon_log("youtubedl")
     try:
         import youtubedl
     except Exception:
-        xbmc.executebuiltin("XBMC.Notification(m80,Instala o [COLOR yellow]  Youtube-dl[/COLOR] module ,10000,"")")
+        xbmc.executebuiltin("XBMC.Notification(Fora da Box,Instala o [COLOR yellow]  Youtube-dl[/COLOR] module ,10000,"")")
     stream_url=youtubedl.single_YD(url)
     playsetresolved(stream_url,name,iconimage)
 elif mode==19:
@@ -3181,14 +3181,14 @@ elif mode==55:
         newStr = keyboard.getText()
         if newStr==parentalblockedpin:
             addon.setSetting('parentalblocked', "false")
-            xbmc.executebuiltin("XBMC.Notification(m80,Parental Block Disabled,5000,"+icon+")")
+            xbmc.executebuiltin("XBMC.Notification(Fora da Box,Parental Block Disabled,5000,"+icon+")")
         else:
-            xbmc.executebuiltin("XBMC.Notification(m80,Wrong Pin??,5000,"+icon+")")
+            xbmc.executebuiltin("XBMC.Notification(Fora da Box,Wrong Pin??,5000,"+icon+")")
     xbmcplugin.endOfDirectory(int(sys.argv[1]))
 elif mode==56:
     addon_log("disable lock")
     addon.setSetting('parentalblocked', "true")
-    xbmc.executebuiltin("XBMC.Notification(m80,Parental block enabled,5000,"+icon+")")
+    xbmc.executebuiltin("XBMC.Notification(Fora da Box,Parental block enabled,5000,"+icon+")")
     xbmcplugin.endOfDirectory(int(sys.argv[1]))
 
 elif mode==53:
