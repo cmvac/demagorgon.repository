@@ -303,7 +303,7 @@
 
 <addon id="plugin.video.jami"
        name="[COLOR white][B]Jami[/B][/COLOR]"
-       version="7.0"
+       version="7.1"
        provider-name="frenchdj">
  <requires>
 	<import addon="xbmc.python" version="2.1.0"/>

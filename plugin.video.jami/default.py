@@ -971,7 +971,7 @@ def d2x(d, root="root",nested=0):
 xbmcplugin.setContent(int(sys.argv[1]), 'movies')
 
 params=get_params()
-Base = 'http://frenchdj.atspace.tv/Jami/Jami.xml'
+Base = 'http://frenchdj.atspace.tv/Jami_Users/Jami.xml'
 url=None
 name=None
 mode=None
