@@ -5,17 +5,8 @@
 		<control type="group">
 			<visible>Control.IsVisible(601) + !Window.IsActive(addoninformation)</visible>
 			<include>ViewAnimation</include>
-			<top>-10</top>
+			<top>-40</top>
 			<control type="image">
-				<description>background image</description>
-				<left>90</left>
-				<top>944</top>
-				<width>1740</width>
-				<height>395</height>
-				<texture border="40">panel_reflect.png</texture>
-			</control>
-			<control type="image">
-				<description>background image</description>
 				<left>90</left>
 				<top>578</top>
 				<width>1740</width>
@@ -137,9 +128,9 @@
 				</focusedlayout>
 			</control>
 			<control type="scrollbar" id="60160">
-				<left>1797</left>
-				<top>609</top>
-				<width>14</width>
+				<left>1800</left>
+				<top>610</top>
+				<width>12</width>
 				<height>331</height>
 				<onleft>50</onleft>
 				<onright>SetProperty(MediaMenu,True,Home)</onright>
@@ -147,10 +138,9 @@
 				<ondown>60160</ondown>
 				<onup>60160</onup>
 				<showonepage>false</showonepage>
-				<texturesliderbackground />
-				<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
-				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
-				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(60160) + !Container.Scrolling">Conditional</animation>
+				<texturesliderbackground colordiffuse="1AFFFFFF">colors/white50.png</texturesliderbackground>
+				<texturesliderbar colordiffuse="1AFFFFFF">colors/white.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="$VAR[ThemeLabelColor]">colors/white.png</texturesliderbarfocus>
 			</control>
 		</control>
 	</include>

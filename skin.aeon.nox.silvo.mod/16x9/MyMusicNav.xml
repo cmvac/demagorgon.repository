@@ -5,12 +5,12 @@
 	<onload>ClearProperty(MediaMenu,Home)</onload>
 	<onunload>ClearProperty(MediaMenu,Home)</onunload>
 	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
-	<views>50,51,52,54,55,57,500,501,503,506,609,507,508,592,603</views>
+	<views>50,51,52,54,55,57,59,500,501,503,506,609,507,508,592,603</views>
 	<menucontrol>9051</menucontrol>
 	<controls>
 		<control type="button" id="4400">
 			<include>HiddenObject</include>
-			<onfocus>Skin.ToggleSetting(Enable.FullscreenMusicFanart)</onfocus>
+			<onfocus>SetProperty(Enable.FullscreenFanart,True,Home)</onfocus>
 			<onfocus>ActivateWindow(1113)</onfocus>
 			<onleft>50</onleft>
 			<onright>50</onright>
@@ -25,6 +25,148 @@
 			<ondown>50</ondown>
 			<onleft>50</onleft>
 			<onright>50</onright>
+		</control>
+		<control type="fadelabel" id="4410">
+			<top>-100</top>
+			<width>2560</width>
+			<height>0</height>
+			<scrollspeed>20</scrollspeed>
+			<scrollout>false</scrollout>
+			<randomize>true</randomize>
+			<visible>!Skin.HasSetting(Disable.ExtraFanart)</visible>
+			<label>$INFO[ListItem.Art(fanart)]</label>
+			<label>$INFO[ListItem.Art(fanart1)]</label>
+			<label>$INFO[ListItem.Art(fanart2)]</label>
+			<label>$INFO[ListItem.Art(fanart3)]</label>
+			<label>$INFO[ListItem.Art(fanart4)]</label>
+			<label>$INFO[ListItem.Art(fanart5)]</label>
+			<label>$INFO[ListItem.Art(fanart6)]</label>
+			<label>$INFO[ListItem.Art(fanart7)]</label>
+			<label>$INFO[ListItem.Art(fanart8)]</label>
+			<label>$INFO[ListItem.Art(fanart9)]</label>
+			<label>$INFO[ListItem.Art(fanart10)]</label>
+			<label>$INFO[ListItem.Art(fanart11)]</label>
+			<label>$INFO[ListItem.Art(fanart12)]</label>
+			<label>$INFO[ListItem.Art(fanart13)]</label>
+			<label>$INFO[ListItem.Art(fanart14)]</label>
+			<label>$INFO[ListItem.Art(fanart15)]</label>
+			<label>$INFO[ListItem.Art(fanart16)]</label>
+			<label>$INFO[ListItem.Art(fanart17)]</label>
+			<label>$INFO[ListItem.Art(fanart18)]</label>
+			<label>$INFO[ListItem.Art(fanart19)]</label>
+			<label>$INFO[ListItem.Art(fanart20)]</label>
+			<label>$INFO[ListItem.Art(artist.fanart1)]</label>
+			<label>$INFO[ListItem.Art(artist.fanart2)]</label>
+			<label>$INFO[ListItem.Art(artist.fanart3)]</label>
+			<label>$INFO[ListItem.Art(artist.fanart4)]</label>
+			<label>$INFO[ListItem.Art(artist.fanart5)]</label>
+			<label>$INFO[ListItem.Art(artist.fanart6)]</label>
+			<label>$INFO[ListItem.Art(artist.fanart7)]</label>
+			<label>$INFO[ListItem.Art(artist.fanart8)]</label>
+			<label>$INFO[ListItem.Art(artist.fanart9)]</label>
+			<label>$INFO[ListItem.Art(artist.fanart10)]</label>
+			<label>$INFO[ListItem.Art(artist.fanart11)]</label>
+			<label>$INFO[ListItem.Art(artist.fanart12)]</label>
+			<label>$INFO[ListItem.Art(artist.fanart13)]</label>
+			<label>$INFO[ListItem.Art(artist.fanart14)]</label>
+			<label>$INFO[ListItem.Art(artist.fanart15)]</label>
+			<label>$INFO[ListItem.Art(artist.fanart16)]</label>
+			<label>$INFO[ListItem.Art(artist.fanart17)]</label>
+			<label>$INFO[ListItem.Art(artist.fanart18)]</label>
+			<label>$INFO[ListItem.Art(artist.fanart19)]</label>
+			<label>$INFO[ListItem.Art(artist.fanart20)]</label>
+			<label>$INFO[ListItem.Art(albumartist.fanart1)]</label>
+			<label>$INFO[ListItem.Art(albumartist.fanart2)]</label>
+			<label>$INFO[ListItem.Art(albumartist.fanart3)]</label>
+			<label>$INFO[ListItem.Art(albumartist.fanart4)]</label>
+			<label>$INFO[ListItem.Art(albumartist.fanart5)]</label>
+			<label>$INFO[ListItem.Art(albumartist.fanart6)]</label>
+			<label>$INFO[ListItem.Art(albumartist.fanart7)]</label>
+			<label>$INFO[ListItem.Art(albumartist.fanart8)]</label>
+			<label>$INFO[ListItem.Art(albumartist.fanart9)]</label>
+			<label>$INFO[ListItem.Art(albumartist.fanart10)]</label>
+			<label>$INFO[ListItem.Art(albumartist.fanart11)]</label>
+			<label>$INFO[ListItem.Art(albumartist.fanart12)]</label>
+			<label>$INFO[ListItem.Art(albumartist.fanart13)]</label>
+			<label>$INFO[ListItem.Art(albumartist.fanart14)]</label>
+			<label>$INFO[ListItem.Art(albumartist.fanart15)]</label>
+			<label>$INFO[ListItem.Art(albumartist.fanart16)]</label>
+			<label>$INFO[ListItem.Art(albumartist.fanart17)]</label>
+			<label>$INFO[ListItem.Art(albumartist.fanart18)]</label>
+			<label>$INFO[ListItem.Art(albumartist.fanart19)]</label>
+			<label>$INFO[ListItem.Art(albumartist.fanart20)]</label>
+			<include>FadeLabelTime</include>>
+		</control>
+		<control type="fadelabel" id="4411">
+			<top>-100</top>
+			<width>2560</width>
+			<height>0</height>
+			<scrollspeed>20</scrollspeed>
+			<scrollout>false</scrollout>
+			<randomize>true</randomize>
+			<visible>!Skin.HasSetting(Disable.ExtraFanart)</visible>
+			<label>$INFO[Container.ListItem.Art(fanart)]</label>
+			<label>$INFO[Container.ListItem.Art(fanart1)]</label>
+			<label>$INFO[Container.ListItem.Art(fanart2)]</label>
+			<label>$INFO[Container.ListItem.Art(fanart3)]</label>
+			<label>$INFO[Container.ListItem.Art(fanart4)]</label>
+			<label>$INFO[Container.ListItem.Art(fanart5)]</label>
+			<label>$INFO[Container.ListItem.Art(fanart6)]</label>
+			<label>$INFO[Container.ListItem.Art(fanart7)]</label>
+			<label>$INFO[Container.ListItem.Art(fanart8)]</label>
+			<label>$INFO[Container.ListItem.Art(fanart9)]</label>
+			<label>$INFO[Container.ListItem.Art(fanart10)]</label>
+			<label>$INFO[Container.ListItem.Art(fanart11)]</label>
+			<label>$INFO[Container.ListItem.Art(fanart12)]</label>
+			<label>$INFO[Container.ListItem.Art(fanart13)]</label>
+			<label>$INFO[Container.ListItem.Art(fanart14)]</label>
+			<label>$INFO[Container.ListItem.Art(fanart15)]</label>
+			<label>$INFO[Container.ListItem.Art(fanart16)]</label>
+			<label>$INFO[Container.ListItem.Art(fanart17)]</label>
+			<label>$INFO[Container.ListItem.Art(fanart18)]</label>
+			<label>$INFO[Container.ListItem.Art(fanart19)]</label>
+			<label>$INFO[Container.ListItem.Art(fanart20)]</label>
+			<label>$INFO[Container.ListItem.Art(artist.fanart1)]</label>
+			<label>$INFO[Container.ListItem.Art(artist.fanart2)]</label>
+			<label>$INFO[Container.ListItem.Art(artist.fanart3)]</label>
+			<label>$INFO[Container.ListItem.Art(artist.fanart4)]</label>
+			<label>$INFO[Container.ListItem.Art(artist.fanart5)]</label>
+			<label>$INFO[Container.ListItem.Art(artist.fanart6)]</label>
+			<label>$INFO[Container.ListItem.Art(artist.fanart7)]</label>
+			<label>$INFO[Container.ListItem.Art(artist.fanart8)]</label>
+			<label>$INFO[Container.ListItem.Art(artist.fanart9)]</label>
+			<label>$INFO[Container.ListItem.Art(artist.fanart10)]</label>
+			<label>$INFO[Container.ListItem.Art(artist.fanart11)]</label>
+			<label>$INFO[Container.ListItem.Art(artist.fanart12)]</label>
+			<label>$INFO[Container.ListItem.Art(artist.fanart13)]</label>
+			<label>$INFO[Container.ListItem.Art(artist.fanart14)]</label>
+			<label>$INFO[Container.ListItem.Art(artist.fanart15)]</label>
+			<label>$INFO[Container.ListItem.Art(artist.fanart16)]</label>
+			<label>$INFO[Container.ListItem.Art(artist.fanart17)]</label>
+			<label>$INFO[Container.ListItem.Art(artist.fanart18)]</label>
+			<label>$INFO[Container.ListItem.Art(artist.fanart19)]</label>
+			<label>$INFO[Container.ListItem.Art(artist.fanart20)]</label>
+			<label>$INFO[Container.ListItem.Art(albumartist.fanart1)]</label>
+			<label>$INFO[Container.ListItem.Art(albumartist.fanart2)]</label>
+			<label>$INFO[Container.ListItem.Art(albumartist.fanart3)]</label>
+			<label>$INFO[Container.ListItem.Art(albumartist.fanart4)]</label>
+			<label>$INFO[Container.ListItem.Art(albumartist.fanart5)]</label>
+			<label>$INFO[Container.ListItem.Art(albumartist.fanart6)]</label>
+			<label>$INFO[Container.ListItem.Art(albumartist.fanart7)]</label>
+			<label>$INFO[Container.ListItem.Art(albumartist.fanart8)]</label>
+			<label>$INFO[Container.ListItem.Art(albumartist.fanart9)]</label>
+			<label>$INFO[Container.ListItem.Art(albumartist.fanart10)]</label>
+			<label>$INFO[Container.ListItem.Art(albumartist.fanart11)]</label>
+			<label>$INFO[Container.ListItem.Art(albumartist.fanart12)]</label>
+			<label>$INFO[Container.ListItem.Art(albumartist.fanart13)]</label>
+			<label>$INFO[Container.ListItem.Art(albumartist.fanart14)]</label>
+			<label>$INFO[Container.ListItem.Art(albumartist.fanart15)]</label>
+			<label>$INFO[Container.ListItem.Art(albumartist.fanart16)]</label>
+			<label>$INFO[Container.ListItem.Art(albumartist.fanart17)]</label>
+			<label>$INFO[Container.ListItem.Art(albumartist.fanart18)]</label>
+			<label>$INFO[Container.ListItem.Art(albumartist.fanart19)]</label>
+			<label>$INFO[Container.ListItem.Art(albumartist.fanart20)]</label>
+			<include>FadeLabelTime</include>
 		</control>
 		<control type="label" id="4420">
 			<label>$VAR[MusicInfoPanelVar]</label>
@@ -53,7 +195,9 @@
 			<!-- view id = 55 -->
 			<include condition="!Skin.HasSetting(Disable.ShiftView)">AlbumShift</include>
 			<!-- view id = 57 -->
-			<include condition="!Skin.HasSetting(Disable.IconsView)">MusicWall</include>
+			<include condition="!Skin.HasSetting(Disable.LogoView)">View_59_Logo</include>
+			<!-- view id = 59 -->
+			<include condition="!Skin.HasSetting(Disable.IconsView)">MusicIcons</include>
 			<!-- view id = 500 -->
 			<include condition="!Skin.HasSetting(Disable.LowListView)">MusicLowList</include>
 			<!-- view id = 501 -->
@@ -87,7 +231,6 @@
 						<height>48</height>
 						<align>center</align>
 						<font>font16_title_bold</font>
-						<textcolor>white</textcolor>
 						<scroll>true</scroll>
 						<label>$INFO[ListItem.Label]</label>
 						<textoffsetx>30</textoffsetx>
@@ -98,7 +241,6 @@
 						<height>30</height>
 						<align>center</align>
 						<font>font13_title</font>
-						<textcolor>white</textcolor>
 						<label>$VAR[FloorLabel2Var]</label>
 						<textoffsetx>30</textoffsetx>
 					</control>
@@ -116,7 +258,6 @@
 							<align>center</align>
 							<label>$INFO[ListItem.Year]</label>
 							<font>font35_title_bold</font>
-							<textcolor>white</textcolor>
 							<wrapmultiline>true</wrapmultiline>
 						</control>
 					</control>
@@ -141,7 +282,6 @@
 						<width>1150</width>
 						<height>48</height>
 						<font>font16_title_bold</font>
-						<textcolor>white</textcolor>
 						<scroll>true</scroll>
 						<label>$INFO[ListItem.Label]</label>
 						<textoffsetx>30</textoffsetx>
@@ -151,7 +291,6 @@
 						<width>1100</width>
 						<height>30</height>
 						<font>font13_title</font>
-						<textcolor>white</textcolor>
 						<label>$VAR[FloorLabel2Var]</label>
 						<textoffsetx>30</textoffsetx>
 					</control>
@@ -179,7 +318,6 @@
 						<align>center</align>
 						<label fallback="• • • •">$INFO[ListItem.Year]</label>
 						<font>font35_title_bold</font>
-						<textcolor>white</textcolor>
 						<wrapmultiline>true</wrapmultiline>
 					</control>
 				</control>
@@ -283,7 +421,6 @@
 					<description>PartyMode</description>
 					<label>589</label>
 					<include>ButtonCommonValues</include>
-					<onclick>ClearProperty(MediaMenu,Home)</onclick>
 					<label2>[COLOR $VAR[ThemeLabelColor]]$VAR[MyMusicNavMusicPartyModeLabelVar][/COLOR]</label2>
 				</control>
 				<control type="button" id="6121">
@@ -299,27 +436,19 @@
 			<include>MediaMenuPlayerControls</include>
 		</control>
 		<!-- Fullscreen Fanart -->
-		<control type="image">
+		<control type="group">
+			<visible>!String.IsEmpty(Window(Home).Property(Enable.FullscreenFanart))</visible>
 			<include>FullscreenDimensions</include>
-			<texture>black.png</texture>
-			<animation effect="fade" time="250">Visible</animation>
-			<visible>Skin.HasSetting(Enable.FullscreenMusicFanart) + Window.IsActive(1113)</visible>
-		</control>
-		<control type="multiimage">
-			<imagepath background="true">$VAR[GlobalBackgroundVar]</imagepath>
-			<include condition="String.IsEqual(Skin.String(FanartTimePerImage),5)">FanartTimePerImage5</include>
-			<include condition="String.IsEqual(Skin.String(FanartTimePerImage),6)">FanartTimePerImage6</include>
-			<include condition="String.IsEmpty(Skin.String(FanartTimePerImage))">FanartTimePerImage7</include>
-			<include condition="String.IsEqual(Skin.String(FanartTimePerImage),8)">FanartTimePerImage8</include>
-			<include condition="String.IsEqual(Skin.String(FanartTimePerImage),9)">FanartTimePerImage9</include>
-			<include condition="String.IsEqual(Skin.String(FanartTimePerImage),10)">FanartTimePerImage10</include>
-			<include condition="String.IsEqual(Skin.String(FanartTimePerImage),15)">FanartTimePerImage15</include>
-			<include condition="String.IsEqual(Skin.String(FanartTimePerImage),20)">FanartTimePerImage20</include>
-			<include condition="String.IsEqual(Skin.String(FanartTimePerImage),30)">FanartTimePerImage30</include>
-			<include condition="String.IsEqual(Skin.String(FanartTimePerImage),60)">FanartTimePerImage60</include>
-			<include condition="String.IsEqual(Skin.String(FanartTimePerImage),90)">FanartTimePerImage90</include>
-			<animation effect="fade" time="500">Visible</animation>
-			<visible>Skin.HasSetting(Enable.FullscreenMusicFanart) + Window.IsActive(1113)</visible>
+			<control type="image">
+				<texture>black.png</texture>
+				<visible>Window.IsActive(1113)</visible>
+			</control>
+			<control type="multiimage">
+				<visible>Window.IsActive(1113)</visible>
+				<animation effect="fade" time="500">Visible</animation>
+				<include>MultiImageTime</include>
+				<imagepath background="true">$VAR[GlobalBackgroundVar]</imagepath>
+			</control>
 		</control>
 	</controls>
 </window>

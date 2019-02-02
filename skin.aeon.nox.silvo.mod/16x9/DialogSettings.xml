@@ -9,15 +9,13 @@
 	<include>DialogOpenCloseAnimation</include>
 	<controls>
 		<control type="group">
-			<animation effect="fade" start="100" end="0" time="400" condition="Window.IsVisible(SliderDialog)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="400" condition="Window.IsVisible(SliderDialog) | Window.IsVisible(SubtitleSearch)">Conditional</animation>
 			<control type="image">
-				<description>background image</description>
 				<width>1522</width>
 				<height>660</height>
 				<texture border="40">dialogs/default/bg.png</texture>
 			</control>
 			<control type="label" id="2">
-				<description>header label</description>
 				<left>30</left>
 				<top>32</top>
 				<width>1462</width>
@@ -33,10 +31,9 @@
 				<width>1140</width>
 				<height>542</height>
 				<texture border="5">dialogs/default/inner.png</texture>
-				<animation effect="fade" start="100" end="80" time="400" condition="Window.isActive(fullscreenvideo)">Conditional</animation>
+				<animation effect="fade" start="100" end="80" time="400" condition="Window.IsActive(fullscreenvideo)">Conditional</animation>
 			</control>
 			<control type="grouplist" id="5">
-				<description>control area</description>
 				<left>31</left>
 				<top>88</top>
 				<width>1138</width>
@@ -53,18 +50,18 @@
 				<width>14</width>
 				<height>540</height>
 				<texturesliderbackground />
-				<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
+				<texturesliderbar colordiffuse="80FFFFFF" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
 				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
 				<onleft>5</onleft>
 				<onright>9001</onright>
 				<showonepage>false</showonepage>
-				<orientation>vertical</orientation>
 			</control>
 			<control type="button" id="7">
 				<description>Default Button</description>
 			</control>
 			<control type="radiobutton" id="8">
 				<description>Default RadioButton</description>
+				<radioposx>1035</radioposx>
 			</control>
 			<control type="spincontrolex" id="9">
 				<description>Default SpinControlex</description>
@@ -97,7 +94,7 @@
 					<width>312</width>
 					<height>542</height>
 					<texture border="5">dialogs/default/inner.png</texture>
-					<animation effect="fade" start="100" end="80" time="400" condition="Window.isActive(fullscreenvideo)">Conditional</animation>
+					<animation effect="fade" start="100" end="80" time="400" condition="Window.IsActive(fullscreenvideo)">Conditional</animation>
 				</control>
 				<control type="grouplist" id="9001">
 					<onup>9001</onup>

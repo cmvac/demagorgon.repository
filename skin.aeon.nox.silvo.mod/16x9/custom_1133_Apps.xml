@@ -15,15 +15,6 @@
 				<left>100</left>
 				<top>-40</top>
 				<control type="image">
-					<description>background image</description>
-					<left>-32</left>
-					<top>1020</top>
-					<width>874</width>
-					<height>904</height>
-					<texture border="40">panel_reflect.png</texture>
-				</control>
-				<control type="image">
-					<description>background image</description>
 					<left>-32</left>
 					<top>148</top>
 					<width>874</width>
@@ -44,12 +35,6 @@
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
 					<itemlayout height="120" width="810">
 						<control type="image">
-							<top>60</top>
-							<width>810</width>
-							<height>60</height>
-							<texture border="1">separator2.png</texture>
-						</control>
-						<control type="image">
 							<left>15</left>
 							<top>8</top>
 							<width>105</width>
@@ -64,7 +49,6 @@
 							<height>70</height>
 							<font>font30</font>
 							<textcolor>grey2</textcolor>
-							<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<animation effect="slide" start="0,0" end="0,25" time="0" condition="String.IsEmpty(ListItem.AddonSummary)">Conditional</animation>
 						</control>
@@ -75,7 +59,6 @@
 							<height>60</height>
 							<font>font15</font>
 							<textcolor>grey3</textcolor>
-							<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.AddonSummary]</label>
 						</control>
 						<control type="label">
@@ -85,17 +68,10 @@
 							<font>font15</font>
 							<align>right</align>
 							<textcolor>grey2</textcolor>
-							<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.Label2]</label>
 						</control>
 					</itemlayout>
 					<focusedlayout height="120" width="810">
-						<control type="image">
-							<top>60</top>
-							<width>810</width>
-							<height>60</height>
-							<texture border="1">separator2.png</texture>
-						</control>
 						<control type="image">
 							<width>810</width>
 							<height>120</height>
@@ -116,8 +92,6 @@
 							<width>655</width>
 							<height>70</height>
 							<font>font30</font>
-							<textcolor>white</textcolor>
-							<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<animation effect="slide" start="0,0" end="0,25" time="0" condition="String.IsEmpty(ListItem.AddonSummary)">Conditional</animation>
 						</control>
@@ -127,8 +101,6 @@
 							<width>655</width>
 							<height>60</height>
 							<font>font15</font>
-							<textcolor>white</textcolor>
-							<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.AddonSummary]</label>
 						</control>
 						<control type="label">
@@ -137,8 +109,6 @@
 							<height>120</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>white</textcolor>
-							<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.Label2]</label>
 						</control>
 					</focusedlayout>
@@ -187,7 +157,7 @@
 						<item id="6">
 							<label>$LOCALIZE[10040]</label>
 							<icon>views/list/DefaultAddon.png</icon>
-							<property name="AppsTarget"></property>
+							<property name="AppsTarget" />
 							<property name="AppsContent">addons://user/all/</property>
 							<property name="AppsSortBy">lastused</property>
 							<onclick>ActivateWindow(AddonBrowser,return)</onclick>
@@ -195,7 +165,7 @@
 						<item id="7">
 							<label>$LOCALIZE[24004]</label>
 							<icon>views/list/DefaultAddonsRecentlyUpdated.png</icon>
-							<property name="AppsTarget"></property>
+							<property name="AppsTarget" />
 							<property name="AppsContent">addons://recently_updated/</property>
 							<property name="AppsSortBy">lastupdated</property>
 							<onclick>ActivateWindow(AddonBrowser,return)</onclick>
@@ -220,25 +190,15 @@
 					<onleft>50</onleft>
 					<onright>51</onright>
 					<texturesliderbackground />
-					<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
+					<texturesliderbar colordiffuse="80FFFFFF" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
 					<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
 					<showonepage>false</showonepage>
-					<orientation>vertical</orientation>
 				</control>
 			</control>
 			<control type="group">
 				<left>1014</left>
 				<top>-40</top>
 				<control type="image">
-					<description>background image</description>
-					<left>-32</left>
-					<top>1020</top>
-					<width>874</width>
-					<height>904</height>
-					<texture border="40">panel_reflect.png</texture>
-				</control>
-				<control type="image">
-					<description>background image</description>
 					<left>-32</left>
 					<top>148</top>
 					<width>874</width>
@@ -259,12 +219,6 @@
 					<pagecontrol>61</pagecontrol>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
 					<itemlayout height="120" width="810">
-						<control type="image">
-							<top>60</top>
-							<width>810</width>
-							<height>60</height>
-							<texture border="1">separator2.png</texture>
-						</control>
 						<control type="image">
 							<left>15</left>
 							<top>8</top>
@@ -290,7 +244,6 @@
 							<height>70</height>
 							<font>font30</font>
 							<textcolor>grey2</textcolor>
-							<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<animation effect="slide" start="0,0" end="0,25" time="0" condition="String.IsEmpty(ListItem.AddonSummary)">Conditional</animation>
 						</control>
@@ -301,7 +254,6 @@
 							<height>60</height>
 							<font>font15</font>
 							<textcolor>grey3</textcolor>
-							<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.AddonSummary]</label>
 						</control>
 						<control type="label">
@@ -311,17 +263,10 @@
 							<font>font15</font>
 							<align>right</align>
 							<textcolor>grey2</textcolor>
-							<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.AddonVersion]</label>
 						</control>
 					</itemlayout>
 					<focusedlayout height="120" width="810">
-						<control type="image">
-							<top>60</top>
-							<width>810</width>
-							<height>60</height>
-							<texture border="1">separator2.png</texture>
-						</control>
 						<control type="image">
 							<width>810</width>
 							<height>120</height>
@@ -352,8 +297,6 @@
 							<width>655</width>
 							<height>70</height>
 							<font>font30</font>
-							<textcolor>white</textcolor>
-							<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<animation effect="slide" start="0,0" end="0,25" time="0" condition="String.IsEmpty(ListItem.AddonSummary)">Conditional</animation>
 						</control>
@@ -363,8 +306,6 @@
 							<width>655</width>
 							<height>60</height>
 							<font>font15</font>
-							<textcolor>white</textcolor>
-							<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.AddonSummary]</label>
 						</control>
 						<control type="label">
@@ -373,8 +314,6 @@
 							<height>60</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>white</textcolor>
-							<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.AddonVersion]</label>
 						</control>
 					</focusedlayout>
@@ -390,43 +329,59 @@
 					<onleft>51</onleft>
 					<onright>noop</onright>
 					<texturesliderbackground />
-					<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
+					<texturesliderbar colordiffuse="80FFFFFF" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
 					<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
 					<showonepage>false</showonepage>
-					<orientation>vertical</orientation>
 				</control>
 			</control>
 		</control>
 		<include>Topbar</include>
 		<control type="group">
-			<visible>!Skin.HasSetting(Disable.TopBar)</visible>
-			<control type="label">
-				<width>900</width>
+			<visible>!Skin.HasSetting(Disable.TopBar) + !Window.IsActive(volumebar)</visible>
+			<include>VisibleFadeAnimation</include>
+			<animation effect="slide" start="0,-90" end="0,0" time="720">WindowOpen</animation>
+			<animation effect="slide" end="0,-90" start="0,0" time="720">WindowClose</animation>
+			<control type="grouplist">
+				<width>100%</width>
 				<height>90</height>
-				<font>font13_title</font>
-				<textoffsetx>15</textoffsetx>
-				<textcolor>grey2</textcolor>
-				<aligny>top</aligny>
-				<textoffsety>-2</textoffsety>
-				<label>$LOCALIZE[31957]</label>
-				<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480" condition="Window.Previous(Home)">WindowOpen</animation>
-				<animation effect="slide" end="0,-90" start="0,0" time="480" condition="Window.Next(Home)">WindowClose</animation>
-				<visible>!Window.IsVisible(addoninformation)</visible>
-			</control>
-			<control type="label">
-				<left>1020</left>
-				<width>900</width>
-				<height>90</height>
-				<font>font13_title</font>
-				<textoffsetx>15</textoffsetx>
-				<textcolor>grey</textcolor>
-				<align>right</align>
-				<aligny>top</aligny>
-				<textoffsety>-2</textoffsety>
-				<label>$INFO[Container(51).NumItems,, $LOCALIZE[31025]]$INFO[Container(51).CurrentPage,[COLOR grey2] | ,]$INFO[Container(51).NumPages,/,[/COLOR]]</label>
-				<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480" condition="Window.Previous(Home)">WindowOpen</animation>
-				<animation effect="slide" end="0,-90" start="0,0" time="480" condition="Window.Next(Home)">WindowClose</animation>
-				<animation effect="slide" tween="cubic" time="240" end="-500,0" condition="Player.HasMedia | Window.IsActive(volumebar)">Conditional</animation>
+				<orientation>horizontal</orientation>
+				<align>center</align>
+				<itemgap>5</itemgap>
+				<visible>!String.IsEqual(Container(51).NumItems,0)</visible>
+				<control type="label">
+					<width>auto</width>
+					<height>90</height>
+					<font>font13_title</font>
+					<textcolor>grey</textcolor>
+					<shadowcolor>shadow</shadowcolor>
+					<aligny>top</aligny>
+					<label>$INFO[Container(51).NumItems]</label>
+				</control>
+				<control type="label">
+					<width>30</width>
+					<height>40</height>
+					<font>IconTiny</font>
+					<textcolor>grey</textcolor>
+					<shadowcolor>shadow</shadowcolor>
+					<label></label>
+				</control>
+				<control type="label">
+					<width>auto</width>
+					<height>90</height>
+					<font>font13_title</font>
+					<textcolor>grey</textcolor>
+					<shadowcolor>shadow</shadowcolor>
+					<aligny>top</aligny>
+					<label>$INFO[Container(51).CurrentPage,[COLOR grey2] | ]$INFO[Container(51).NumPages,/,[/COLOR]]</label>
+				</control>
+				<control type="label">
+					<width>30</width>
+					<height>40</height>
+					<font>IconTiny</font>
+					<textcolor>grey2</textcolor>
+					<shadowcolor>shadow</shadowcolor>
+					<label></label>
+				</control>
 			</control>
 		</control>
 		<control type="group">

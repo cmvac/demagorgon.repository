@@ -7,16 +7,6 @@
 			<include>ViewAnimation</include>
 			<top>-65</top>
 			<control type="image">
-				<description>background image</description>
-				<left>90</left>
-				<top>1080</top>
-				<width>1740</width>
-				<height>964</height>
-				<texture border="40">panel_reflect.png</texture>
-				<visible>!Skin.HasSetting(Enable.AlternateInfowall)</visible>
-			</control>
-			<control type="image">
-				<description>background image</description>
 				<left>90</left>
 				<top>148</top>
 				<width>1740</width>
@@ -41,7 +31,7 @@
 					<width>628</width>
 					<height>60</height>
 					<font>font16_title_bold</font>
-					<textcolor>grey</textcolor>
+					<shadowcolor>shadow</shadowcolor>
 					<scroll>true</scroll>
 					<label>$VAR[FloorLabelVar]</label>
 					<textoffsetx>15</textoffsetx>
@@ -52,8 +42,7 @@
 					<width>42</width>
 					<height>28</height>
 					<aspectratio>keep</aspectratio>
-					<texture>$VAR[UnFocusHDIndicator]</texture>
-					<colordiffuse>grey</colordiffuse>
+					<texture colordiffuse="white">$VAR[UnFocusHDIndicator]</texture>
 				</control>
 				<control type="button">
 					<top>461</top>
@@ -61,6 +50,7 @@
 					<label>$INFO[ListItem.Genre,[COLOR grey],[/COLOR][CR]]$VAR[VideoSubLabelVar]</label>
 					<textcolor>$VAR[UnWatchedEpColor]</textcolor>
 					<include>DefaultButtonsValues</include>
+					<shadowcolor>shadow</shadowcolor>
 					<visible>!ListItem.IsCollection</visible>
 				</control>
 				<control type="button">
@@ -68,6 +58,7 @@
 					<width>679</width>
 					<label>$INFO[Window(Home).Property(Set.Movies.Genre)][CR]$INFO[Window(Home).Property(Set.Movies.Runtime),, $LOCALIZE[12391]]</label>
 					<include>DefaultButtonsValues</include>
+					<shadowcolor>shadow</shadowcolor>
 					<visible>ListItem.IsCollection</visible>
 				</control>
 				<control type="textbox">
@@ -77,14 +68,15 @@
 					<width>650</width>
 					<height>342</height>
 					<font>font14_textbox</font>
+					<shadowcolor>shadow</shadowcolor>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll) + !Control.HasFocus(95161)</autoscroll>
 					<pagecontrol>95161</pagecontrol>
 					<include>DefaultButtonsValues</include>
 				</control>
 				<control type="scrollbar" id="95161">
-					<left>677</left>
-					<top>555</top>
-					<width>14</width>
+					<left>680</left>
+					<top>558</top>
+					<width>12</width>
 					<height>342</height>
 					<onleft>50</onleft>
 					<onright>SetProperty(MediaMenu,True,Home)</onright>
@@ -92,9 +84,9 @@
 					<ondown>95161</ondown>
 					<onup>95161</onup>
 					<showonepage>false</showonepage>
-					<texturesliderbackground />
-					<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
-					<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
+					<texturesliderbackground colordiffuse="1AFFFFFF">colors/white50.png</texturesliderbackground>
+					<texturesliderbar colordiffuse="1AFFFFFF">colors/white.png</texturesliderbar>
+					<texturesliderbarfocus colordiffuse="$VAR[ThemeLabelColor]">colors/white.png</texturesliderbarfocus>
 				</control>
 			</control>
 			<control type="panel" id="51">
@@ -407,18 +399,18 @@
 				</focusedlayout>
 			</control>
 			<control type="scrollbar" id="95160">
-				<left>104</left>
+				<left>108</left>
 				<top>179</top>
-				<width>14</width>
+				<width>12</width>
 				<height>900</height>
 				<onright>50</onright>
 				<onleft>SetProperty(MediaMenu,True,Home)</onleft>
 				<onleft>SetFocus(9050)</onleft>
 				<showonepage>false</showonepage>
-				<texturesliderbackground />
-				<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
-				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
-				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(95160) + !Container.Scrolling">Conditional</animation>
+				<texturesliderbackground colordiffuse="1AFFFFFF">colors/white50.png</texturesliderbackground>
+				<texturesliderbar colordiffuse="1AFFFFFF">colors/white.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="$VAR[ThemeLabelColor]">colors/white.png</texturesliderbarfocus>
+				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(95160)">Conditional</animation>
 			</control>
 		</control>
 	</include>
@@ -429,16 +421,6 @@
 			<include>ViewAnimation</include>
 			<top>-65</top>
 			<control type="image">
-				<description>background image</description>
-				<left>140</left>
-				<top>1080</top>
-				<width>1640</width>
-				<height>964</height>
-				<texture border="40">panel_reflect.png</texture>
-				<visible>!Skin.HasSetting(Enable.AlternateInfowall)</visible>
-			</control>
-			<control type="image">
-				<description>background image</description>
 				<left>140</left>
 				<top>148</top>
 				<width>1640</width>
@@ -597,9 +579,9 @@
 				</focusedlayout>
 			</control>
 			<control type="scrollbar" id="95160">
-				<left>154</left>
+				<left>156</left>
 				<top>179</top>
-				<width>14</width>
+				<width>12</width>
 				<height>900</height>
 				<onright>50</onright>
 				<onleft>SetProperty(MediaMenu,True,Home)</onleft>
@@ -607,10 +589,10 @@
 				<ondown>95160</ondown>
 				<onup>95160</onup>
 				<showonepage>false</showonepage>
-				<texturesliderbackground />
-				<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
-				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
-				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(95160) + !Container.Scrolling">Conditional</animation>
+				<texturesliderbackground colordiffuse="1AFFFFFF">colors/white50.png</texturesliderbackground>
+				<texturesliderbar colordiffuse="1AFFFFFF">colors/white.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="$VAR[ThemeLabelColor]">colors/white.png</texturesliderbarfocus>
+				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(95160)">Conditional</animation>
 			</control>
 			<control type="group">
 				<left>1070</left>
@@ -676,9 +658,9 @@
 					<include>DefaultButtonsValues</include>
 				</control>
 				<control type="scrollbar" id="95161">
-					<left>677</left>
+					<left>680</left>
 					<top>555</top>
-					<width>14</width>
+					<width>12</width>
 					<height>342</height>
 					<onleft>50</onleft>
 					<onright>SetProperty(MediaMenu,True,Home)</onright>
@@ -686,9 +668,9 @@
 					<ondown>95161</ondown>
 					<onup>95161</onup>
 					<showonepage>false</showonepage>
-					<texturesliderbackground />
-					<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
-					<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
+					<texturesliderbackground colordiffuse="1AFFFFFF">colors/white50.png</texturesliderbackground>
+					<texturesliderbar colordiffuse="1AFFFFFF">colors/white.png</texturesliderbar>
+					<texturesliderbarfocus colordiffuse="$VAR[ThemeLabelColor]">colors/white.png</texturesliderbarfocus>
 				</control>
 			</control>
 		</control>
@@ -700,15 +682,6 @@
 			<include>ViewAnimation</include>
 			<top>-65</top>
 			<control type="image">
-				<description>background image</description>
-				<left>140</left>
-				<top>1080</top>
-				<width>1640</width>
-				<height>964</height>
-				<texture border="40">panel_reflect.png</texture>
-			</control>
-			<control type="image">
-				<description>background image</description>
 				<left>140</left>
 				<top>148</top>
 				<width>1640</width>
@@ -778,18 +751,18 @@
 				</focusedlayout>
 			</control>
 			<control type="scrollbar" id="95160">
-				<left>154</left>
+				<left>156</left>
 				<top>179</top>
-				<width>14</width>
+				<width>12</width>
 				<height>900</height>
 				<onright>50</onright>
 				<onleft>SetProperty(MediaMenu,True,Home)</onleft>
 				<onleft>SetFocus(9050)</onleft>
 				<showonepage>false</showonepage>
-				<texturesliderbackground />
-				<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
-				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
-				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(95160) + !Container.Scrolling">Conditional</animation>
+				<texturesliderbackground colordiffuse="1AFFFFFF">colors/white50.png</texturesliderbackground>
+				<texturesliderbar colordiffuse="1AFFFFFF">colors/white.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="$VAR[ThemeLabelColor]">colors/white.png</texturesliderbarfocus>
+				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(95160)">Conditional</animation>
 			</control>
 			<control type="group">
 				<left>1070</left>
@@ -855,9 +828,9 @@
 					<include>DefaultButtonsValues</include>
 				</control>
 				<control type="scrollbar" id="95161">
-					<left>677</left>
+					<left>680</left>
 					<top>555</top>
-					<width>14</width>
+					<width>12</width>
 					<height>342</height>
 					<onleft>50</onleft>
 					<onright>SetProperty(MediaMenu,True,Home)</onright>
@@ -865,9 +838,9 @@
 					<ondown>95161</ondown>
 					<onup>95161</onup>
 					<showonepage>false</showonepage>
-					<texturesliderbackground />
-					<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
-					<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
+					<texturesliderbackground colordiffuse="1AFFFFFF">colors/white50.png</texturesliderbackground>
+					<texturesliderbar colordiffuse="1AFFFFFF">colors/white.png</texturesliderbar>
+					<texturesliderbarfocus colordiffuse="$VAR[ThemeLabelColor]">colors/white.png</texturesliderbarfocus>
 				</control>
 			</control>
 		</control>

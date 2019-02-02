@@ -1,58 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<coordinates>
-		<left>560</left>
-		<top>30</top>
-	</coordinates>
-	<zorder>10</zorder>
-	<include>DialogPopupAnimation</include>
+	<animation type="WindowOpen" reversible="false">
+		<effect type="slide" start="0,-138" tween="cubic" easing="inout" time="720" />
+	</animation>
+	<animation type="WindowClose" reversible="false">
+		<effect type="slide" end="0,-138" tween="cubic" easing="inout" time="720" />
+	</animation>
 	<controls>
 		<control type="group">
-			<visible>!Window.IsActive(fullscreenvideo) + !Window.IsActive(visualisation) + !Window.IsActive(startup)</visible>
+			<visible>!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(visualisation) + !Window.IsActive(startup) + !Window.IsVisible(DialogVolumeBar.xml)</visible>
+			<animation type="Visible" reversible="false">
+				<effect type="slide" start="0,-138" tween="cubic" easing="inout" time="720" />
+			</animation>
+			<animation type="Hidden" reversible="false">
+				<effect type="slide" end="0,-138" tween="cubic" easing="inout" time="720" />
+			</animation>
+			<width>110%</width>
 			<control type="image">
-				<description>background image</description>
-				<width>800</width>
-				<height>166</height>
+				<left>-5%</left>
+				<top>-40</top>
+				<width>110%</width>
+				<height>138</height>
+				<align>center</align>
 				<texture border="40">dialogs/default/bg.png</texture>
 			</control>
-			<control type="image">
-				<left>30</left>
-				<top>32</top>
-				<width>740</width>
-				<height>102</height>
-				<texture border="5">dialogs/default/inner.png</texture>
-			</control>
 			<control type="progress" id="32">
-				<description>progress control</description>
-				<left>32</left>
-				<top>33</top>
-				<width>738</width>
-				<height>88</height>
-				<texturebg border="2">osd/texturebg2.png</texturebg>
+				<width>100%</width>
+				<height>72</height>
 				<lefttexture />
-				<midtexture colordiffuse="$VAR[ThemeLabelColor]" border="2">osd/midtexture.png</midtexture>
 				<righttexture />
 				<overlaytexture />
+				<texturebg border="2">osd/texturebg2.png</texturebg>
+				<midtexture colordiffuse="$VAR[ThemeLabelColor]">osd/midtexture.png</midtexture>
 				<colordiffuse>44FFFFFF</colordiffuse>
 			</control>
 			<control type="label">
-				<description>Header Label</description>
-				<top>32</top>
-				<width>800</width>
-				<height>50</height>
-				<font>font13</font>
+				<left>20</left>
+				<top>1</top>
+				<width>1880</width>
+				<height>36</height>
+				<font>font24_title</font>
 				<textcolor>grey</textcolor>
-				<textoffsetx>50</textoffsetx>
+				<align>center</align>
 				<label>$INFO[Control.GetLabel(30)]$INFO[Control.GetLabel(32),: ,%]</label>
 			</control>
 			<control type="label" id="31">
-				<description>Title Label</description>
-				<top>82</top>
-				<width>800</width>
-				<height>50</height>
-				<font>font13</font>
-				<textcolor>white</textcolor>
-				<textoffsetx>50</textoffsetx>
+				<left>20</left>
+				<top>38</top>
+				<width>1880</width>
+				<height>35</height>
+				<font>font15_title</font>
+				<align>center</align>
 			</control>
 			<control type="label" id="30">
 				<description>Header Label</description>

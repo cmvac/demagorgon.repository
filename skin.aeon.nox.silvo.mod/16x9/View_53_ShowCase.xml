@@ -18,8 +18,7 @@
 		<onleft>53</onleft>
 		<onright>53</onright>
 		<onup condition="!ListItem.IsParentFolder">4401</onup>
-		<onup condition="String.IsEmpty(ListItem.Title)">SetProperty(MediaMenu,True,Home)</onup>
-		<onup condition="String.IsEmpty(ListItem.Title)">SetFocus(9050)</onup>
+		<onup condition="ListItem.IsCollection">62</onup>
 		<ondown condition="Control.IsVisible(95360)">95360</ondown>
 		<ondown condition="!Control.IsVisible(95360)">4400</ondown>
 		<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos) | Container.Content(seasons) | Container.Content(genres) | Container.Content(sets)</visible>
@@ -36,11 +35,11 @@
 				<top>30</top>
 				<animation effect="fade" time="0" delay="800">Visible</animation>
 				<control type="image">
-					<texture background="true" fallback="$VAR[CaseBackPathVar]p.png">$VAR[CaseBackPathVar]$VAR[GlobalCaseVar]</texture>
+					<texture background="true">$VAR[CaseBackPathVar]$VAR[GlobalCaseVar]</texture>
 					<include>MovieShowcaseNoCase</include>
 				</control>
 				<control type="image">
-					<texture background="true" fallback="$VAR[CaseBackPathVar]p.png">$VAR[CaseBackPathVar]$VAR[GlobalCaseVar]</texture>
+					<texture background="true">$VAR[CaseBackPathVar]$VAR[GlobalCaseVar]</texture>
 					<include>MovieShowcaseNoCaseClear</include>
 				</control>
 				<control type="image">
@@ -52,7 +51,7 @@
 					<include>MovieShowcaseThumbReflection</include>
 				</control>
 				<control type="image">
-					<texture background="true" fallback="$VAR[CaseTypePathVar]p.png">$VAR[CaseTypePathVar]$VAR[GlobalCaseVar]</texture>
+					<texture background="true">$VAR[CaseTypePathVar]$VAR[GlobalCaseVar]</texture>
 					<include>MovieShowcaseCase</include>
 					<visible>![ListItem.IsCollection + Skin.HasSetting(Disable.ShowCaseSetCases)]</visible>
 				</control>
@@ -75,16 +74,16 @@
 				<control type="group">
 					<visible>Control.IsVisible(7000)</visible>
 					<control type="image">
-						<texture background="true" fallback="$VAR[CaseBackPathVar]p.png">$VAR[CaseBackPathVar]$VAR[GlobalCaseVar]</texture>
+						<texture background="true">$VAR[CaseBackPathVar]$VAR[GlobalCaseVar]</texture>
 						<include>MovieShowcaseCase</include>
 						<visible>![ListItem.IsCollection + Skin.HasSetting(Disable.ShowCaseSetCases)]</visible>
 					</control>
 					<control type="image">
-						<texture background="true" fallback="$VAR[CaseBackPathVar]p.png">$VAR[CaseBackPathVar]$VAR[GlobalCaseVar]</texture>
+						<texture background="true">$VAR[CaseBackPathVar]$VAR[GlobalCaseVar]</texture>
 						<include>MovieShowcaseNoCase</include>
 					</control>
 					<control type="image">
-						<texture background="true" fallback="$VAR[CaseBackPathVar]p.png">$VAR[CaseBackPathVar]$VAR[GlobalCaseVar]</texture>
+						<texture background="true">$VAR[CaseBackPathVar]$VAR[GlobalCaseVar]</texture>
 						<include>MovieShowcaseNoCaseClear</include>
 					</control>
 					<control type="image">
@@ -92,7 +91,7 @@
 						<include>MovieShowcaseThumb</include>
 					</control>
 					<control type="image">
-						<texture background="true" fallback="$VAR[CaseTypePathVar]">$VAR[CaseTypePathVar]$VAR[GlobalCaseVar]</texture>
+						<texture background="true">$VAR[CaseTypePathVar]$VAR[GlobalCaseVar]</texture>
 						<include>MovieShowcaseCase</include>
 						<visible>![ListItem.IsCollection + Skin.HasSetting(Disable.ShowCaseSetCases)]</visible>
 					</control>
@@ -110,7 +109,7 @@
 						<include>MovieShowcaseThumbReflection</include>
 					</control>
 					<control type="image">
-						<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="$VAR[CaseTypePathVar]p.png">$VAR[CaseTypePathVar]$VAR[GlobalCaseVar]</texture>
+						<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png">$VAR[CaseTypePathVar]$VAR[GlobalCaseVar]</texture>
 						<include>MovieShowcaseCaseReflection</include>
 					</control>
 				</control>
@@ -159,7 +158,7 @@
 					<animation effect="slide" end="-135,0" time="200" reversible="false">Hidden</animation>
 					<control type="group">
 						<left>15</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-7).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-7).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<visible>Container.OnNext</visible>
 						<animation effect="fade" start="100" end="0" time="200" reversible="false">Hidden</animation>
 						<animation effect="rotatey" center="-135" start="-55" end="-55" time="0" condition="true">Conditional</animation>
@@ -167,37 +166,37 @@
 					</control>
 					<control type="group">
 						<left>150</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-6).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-6).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="0" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 						<include>MovieShowCaseItem-6</include>
 					</control>
 					<control type="group">
 						<left>285</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-5).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-5).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="135" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 						<include>MovieShowCaseItem-5</include>
 					</control>
 					<control type="group">
 						<left>420</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-4).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-4).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="270" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 						<include>MovieShowCaseItem-4</include>
 					</control>
 					<control type="group">
 						<left>555</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-3).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-3).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="405" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 						<include>MovieShowCaseItem-3</include>
 					</control>
 					<control type="group">
 						<left>690</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-2).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-2).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="540" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 						<include>MovieShowCaseItem-2</include>
 					</control>
 					<control type="group">
 						<left>1635</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(6).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(6).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<visible>!Container.OnNext</visible>
 						<animation effect="fade" end="100" time="200" reversible="false">Visible</animation>
 						<animation effect="rotatey" center="2100" start="55" end="55" time="0" condition="true">Conditional</animation>
@@ -205,31 +204,31 @@
 					</control>
 					<control type="group">
 						<left>1500</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(5).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(5).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="1965" start="55" end="55" time="0" condition="true">Conditional</animation>
 						<include>MovieShowCaseItem5</include>
 					</control>
 					<control type="group">
 						<left>1365</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(4).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(4).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="1830" start="55" end="55" time="0" condition="true">Conditional</animation>
 						<include>MovieShowCaseItem4</include>
 					</control>
 					<control type="group">
 						<left>1230</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(3).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(3).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="1695" start="55" end="55" time="0" condition="true">Conditional</animation>
 						<include>MovieShowCaseItem3</include>
 					</control>
 					<control type="group">
 						<left>1095</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(2).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(2).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="1560" start="55" end="55" time="0" condition="true">Conditional</animation>
 						<include>MovieShowCaseItem2</include>
 					</control>
 					<control type="group">
 						<left>960</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(1).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(1).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="1425" start="55" end="55" time="0" condition="true">Conditional</animation>
 						<include>MovieShowCaseItem1</include>
 					</control>
@@ -239,23 +238,23 @@
 						<control type="group">
 							<left>825</left>
 							<visible>Container.OnNext</visible>
-							<visible>!String.IsEmpty(Container(53).ListItemNoWrap(0).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+							<visible>!String.IsEmpty(Container(53).ListItemNoWrap(0).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 							<animation effect="rotatey" center="1290" end="-55" time="200" reversible="false" tween="quadratic" easing="in">Hidden</animation>
 							<animation effect="rotatey" center="1290" start="55" end="55" time="0" condition="true">Conditional</animation>
 							<include>MovieShowCaseItem0</include>
 						</control>
 						<control type="group">
 							<left>758</left>
-							<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-1).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+							<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-1).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 							<visible>Container.OnNext</visible>
 							<animation effect="rotatey" center="608" end="-55" time="200" reversible="false" tween="quadratic">Hidden</animation>
 							<control type="image">
-								<texture background="true" fallback="$VAR[CaseBackPathVar]p.png">$VAR[CaseBackPathVar]$VAR[ShowcaseRes-1Var]</texture>
+								<texture background="true">$VAR[CaseBackPathVar]$VAR[ShowcaseRes-1Var]</texture>
 								<include>MovieShowcaseNoCase</include>
 								<visible>!String.IsEmpty(ListItem(-1).Title)</visible>
 							</control>
 							<control type="image">
-								<texture background="true" fallback="$VAR[CaseBackPathVar]p.png">$VAR[CaseBackPathVar]$VAR[ShowcaseRes-1Var]</texture>
+								<texture background="true">$VAR[CaseBackPathVar]$VAR[ShowcaseRes-1Var]</texture>
 								<include>MovieShowcaseNoCaseClear</include>
 								<visible>!String.IsEmpty(ListItem(-1).Title)</visible>
 							</control>
@@ -264,7 +263,7 @@
 								<include>MovieShowcaseThumb</include>
 							</control>
 							<control type="image">
-								<texture background="true" fallback="$VAR[CaseTypePathVar]p.png">$VAR[CaseTypePathVar]$VAR[ShowcaseRes-1Var]</texture>
+								<texture background="true">$VAR[CaseTypePathVar]$VAR[ShowcaseRes-1Var]</texture>
 								<include>MovieShowcaseCase</include>
 								<visible>!String.IsEmpty(ListItem(-1).Title) + ![ListItem(-1).IsCollection + Skin.HasSetting(Disable.ShowCaseSetCases)]</visible>
 							</control>
@@ -283,7 +282,7 @@
 								<include>MovieShowcaseThumbReflection</include>
 							</control>
 							<control type="image">
-								<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="$VAR[CaseTypePathVar]p.png">$VAR[CaseTypePathVar]$VAR[ShowcaseRes-1Var]p.png</texture>
+								<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png">$VAR[CaseTypePathVar]$VAR[ShowcaseRes-1Var]p.png</texture>
 								<include>MovieShowcaseCaseReflection</include>
 							</control>
 						</control>
@@ -294,7 +293,7 @@
 					<animation effect="slide" end="135,0" time="200" reversible="false">Hidden</animation>
 					<control type="group">
 						<left>1500</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(7).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(7).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<visible>Container.OnPrevious</visible>
 						<animation effect="fade" start="100" end="0" time="200" reversible="false">Hidden</animation>
 						<animation effect="rotatey" center="1965" start="55" end="55" time="0" condition="true">Conditional</animation>
@@ -302,37 +301,37 @@
 					</control>
 					<control type="group">
 						<left>1365</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(6).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(6).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="1830" start="55" end="55" time="0" condition="true">Conditional</animation>
 						<include>MovieShowCaseItem6</include>
 					</control>
 					<control type="group">
 						<left>1230</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(5).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(5).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="1695" start="55" end="55" time="0" condition="true">Conditional</animation>
 						<include>MovieShowCaseItem5</include>
 					</control>
 					<control type="group">
 						<left>1095</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(4).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(4).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="1560" start="55" end="55" time="0" condition="true">Conditional</animation>
 						<include>MovieShowCaseItem4</include>
 					</control>
 					<control type="group">
 						<left>960</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(3).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(3).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="1425" start="55" end="55" time="0" condition="true">Conditional</animation>
 						<include>MovieShowCaseItem3</include>
 					</control>
 					<control type="group">
 						<left>825</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(2).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(2).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="1290" start="55" end="55" time="0" condition="true">Conditional</animation>
 						<include>MovieShowCaseItem2</include>
 					</control>
 					<control type="group">
 						<left>-120</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-6).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-6).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<visible>!Container.OnPrevious</visible>
 						<animation effect="fade" end="100" time="200" reversible="false">Visible</animation>
 						<animation effect="rotatey" center="-270" start="-55" end="-55" time="0" condition="true">Conditional</animation>
@@ -340,31 +339,31 @@
 					</control>
 					<control type="group">
 						<left>15</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-5).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-5).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="-135" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 						<include>MovieShowCaseItem-5</include>
 					</control>
 					<control type="group">
 						<left>150</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-4).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-4).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="0" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 						<include>MovieShowCaseItem-4</include>
 					</control>
 					<control type="group">
 						<left>285</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-3).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-3).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="135" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 						<include>MovieShowCaseItem-3</include>
 					</control>
 					<control type="group">
 						<left>420</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-2).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-2).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="270" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 						<include>MovieShowCaseItem-2</include>
 					</control>
 					<control type="group">
 						<left>555</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-1).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-1).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="405" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 						<include>MovieShowCaseItem-1</include>
 					</control>
@@ -374,23 +373,23 @@
 						<control type="group">
 							<left>690</left>
 							<visible>Container.OnPrevious</visible>
-							<visible>!String.IsEmpty(Container(53).ListItemNoWrap(0).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+							<visible>!String.IsEmpty(Container(53).ListItemNoWrap(0).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 							<animation effect="rotatey" center="540" end="55" time="200" reversible="false" tween="quadratic" easing="in">Hidden</animation>
 							<animation effect="rotatey" center="540" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 							<include>MovieShowCaseItem0</include>
 						</control>
 						<control type="group">
 							<left>758</left>
-							<visible>!String.IsEmpty(Container(53).ListItemNoWrap(1).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+							<visible>!String.IsEmpty(Container(53).ListItemNoWrap(1).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 							<visible>Container.OnPrevious</visible>
 							<animation effect="rotatey" center="1223" end="55" time="200" reversible="false" tween="quadratic">Hidden</animation>
 							<control type="image">
-								<texture background="true" fallback="$VAR[CaseBackPathVar]p.png">$VAR[CaseBackPathVar]$VAR[ShowcaseRes1Var]</texture>
+								<texture background="true">$VAR[CaseBackPathVar]$VAR[ShowcaseRes1Var]</texture>
 								<include>MovieShowcaseNoCase</include>
 								<visible>!String.IsEmpty(ListItem(1).Title)</visible>
 							</control>
 							<control type="image">
-								<texture background="true" fallback="$VAR[CaseBackPathVar]p.png">$VAR[CaseBackPathVar]$VAR[ShowcaseRes1Var]</texture>
+								<texture background="true">$VAR[CaseBackPathVar]$VAR[ShowcaseRes1Var]</texture>
 								<include>MovieShowcaseNoCaseClear</include>
 								<visible>!String.IsEmpty(ListItem(1).Title)</visible>
 							</control>
@@ -399,7 +398,7 @@
 								<include>MovieShowcaseThumb</include>
 							</control>
 							<control type="image">
-								<texture background="true" fallback="$VAR[CaseTypePathVar]p.png">$VAR[CaseTypePathVar]$VAR[ShowcaseRes1Var]</texture>
+								<texture background="true">$VAR[CaseTypePathVar]$VAR[ShowcaseRes1Var]</texture>
 								<include>MovieShowcaseCase</include>
 								<visible>!String.IsEmpty(ListItem(1).Title) + ![ListItem(1).IsCollection + Skin.HasSetting(Disable.ShowCaseSetCases)]</visible>
 							</control>
@@ -417,7 +416,7 @@
 								<include>MovieShowcaseThumbReflection</include>
 							</control>
 							<control type="image">
-								<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="$VAR[CaseTypePathVar]p.png">$VAR[CaseTypePathVar]$VAR[ShowcaseRes1Var]p.png</texture>
+								<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png">$VAR[CaseTypePathVar]$VAR[ShowcaseRes1Var]p.png</texture>
 								<include>MovieShowcaseCaseReflection</include>
 							</control>
 						</control>
@@ -427,7 +426,7 @@
 					<visible>!Control.IsVisible(6001) + !Control.IsVisible(6002) + !Skin.HasSetting(noshowcaseflow)</visible>
 					<control type="group">
 						<left>15</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-6).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-6).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="-135" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 						<animation type="Conditional" condition="Skin.HasSetting(noshowcaseflow)">
 							<effect type="rotatey" center="-135" end="55" time="640" tween="cubic" easing="inout" />
@@ -437,7 +436,7 @@
 					</control>
 					<control type="group">
 						<left>150</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-5).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-5).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="0" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 						<animation type="Conditional" condition="Skin.HasSetting(noshowcaseflow)">
 							<effect type="rotatey" center="0" end="55" time="640" tween="cubic" easing="inout" />
@@ -447,7 +446,7 @@
 					</control>
 					<control type="group">
 						<left>285</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-4).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-4).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="135" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 						<animation type="Conditional" condition="Skin.HasSetting(noshowcaseflow)">
 							<effect type="rotatey" center="135" end="55" time="640" tween="cubic" easing="inout" />
@@ -457,7 +456,7 @@
 					</control>
 					<control type="group">
 						<left>420</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-3).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-3).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="270" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 						<animation type="Conditional" condition="Skin.HasSetting(noshowcaseflow)">
 							<effect type="rotatey" center="270" end="55" time="640" tween="cubic" easing="inout" />
@@ -467,7 +466,7 @@
 					</control>
 					<control type="group">
 						<left>555</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-2).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-2).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="405" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 						<animation type="Conditional" condition="Skin.HasSetting(noshowcaseflow)">
 							<effect type="rotatey" center="405" end="55" time="640" tween="cubic" easing="inout" />
@@ -477,7 +476,7 @@
 					</control>
 					<control type="group">
 						<left>690</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-1).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(-1).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="540" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 						<animation type="Conditional" condition="Skin.HasSetting(noshowcaseflow)">
 							<effect type="rotatey" center="540" end="55" time="640" tween="cubic" easing="inout" />
@@ -487,7 +486,7 @@
 					</control>
 					<control type="group">
 						<left>1500</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(6).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(6).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="1965" start="55" end="55" time="0" condition="true">Conditional</animation>
 						<animation type="Conditional" condition="Skin.HasSetting(noshowcaseflow)">
 							<effect type="rotatey" center="1965" end="-55" time="640" tween="cubic" easing="inout" />
@@ -497,7 +496,7 @@
 					</control>
 					<control type="group">
 						<left>1365</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(5).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(5).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="1830" start="55" end="55" time="0" condition="true">Conditional</animation>
 						<animation type="Conditional" condition="Skin.HasSetting(noshowcaseflow)">
 							<effect type="rotatey" center="1830" end="-55" time="640" tween="cubic" easing="inout" />
@@ -507,7 +506,7 @@
 					</control>
 					<control type="group">
 						<left>1230</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(4).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(4).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="1695" start="55" end="55" time="0" condition="true">Conditional</animation>
 						<animation type="Conditional" condition="Skin.HasSetting(noshowcaseflow)">
 							<effect type="rotatey" center="1695" end="-55" time="640" tween="cubic" easing="inout" />
@@ -517,7 +516,7 @@
 					</control>
 					<control type="group">
 						<left>1095</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(3).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(3).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="1560" start="55" end="55" time="0" condition="true">Conditional</animation>
 						<animation type="Conditional" condition="Skin.HasSetting(noshowcaseflow)">
 							<effect type="rotatey" center="1560" end="-55" time="640" tween="cubic" easing="inout" />
@@ -527,7 +526,7 @@
 					</control>
 					<control type="group">
 						<left>960</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(2).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(2).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="1425" start="55" end="55" time="0" condition="true">Conditional</animation>
 						<animation type="Conditional" condition="Skin.HasSetting(noshowcaseflow)">
 							<effect type="rotatey" center="1425" end="-55" time="640" tween="cubic" easing="inout" />
@@ -537,7 +536,7 @@
 					</control>
 					<control type="group">
 						<left>825</left>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(1).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(1).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<animation effect="rotatey" center="1290" start="55" end="55" time="0" condition="true">Conditional</animation>
 						<animation type="Conditional" condition="Skin.HasSetting(noshowcaseflow)">
 							<effect type="rotatey" center="1290" end="-55" time="640" tween="cubic" easing="inout" />
@@ -549,7 +548,7 @@
 						<left>758</left>
 						<!-- Workaround for camera bug. As soon as the camera tag is applied to the group, label will be invisible -->
 						<animation effect="rotatey" center="0" start="1" end="1" time="0" condition="Skin.HasSetting(Disable.UnwatchedIcon) + [Container.Content(tvshows) | Container.Content(seasons)]">Conditional</animation>
-						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(0).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+						<visible>!String.IsEmpty(Container(53).ListItemNoWrap(0).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 						<include>MovieShowCaseItem0</include>
 					</control>
 				</control>
@@ -561,26 +560,8 @@
 					</control>
 				</control>
 			</control>
-			<include condition="Skin.HasSetting(HorizontalListNav)">scmfixed</include>
-			<include condition="!Skin.HasSetting(HorizontalListNav)">scmwrap</include>
-			<control type="scrollbar" id="95360">
-				<left>110</left>
-				<top>988</top>
-				<width>1680</width>
-				<height>10</height>
-				<onup>53</onup>
-				<ondown condition="Integer.IsGreaterOrEqual(Container(53).NumPages,10) + [String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556])]">615</ondown>
-				<ondown condition="![Integer.IsGreaterOrEqual(Container(53).NumPages,10) + [String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556])]]">4400</ondown>
-				<texturesliderbackground />
-				<texturesliderbar>listselect_fo.png</texturesliderbar>
-				<texturesliderbarfocus>listselect_fo.png</texturesliderbarfocus>
-				<textureslidernib />
-				<textureslidernibfocus />
-				<showonepage>false</showonepage>
-				<orientation>horizontal</orientation>
-				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(95360) + !Container.Scrolling">Conditional</animation>
-				<animation effect="zoom" start="100,100" end="100,200" center="auto" tween="sine" easing="inout" time="500" pulse="true" condition="Control.HasFocus(95360)">Conditional</animation>
-			</control>
+			<include condition="Skin.HasSetting(ShowCaseWrapList)">scmfixed</include>
+			<include condition="!Skin.HasSetting(ShowCaseWrapList)">scmwrap</include>
 			<control type="group">
 				<left>813</left>
 				<top>570</top>
@@ -656,12 +637,12 @@
 		<param name="ShowcaseResVar" />
 		<definition>
 			<control type="image">
-				<texture background="true" fallback="$VAR[CaseBackPathVar]p.png">$VAR[CaseBackPathVar]$PARAM[ShowcaseResVar]</texture>
+				<texture background="true">$VAR[CaseBackPathVar]$PARAM[ShowcaseResVar]</texture>
 				<include>MovieShowcaseNoCase</include>
 				<visible>!String.IsEmpty(ListItem($PARAM[ListItem.Position]).Title)</visible>
 			</control>
 			<control type="image">
-				<texture background="true" fallback="$VAR[CaseBackPathVar]p.png">$VAR[CaseBackPathVar]$PARAM[ShowcaseResVar]</texture>
+				<texture background="true">$VAR[CaseBackPathVar]$PARAM[ShowcaseResVar]</texture>
 				<include>MovieShowcaseNoCaseClear</include>
 				<visible>!String.IsEmpty(ListItem($PARAM[ListItem.Position]).Title)</visible>
 			</control>
@@ -670,7 +651,7 @@
 				<include>MovieShowcaseThumb</include>
 			</control>
 			<control type="image">
-				<texture background="true" fallback="$VAR[CaseTypePathVar]p.png">$VAR[CaseTypePathVar]$PARAM[ShowcaseResVar]</texture>
+				<texture background="true">$VAR[CaseTypePathVar]$PARAM[ShowcaseResVar]</texture>
 				<include>MovieShowcaseCase</include>
 				<visible>![ListItem($PARAM[ListItem.Position]).IsCollection + Skin.HasSetting(Disable.ShowCaseSetCases)] + !String.IsEmpty(ListItem($PARAM[ListItem.Position]).Title)</visible>
 			</control>
@@ -679,7 +660,7 @@
 				<include>MovieShowcaseThumbReflection</include>
 			</control>
 			<control type="image">
-				<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="$VAR[CaseTypePathVar]p.png">$VAR[CaseTypePathVar]$PARAM[ShowcaseResVar]</texture>
+				<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png">$VAR[CaseTypePathVar]$PARAM[ShowcaseResVar]</texture>
 				<include>MovieShowcaseCaseReflection</include>
 				<visible>!String.IsEmpty(ListItem($PARAM[ListItem.Position]).Title)</visible>
 			</control>
@@ -760,20 +741,20 @@
 				<include>OpenCaseAnimation</include>
 			</control>
 			<control type="image">
-				<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="$VAR[CaseTypePathVar]p.png">$VAR[CaseTypePathVar]$VAR[GlobalCaseVar]</texture>
+				<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png">$VAR[CaseTypePathVar]$VAR[GlobalCaseVar]</texture>
 				<include>MovieShowcaseCaseReflection</include>
 				<include>OpenCaseAnimation</include>
 			</control>
 			<control type="image">
-				<texture background="true" fallback="$VAR[CaseBackPathVar]p.png">$VAR[CaseBackPathVar]$VAR[GlobalCaseVar]</texture>
+				<texture background="true">$VAR[CaseBackPathVar]$VAR[GlobalCaseVar]</texture>
 				<include>MovieShowcaseNoCase</include>
 			</control>
 			<control type="image">
-				<texture background="true" fallback="$VAR[CaseBackPathVar]p.png">$VAR[CaseBackPathVar]$VAR[GlobalCaseVar]</texture>
+				<texture background="true">$VAR[CaseBackPathVar]$VAR[GlobalCaseVar]</texture>
 				<include>MovieShowcaseNoCaseClear</include>
 			</control>
 			<control type="image">
-				<texture background="true" fallback="$VAR[CaseTypePathVar]p.png">$VAR[CaseBackPathVar]$VAR[GlobalCaseVar]</texture>
+				<texture background="true">$VAR[CaseBackPathVar]$VAR[GlobalCaseVar]</texture>
 				<include>MovieShowcaseCase</include>
 				<visible>![ListItem.IsCollection + Skin.HasSetting(Disable.ShowCaseSetCases)]</visible>
 			</control>
@@ -810,7 +791,7 @@
 					<include>MovieShowcaseThumb</include>
 				</control>
 				<control type="image">
-					<texture background="true" fallback="$VAR[CaseTypePathVar]p.png">$VAR[CaseTypePathVar]$VAR[GlobalCaseVar]</texture>
+					<texture background="true">$VAR[CaseTypePathVar]$VAR[GlobalCaseVar]</texture>
 					<include>MovieShowcaseCase</include>
 				<visible>![ListItem.IsCollection + Skin.HasSetting(Disable.ShowCaseSetCases)]</visible>
 				</control>
@@ -1016,186 +997,197 @@
 	</variable>
 	<variable name="ShowcaseRes-7Var">
 		<value condition="Container.Content(tvshows) | Container.Content(seasons)">tvseries.png</value>
-		<value condition="String.Contains(ListItem(-7).Filename,3d) | String.Contains(ListItem(-7).Filename,3dbd)">3d.png</value>
+		<value condition="ListItem(-7).IsCollection">set.png</value>
+		<value condition="ListItem(-7).IsStereoscopic">3d.png</value>
 		<value condition="String.Contains(ListItem(-7).Filename,hddvd)">hddvd.png</value>
-		<value condition="String.Contains(ListItem(-7).Filename,hdtv) | String.Contains(ListItem(-7).Filename,hd tv)">hdtv.png</value>
+		<value condition="String.Contains(ListItem(-7).Filename,hdtv)">hdtv.png</value>
 		<value condition="String.Contains(ListItem(-7).Filename,webdl) | String.Contains(ListItem(-7).Filename,web-dl)">webdl.png</value>
-		<value condition="String.Contains(ListItem(-7).Filename,screener)">screener.png</value>
 		<value condition="!String.IsEmpty(ListItem(-7).VideoResolution)">$INFO[ListItem(-7).VideoResolution]p.png</value>
-		<value condition="ListItem(-7).IsCollection">p.png</value>
+		<value>trailer.png</value>
 	</variable>
 	<variable name="ShowcaseRes-6Var">
 		<value condition="Container.Content(tvshows) | Container.Content(seasons)">tvseries.png</value>
-		<value condition="String.Contains(ListItem(-6).Filename,3d) | String.Contains(ListItem(-6).Filename,3dbd)">3d.png</value>
+		<value condition="ListItem(-6).IsCollection">set.png</value>
+		<value condition="ListItem(-6).IsStereoscopic">3d.png</value>
 		<value condition="String.Contains(ListItem(-6).Filename,hddvd)">hddvd.png</value>
-		<value condition="String.Contains(ListItem(-6).Filename,hdtv) | String.Contains(ListItem(-6).Filename,hd tv)">hdtv.png</value>
+		<value condition="String.Contains(ListItem(-6).Filename,hdtv)">hdtv.png</value>
 		<value condition="String.Contains(ListItem(-6).Filename,webdl) | String.Contains(ListItem(-6).Filename,web-dl)">webdl.png</value>
-		<value condition="String.Contains(ListItem(-6).Filename,screener)">screener.png</value>
 		<value condition="!String.IsEmpty(ListItem(-6).VideoResolution)">$INFO[ListItem(-6).VideoResolution]p.png</value>
-		<value condition="ListItem(-6).IsCollection">p.png</value>
+		<value>trailer.png</value>
 	</variable>
 	<variable name="ShowcaseRes-5Var">
 		<value condition="Container.Content(tvshows) | Container.Content(seasons)">tvseries.png</value>
-		<value condition="String.Contains(ListItem(-5).Filename,3d) | String.Contains(ListItem(-5).Filename,3dbd)">3d.png</value>
+		<value condition="ListItem(-5).IsCollection">set.png</value>
+		<value condition="ListItem(-5).IsStereoscopic">3d.png</value>
 		<value condition="String.Contains(ListItem(-5).Filename,hddvd)">hddvd.png</value>
-		<value condition="String.Contains(ListItem(-5).Filename,hdtv) | String.Contains(ListItem(-5).Filename,hd tv)">hdtv.png</value>
+		<value condition="String.Contains(ListItem(-5).Filename,hdtv)">hdtv.png</value>
 		<value condition="String.Contains(ListItem(-5).Filename,webdl) | String.Contains(ListItem(-5).Filename,web-dl)">webdl.png</value>
-		<value condition="String.Contains(ListItem(-5).Filename,screener)">screener.png</value>
 		<value condition="!String.IsEmpty(ListItem(-5).VideoResolution)">$INFO[ListItem(-5).VideoResolution]p.png</value>
-		<value condition="ListItem(-5).IsCollection">p.png</value>
+		<value>trailer.png</value>
 	</variable>
 	<variable name="ShowcaseRes-4Var">
 		<value condition="Container.Content(tvshows) | Container.Content(seasons)">tvseries.png</value>
-		<value condition="String.Contains(ListItem(-4).Filename,3d) | String.Contains(ListItem(-4).Filename,3dbd)">3d.png</value>
+		<value condition="ListItem(-4).IsCollection">set.png</value>
+		<value condition="ListItem(-4).IsStereoscopic">3d.png</value>
 		<value condition="String.Contains(ListItem(-4).Filename,hddvd)">hddvd.png</value>
-		<value condition="String.Contains(ListItem(-4).Filename,hdtv) | String.Contains(ListItem(-4).Filename,hd tv)">hdtv.png</value>
+		<value condition="String.Contains(ListItem(-4).Filename,hdtv)">hdtv.png</value>
 		<value condition="String.Contains(ListItem(-4).Filename,webdl) | String.Contains(ListItem(-4).Filename,web-dl)">webdl.png</value>
-		<value condition="String.Contains(ListItem(-4).Filename,screener)">screener.png</value>
 		<value condition="!String.IsEmpty(ListItem(-4).VideoResolution)">$INFO[ListItem(-4).VideoResolution]p.png</value>
-		<value condition="ListItem(-4).IsCollection">p.png</value>
+		<value>trailer.png</value>
 	</variable>
 	<variable name="ShowcaseRes-3Var">
 		<value condition="Container.Content(tvshows) | Container.Content(seasons)">tvseries.png</value>
-		<value condition="String.Contains(ListItem(-3).Filename,3d) | String.Contains(ListItem(-3).Filename,3dbd)">3d.png</value>
+		<value condition="ListItem(-3).IsCollection">set.png</value>
+		<value condition="ListItem(-3).IsStereoscopic">3d.png</value>
 		<value condition="String.Contains(ListItem(-3).Filename,hddvd)">hddvd.png</value>
-		<value condition="String.Contains(ListItem(-3).Filename,hdtv) | String.Contains(ListItem(-3).Filename,hd tv)">hdtv.png</value>
+		<value condition="String.Contains(ListItem(-3).Filename,hdtv)">hdtv.png</value>
 		<value condition="String.Contains(ListItem(-3).Filename,webdl) | String.Contains(ListItem(-3).Filename,web-dl)">webdl.png</value>
-		<value condition="String.Contains(ListItem(-3).Filename,screener)">screener.png</value>
 		<value condition="!String.IsEmpty(ListItem(-3).VideoResolution)">$INFO[ListItem(-3).VideoResolution]p.png</value>
-		<value condition="ListItem(-3).IsCollection">p.png</value>
+		<value>trailer.png</value>
 	</variable>
 	<variable name="ShowcaseRes-2Var">
 		<value condition="Container.Content(tvshows) | Container.Content(seasons)">tvseries.png</value>
-		<value condition="String.Contains(ListItem(-2).Filename,3d) | String.Contains(ListItem(-2).Filename,3dbd)">3d.png</value>
+		<value condition="ListItem(-2).IsCollection">set.png</value>
+		<value condition="ListItem(-2).IsStereoscopic">3d.png</value>
 		<value condition="String.Contains(ListItem(-2).Filename,hddvd)">hddvd.png</value>
-		<value condition="String.Contains(ListItem(-2).Filename,hdtv) | String.Contains(ListItem(-2).Filename,hd tv)">hdtv.png</value>
+		<value condition="String.Contains(ListItem(-2).Filename,hdtv)">hdtv.png</value>
 		<value condition="String.Contains(ListItem(-2).Filename,webdl) | String.Contains(ListItem(-2).Filename,web-dl)">webdl.png</value>
-		<value condition="String.Contains(ListItem(-2).Filename,screener)">screener.png</value>
 		<value condition="!String.IsEmpty(ListItem(-2).VideoResolution)">$INFO[ListItem(-2).VideoResolution]p.png</value>
-		<value condition="ListItem(-2).IsCollection">p.png</value>
+		<value>trailer.png</value>
 	</variable>
 	<variable name="ShowcaseRes-1Var">
 		<value condition="Container.Content(tvshows) | Container.Content(seasons)">tvseries.png</value>
-		<value condition="String.Contains(ListItem(-1).Filename,3d) | String.Contains(ListItem(-1).Filename,3dbd)">3d.png</value>
+		<value condition="ListItem(-1).IsCollection">set.png</value>
+		<value condition="ListItem(-1).IsStereoscopic">3d.png</value>
 		<value condition="String.Contains(ListItem(-1).Filename,hddvd)">hddvd.png</value>
-		<value condition="String.Contains(ListItem(-1).Filename,hdtv) | String.Contains(ListItem(-1).Filename,hd tv)">hdtv.png</value>
+		<value condition="String.Contains(ListItem(-1).Filename,hdtv)">hdtv.png</value>
 		<value condition="String.Contains(ListItem(-1).Filename,webdl) | String.Contains(ListItem(-1).Filename,web-dl)">webdl.png</value>
-		<value condition="String.Contains(ListItem(-1).Filename,screener)">screener.png</value>
 		<value condition="!String.IsEmpty(ListItem(-1).VideoResolution)">$INFO[ListItem(-1).VideoResolution]p.png</value>
-		<value condition="ListItem(-1).IsCollection">p.png</value>
+		<value>trailer.png</value>
 	</variable>
 	<variable name="ShowcaseRes1Var">
 		<value condition="Container.Content(tvshows) | Container.Content(seasons)">tvseries.png</value>
-		<value condition="String.Contains(ListItem(1).Filename,3d) | String.Contains(ListItem(1).Filename,3dbd)">3d.png</value>
+		<value condition="ListItem(1).IsCollection">set.png</value>
+		<value condition="ListItem(1).IsStereoscopic">3d.png</value>
 		<value condition="String.Contains(ListItem(1).Filename,hddvd)">hddvd.png</value>
-		<value condition="String.Contains(ListItem(1).Filename,hdtv) | String.Contains(ListItem(1).Filename,hd tv)">hdtv.png</value>
+		<value condition="String.Contains(ListItem(1).Filename,hdtv)">hdtv.png</value>
 		<value condition="String.Contains(ListItem(1).Filename,webdl) | String.Contains(ListItem(1).Filename,web-dl)">webdl.png</value>
-		<value condition="String.Contains(ListItem(1).Filename,screener)">screener.png</value>
 		<value condition="!String.IsEmpty(ListItem(1).VideoResolution)">$INFO[ListItem(1).VideoResolution]p.png</value>
-		<value condition="ListItem(1).IsCollection">p.png</value>
+		<value>trailer.png</value>
 	</variable>
 	<variable name="ShowcaseRes2Var">
 		<value condition="Container.Content(tvshows) | Container.Content(seasons)">tvseries.png</value>
-		<value condition="String.Contains(ListItem(2).Filename,3d) | String.Contains(ListItem(2).Filename,3dbd)">3d.png</value>
+		<value condition="ListItem(2).IsCollection">set.png</value>
+		<value condition="ListItem(2).IsStereoscopic">3d.png</value>
 		<value condition="String.Contains(ListItem(2).Filename,hddvd)">hddvd.png</value>
-		<value condition="String.Contains(ListItem(2).Filename,hdtv) | String.Contains(ListItem(2).Filename,hd tv)">hdtv.png</value>
+		<value condition="String.Contains(ListItem(2).Filename,hdtv)">hdtv.png</value>
 		<value condition="String.Contains(ListItem(2).Filename,webdl) | String.Contains(ListItem(2).Filename,web-dl)">webdl.png</value>
-		<value condition="String.Contains(ListItem(2).Filename,screener)">screener.png</value>
 		<value condition="!String.IsEmpty(ListItem(2).VideoResolution)">$INFO[ListItem(2).VideoResolution]p.png</value>
-		<value condition="ListItem(2).IsCollection">p.png</value>
+		<value>trailer.png</value>
 	</variable>
 	<variable name="ShowcaseRes3Var">
 		<value condition="Container.Content(tvshows) | Container.Content(seasons)">tvseries.png</value>
-		<value condition="String.Contains(ListItem(3).Filename,3d) | String.Contains(ListItem(3).Filename,3dbd)">3d.png</value>
+		<value condition="ListItem(3).IsCollection">set.png</value>
+		<value condition="ListItem(3).IsStereoscopic">3d.png</value>
 		<value condition="String.Contains(ListItem(3).Filename,hddvd)">hddvd.png</value>
-		<value condition="String.Contains(ListItem(3).Filename,hdtv) | String.Contains(ListItem(3).Filename,hd tv)">hdtv.png</value>
+		<value condition="String.Contains(ListItem(3).Filename,hdtv)">hdtv.png</value>
 		<value condition="String.Contains(ListItem(3).Filename,webdl) | String.Contains(ListItem(3).Filename,web-dl)">webdl.png</value>
-		<value condition="String.Contains(ListItem(3).Filename,screener)">screener.png</value>
 		<value condition="!String.IsEmpty(ListItem(3).VideoResolution)">$INFO[ListItem(3).VideoResolution]p.png</value>
-		<value condition="ListItem(3).IsCollection">p.png</value>
+		<value>trailer.png</value>
 	</variable>
 	<variable name="ShowcaseRes4Var">
 		<value condition="Container.Content(tvshows) | Container.Content(seasons)">tvseries.png</value>
-		<value condition="String.Contains(ListItem(4).Filename,3d) | String.Contains(ListItem(4).Filename,3dbd)">3d.png</value>
+		<value condition="ListItem(4).IsCollection">set.png</value>
+		<value condition="ListItem(4).IsStereoscopic">3d.png</value>
 		<value condition="String.Contains(ListItem(4).Filename,hddvd)">hddvd.png</value>
-		<value condition="String.Contains(ListItem(4).Filename,hdtv) | String.Contains(ListItem(4).Filename,hd tv)">hdtv.png</value>
+		<value condition="String.Contains(ListItem(4).Filename,hdtv)">hdtv.png</value>
 		<value condition="String.Contains(ListItem(4).Filename,webdl) | String.Contains(ListItem(4).Filename,web-dl)">webdl.png</value>
-		<value condition="String.Contains(ListItem(4).Filename,screener)">screener.png</value>
 		<value condition="!String.IsEmpty(ListItem(4).VideoResolution)">$INFO[ListItem(4).VideoResolution]p.png</value>
-		<value condition="ListItem(4).IsCollection">p.png</value>
+		<value>trailer.png</value>
 	</variable>
 	<variable name="ShowcaseRes5Var">
 		<value condition="Container.Content(tvshows) | Container.Content(seasons)">tvseries.png</value>
-		<value condition="String.Contains(ListItem(5).Filename,3d) | String.Contains(ListItem(5).Filename,3dbd)">3d.png</value>
+		<value condition="ListItem(5).IsCollection">set.png</value>
+		<value condition="ListItem(5).IsStereoscopic">3d.png</value>
 		<value condition="String.Contains(ListItem(5).Filename,hddvd)">hddvd.png</value>
-		<value condition="String.Contains(ListItem(5).Filename,hdtv) | String.Contains(ListItem(5).Filename,hd tv)">hdtv.png</value>
+		<value condition="String.Contains(ListItem(5).Filename,hdtv)">hdtv.png</value>
 		<value condition="String.Contains(ListItem(5).Filename,webdl) | String.Contains(ListItem(5).Filename,web-dl)">webdl.png</value>
-		<value condition="String.Contains(ListItem(5).Filename,screener)">screener.png</value>
 		<value condition="!String.IsEmpty(ListItem(5).VideoResolution)">$INFO[ListItem(5).VideoResolution]p.png</value>
-		<value condition="ListItem(5).IsCollection">p.png</value>
+		<value>trailer.png</value>
 	</variable>
 	<variable name="ShowcaseRes6Var">
 		<value condition="Container.Content(tvshows) | Container.Content(seasons)">tvseries.png</value>
-		<value condition="String.Contains(ListItem(6).Filename,3d) | String.Contains(ListItem(6).Filename,3dbd)">3d.png</value>
+		<value condition="ListItem(6).IsCollection">set.png</value>
+		<value condition="ListItem(6).IsStereoscopic">3d.png</value>
 		<value condition="String.Contains(ListItem(6).Filename,hddvd)">hddvd.png</value>
-		<value condition="String.Contains(ListItem(6).Filename,hdtv) | String.Contains(ListItem(6).Filename,hd tv)">hdtv.png</value>
+		<value condition="String.Contains(ListItem(6).Filename,hdtv)">hdtv.png</value>
 		<value condition="String.Contains(ListItem(6).Filename,webdl) | String.Contains(ListItem(6).Filename,web-dl)">webdl.png</value>
-		<value condition="String.Contains(ListItem(6).Filename,screener)">screener.png</value>
 		<value condition="!String.IsEmpty(ListItem(6).VideoResolution)">$INFO[ListItem(6).VideoResolution]p.png</value>
-		<value condition="ListItem(6).IsCollection">p.png</value>
+		<value>trailer.png</value>
 	</variable>
 	<variable name="ShowcaseRes7Var">
 		<value condition="Container.Content(tvshows) | Container.Content(seasons)">tvseries.png</value>
-		<value condition="String.Contains(ListItem(7).Filename,3d) | String.Contains(ListItem(7).Filename,3dbd)">3d.png</value>
+		<value condition="ListItem(7).IsCollection">set.png</value>
+		<value condition="ListItem(7).IsStereoscopic">3d.png</value>
 		<value condition="String.Contains(ListItem(7).Filename,hddvd)">hddvd.png</value>
-		<value condition="String.Contains(ListItem(7).Filename,hdtv) | String.Contains(ListItem(7).Filename,hd tv)">hdtv.png</value>
+		<value condition="String.Contains(ListItem(7).Filename,hdtv)">hdtv.png</value>
 		<value condition="String.Contains(ListItem(7).Filename,webdl) | String.Contains(ListItem(7).Filename,web-dl)">webdl.png</value>
-		<value condition="String.Contains(ListItem(7).Filename,screener)">screener.png</value>
 		<value condition="!String.IsEmpty(ListItem(7).VideoResolution)">$INFO[ListItem(7).VideoResolution]p.png</value>
-		<value condition="ListItem(7).IsCollection">p.png</value>
+		<value>trailer.png</value>
 	</variable>
 	<variable name="IconOverlay-1Var">
-		<value condition="ListItem(-1).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable.png</value>
+		<value condition="Skin.HasSetting(coloredflags) + ListItem(-1).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable_colored.png</value>
+		<value condition="!Skin.HasSetting(coloredflags) + ListItem(-1).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable.png</value>
 		<value>$INFO[Window(Home).Property(Overlay.Path)]$INFO[ListItem(-1).Overlay]</value>
 	</variable>
 	<variable name="IconOverlay0Var">
-		<value condition="ListItem.IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable.png</value>
+		<value condition="Skin.HasSetting(coloredflags) + ListItem.IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable_colored.png</value>
+		<value condition="!Skin.HasSetting(coloredflags) + ListItem.IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable.png</value>
 		<value>$INFO[Window(Home).Property(Overlay.Path)]$INFO[ListItem.Overlay]</value>
 	</variable>
 	<variable name="IconOverlay1Var">
-		<value condition="ListItem(1).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable.png</value>
+		<value condition="Skin.HasSetting(coloredflags) + ListItem(1).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable_colored.png</value>
+		<value condition="!Skin.HasSetting(coloredflags) + ListItem(1).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable.png</value>
 		<value>$INFO[Window(Home).Property(Overlay.Path)]$INFO[ListItem(1).Overlay]</value>
 	</variable>
 	<variable name="IconOverlay2Var">
-		<value condition="ListItem(2).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable.png</value>
+		<value condition="Skin.HasSetting(coloredflags) + ListItem(2).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable_colored.png</value>
+		<value condition="!Skin.HasSetting(coloredflags) + ListItem(2).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable.png</value>
 		<value>$INFO[Window(Home).Property(Overlay.Path)]$INFO[ListItem(2).Overlay]</value>
 	</variable>
 	<variable name="IconOverlay3Var">
-		<value condition="ListItem(3).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable.png</value>
+		<value condition="Skin.HasSetting(coloredflags) + ListItem(3).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable_colored.png</value>
+		<value condition="!Skin.HasSetting(coloredflags) + ListItem(3).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable.png</value>
 		<value>$INFO[Window(Home).Property(Overlay.Path)]$INFO[ListItem(3).Overlay]</value>
 	</variable>
 	<variable name="IconOverlay4Var">
-		<value condition="ListItem(4).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable.png</value>
+		<value condition="Skin.HasSetting(coloredflags) + ListItem(4).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable_colored.png</value>
+		<value condition="!Skin.HasSetting(coloredflags) + ListItem(4).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable.png</value>
 		<value>$INFO[Window(Home).Property(Overlay.Path)]$INFO[ListItem(4).Overlay]</value>
 	</variable>
 	<variable name="IconOverlay5Var">
-		<value condition="ListItem(5).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable.png</value>
+		<value condition="Skin.HasSetting(coloredflags) + ListItem(5).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable_colored.png</value>
+		<value condition="!Skin.HasSetting(coloredflags) + ListItem(5).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable.png</value>
 		<value>$INFO[Window(Home).Property(Overlay.Path)]$INFO[ListItem(5).Overlay]</value>
 	</variable>
 	<variable name="IconOverlay6Var">
-		<value condition="ListItem(6).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable.png</value>
+		<value condition="Skin.HasSetting(coloredflags) + ListItem(6).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable_colored.png</value>
+		<value condition="!Skin.HasSetting(coloredflags) + ListItem(6).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable.png</value>
 		<value>$INFO[Window(Home).Property(Overlay.Path)]$INFO[ListItem(6).Overlay]</value>
 	</variable>
 	<variable name="IconOverlay7Var">
-		<value condition="ListItem(7).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable.png</value>
+		<value condition="Skin.HasSetting(coloredflags) + ListItem(7).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable_colored.png</value>
+		<value condition="!Skin.HasSetting(coloredflags) + ListItem(7).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable.png</value>
 		<value>$INFO[Window(Home).Property(Overlay.Path)]$INFO[ListItem(7).Overlay]</value>
 	</variable>
 	<variable name="IconOverlay8Var">
-		<value condition="ListItem(8).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable.png</value>
+		<value condition="Skin.HasSetting(coloredflags) + ListItem(8).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable_colored.png</value>
+		<value condition="!Skin.HasSetting(coloredflags) + ListItem(8).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable.png</value>
 		<value>$INFO[Window(Home).Property(Overlay.Path)]$INFO[ListItem(8).Overlay]</value>
 	</variable>
 	<variable name="IconOverlay9Var">
-		<value condition="ListItem(9).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable.png</value>
+		<value condition="Skin.HasSetting(coloredflags) + ListItem(9).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable_colored.png</value>
+		<value condition="!Skin.HasSetting(coloredflags) + ListItem(9).IsResumable + !String.IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable.png</value>
 		<value>$INFO[Window(Home).Property(Overlay.Path)]$INFO[ListItem(9).Overlay]</value>
 	</variable>
 	<include name="UnwatchedIconCircle">
@@ -1315,16 +1307,16 @@
 			<visible>Skin.HasSetting(boxsetmod) + ListItem.IsCollection</visible>
 			<control type="group">
 				<control type="image">
-					<texture background="true">$VAR[CaseBackPathVar]p.png</texture>
+					<texture background="true">$VAR[CaseBackPathVar]set.png</texture>
 					<include>MovieShowcaseCase</include>
 					<visible>!Skin.HasSetting(Disable.ShowCaseSetCases)</visible>
 				</control>
 				<control type="image">
-					<texture background="true">$VAR[CaseBackPathVar]p.png</texture>
+					<texture background="true">$VAR[CaseBackPathVar]set.png</texture>
 					<include>MovieShowcaseNoCase</include>
 				</control>
 				<control type="image">
-					<texture background="true">$VAR[CaseBackPathVar]p.png</texture>
+					<texture background="true">$VAR[CaseBackPathVar]set.png</texture>
 					<include>MovieShowcaseNoCaseClear</include>
 				</control>
 				<control type="image">
@@ -1333,7 +1325,7 @@
 					<width>260</width>
 					<height>394</height>
 					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-					<texture background="true" fallback="thumbs/sets/backset.png" diffuse="thumbs/sets/backset.png">$VAR[BoxsetModFanartVar]</texture>
+					<texture background="true" fallback="thumbs/sets/backset.png" diffuse="thumbs/sets/backset.png">$INFO[ListItem.Art(fanart)]</texture>
 				</control>
 				<control type="image">
 					<left>37</left>
@@ -1364,7 +1356,7 @@
 					<width>260</width>
 					<height>392</height>
 					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-					<texture background="true" fallback="thumbs/sets/disc3.png" diffuse="thumbs/sets/disc3.png">$VAR[BoxsetModFanartVar]</texture>
+					<texture background="true" fallback="thumbs/sets/disc3.png" diffuse="thumbs/sets/disc3.png">$INFO[ListItem.Art(fanart)]</texture>
 					<visible>!String.IsEmpty(Window(Home).Property(Set.Movie.1.Art(poster)))</visible>
 				</control>
 				<control type="image">
@@ -1396,7 +1388,7 @@
 					<width>260</width>
 					<height>394</height>
 					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-					<texture background="true" fallback="thumbs/sets/disc2.png" diffuse="thumbs/sets/disc2.png">$VAR[BoxsetModFanartVar]</texture>
+					<texture background="true" fallback="thumbs/sets/disc2.png" diffuse="thumbs/sets/disc2.png">$INFO[ListItem.Art(fanart)]</texture>
 					<visible>!String.IsEmpty(Window(Home).Property(Set.Movie.2.Art(poster)))</visible>
 				</control>
 				<control type="image">
@@ -1428,7 +1420,7 @@
 					<width>260</width>
 					<height>392</height>
 					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-					<texture background="true" fallback="thumbs/sets/disc1.png" diffuse="thumbs/sets/disc1.png">$VAR[BoxsetModFanartVar]</texture>
+					<texture background="true" fallback="thumbs/sets/disc1.png" diffuse="thumbs/sets/disc1.png">$INFO[ListItem.Art(fanart)]</texture>
 					<visible>!String.IsEmpty(Window(Home).Property(Set.Movie.3.Art(poster)))</visible>
 				</control>
 				<control type="image">
@@ -1441,14 +1433,14 @@
 				</control>
 			</control>
 			<control type="group">
-				<animation type="conditional" reversible="false" condition="[!String.IsEmpty(Control.GetLabel(4445)) + Control.IsVisible(4445)]">
-					<effect type="rotatey" center="19" end="90" time="440" tween="cubic" easing="in"/>
-					<effect type="rotatey" center="19" start="90" end="90" time="0" delay="440"/>
-					<effect type="fade" start="0" end="100" time="0" delay="400"/>
-					<effect type="rotatey" center="19" start="-90" end="-40" time="440" delay="440" tween="cubic"/>
+				<animation type="Conditional" reversible="false" condition="[!String.IsEmpty(Control.GetLabel(4445)) + Control.IsVisible(4445)]">
+					<effect type="rotatey" center="19" end="90" time="440" tween="cubic" easing="in" />
+					<effect type="rotatey" center="19" start="90" end="90" time="0" delay="440" />
+					<effect type="fade" start="0" end="100" time="0" delay="400" />
+					<effect type="rotatey" center="19" start="-90" end="-40" time="440" delay="440" tween="cubic" />
 				</animation>
 				<control type="image">
-					<texture background="true">$VAR[CaseTypePathVar]p.png</texture>
+					<texture background="true">$VAR[CaseTypePathVar]set.png</texture>
 					<include>MovieShowcaseCase</include>
 					<visible>![ListItem.IsCollection + Skin.HasSetting(Disable.ShowCaseSetCases)]</visible>
 				</control>
@@ -1458,7 +1450,7 @@
 					<width>260</width>
 					<height>394</height>
 					<aspectratio scalediffuse="false" align="right" aligny="top">scale</aspectratio>
-					<texture background="true" flipx="true" fallback="thumbs/sets/backset.png" diffuse="thumbs/sets/backset.png">$VAR[BoxsetModFanartVar]</texture>
+					<texture background="true" flipx="true" fallback="thumbs/sets/backset.png" diffuse="thumbs/sets/backset.png">$INFO[ListItem.Art(fanart)]</texture>
 				</control>
 				<control type="image">
 					<left>40</left>
@@ -1489,7 +1481,7 @@
 					<width>260</width>
 					<height>392</height>
 					<aspectratio scalediffuse="false" align="right" aligny="top">scale</aspectratio>
-					<texture background="true" flipx="true" fallback="thumbs/sets/disc3.png" diffuse="thumbs/sets/disc3.png">$VAR[BoxsetModFanartVar]</texture>
+					<texture background="true" flipx="true" fallback="thumbs/sets/disc3.png" diffuse="thumbs/sets/disc3.png">$INFO[ListItem.Art(fanart)]</texture>
 					<visible>!String.IsEmpty(Window(Home).Property(Set.Movie.4.Art(poster)))</visible>
 				</control>
 				<control type="image">
@@ -1521,7 +1513,7 @@
 					<width>260</width>
 					<height>392</height>
 					<aspectratio scalediffuse="false" align="right" aligny="top">scale</aspectratio>
-					<texture background="true" flipx="true" fallback="thumbs/sets/disc2.png" diffuse="thumbs/sets/disc2.png">$VAR[BoxsetModFanartVar]</texture>
+					<texture background="true" flipx="true" fallback="thumbs/sets/disc2.png" diffuse="thumbs/sets/disc2.png">$INFO[ListItem.Art(fanart)]</texture>
 					<visible>!String.IsEmpty(Window(Home).Property(Set.Movie.5.Art(poster)))</visible>
 				</control>
 				<control type="image">
@@ -1553,7 +1545,7 @@
 					<width>260</width>
 					<height>392</height>
 					<aspectratio scalediffuse="false" align="right" aligny="top">scale</aspectratio>
-					<texture background="true" flipx="true" fallback="thumbs/sets/disc1.png" diffuse="thumbs/sets/disc1.png">$VAR[BoxsetModFanartVar]</texture>
+					<texture background="true" flipx="true" fallback="thumbs/sets/disc1.png" diffuse="thumbs/sets/disc1.png">$INFO[ListItem.Art(fanart)]</texture>
 					<visible>!String.IsEmpty(Window(Home).Property(Set.Movie.6.Art(poster)))</visible>
 				</control>
 			</control>
@@ -1566,11 +1558,11 @@
 				<texture background="true">thumbs/sets/div.png</texture>
 			</control>
 			<control type="group">
-				<animation type="conditional" reversible="false" condition="[!String.IsEmpty(Control.GetLabel(4445)) + Control.IsVisible(4445)]">
-					<effect type="rotatey" center="278" end="-90" time="1040" tween="cubic" easing="in"/>
-					<effect type="rotatey" center="278" start="-90" end="-90" time="0" delay="1040"/>
-					<effect type="fade" start="0" end="100" time="0" delay="1000"/>
-					<effect type="rotatey" center="278" start="90" end="38" time="440" delay="1040" tween="cubic"/>
+				<animation type="Conditional" reversible="false" condition="[!String.IsEmpty(Control.GetLabel(4445)) + Control.IsVisible(4445)]">
+					<effect type="rotatey" center="278" end="-90" time="1040" tween="cubic" easing="in" />
+					<effect type="rotatey" center="278" start="-90" end="-90" time="0" delay="1040" />
+					<effect type="fade" start="0" end="100" time="0" delay="1000" />
+					<effect type="rotatey" center="278" start="90" end="38" time="440" delay="1040" tween="cubic" />
 				</animation>
 				<control type="image">
 					<left>18</left>
@@ -1578,7 +1570,7 @@
 					<width>260</width>
 					<height>394</height>
 					<aspectratio scalediffuse="false" align="left" aligny="top">scale</aspectratio>
-					<texture background="true" flipx="true" fallback="thumbs/sets/backset.png" diffuse="thumbs/sets/backset.png">$VAR[BoxsetModFanartVar]</texture>
+					<texture background="true" flipx="true" fallback="thumbs/sets/backset.png" diffuse="thumbs/sets/backset.png">$INFO[ListItem.Art(fanart)]</texture>
 				</control>
 				<control type="image">
 					<left>40</left>
@@ -1609,7 +1601,7 @@
 					<width>260</width>
 					<height>392</height>
 					<aspectratio scalediffuse="false" align="left" aligny="top">scale</aspectratio>
-					<texture background="true" flipx="true" fallback="thumbs/sets/disc3.png" diffuse="thumbs/sets/disc3.png">$VAR[BoxsetModFanartVar]</texture>
+					<texture background="true" flipx="true" fallback="thumbs/sets/disc3.png" diffuse="thumbs/sets/disc3.png">$INFO[ListItem.Art(fanart)]</texture>
 					<visible>!String.IsEmpty(Window(Home).Property(Set.Movie.7.Art(poster)))</visible>
 				</control>
 				<control type="image">
@@ -1641,7 +1633,7 @@
 					<width>260</width>
 					<height>392</height>
 					<aspectratio scalediffuse="false" align="left" aligny="top">scale</aspectratio>
-					<texture background="true" flipx="true" fallback="thumbs/sets/disc2.png" diffuse="thumbs/sets/disc2.png">$VAR[BoxsetModFanartVar]</texture>
+					<texture background="true" flipx="true" fallback="thumbs/sets/disc2.png" diffuse="thumbs/sets/disc2.png">$INFO[ListItem.Art(fanart)]</texture>
 					<visible>!String.IsEmpty(Window(Home).Property(Set.Movie.8.Art(poster)))</visible>
 				</control>
 				<control type="image">
@@ -1673,7 +1665,7 @@
 					<width>260</width>
 					<height>392</height>
 					<aspectratio scalediffuse="false" align="left" aligny="top">scale</aspectratio>
-					<texture background="true" flipx="true" fallback="thumbs/sets/disc1.png" diffuse="thumbs/sets/disc1.png">$VAR[BoxsetModFanartVar]</texture>
+					<texture background="true" flipx="true" fallback="thumbs/sets/disc1.png" diffuse="thumbs/sets/disc1.png">$INFO[ListItem.Art(fanart)]</texture>
 					<visible>!String.IsEmpty(Window(Home).Property(Set.Movie.9.Art(poster)))</visible>
 				</control>
 				<control type="group">
@@ -1705,9 +1697,9 @@
 						<colordiffuse>99ffffff</colordiffuse>
 					</control>
 					<control type="group">
-						<animation type="conditional" reversible="false" condition="[!String.IsEmpty(Control.GetLabel(4445)) + Control.IsVisible(4445)]">
-							<effect type="fade" start="0" end="100" time="0" delay="1100"/>
-							<effect type="rotatey" center="130" start="48" end="180" time="50" delay="1000" tween="cubic"/>
+						<animation type="Conditional" reversible="false" condition="[!String.IsEmpty(Control.GetLabel(4445)) + Control.IsVisible(4445)]">
+							<effect type="fade" start="0" end="100" time="0" delay="1100" />
+							<effect type="rotatey" center="130" start="48" end="180" time="50" delay="1000" tween="cubic" />
 						</animation>
 						<control type="label">
 							<left>18</left>
@@ -1737,16 +1729,16 @@
 						<width>160</width>
 						<height>392</height>
 						<aspectratio scalediffuse="false" align="left" aligny="top">scale</aspectratio>
-						<texture background="true" flipx="true" fallback="thumbs/sets/brochurecover.png" diffuse="thumbs/sets/brochurecover.png">$VAR[BoxsetModFanartVar]</texture>
+						<texture background="true" flipx="true" fallback="thumbs/sets/brochurecover.png" diffuse="thumbs/sets/brochurecover.png">$INFO[ListItem.Art(fanart)]</texture>
 					</control>
 				</control>
 			</control>
 			<control type="group">
-				<animation type="conditional" reversible="false" condition="[!String.IsEmpty(Control.GetLabel(4445)) + Control.IsVisible(4445)]">
-					<effect type="rotatey" center="300" end="-90" time="1040" tween="cubic" easing="in"/>
-					<effect type="rotatey" center="300" start="-90" end="-90" time="0" delay="1040"/>
-					<effect type="fade" start="100" end="0" time="0" delay="1000"/>
-					<effect type="rotatey" center="300" start="90" end="0" time="440" delay="1040" tween="cubic"/>
+				<animation type="Conditional" reversible="false" condition="[!String.IsEmpty(Control.GetLabel(4445)) + Control.IsVisible(4445)]">
+					<effect type="rotatey" center="300" end="-90" time="1040" tween="cubic" easing="in" />
+					<effect type="rotatey" center="300" start="-90" end="-90" time="0" delay="1040" />
+					<effect type="fade" start="100" end="0" time="0" delay="1000" />
+					<effect type="rotatey" center="300" start="90" end="0" time="440" delay="1040" tween="cubic" />
 				</animation>
 				<control type="image">
 					<left>18</left>
@@ -1758,11 +1750,11 @@
 				</control>
 			</control>
 			<control type="group">
-				<animation type="conditional" reversible="false" condition="[!String.IsEmpty(Control.GetLabel(4445)) + Control.IsVisible(4445)]">
-					<effect type="rotatey" center="0" end="90" time="440" tween="cubic" easing="in"/>
-					<effect type="rotatey" center="0" start="90" end="90" time="0" delay="440"/>
-					<effect type="fade" start="100" end="0" time="0" delay="400"/>
-					<effect type="rotatey" center="0" start="-90" end="0" time="440" delay="440" tween="cubic"/>
+				<animation type="Conditional" reversible="false" condition="[!String.IsEmpty(Control.GetLabel(4445)) + Control.IsVisible(4445)]">
+					<effect type="rotatey" center="0" end="90" time="440" tween="cubic" easing="in" />
+					<effect type="rotatey" center="0" start="90" end="90" time="0" delay="440" />
+					<effect type="fade" start="100" end="0" time="0" delay="400" />
+					<effect type="rotatey" center="0" start="-90" end="0" time="440" delay="440" tween="cubic" />
 				</animation>
 				<control type="image">
 					<include>MovieShowcaseThumb</include>
@@ -1770,7 +1762,7 @@
 				</control>
 				<control type="image">
 					<include>MovieShowcaseCase</include>
-					<texture background="true">$VAR[CaseTypePathVar]p.png</texture>
+					<texture background="true">$VAR[CaseTypePathVar]set.png</texture>
 					<visible>![ListItem.IsCollection + Skin.HasSetting(Disable.ShowCaseSetCases)]</visible>
 				</control>
 				<control type="image">

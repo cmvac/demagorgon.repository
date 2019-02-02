@@ -16,15 +16,6 @@
 			<left>60</left>
 			<top>-40</top>
 			<control type="image">
-				<description>background image</description>
-				<left>-32</left>
-				<top>148</top>
-				<width>1084</width>
-				<height>904</height>
-				<texture border="40">panel_reflect.png</texture>
-			</control>
-			<control type="image">
-				<description>background image</description>
 				<left>-32</left>
 				<top>148</top>
 				<width>1084</width>
@@ -45,12 +36,6 @@
 				<scrolltime tween="quadratic">200</scrolltime>
 				<itemlayout height="60" width="1140">
 					<control type="image">
-						<top>32</top>
-						<width>1020</width>
-						<height>30</height>
-						<texture border="1">separator2.png</texture>
-					</control>
-					<control type="image">
 						<left>-15</left>
 						<top>4</top>
 						<width>105</width>
@@ -65,7 +50,6 @@
 						<height>35</height>
 						<font>font15</font>
 						<textcolor>grey2</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
@@ -75,7 +59,6 @@
 						<font>font14</font>
 						<align>right</align>
 						<textcolor>grey2</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>$INFO[ListItem.Date]</label>
 					</control>
 					<control type="image">
@@ -87,12 +70,6 @@
 					</control>
 				</itemlayout>
 				<focusedlayout height="60" width="1140">
-					<control type="image">
-						<top>32</top>
-						<width>1020</width>
-						<height>30</height>
-						<texture border="1">separator2.png</texture>
-					</control>
 					<control type="image">
 						<width>1020</width>
 						<height>60</height>
@@ -114,8 +91,6 @@
 						<width>900</width>
 						<height>35</height>
 						<font>font15</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 					</control>
@@ -125,8 +100,6 @@
 						<height>60</height>
 						<font>font14</font>
 						<align>right</align>
-						<textcolor>white</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>$INFO[ListItem.Date]</label>
 						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 					</control>
@@ -148,13 +121,6 @@
 				<control type="group">
 					<top>-302</top>
 					<control type="image">
-						<description>background image</description>
-						<width>780</width>
-						<height>354</height>
-						<texture border="40">panel_reflect.png</texture>
-					</control>
-					<control type="image">
-						<description>background image</description>
 						<width>780</width>
 						<height>318</height>
 						<texture border="40">listpanel_back.png</texture>
@@ -188,7 +154,7 @@
 						<height>262</height>
 						<font>font12</font>
 						<wrapmultiline>true</wrapmultiline>
-						<label>$INFO[ListItem.Date][CR][CR]$INFO[ListItem.Duration]</label>
+						<label>$INFO[ListItem.Date][CR][CR]$INFO[ListItem.Duration(mins)]</label>
 					</control>
 				</control>
 				<!-- Plot -->
@@ -196,14 +162,6 @@
 					<left>36</left>
 					<control type="image">
 						<left>-36</left>
-						<description>background image</description>
-						<width>780</width>
-						<height>463</height>
-						<texture border="40">panel_reflect.png</texture>
-					</control>
-					<control type="image">
-						<left>-36</left>
-						<description>background image</description>
 						<width>780</width>
 						<height>463</height>
 						<texture border="40">listpanel_back.png</texture>
@@ -246,13 +204,6 @@
 				<top>148</top>
 				<left>1054</left>
 				<control type="image">
-					<description>background image</description>
-					<width>780</width>
-					<height>765</height>
-					<texture border="40">panel_reflect.png</texture>
-				</control>
-				<control type="image">
-					<description>background image</description>
 					<width>780</width>
 					<height>765</height>
 					<texture border="40">listpanel_back.png</texture>
@@ -273,13 +224,12 @@
 						<control type="panel" id="5000">
 							<width>580</width>
 							<height>362</height>
-							<orientation>vertical</orientation>
 							<focusedlayout height="40" width="560">
 								<control type="label">
 									<left>10</left>
 									<height>50</height>
 									<width>580</width>
-									<label>[COLOR $VAR[ThemeLabelColor]]$INFO[ListItem.Duration][/COLOR]  -  $INFO[ListItem.Label]</label>
+									<label>[COLOR $VAR[ThemeLabelColor]]$INFO[ListItem.Duration(mins)][/COLOR]  -  $INFO[ListItem.Label]</label>
 									<font>font12</font>
 								</control>
 							</focusedlayout>
@@ -288,7 +238,7 @@
 									<left>10</left>
 									<height>50</height>
 									<width>580</width>
-									<label>[COLOR $VAR[ThemeLabelColor]]$INFO[ListItem.Duration][/COLOR]  -  $INFO[ListItem.Label]</label>
+									<label>[COLOR $VAR[ThemeLabelColor]]$INFO[ListItem.Duration(mins)][/COLOR]  -  $INFO[ListItem.Label]</label>
 									<font>font12</font>
 								</control>
 							</itemlayout>
@@ -306,23 +256,15 @@
 				<onright>SetProperty(MediaMenu,True,Home)</onright>
 				<onright>SetFocus(9050)</onright>
 				<texturesliderbackground />
-				<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
+				<texturesliderbar colordiffuse="80FFFFFF" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
 				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
 				<showonepage>false</showonepage>
-				<orientation>vertical</orientation>
 			</control>
 			<!-- Recording disk space -->
 			<control type="group">
 				<top>900</top>
 				<left>1054</left>
 				<control type="image">
-					<description>background image</description>
-					<width>780</width>
-					<height>150</height>
-					<texture border="40">panel_reflect.png</texture>
-				</control>
-				<control type="image">
-					<description>background image</description>
 					<width>780</width>
 					<height>150</height>
 					<texture border="40">listpanel_back.png</texture>
@@ -330,17 +272,14 @@
 				<control type="group">
 					<left>40</left>
 					<control type="label">
-						<description>Disk usage text</description>
 						<top>50</top>
 						<width>700</width>
 						<height>20</height>
 						<label>[COLOR $VAR[ThemeLabelColor]]$INFO[PVR.backenddiskspace][/COLOR]</label>
 						<align>center</align>
-						<aligny>center</aligny>
-						<font>font13</font>
 					</control>
 					<control type="progress">
-						<description>Disk usage bar</description>
+						<description>Disk Usage Bar</description>
 						<top>90</top>
 						<left>20</left>
 						<width>660</width>

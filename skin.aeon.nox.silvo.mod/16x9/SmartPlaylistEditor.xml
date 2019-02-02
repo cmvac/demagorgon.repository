@@ -12,13 +12,11 @@
 			<visible>!Window.IsVisible(smartplaylistrule)</visible>
 			<include>VisibleFadeAnimation</include>
 			<control type="image">
-				<description>background image</description>
 				<width>1522</width>
 				<height>720</height>
 				<texture border="40">dialogs/default/bg.png</texture>
 			</control>
 			<control type="label" id="2">
-				<description>header label</description>
 				<left>30</left>
 				<top>32</top>
 				<width>1462</width>
@@ -89,27 +87,16 @@
 					<onright>9000</onright>
 					<ondown>16</ondown>
 					<itemlayout width="828" height="60">
-						<control type="image">
-							<width>828</width>
-							<height>60</height>
-							<texture border="1">separator2.png</texture>
-						</control>
 						<control type="label">
 							<width>828</width>
 							<height>60</height>
 							<textoffsetx>15</textoffsetx>
 							<info>ListItem.Label</info>
 							<textcolor>grey2</textcolor>
-							<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 							<font>font14</font>
 						</control>
 					</itemlayout>
 					<focusedlayout width="828" height="68">
-						<control type="image">
-							<width>828</width>
-							<height>60</height>
-							<texture border="1">separator2.png</texture>
-						</control>
 						<control type="image">
 							<width>828</width>
 							<height>60</height>
@@ -121,7 +108,6 @@
 							<height>60</height>
 							<textoffsetx>15</textoffsetx>
 							<info>ListItem.Label</info>
-							<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 							<font>font14</font>
 						</control>
 					</focusedlayout>

@@ -36,7 +36,7 @@
 						<width>210</width>
 						<height>190</height>
 						<align>center</align>
-						<texture>$INFO[VideoPlayer.Cover]</texture>
+						<texture background="true" fallback="$INFO[Player.Icon]">$INFO[VideoPlayer.Cover]</texture>
 						<aspectratio>keep</aspectratio>
 					</control>
 					<!-- Channel Name + Number -->
@@ -68,7 +68,7 @@
 						<left>332</left>
 						<width>1520</width>
 						<height>2</height>
-						<texture border="0" colordiffuse="white">new_pvr/osd_line_white.png</texture>
+						<texture colordiffuse="white">new_pvr/osd_line_white.png</texture>
 					</control>
 					<!-- Media Flags -->
 					<control type="group">
@@ -146,30 +146,6 @@
 							<visible>!String.IsEmpty(VideoPlayer.Title)</visible>
 						</control>
 					</control>
-					<control type="grouplist">
-						<left>330</left>
-						<top>965</top>
-						<width>1000</width>
-						<itemgap>20</itemgap>
-						<orientation>horizontal</orientation>
-						<control type="label">
-							<width>auto</width>
-							<height>38</height>
-							<font>font16</font>
-							<textcolor>grey</textcolor>
-							<label>$INFO[VideoPlayer.NextStartTime]</label>
-							<visible>!String.IsEmpty(VideoPlayer.NextStartTime)</visible>
-						</control>
-						<control type="label">
-							<width>auto</width>
-							<height>38</height>
-							<font>font16</font>
-							<scroll>true</scroll>
-							<textcolor>grey</textcolor>
-							<label>$INFO[VideoPlayer.NextTitle]</label>
-							<visible>!String.IsEmpty(VideoPlayer.NextTitle)</visible>
-						</control>
-					</control>
 					<control type="label">
 						<left>1288</left>
 						<top>895</top>
@@ -177,8 +153,32 @@
 						<height>38</height>
 						<font>font16</font>
 						<align>right</align>
-						<label>[COLOR white2]+$VAR[PlayerTimeRemainingAltVar][/COLOR]</label>
-						<visible>!String.IsEmpty(Player.TimeRemaining)</visible>
+						<textcolor>white2</textcolor>
+						<label>$VAR[PlayerTimeRemainingAltVar,+]</label>
+					</control>
+					<control type="grouplist">
+						<left>330</left>
+						<top>965</top>
+						<width>1078</width>
+						<itemgap>20</itemgap>
+						<orientation>horizontal</orientation>
+						<control type="label">
+							<width>auto</width>
+							<height>38</height>
+							<font>font16</font>
+							<textcolor>grey</textcolor>
+							<label>[COLOR $VAR[ThemeLabelColor]]$LOCALIZE[31364]:[/COLOR] $INFO[PVR.TimeshiftCur]$INFO[PVR.TimeshiftOffset, (-,)] [COLOR $VAR[ThemeLabelColor]]$LOCALIZE[19031]:[/COLOR] $INFO[VideoPlayer.NextTitle]$INFO[VideoPlayer.NextStartTime, (,)]</label>
+							<visible>!Player.ChannelPreviewActive + Pvr.IsTimeShift</visible>
+						</control>
+						<control type="label">
+							<width>auto</width>
+							<height>38</height>
+							<font>font16</font>
+							<scroll>true</scroll>
+							<textcolor>grey</textcolor>
+							<label>[COLOR $VAR[ThemeLabelColor]]$LOCALIZE[19031]:[/COLOR] $INFO[VideoPlayer.NextTitle]$INFO[VideoPlayer.NextStartTime, (,)]</label>
+							<visible>!Pvr.IsTimeShift + !String.IsEmpty(VideoPlayer.NextTitle)</visible>
+						</control>
 					</control>
 					<control type="label">
 						<left>1288</left>
@@ -191,15 +191,55 @@
 						<label>$INFO[VideoPlayer.NextEndTime]</label>
 						<visible>!String.IsEmpty(VideoPlayer.NextEndTime)</visible>
 					</control>
-					<control type="progress">
+					<control type="group">
 						<left>332</left>
 						<top>944</top>
-						<width>1208</width>
-						<height>12</height>
-						<info>Player.Progress</info>
-						<colordiffuse>88FFFFFF</colordiffuse>
-						<midtexture border="0" colordiffuse="$VAR[ThemeLabelColor]">new_pvr/texturebg_white.png</midtexture>
-						<texturebg border="3,0,3,0" colordiffuse="grey3">new_pvr/texturebg_white.png</texturebg>
+						<control type="group">
+							<visible>!Player.ChannelPreviewActive</visible>
+							<control type="progress">
+								<top>-6</top>
+								<width>1208</width>
+								<height>24</height>
+								<info>PVR.TimeshiftProgressBufferEnd</info>
+								<info2>PVR.TimeshiftProgressBufferStart</info2>
+								<texturebg border="3" colordiffuse="60FFFFFF">colors/white50.png</texturebg>
+								<midtexture>colors/white70.png</midtexture>
+								<visible>Player.SeekEnabled</visible>
+							</control>
+							<control type="progress">
+								<width>1208</width>
+								<height>12</height>
+								<info>PVR.TimeshiftProgressPlayPos</info>
+								<info2>PVR.TimeshiftProgressEpgStart</info2>
+								<texturebg border="3" colordiffuse="60FFFFFF">colors/white50.png</texturebg>
+								<midtexture colordiffuse="$VAR[ThemeLabelColor]">colors/white.png</midtexture>
+							</control>
+							<control type="progress">
+								<width>1208</width>
+								<height>12</height>
+								<info>PVR.TimeshiftProgressEpgEnd</info>
+								<info2>PVR.TimeshiftProgressPlayPos</info2>
+								<texturebg border="3" colordiffuse="00FFFFFF">colors/white50.png</texturebg>
+								<midtexture>colors/white50.png</midtexture>
+							</control>
+							<control type="slider" id="403">
+								<top>-6</top>
+								<width>1208</width>
+								<height>24</height>
+								<texturesliderbar colordiffuse="00FFFFFF">osd/progress/nub_bar.png</texturesliderbar>
+								<textureslidernib colordiffuse="$VAR[ThemeLabelColor]">osd/progress/nub_bar.png</textureslidernib>
+								<textureslidernibfocus colordiffuse="$VAR[ThemeLabelColor]">colors/white.png</textureslidernibfocus>
+								<visible>Player.SeekEnabled</visible>
+							</control>
+						</control>
+						<control type="progress">
+							<width>1208</width>
+							<height>12</height>
+							<info>PVR.EpgEventProgress</info>
+							<texturebg border="3" colordiffuse="60FFFFFF">colors/white50.png</texturebg>
+							<midtexture colordiffuse="$VAR[ThemeLabelColor]">colors/white.png</midtexture>
+							<visible>Player.ChannelPreviewActive</visible>
+						</control>
 					</control>
 				</control>
 				<control type="group">
@@ -274,7 +314,7 @@
 						<left>57</left>
 						<width>1805</width>
 						<height>2</height>
-						<texture border="0" colordiffuse="white">new_pvr/osd_line_white.png</texture>
+						<texture colordiffuse="white">new_pvr/osd_line_white.png</texture>
 					</control>
 					<!-- Bottom Info -->
 					<control type="group">
@@ -551,14 +591,51 @@
 	<include name="EpgTimelineStandard">
 		<control type="group">
 			<description>TV Guide Timeline</description>
-			<include>WindowOpenCloseAnimation</include>
 			<top>128</top>
+			<include>DialogOpenCloseAnimation</include>
 			<control type="image">
 				<left>50</left>
+				<top>-70</top>
 				<width>1820</width>
-				<height>904</height>
+				<height>979</height>
 				<texture border="40">listpanel_back.png</texture>
-				<visible>Control.IsVisible(10)</visible>
+			</control>
+			<control type="fixedlist" id="11">
+				<left>80</left>
+				<top>-38</top>
+				<width>1760</width>
+				<height>60</height>
+				<onup>10</onup>
+				<ondown>10</ondown>
+				<orientation>horizontal</orientation>
+				<itemlayout height="60" width="352">
+					<control type="label">
+						<width>352</width>
+						<height>60</height>
+						<textoffsetx>15</textoffsetx>
+						<font>font14</font>
+						<textcolor>grey2</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout height="60" width="352">
+					<control type="image">
+						<width>353</width>
+						<height>60</height>
+						<texture colordiffuse="$VAR[HighlightBarColor]" border="5">listselect_fo.png</texture>
+						<visible>Control.HasFocus(11)</visible>
+						<include>VisibleFadeAnimation</include>
+					</control>
+					<control type="label">
+						<width>352</width>
+						<height>60</height>
+						<textoffsetx>15</textoffsetx>
+						<font>font14</font>
+						<scroll>true</scroll>
+						<label>$INFO[ListItem.Label]</label>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(11)">Conditional</animation>
+					</control>
+				</focusedlayout>
 			</control>
 			<control type="epggrid" id="10">
 				<description>EPG Grid</description>
@@ -573,8 +650,8 @@
 				<rulerunit>6</rulerunit>
 				<onleft>10</onleft>
 				<onright>10</onright>
-				<onup>10</onup>
-				<ondown>10</ondown>
+				<onup>11</onup>
+				<ondown>11</ondown>
 				<onback>SetProperty(MediaMenu,True,Home)</onback>
 				<onback>28</onback>
 				<viewtype label="19032">list</viewtype>
@@ -582,27 +659,18 @@
 					<control type="label" id="2">
 						<width>60</width>
 						<height>45</height>
-						<font>font13</font>
 						<textcolor>$VAR[ThemeLabelColor]</textcolor>
-						<textoffsetx>5</textoffsetx>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
+						<textoffsetx>15</textoffsetx>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 				</rulerlayout>
 				<channellayout height="60" width="440">
-					<control type="image">
-						<top>1</top>
-						<width>440</width>
-						<height>60</height>
-						<texture border="1">separator2.png</texture>
-					</control>
 					<control type="label">
 						<width>80</width>
 						<height>60</height>
 						<font>font15</font>
 						<align>center</align>
 						<textcolor>grey2</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>[B]$INFO[ListItem.ChannelNumberLabel][/B]</label>
 					</control>
 					<control type="label">
@@ -612,7 +680,6 @@
 						<font>font15</font>
 						<textoffsetx>15</textoffsetx>
 						<textcolor>grey2</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>$INFO[ListItem.ChannelName]</label>
 						<visible>String.IsEqual(Skin.String(LiveTV.EpgViewChannels),1) + String.IsEmpty(ListItem.Icon) | !String.IsEqual(Skin.String(LiveTV.EpgViewChannels),1)</visible>
 					</control>
@@ -637,22 +704,17 @@
 				</channellayout>
 				<focusedchannellayout height="60" width="440">
 					<control type="image">
-						<top>0</top>
-						<width>440</width>
-						<height>60</height>
-						<texture border="1">separator2.png</texture>
-					</control>
-					<control type="image">
 						<width>440</width>
 						<height>60</height>
 						<texture colordiffuse="$VAR[HighlightBarColor]" border="4">listselect_fo.png</texture>
+						<visible>Control.HasFocus(10)</visible>
+						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="label">
 						<width>80</width>
 						<height>60</height>
 						<font>font15</font>
 						<align>center</align>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>[B]$INFO[ListItem.ChannelNumberLabel][/B]</label>
 					</control>
 					<control type="label">
@@ -661,8 +723,8 @@
 						<height>60</height>
 						<font>font15</font>
 						<textoffsetx>15</textoffsetx>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
-						<label>$INFO[ListItem.ChannelName]</label><visible>String.IsEqual(Skin.String(LiveTV.EpgViewChannels),1) + String.IsEmpty(ListItem.Icon) | !String.IsEqual(Skin.String(LiveTV.EpgViewChannels),1)</visible>
+						<label>$INFO[ListItem.ChannelName]</label>
+						<visible>String.IsEqual(Skin.String(LiveTV.EpgViewChannels),1) + String.IsEmpty(ListItem.Icon) | !String.IsEqual(Skin.String(LiveTV.EpgViewChannels),1)</visible>
 					</control>
 					<control type="image">
 						<left>90</left>
@@ -688,7 +750,7 @@
 						<width>120</width>
 						<height>60</height>
 						<aspectratio>stretch</aspectratio>
-						<texture border="0" colordiffuse="33FFFFFF">new_pvr/epg-item.png</texture>
+						<texture colordiffuse="33FFFFFF">new_pvr/epg-item.png</texture>
 					</control>
 					<control type="image" id="1">
 						<width>120</width>
@@ -710,7 +772,6 @@
 						<font>IconSmall</font>
 						<textoffsetx>14</textoffsetx>
 						<textcolor>$VAR[ThemeLabelColor]</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label></label>
 						<visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
 					</control>
@@ -728,7 +789,6 @@
 						<font>font15</font>
 						<textoffsetx>15</textoffsetx>
 						<textcolor>grey</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<animation effect="slide" start="0,0" end="40,0" time="0" tween="sine" easing="in" condition="[ListItem.HasTimer | ListItem.IsRecording]">Conditional</animation>
 					</control>
@@ -736,15 +796,15 @@
 				<focusedlayout height="60" width="120">
 					<control type="image" id="14">
 						<texture colordiffuse="$VAR[HighlightBarColor]" border="4">listselect_fo.png</texture>
+						<visible>Control.HasFocus(10)</visible>
+						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="label">
-						<top>0</top>
 						<width>120</width>
 						<height>60</height>
 						<font>IconSmall</font>
 						<textoffsetx>15</textoffsetx>
 						<textcolor>$VAR[ThemeLabelColor]</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label></label>
 						<visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
 					</control>
@@ -761,47 +821,25 @@
 						<height>60</height>
 						<font>font15</font>
 						<textoffsetx>15</textoffsetx>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<animation effect="slide" end="40" condition="[ListItem.HasTimer | ListItem.IsRecording]">Conditional</animation>
 					</control>
 				</focusedlayout>
 			</control>
 			<control type="group">
-				<visible>Control.IsVisible(10)</visible>
+				<top>617</top>
+				<left>193</left>
 				<control type="image">
-					<left>82</left>
-					<top>17</top>
-					<width>1755</width>
-					<height>60</height>
-					<texture border="1">separator2.png</texture>
-				</control>
-				<control type="image">
-					<left>520</left>
-					<top>558</top>
-					<width>1319</width>
-					<height>60</height>
-					<texture border="1">separator2.png</texture>
+					<top>30</top>
+					<width>200</width>
+					<height>200</height>
+					<aspectratio>keep</aspectratio>
+					<fadetime>400</fadetime>
+					<texture background="true">$INFO[ListItem.Icon]</texture>
 				</control>
 				<control type="group">
-					<visible>!String.IsEmpty(ListItem.Icon)</visible>
-					<left>83</left>
-					<top>617</top>
-					<control type="image">
-						<left>110</left>
-						<top>30</top>
-						<width>200</width>
-						<height>200</height>
-						<aspectratio>keep</aspectratio>
-						<fadetime>400</fadetime>
-						<texture>$INFO[ListItem.Icon]</texture>
-					</control>
-				</control>
-				<control type="group">
-					<left>522</left>
-					<top>617</top>
+					<left>329</left>
 					<control type="label">
-						<left>0</left>
 						<top>15</top>
 						<width>1316</width>
 						<height>30</height>
@@ -810,35 +848,14 @@
 						<textoffsetx>15</textoffsetx>
 						<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,: ]$INFO[ListItem.Title,[COLOR grey2],[/COLOR]]$INFO[ListItem.Genre,     $LOCALIZE[515]: [COLOR grey2],[/COLOR]]</label>
 					</control>
-					<control type="textbox" id="81">
-						<label>$INFO[ListItem.Plot]</label>
+					<control type="textbox">
 						<left>15</left>
 						<top>70</top>
 						<width>1286</width>
 						<height>175</height>
-						<font>font15_textbox</font>
-						<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
-						<visible>![String.StartsWith(ListItem.PlotOutline,"http://") | String.StartsWith(ListItem.PlotOutline,"https://")]</visible>
-					</control>
-					<control type="textbox" id="81">
-						<left>15</left>
-						<top>50</top>
-						<width>985</width>
-						<height>200</height>
-						<font>font15_textbox</font>
+						<align>justify</align>
 						<label>$INFO[ListItem.Plot]</label>
 						<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
-						<visible>[String.StartsWith(ListItem.PlotOutline,"http://") | String.StartsWith(ListItem.PlotOutline,"https://")]</visible>
-					</control>
-					<control type="image">
-						<left>1000</left>
-						<top>15</top>
-						<width>300</width>
-						<height>220</height>
-						<align>center</align>
-						<aspectratio>keep</aspectratio>
-						<texture>$INFO[ListItem.PlotOutline]</texture>
-						<visible>[String.StartsWith(ListItem.PlotOutline,"http://") | String.StartsWith(ListItem.PlotOutline,"https://")]</visible>
 					</control>
 				</control>
 			</control>
@@ -847,14 +864,51 @@
 	<include name="EpgTimelineMinified">
 		<control type="group">
 			<description>TV Guide Timeline</description>
-			<animation condition="Skin.HasSetting(alternatetvosd)" effect="fade" start="0" end="100" time="300" easing="out">WindowOpen</animation>
-			<animation condition="Skin.HasSetting(alternatetvosd)" effect="fade" start="100" end="0" time="300" easing="in">WindowClose</animation>
+			<include>DialogOpenCloseAnimation</include>
 			<top>750</top>
 			<control type="image">
 				<left>-40</left>
+				<top>-60</top>
 				<width>2000</width>
-				<height>350</height>
+				<height>410</height>
 				<texture border="35">dialogs/default/bg2.png</texture>
+			</control>
+			<control type="fixedlist" id="11">
+				<left>380</left>
+				<top>-38</top>
+				<width>1540</width>
+				<height>60</height>
+				<onup>10</onup>
+				<ondown>10</ondown>
+				<orientation>horizontal</orientation>
+				<itemlayout height="60" width="308">
+					<control type="label">
+						<width>308</width>
+						<height>60</height>
+						<textoffsetx>15</textoffsetx>
+						<font>font14</font>
+						<textcolor>grey2</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout height="60" width="308">
+					<control type="image">
+						<width>308</width>
+						<height>60</height>
+						<texture colordiffuse="$VAR[HighlightBarColor]" border="5">listselect_fo.png</texture>
+						<visible>Control.HasFocus(11)</visible>
+						<include>VisibleFadeAnimation</include>
+					</control>
+					<control type="label">
+						<width>308</width>
+						<height>60</height>
+						<textoffsetx>15</textoffsetx>
+						<font>font14</font>
+						<scroll>true</scroll>
+						<label>$INFO[ListItem.Label]</label>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(11)">Conditional</animation>
+					</control>
+				</focusedlayout>
 			</control>
 			<control type="epggrid" id="10">
 				<description>EPG Grid</description>
@@ -869,8 +923,8 @@
 				<rulerunit>6</rulerunit>
 				<onleft>10</onleft>
 				<onright>10</onright>
-				<onup>10</onup>
-				<ondown>10</ondown>
+				<onup>11</onup>
+				<ondown>11</ondown>
 				<onback>SetProperty(MediaMenu,True,Home)</onback>
 				<onback>28</onback>
 				<viewtype label="19032">list</viewtype>
@@ -881,24 +935,21 @@
 						<top>5</top>
 						<font>font11</font>
 						<textcolor>$VAR[ThemeLabelColor]</textcolor>
-						<textoffsetx>0</textoffsetx>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
+						<textoffsetx>5</textoffsetx>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 				</rulerlayout>
 				<channellayout height="55" width="400">
 					<control type="image">
-						<top>0</top>
 						<width>400</width>
 						<height>55</height>
-						<texture border="0" colordiffuse="33FFFFFF">new_pvr/epg-channels.png</texture>
+						<texture colordiffuse="33FFFFFF">new_pvr/epg-channels.png</texture>
 					</control>
 					<control type="label">
 						<width>80</width>
 						<height>55</height>
 						<font>font14</font>
 						<textcolor>grey2</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>$INFO[ListItem.ChannelNumberLabel]</label>
 					</control>
 					<control type="image">
@@ -917,7 +968,6 @@
 						<font>font14</font>
 						<textoffsetx>15</textoffsetx>
 						<textcolor>grey2</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>$INFO[ListItem.ChannelName]</label>
 						<visible>String.IsEmpty(Skin.String(LiveTV.EpgViewChannels))</visible>
 					</control>
@@ -928,7 +978,6 @@
 						<font>font14</font>
 						<textoffsetx>15</textoffsetx>
 						<textcolor>grey2</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>$INFO[ListItem.ChannelName]</label>
 						<visible>String.IsEqual(Skin.String(LiveTV.EpgViewChannels),2)</visible>
 					</control>
@@ -944,16 +993,16 @@
 				</channellayout>
 				<focusedchannellayout height="55" width="400">
 					<control type="image">
-						<top>0</top>
 						<width>400</width>
 						<height>55</height>
-						<texture border="0" colordiffuse="33FFFFFF">new_pvr/epg-channels.png</texture>
+						<texture colordiffuse="$VAR[HighlightBarColor]" border="4">listselect_fo.png</texture>
+						<visible>Control.HasFocus(10)</visible>
+						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="label">
 						<width>80</width>
 						<height>55</height>
 						<font>font14</font>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>$INFO[ListItem.ChannelNumberLabel]</label>
 					</control>
 					<control type="image">
@@ -971,7 +1020,6 @@
 						<height>55</height>
 						<font>font14</font>
 						<textoffsetx>15</textoffsetx>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>$INFO[ListItem.ChannelName]</label>
 						<visible>String.IsEmpty(Skin.String(LiveTV.EpgViewChannels))</visible>
 					</control>
@@ -981,7 +1029,6 @@
 						<height>55</height>
 						<font>font14</font>
 						<textoffsetx>15</textoffsetx>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>$INFO[ListItem.ChannelName]</label>
 						<visible>String.IsEqual(Skin.String(LiveTV.EpgViewChannels),2)</visible>
 					</control>
@@ -1000,7 +1047,7 @@
 						<width>120</width>
 						<height>55</height>
 						<aspectratio>stretch</aspectratio>
-						<texture border="0" colordiffuse="33FFFFFF">new_pvr/epg-item.png</texture>
+						<texture colordiffuse="33FFFFFF">new_pvr/epg-item.png</texture>
 					</control>
 					<control type="image" id="1">
 						<width>120</width>
@@ -1019,24 +1066,20 @@
 					<control type="group">
 						<visible>[ListItem.HasTimer | ListItem.IsRecording]</visible>
 						<control type="label">
-							<top>0</top>
 							<width>120</width>
 							<height>55</height>
 							<font>IconSmall</font>
 							<textoffsetx>14</textoffsetx>
 							<textcolor>$VAR[ThemeLabelColor]</textcolor>
-							<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 							<label></label>
 							<visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
 						</control>
 						<control type="label">
-							<top>0</top>
 							<width>120</width>
 							<height>55</height>
 							<font>IconSmall</font>
 							<textoffsetx>14</textoffsetx>
 							<textcolor>DDFF0000</textcolor>
-							<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 							<label></label>
 							<visible>ListItem.IsRecording</visible>
 						</control>
@@ -1047,7 +1090,6 @@
 						<font>font14</font>
 						<textoffsetx>15</textoffsetx>
 						<textcolor>grey2</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<animation effect="slide" start="0,0" end="40,0" time="0" tween="sine" easing="in" condition="[ListItem.HasTimer | ListItem.IsRecording]">Conditional</animation>
 					</control>
@@ -1055,22 +1097,21 @@
 				<focusedlayout height="55" width="120">
 					<control type="image" id="14">
 						<texture colordiffuse="$VAR[HighlightBarColor]" border="4">listselect_fo.png</texture>
+						<visible>Control.HasFocus(10)</visible>
+						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="group">
 						<visible>[ListItem.HasTimer | ListItem.IsRecording]</visible>
 						<control type="label">
-							<top>0</top>
 							<width>120</width>
 							<height>55</height>
 							<font>IconSmall</font>
 							<textoffsetx>14</textoffsetx>
 							<textcolor>$VAR[ThemeLabelColor]</textcolor>
-							<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 							<label></label>
 							<visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
 						</control>
 						<control type="label">
-							<top>0</top>
 							<width>120</width>
 							<height>55</height>
 							<font>IconSmall</font>
@@ -1086,7 +1127,6 @@
 						<height>55</height>
 						<font>font14</font>
 						<textoffsetx>15</textoffsetx>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<animation effect="slide" start="0,0" end="40,0" time="0" tween="sine" easing="in" condition="[ListItem.HasTimer | ListItem.IsRecording]">Conditional</animation>
 					</control>
@@ -1094,12 +1134,10 @@
 			</control>
 			<control type="group">
 				<left>15</left>
-				<top>25</top>
+				<top>-25</top>
 				<control type="label">
 					<width>360</width>
 					<height>30</height>
-					<font>font13</font>
-					<textcolor>white</textcolor>
 					<label>$INFO[ListItem.Title]</label>
 				</control>
 				<control type="label">
@@ -1121,22 +1159,11 @@
 				<control type="textbox">
 					<top>110</top>
 					<width>360</width>
-					<height>179</height>
-					<font>font13</font>
-					<textcolor>grey</textcolor>
-					<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
-					<label>$INFO[ListItem.PlotOutline]</label>
-					<visible>!String.IsEmpty(VideoPlayer.PlotOutline) + !String.IsEqual(VideoPlayer.PlotOutline,N/A)</visible>
-				</control>
-				<control type="textbox">
-					<top>110</top>
-					<width>360</width>
-					<height>179</height>
+					<height>220</height>
 					<font>font13</font>
 					<textcolor>grey</textcolor>
 					<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
 					<label>$INFO[ListItem.Plot]</label>
-					<visible>String.IsEmpty(VideoPlayer.PlotOutline) | String.IsEqual(VideoPlayer.PlotOutline,N/A)</visible>
 				</control>
 			</control>
 		</control>

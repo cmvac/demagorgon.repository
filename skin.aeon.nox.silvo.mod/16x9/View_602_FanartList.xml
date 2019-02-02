@@ -9,91 +9,61 @@
 				<left>1150</left>
 				<top>136</top>
 				<control type="image">
-					<description>background image</description>
-					<left>-32</left>
-					<top>820</top>
-					<width>752</width>
-					<height>830</height>
-					<texture border="40">panel_reflect.png</texture>
-				</control>
-				<control type="image">
-					<description>background image</description>
 					<left>-32</left>
 					<top>20</top>
 					<width>752</width>
 					<height>830</height>
 					<texture colordiffuse="E6FFFFFF" border="40">listpanel_back.png</texture>
 				</control>
-				<control type="image">
-					<top>630</top>
-					<width>689</width>
-					<height>90</height>
-					<texture border="1">separator5.png</texture>
+				<control type="textbox" id="70">
+					<label>[COLOR $VAR[ThemeLabelColor]]$INFO[ListItem.Tagline,, - ][/COLOR]$VAR[VideoPlotVar]</label>
+					<left>13</left>
+					<top>455</top>
+					<width>660</width>
+					<height>250</height>
+					<font>font14_textbox</font>
+					<pagecontrol>60261</pagecontrol>
+					<include>DefaultButtonsValues</include>
+					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll) + !Control.HasFocus(60261)</autoscroll>
 					<visible>!ListItem.IsCollection</visible>
 				</control>
-				<control type="image">
-					<top>729</top>
-					<width>689</width>
-					<height>90</height>
-					<texture border="1">separator5.png</texture>
-				</control>
-				<control type="group">
+				<control type="scrollbar" id="60261">
+					<left>690</left>
+					<top>455</top>
+					<width>12</width>
+					<height>250</height>
+					<onleft>60260</onleft>
+					<onright>4400</onright>
+					<texturesliderbackground colordiffuse="1AFFFFFF">colors/white50.png</texturesliderbackground>
+					<texturesliderbar colordiffuse="1AFFFFFF">colors/white.png</texturesliderbar>
+					<texturesliderbarfocus colordiffuse="$VAR[ThemeLabelColor]">colors/white.png</texturesliderbarfocus>
+					<showonepage>false</showonepage>
 					<visible>!ListItem.IsCollection</visible>
-					<control type="textbox" id="70">
-						<label>[COLOR $VAR[FanartListThemeLabelColor]]$INFO[ListItem.Tagline,, - ][/COLOR]$VAR[VideoPlotVar]</label>
-						<left>13</left>
-						<top>455</top>
-						<width>660</width>
-						<height>250</height>
-						<font>font14_textbox</font>
-						<pagecontrol>60261</pagecontrol>
-						<include>DefaultButtonsValues</include>
-						<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll) + !Control.HasFocus(60261)</autoscroll>
-					</control>
-					<control type="scrollbar" id="60261">
-						<left>688</left>
-						<top>455</top>
-						<width>14</width>
-						<height>250</height>
-						<onup>60261</onup>
-						<ondown>60261</ondown>
-						<onleft>60260</onleft>
-						<onright>4400</onright>
-						<texturesliderbackground />
-						<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
-						<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
-						<showonepage>false</showonepage>
-						<orientation>vertical</orientation>
-					</control>
 				</control>
-				<control type="group">
+				<control type="textbox" id="71">
+					<label>[COLOR $VAR[ThemeLabelColor]]$INFO[ListItem.Tagline,, - ][/COLOR]$VAR[VideoPlotVar]</label>
+					<left>13</left>
+					<top>455</top>
+					<width>660</width>
+					<height>350</height>
+					<font>font14_textbox</font>
+					<pagecontrol>60262</pagecontrol>
+					<include>DefaultButtonsValues</include>
+					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll) + !Control.HasFocus(60261)</autoscroll>
 					<visible>ListItem.IsCollection</visible>
-					<control type="textbox" id="70">
-						<label>[COLOR $VAR[FanartListThemeLabelColor]]$INFO[ListItem.Tagline,, - ][/COLOR]$VAR[VideoPlotVar]</label>
-						<left>13</left>
-						<top>455</top>
-						<width>660</width>
-						<height>350</height>
-						<font>font14_textbox</font>
-						<pagecontrol>60261</pagecontrol>
-						<include>DefaultButtonsValues</include>
-						<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll) + !Control.HasFocus(60261)</autoscroll>
-					</control>
-					<control type="scrollbar" id="60261">
-						<left>688</left>
-						<top>455</top>
-						<width>14</width>
-						<height>250</height>
-						<onup>60261</onup>
-						<ondown>60261</ondown>
-						<onleft>60260</onleft>
-						<onright>4400</onright>
-						<texturesliderbackground />
-						<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
-						<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
-						<showonepage>false</showonepage>
-						<orientation>vertical</orientation>
-					</control>
+				</control>
+				<control type="scrollbar" id="60262">
+					<left>690</left>
+					<top>456</top>
+					<width>12</width>
+					<height>360</height>
+					<onleft>60260</onleft>
+					<onright>4400</onright>
+					<texturesliderbackground colordiffuse="1AFFFFFF">colors/white50.png</texturesliderbackground>
+					<texturesliderbar colordiffuse="1AFFFFFF">colors/white.png</texturesliderbar>
+					<texturesliderbarfocus colordiffuse="$VAR[ThemeLabelColor]">colors/white.png</texturesliderbarfocus>
+					<showonepage>false</showonepage>
+					<visible>ListItem.IsCollection</visible>
 				</control>
 			</control>
 			<control type="grouplist">
@@ -108,15 +78,15 @@
 					<width>168</width>
 					<colordiffuse>grey2</colordiffuse>
 					<include>MediaFlagValues</include>
-					<texture>$VAR[MediaFlagsPathVar]/resolution/$INFO[ListItem.VideoResolution,,.png]</texture>
-					<visible>!String.IsEmpty(ListItem.VideoResolution)</visible>
+					<texture>$VAR[MediaFlagsPathVar]/videocodec/$VAR[SourceFlagVar]</texture>
+					<visible>!String.IsEmpty(ListItem.VideoCodec)</visible>
 				</control>
 				<control type="image">
 					<width>168</width>
 					<colordiffuse>grey2</colordiffuse>
 					<include>MediaFlagValues</include>
-					<texture>$VAR[MediaFlagsPathVar]/videocodec/$VAR[SourceFlagVar]</texture>
-					<visible>!String.IsEmpty(ListItem.VideoCodec)</visible>
+					<texture>$VAR[MediaFlagsPathVar]/resolution/$INFO[ListItem.VideoResolution,,.png]</texture>
+					<visible>!String.IsEmpty(ListItem.VideoResolution)</visible>
 				</control>
 				<control type="image">
 					<width>168</width>
@@ -140,6 +110,13 @@
 				<height>90</height>
 				<include>VisibleFadeAnimation</include>
 				<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
+				<control type="image">
+					<width>168</width>
+					<colordiffuse>grey2</colordiffuse>
+					<include>MediaFlagValues</include>
+					<texture>$VAR[PathFlagsStudios]$INFO[ListItem.Studio,,.png]</texture>
+					<visible>!String.IsEmpty(ListItem.Studio) + Container.Content(seasons)</visible>
+				</control>
 				<control type="group">
 					<top>-5</top>
 					<width>175</width>
@@ -200,7 +177,7 @@
 						<label>[B]$INFO[ListItem.Property(UnWatchedEpisodes)][/B]</label>
 						<font>font48</font>
 						<wrapmultiline>true</wrapmultiline>
-						<textcolor>$VAR[FanartListUnWatchedEpColor]</textcolor>
+						<textcolor>$VAR[UnWatchedEpColor]</textcolor>
 					</control>
 					<control type="label">
 						<width>165</width>
@@ -209,19 +186,19 @@
 						<align>center</align>
 						<label>[LOWERCASE]$LOCALIZE[16101][/LOWERCASE]</label>
 						<font>font12</font>
-						<textcolor>$VAR[FanartListUnWatchedEpColor]</textcolor>
+						<textcolor>$VAR[UnWatchedEpColor]</textcolor>
 					</control>
 				</control>
 				<control type="image">
 					<left>495</left>
 					<include>MediaFlagValues</include>
-					<texture fallback="flags/default/mpaa/NR.png">$VAR[RatingFlagVar]</texture>
+					<texture fallback="flags/default/mpaa/NR.png">$VAR[MediaFlagsPathVar]/mpaa/$VAR[RatingFlagVar]</texture>
 					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 			</control>
 			<control type="group">
 				<left>1146</left>
-				<top>190</top>
+				<top>188</top>
 				<control type="image">
 					<visible>!Container.Content(episodes)</visible>
 					<width>693</width>
@@ -229,33 +206,26 @@
 					<aspectratio>scale</aspectratio>
 					<texture background="true">$VAR[GlobalBackgroundVar]</texture>
 					<fadetime>400</fadetime>
-					<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
-					<bordersize>2</bordersize>
 				</control>
 				<control type="image">
 					<visible>Container.Content(episodes)</visible>
 					<width>693</width>
 					<height>390</height>
 					<aspectratio>scale</aspectratio>
-					<texture background="true">$INFO[Container.ListItem.Art(thumb)]</texture>
+					<texture background="true">$VAR[NoSpoilerIconVar]</texture>
 					<fadetime>400</fadetime>
-					<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
-					<bordersize>2</bordersize>
+				</control>
+				<control type="image">
+					<top>302</top>
+					<width>689</width>
+					<height>90</height>
+					<texture border="1">separator5.png</texture>
 				</control>
 			</control>
 			<control type="group">
 				<left>76</left>
 				<top>60</top>
 				<control type="image">
-					<description>background image</description>
-					<left>-32</left>
-					<top>936</top>
-					<width>1120</width>
-					<height>904</height>
-					<texture border="40">panel_reflect.png</texture>
-				</control>
-				<control type="image">
-					<description>background image</description>
 					<left>-32</left>
 					<top>60</top>
 					<width>1120</width>
@@ -270,7 +240,8 @@
 					<onleft>SetFocus(9050)</onleft>
 					<onright condition="Control.IsVisible(60260)">60260</onright>
 					<onright condition="!Control.IsVisible(60260) + Control.IsVisible(60261)">60261</onright>
-					<onright condition="!Control.IsVisible(60260) + !Control.IsVisible(60261)">4400</onright>
+					<onright condition="!Control.IsVisible(60260) + Control.IsVisible(60262)">60262</onright>
+					<onright condition="!Control.IsVisible(60260) + !Control.IsVisible(60261) + !Control.IsVisible(60262)">4400</onright>
 					<onup>602</onup>
 					<ondown>602</ondown>
 					<viewtype label="$LOCALIZE[31240]">list</viewtype>
@@ -279,31 +250,23 @@
 					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
 					<itemlayout height="70" width="1056" condition="Container.Content(movies)">
-						<control type="image">
-							<top>12</top>
-							<width>1056</width>
-							<height>60</height>
-							<texture border="1">separator2.png</texture>
-						</control>
 						<control type="label">
 							<left>15</left>
 							<width>90</width>
 							<height>68</height>
 							<font>font15</font>
-							<textcolor>$VAR[FanartListThemeLabelColor]</textcolor>
-							<selectedcolor>$VAR[FanartListThemeLabelColor]</selectedcolor>
+							<textcolor>$VAR[ThemeLabelColor]</textcolor>
 							<label fallback="• • • •">$INFO[ListItem.Year]</label>
 							<visible>!ListItem.IsParentFolder + !ListItem.IsCollection</visible>
 						</control>
-						<control type="label">
-							<left>15</left>
-							<width>90</width>
-							<height>68</height>
-							<font>font15</font>
-							<textcolor>$VAR[FanartListThemeLabelColor]</textcolor>
-							<selectedcolor>$VAR[FanartListThemeLabelColor]</selectedcolor>
-							<label>• • • •</label>
-							<visible>!ListItem.IsParentFolder + ListItem.IsCollection</visible>
+						<control type="image">
+							<top>-18</top>
+							<width>105</width>
+							<height>105</height>
+							<aspectratio>keep</aspectratio>
+							<texture>overlays/showcase/set.png</texture>
+							<colordiffuse>grey</colordiffuse>
+							<visible>ListItem.IsCollection</visible>
 						</control>
 						<control type="label">
 							<left>110</left>
@@ -311,7 +274,6 @@
 							<height>68</height>
 							<font>font15</font>
 							<textcolor>grey2</textcolor>
-							<selectedcolor>$VAR[FanartListThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="image">
@@ -321,7 +283,7 @@
 							<height>28</height>
 							<aspectratio>keep</aspectratio>
 							<texture>$VAR[UnFocusHDIndicator]</texture>
-							<visible>Skin.HasSetting(noindicatorfanartlistmovies) + !Skin.HasSetting(Enable.HideRatings)</visible>
+							<visible>Skin.HasSetting(noindicatorfanartlist) + !Skin.HasSetting(Enable.HideRatings)</visible>
 							<colordiffuse>grey2</colordiffuse>
 						</control>
 						<control type="label">
@@ -331,7 +293,6 @@
 							<font>font15</font>
 							<align>right</align>
 							<textcolor>grey2</textcolor>
-							<selectedcolor>$VAR[FanartListThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.Rating]</label>
 							<visible>!Skin.HasSetting(Enable.HideRatings) + !ListItem.IsCollection</visible>
 						</control>
@@ -342,7 +303,7 @@
 							<height>28</height>
 							<aspectratio>keep</aspectratio>
 							<texture>$VAR[UnFocusHDIndicator]</texture>
-							<visible>Skin.HasSetting(noindicatorfanartlistmovies) + Skin.HasSetting(Enable.HideRatings)</visible>
+							<visible>Skin.HasSetting(noindicatorfanartlist) + Skin.HasSetting(Enable.HideRatings)</visible>
 							<colordiffuse>grey2</colordiffuse>
 						</control>
 						<control type="image">
@@ -351,16 +312,10 @@
 							<width>64</width>
 							<height>64</height>
 							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="$VAR[FanartListThemeLabelColor]">$VAR[ListItem.Overlay]</texture>
+							<texture colordiffuse="$VAR[ThemeLabelColor]">$VAR[ListItem.Overlay]</texture>
 						</control>
 					</itemlayout>
 					<focusedlayout height="70" width="1056" condition="Container.Content(movies)">
-						<control type="image">
-							<top>12</top>
-							<width>1056</width>
-							<height>60</height>
-							<texture border="1">separator2.png</texture>
-						</control>
 						<control type="image">
 							<width>1056</width>
 							<height>70</height>
@@ -373,27 +328,23 @@
 							<width>90</width>
 							<height>68</height>
 							<font>font15</font>
-							<selectedcolor>$VAR[FanartListThemeLabelColor]</selectedcolor>
 							<label fallback="• • • •">$INFO[ListItem.Year]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(602)">Conditional</animation>
 							<visible>!ListItem.IsParentFolder + !ListItem.IsCollection</visible>
 						</control>
-						<control type="label">
-							<left>15</left>
-							<width>90</width>
-							<height>68</height>
-							<font>font15</font>
-							<selectedcolor>$VAR[FanartListThemeLabelColor]</selectedcolor>
-							<label>• • • •</label>
-							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(602)">Conditional</animation>
-							<visible>!ListItem.IsParentFolder + ListItem.IsCollection</visible>
+						<control type="image">
+							<top>-18</top>
+							<width>105</width>
+							<height>105</height>
+							<aspectratio>keep</aspectratio>
+							<texture fallback="flags/studios/default-studio.png">$VAR[StudioIconVar]</texture>
+							<visible>ListItem.IsCollection</visible>
 						</control>
 						<control type="label">
 							<left>110</left>
 							<width>730</width>
 							<height>68</height>
 							<font>font15</font>
-							<selectedcolor>$VAR[FanartListThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(602)">Conditional</animation>
 						</control>
@@ -404,7 +355,7 @@
 							<height>28</height>
 							<aspectratio>keep</aspectratio>
 							<texture>$VAR[UnFocusHDIndicator]</texture>
-							<visible>Skin.HasSetting(noindicatorfanartlistmovies) + !Skin.HasSetting(Enable.HideRatings)</visible>
+							<visible>Skin.HasSetting(noindicatorfanartlist) + !Skin.HasSetting(Enable.HideRatings)</visible>
 							<animation effect="fade" start="100" end="60" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(602)">Conditional</animation>
 						</control>
 						<control type="label">
@@ -413,7 +364,6 @@
 							<height>68</height>
 							<font>font15</font>
 							<align>right</align>
-							<selectedcolor>$VAR[FanartListThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.Rating]</label>
 							<visible>!Skin.HasSetting(Enable.HideRatings) + !ListItem.IsCollection</visible>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(602)">Conditional</animation>
@@ -425,7 +375,7 @@
 							<height>28</height>
 							<aspectratio>keep</aspectratio>
 							<texture>$VAR[UnFocusHDIndicator]</texture>
-							<visible>Skin.HasSetting(noindicatorfanartlistmovies) + Skin.HasSetting(Enable.HideRatings)</visible>
+							<visible>Skin.HasSetting(noindicatorfanartlist) + Skin.HasSetting(Enable.HideRatings)</visible>
 							<animation effect="fade" start="100" end="60" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(602)">Conditional</animation>
 						</control>
 						<control type="image">
@@ -434,23 +384,16 @@
 							<width>64</width>
 							<height>64</height>
 							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="$VAR[FanartListThemeLabelColor]">$VAR[ListItem.Overlay]</texture>
+							<texture colordiffuse="$VAR[ThemeLabelColor]">$VAR[ListItem.Overlay]</texture>
 						</control>
 					</focusedlayout>
 					<itemlayout height="70" width="1056" condition="Container.Content(tvshows)">
-						<control type="image">
-							<top>12</top>
-							<width>1056</width>
-							<height>60</height>
-							<texture border="1">separator2.png</texture>
-						</control>
 						<control type="label">
 							<left>15</left>
 							<width>90</width>
 							<height>68</height>
 							<font>font15</font>
-							<textcolor>$VAR[FanartListThemeLabelColor]</textcolor>
-							<selectedcolor>$VAR[FanartListThemeLabelColor]</selectedcolor>
+							<textcolor>$VAR[ThemeLabelColor]</textcolor>
 							<label fallback="• • • •">$INFO[ListItem.Year]</label>
 							<visible>!ListItem.IsParentFolder</visible>
 						</control>
@@ -460,7 +403,6 @@
 							<height>68</height>
 							<font>font15</font>
 							<textcolor>grey2</textcolor>
-							<selectedcolor>$VAR[FanartListThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
@@ -470,7 +412,6 @@
 							<font>font15</font>
 							<align>right</align>
 							<textcolor>grey2</textcolor>
-							<selectedcolor>$VAR[FanartListThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.Rating]</label>
 							<visible>!Skin.HasSetting(Enable.HideRatings)</visible>
 						</control>
@@ -480,10 +421,9 @@
 							<width>64</width>
 							<height>64</height>
 							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="$VAR[FanartListThemeLabelColor]">$VAR[ListItem.Overlay]</texture>
+							<texture colordiffuse="$VAR[ThemeLabelColor]">$VAR[ListItem.Overlay]</texture>
 						</control>
 						<control type="group">
-							<description>Unwatched episodes</description>
 							<left>941</left>
 							<control type="image">
 								<top>3</top>
@@ -517,12 +457,6 @@
 					</itemlayout>
 					<focusedlayout height="70" width="1056" condition="Container.Content(tvshows)">
 						<control type="image">
-							<top>12</top>
-							<width>1056</width>
-							<height>60</height>
-							<texture border="1">separator2.png</texture>
-						</control>
-						<control type="image">
 							<width>1056</width>
 							<height>70</height>
 							<texture colordiffuse="$VAR[HighlightBarColor]" border="4">listselect_fo.png</texture>
@@ -534,7 +468,6 @@
 							<width>90</width>
 							<height>68</height>
 							<font>font15</font>
-							<selectedcolor>$VAR[FanartListThemeLabelColor]</selectedcolor>
 							<label fallback="• • • •">$INFO[ListItem.Year]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(602)">Conditional</animation>
 							<visible>!ListItem.IsParentFolder</visible>
@@ -544,7 +477,6 @@
 							<width>565</width>
 							<height>68</height>
 							<font>font15</font>
-							<selectedcolor>$VAR[FanartListThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(602)">Conditional</animation>
 						</control>
@@ -554,7 +486,6 @@
 							<height>68</height>
 							<font>font15</font>
 							<align>right</align>
-							<selectedcolor>$VAR[FanartListThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.Rating]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(602)">Conditional</animation>
 							<visible>!Skin.HasSetting(Enable.HideRatings)</visible>
@@ -565,10 +496,9 @@
 							<width>64</width>
 							<height>64</height>
 							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="$VAR[FanartListThemeLabelColor]">$VAR[ListItem.Overlay]</texture>
+							<texture colordiffuse="$VAR[ThemeLabelColor]">$VAR[ListItem.Overlay]</texture>
 						</control>
 						<control type="group">
-							<description>Unwatched episodes</description>
 							<left>941</left>
 							<control type="image">
 								<top>3</top>
@@ -584,7 +514,6 @@
 								<font>font12_title</font>
 								<align>center</align>
 								<label>$VAR[ListOverlayEpisodesVar]</label>
-								<textcolor>white</textcolor>
 								<textoffsetx>18</textoffsetx>
 								<visible>Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)</visible>
 							</control>
@@ -601,18 +530,11 @@
 						</control>
 					</focusedlayout>
 					<itemlayout height="70" width="1056" condition="Container.Content(episodes)">
-						<control type="image">
-							<top>10</top>
-							<width>1056</width>
-							<height>60</height>
-							<texture border="1">separator2.png</texture>
-						</control>
 						<control type="label">
 							<width>850</width>
 							<height>68</height>
 							<font>font15</font>
 							<textcolor>grey2</textcolor>
-							<selectedcolor>$VAR[FanartListThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<textoffsetx>15</textoffsetx>
 						</control>
@@ -623,7 +545,7 @@
 							<height>28</height>
 							<aspectratio>keep</aspectratio>
 							<texture>$VAR[UnFocusHDIndicator]</texture>
-							<visible>Skin.HasSetting(noindicatorfanartlistepisodes)</visible>
+							<visible>Skin.HasSetting(noindicatorfanartlist)</visible>
 							<colordiffuse>grey2</colordiffuse>
 						</control>
 						<control type="label">
@@ -633,7 +555,6 @@
 							<font>font15</font>
 							<align>right</align>
 							<textcolor>grey2</textcolor>
-							<selectedcolor>$VAR[FanartListThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.Rating]</label>
 							<visible>!Skin.HasSetting(Enable.HideRatings)</visible>
 						</control>
@@ -643,16 +564,10 @@
 							<width>64</width>
 							<height>64</height>
 							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="$VAR[FanartListThemeLabelColor]">$VAR[ListItem.Overlay]</texture>
+							<texture colordiffuse="$VAR[ThemeLabelColor]">$VAR[ListItem.Overlay]</texture>
 						</control>
 					</itemlayout>
 					<focusedlayout height="70" width="1056" condition="Container.Content(episodes)">
-						<control type="image">
-							<top>10</top>
-							<width>1056</width>
-							<height>60</height>
-							<texture border="1">separator2.png</texture>
-						</control>
 						<control type="image">
 							<width>1056</width>
 							<height>70</height>
@@ -664,7 +579,6 @@
 							<width>850</width>
 							<height>68</height>
 							<font>font15</font>
-							<selectedcolor>$VAR[FanartListThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<textoffsetx>15</textoffsetx>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(602)">Conditional</animation>
@@ -676,7 +590,7 @@
 							<height>28</height>
 							<aspectratio>keep</aspectratio>
 							<texture>$VAR[UnFocusHDIndicator]</texture>
-							<visible>Skin.HasSetting(noindicatorfanartlistepisodes)</visible>
+							<visible>Skin.HasSetting(noindicatorfanartlist)</visible>
 							<animation effect="fade" start="100" end="60" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(602)">Conditional</animation>
 						</control>
 						<control type="label">
@@ -685,7 +599,6 @@
 							<height>68</height>
 							<font>font15</font>
 							<align>right</align>
-							<selectedcolor>$VAR[FanartListThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.Rating]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(602)">Conditional</animation>
 							<visible>!Skin.HasSetting(Enable.HideRatings)</visible>
@@ -696,23 +609,16 @@
 							<width>64</width>
 							<height>64</height>
 							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="$VAR[FanartListThemeLabelColor]">$VAR[ListItem.Overlay]</texture>
+							<texture colordiffuse="$VAR[ThemeLabelColor]">$VAR[ListItem.Overlay]</texture>
 						</control>
 					</focusedlayout>
 					<itemlayout height="70" width="1056" condition="Container.Content(seasons)">
-						<control type="image">
-							<top>12</top>
-							<width>1056</width>
-							<height>60</height>
-							<texture border="1">separator2.png</texture>
-						</control>
 						<control type="label">
 							<left>15</left>
 							<width>600</width>
 							<height>68</height>
 							<font>font15</font>
 							<textcolor>grey2</textcolor>
-							<selectedcolor>$VAR[FanartListThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
@@ -722,7 +628,6 @@
 							<font>font15</font>
 							<align>right</align>
 							<textcolor>grey2</textcolor>
-							<selectedcolor>$VAR[FanartListThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20453]]</label>
 						</control>
 						<control type="image">
@@ -731,10 +636,9 @@
 							<width>64</width>
 							<height>64</height>
 							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="$VAR[FanartListThemeLabelColor]">$VAR[ListItem.Overlay]</texture>
+							<texture colordiffuse="$VAR[ThemeLabelColor]">$VAR[ListItem.Overlay]</texture>
 						</control>
 						<control type="group">
-							<description>Unwatched episodes</description>
 							<left>941</left>
 							<control type="image">
 								<top>3</top>
@@ -768,12 +672,6 @@
 					</itemlayout>
 					<focusedlayout height="70" width="1056" condition="Container.Content(seasons)">
 						<control type="image">
-							<top>12</top>
-							<width>1056</width>
-							<height>60</height>
-							<texture border="1">separator2.png</texture>
-						</control>
-						<control type="image">
 							<width>1056</width>
 							<height>70</height>
 							<texture colordiffuse="$VAR[HighlightBarColor]" border="4">listselect_fo.png</texture>
@@ -785,7 +683,6 @@
 							<width>600</width>
 							<height>68</height>
 							<font>font15</font>
-							<selectedcolor>$VAR[FanartListThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(602)">Conditional</animation>
 						</control>
@@ -795,7 +692,6 @@
 							<height>68</height>
 							<font>font15</font>
 							<align>right</align>
-							<selectedcolor>$VAR[FanartListThemeLabelColor]</selectedcolor>
 							<label>$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20453]]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(602)">Conditional</animation>
 						</control>
@@ -805,10 +701,9 @@
 							<width>64</width>
 							<height>64</height>
 							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="$VAR[FanartListThemeLabelColor]">$VAR[ListItem.Overlay]</texture>
+							<texture colordiffuse="$VAR[ThemeLabelColor]">$VAR[ListItem.Overlay]</texture>
 						</control>
 						<control type="group">
-							<description>Unwatched episodes</description>
 							<left>992</left>
 							<control type="image">
 								<top>3</top>
@@ -824,7 +719,6 @@
 								<font>font12_title</font>
 								<align>center</align>
 								<label>$VAR[ListOverlayEpisodesVar]</label>
-								<textcolor>white</textcolor>
 								<textoffsetx>18</textoffsetx>
 								<visible>Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)</visible>
 							</control>
@@ -834,7 +728,6 @@
 								<height>68</height>
 								<font>font12_title</font>
 								<label />
-								<textcolor>white</textcolor>
 								<textoffsetx>18</textoffsetx>
 								<visible>Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),99)</visible>
 							</control>
@@ -842,20 +735,20 @@
 					</focusedlayout>
 				</control>
 				<control type="scrollbar" id="60260">
-					<left>1056</left>
+					<left>1058</left>
 					<top>92</top>
-					<width>14</width>
+					<width>12</width>
 					<height>840</height>
 					<onup>60260</onup>
 					<ondown>60260</ondown>
 					<onleft>50</onleft>
 					<onright condition="Control.IsVisible(60261)">60261</onright>
+					<onright condition="Control.IsVisible(60262)">60262</onright>
 					<onright condition="!Control.IsVisible(60261)">4400</onright>
-					<texturesliderbackground />
-					<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
-					<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
+					<texturesliderbackground colordiffuse="1AFFFFFF">colors/white50.png</texturesliderbackground>
+					<texturesliderbar colordiffuse="1AFFFFFF">colors/white.png</texturesliderbar>
+					<texturesliderbarfocus colordiffuse="$VAR[ThemeLabelColor]">colors/white.png</texturesliderbarfocus>
 					<showonepage>false</showonepage>
-					<orientation>vertical</orientation>
 				</control>
 				<control type="image">
 					<left>1072</left>

@@ -5,35 +5,21 @@
 	<onload>ClearProperty(MediaMenu,Home)</onload>
 	<onunload>ClearProperty(MediaMenu,Home)</onunload>
 	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
-	<views>50,54,504,500</views>
+	<views>50,54,57,504,500</views>
 	<menucontrol>9051</menucontrol>
 	<controls>
-		<control type="multiimage">
-			<imagepath background="true">$INFO[ListItem.FolderPath]</imagepath>
-			<include condition="String.IsEqual(Skin.String(FanartTimePerImage),5)">FanartTimePerImage5</include>
-			<include condition="String.IsEqual(Skin.String(FanartTimePerImage),6)">FanartTimePerImage6</include>
-			<include condition="String.IsEmpty(Skin.String(FanartTimePerImage))">FanartTimePerImage7</include>
-			<include condition="String.IsEqual(Skin.String(FanartTimePerImage),8)">FanartTimePerImage8</include>
-			<include condition="String.IsEqual(Skin.String(FanartTimePerImage),9)">FanartTimePerImage9</include>
-			<include condition="String.IsEqual(Skin.String(FanartTimePerImage),10)">FanartTimePerImage10</include>
-			<include condition="String.IsEqual(Skin.String(FanartTimePerImage),15)">FanartTimePerImage15</include>
-			<include condition="String.IsEqual(Skin.String(FanartTimePerImage),20)">FanartTimePerImage20</include>
-			<include condition="String.IsEqual(Skin.String(FanartTimePerImage),30)">FanartTimePerImage30</include>
-			<include condition="String.IsEqual(Skin.String(FanartTimePerImage),60)">FanartTimePerImage60</include>
-			<include condition="String.IsEqual(Skin.String(FanartTimePerImage),90)">FanartTimePerImage90</include>
-			<include>AnimatedBackgroundAnimation</include>
-			<visible>Window.IsActive(pictures)</visible>
-		</control>
 		<include>CommonBackground</include>
 		<control type="group">
 			<include>WindowOpenCloseAnimation</include>
 			<include condition="!Skin.HasSetting(Enable.SlimList)">PictureList</include>
 			<include condition="Skin.HasSetting(Enable.SlimList)">SlimList</include>
 			<!-- view id = 50 -->
-			<include condition="!Skin.HasSetting(Disable.IconsView)">PictureWall</include>
+			<include condition="!Skin.HasSetting(Disable.IconsView)">PictureIcons</include>
 			<!-- view id = 500 -->
 			<include condition="!Skin.HasSetting(Disable.ShowCaseView)">View_54_ShowCase</include>
 			<!-- view id = 54 -->
+			<include condition="!Skin.HasSetting(Disable.ShiftView)">AlbumShift</include>
+			<!-- view id = 57 -->
 			<include condition="!Skin.HasSetting(Disable.GalleryView)">View_504_Gallery</include>
 			<!-- view id = 504 -->
 		</control>
@@ -48,7 +34,6 @@
 				<aligny>top</aligny>
 				<align>center</align>
 				<font>font16_title_bold</font>
-				<textcolor>white</textcolor>
 				<scroll>true</scroll>
 				<label>$VAR[FloorLabelVar]</label>
 				<textoffsety>-2</textoffsety>
@@ -62,7 +47,6 @@
 				<aligny>top</aligny>
 				<align>center</align>
 				<font>font13_title</font>
-				<textcolor>white</textcolor>
 				<scroll>true</scroll>
 				<label>$INFO[ListItem.Size]</label>
 				<textoffsety>-2</textoffsety>

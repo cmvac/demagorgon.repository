@@ -15,7 +15,6 @@
 				<texture border="40">dialogs/default/bg.png</texture>
 			</control>
 			<control type="label" id="411">
-				<description>header label</description>
 				<label>1023</label>
 				<left>30</left>
 				<top>32</top>
@@ -63,11 +62,6 @@
 					<viewtype>list</viewtype>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
 					<itemlayout height="60" width="960">
-						<control type="image">
-							<width>960</width>
-							<height>60</height>
-							<texture border="1">separator2.png</texture>
-						</control>
 						<control type="label">
 							<width>960</width>
 							<height>60</height>
@@ -184,12 +178,11 @@
 					<width>14</width>
 					<height>540</height>
 					<texturesliderbackground />
-					<texturesliderbar colordiffuse="55ffffff" border="4">scrollbar/texturesliderbar3.png</texturesliderbar>
+					<texturesliderbar colordiffuse="80FFFFFF" border="4">scrollbar/texturesliderbar3.png</texturesliderbar>
 					<texturesliderbarfocus border="4">scrollbar/texturesliderbar3.png</texturesliderbarfocus>
 					<onleft>450</onleft>
 					<onright>9000</onright>
 					<showonepage>false</showonepage>
-					<orientation>vertical</orientation>
 				</control>
 			</control>
 			<control type="group">
@@ -226,7 +219,6 @@
 					<top>316</top>
 					<width>534</width>
 					<height>240</height>
-					<orientation>vertical</orientation>
 					<onleft>60</onleft>
 					<onright>450</onright>
 					<onup>9000</onup>

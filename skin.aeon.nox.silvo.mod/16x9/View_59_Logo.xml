@@ -2,48 +2,48 @@
 <includes>
 	<!-- Logo -->
 	<include name="LandscapeLogoLayout">
-		<control type="image">
+		<control type="group">
 			<left>52</left>
 			<top>178</top>
-			<width>390</width>
-			<height>164</height>
-			<aspectratio aligny="bottom">keep</aspectratio>
-			<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-			<visible>!Skin.HasSetting(Enable.Logo.clearart) | [Skin.HasSetting(Enable.Logo.clearart) + String.IsEmpty(ListItem.Art(clearart))]</visible>
-		</control>
-		<control type="image">
-			<left>52</left>
-			<top>345</top>
-			<width>390</width>
-			<height>164</height>
-			<aspectratio aligny="top">keep</aspectratio>
-			<texture background="true" flipy="true">$INFO[ListItem.Art(clearlogo)]</texture>
-			<animation effect="fade" start="15" end="15" time="160" tween="cubic" easing="inout" condition="true">Conditional</animation>
-			<visible>!Skin.HasSetting(Enable.Logo.clearart) | [Skin.HasSetting(Enable.Logo.clearart) + String.IsEmpty(ListItem.Art(clearart))]</visible>
-		</control>
-		<control type="image">
-			<left>52</left>
-			<top>178</top>
-			<width>390</width>
-			<height>164</height>
-			<aspectratio aligny="bottom">keep</aspectratio>
-			<texture background="true">$INFO[ListItem.Art(clearart)]</texture>
-			<visible>Skin.HasSetting(Enable.Logo.clearart)</visible>
-		</control>
-		<control type="image">
-			<left>52</left>
-			<top>345</top>
-			<width>390</width>
-			<height>164</height>
-			<aspectratio aligny="top">keep</aspectratio>
-			<texture background="true" flipy="true">$INFO[ListItem.Art(clearart)]</texture>
-			<animation effect="fade" start="15" end="15" time="160" tween="cubic" easing="inout" condition="true">Conditional</animation>
-			<visible>Skin.HasSetting(Enable.Logo.clearart)</visible>
+			<control type="group">
+				<visible>!Skin.HasSetting(Enable.Logo.clearart) | [Skin.HasSetting(Enable.Logo.clearart) + String.IsEmpty(ListItem.Art(clearart))]</visible>
+				<control type="image">
+					<width>390</width>
+					<height>164</height>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<texture background="true">$VAR[ArtworkLogoVar]</texture>
+				</control>
+				<control type="image">
+					<top>167</top>
+					<width>390</width>
+					<height>164</height>
+					<aspectratio aligny="top">keep</aspectratio>
+					<texture background="true" flipy="true">$VAR[ArtworkLogoVar]</texture>
+					<animation effect="fade" start="15" end="15" time="160" tween="cubic" easing="inout" condition="true">Conditional</animation>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Skin.HasSetting(Enable.Logo.clearart)</visible>
+				<top>-164</top>
+				<control type="image">
+					<width>390</width>
+					<height>328</height>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<texture background="true">$INFO[ListItem.Art(clearart)]</texture>
+				</control>
+				<control type="image">
+					<top>345</top>
+					<width>390</width>
+					<height>328</height>
+					<aspectratio aligny="top">keep</aspectratio>
+					<texture background="true" flipy="true">$INFO[ListItem.Art(clearart)]</texture>
+					<animation effect="fade" start="15" end="15" time="160" tween="cubic" easing="inout" condition="true">Conditional</animation>
+				</control>
+			</control>
 		</control>
 		<control type="group">
 			<visible>String.IsEmpty(ListItem.Art(clearlogo))</visible>
 			<control type="label">
-				<left>0</left>
 				<top>250</top>
 				<width>470</width>
 				<height>30</height>
@@ -51,7 +51,6 @@
 				<font>font14</font>
 				<scroll>true</scroll>
 				<scrollspeed>80</scrollspeed>
-				<textcolor>white</textcolor>
 				<label>[B]$VAR[FloorLabelVar][/B]</label>
 			</control>
 		</control>
@@ -79,20 +78,21 @@
 		<onleft>59</onleft>
 		<onright>59</onright>
 		<onup condition="!ListItem.IsParentFolder">4401</onup>
-		<onup condition="String.IsEmpty(ListItem.Title)">SetProperty(MediaMenu,True,Home)</onup>
-		<onup condition="String.IsEmpty(ListItem.Title)">SetFocus(9050)</onup>
-		<ondown condition="Control.IsVisible(59060)">59060</ondown>
-		<ondown condition="!Control.IsVisible(59060)">4400</ondown>
-		<pagecontrol>59060</pagecontrol>
+		<onup condition="ListItem.IsParentFolder">SetProperty(MediaMenu,True,Home)</onup>
+		<onup condition="ListItem.IsParentFolder">SetFocus(9050)</onup>
+		<ondown condition="Control.IsVisible(95960)">95960</ondown>
+		<ondown condition="!Control.IsVisible(95960)">4400</ondown>
+		<pagecontrol>95960</pagecontrol>
 		<preloaditems>2</preloaditems>
 		<focusposition>2</focusposition>
 		<viewtype label="$LOCALIZE[31606]">list</viewtype>
 		<scrolltime tween="quadratic" easing="out">300</scrolltime>
-		<visible>Container.Content(tvshows) | Container.Content(movies)</visible>
+		<visible>Container.Content(tvshows) | Container.Content(movies) | Container.Content(artists)</visible>
 		<orientation>horizontal</orientation>
 		<itemlayout width="495" height="450">
 			<control type="group">
-				<animation effect="fade" start="100" end="0" time="600" condition="System.IdleTime(10) + Skin.HasSetting(Enable.Logo.UnfocusFade)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="600" condition="!Skin.HasSetting(Logo.SingleLayout) + Skin.HasSetting(Enable.Logo.UnfocusFade) + System.IdleTime(5)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" condition="Skin.HasSetting(Logo.SingleLayout)">Conditional</animation>
 				<include>LandscapeLogoLayout</include>
 			</control>
 		</itemlayout>
@@ -108,25 +108,99 @@
 		<control type="group">
 			<visible>Control.IsVisible(59) + !Window.IsActive(addoninformation)</visible>
 			<include>ViewAnimation</include>
-			<include condition="Skin.HasSetting(HorizontalListNav)">LogoFixed</include>
-			<include condition="!Skin.HasSetting(HorizontalListNav)">LogoWrap</include>
-			<control type="scrollbar" id="59060">
-				<left>110</left>
-				<top>935</top>
-				<width>1680</width>
-				<height>5</height>
-				<onup>59</onup>
-				<ondown condition="Integer.IsGreaterOrEqual(Container(59).NumPages,10) + [String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556])]">615</ondown>
-				<ondown condition="![Integer.IsGreaterOrEqual(Container(59).NumPages,10) + [String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556])]]">4400</ondown>
-				<texturesliderbackground />
-				<texturesliderbar>listselect_fo.png</texturesliderbar>
-				<texturesliderbarfocus>listselect_fo.png</texturesliderbarfocus>
-				<textureslidernib />
-				<textureslidernibfocus />
-				<showonepage>false</showonepage>
-				<orientation>horizontal</orientation>
-				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(59060) + !Container.Scrolling">Conditional</animation>
-				<animation effect="zoom" start="100,100" end="100,200" center="auto" tween="sine" easing="inout" time="500" pulse="true" condition="Control.HasFocus(59060)">Conditional</animation>
+			<control type="group">
+				<include condition="Skin.HasSetting(LogoWrapList)">LogoFixed</include>
+				<include condition="!Skin.HasSetting(LogoWrapList)">LogoWrap</include>
+				<control type="group">
+					<visible>[Container.Content(movies) + !Skin.HasSetting(noextendedinfomovies)]</visible>
+					<include>VisibleFadeAnimation</include>
+					<left>495</left>
+					<top>845</top>
+					<control type="label">
+						<width>930</width>
+						<align>center</align>
+						<label>$INFO[ListItem.Top250,$LOCALIZE[13409] # ,]</label>
+						<visible>!String.IsEmpty(ListItem.Top250)</visible>
+					</control>
+					<control type="grouplist">
+						<top>130</top>
+						<height>100</height>
+						<itemgap>5</itemgap>
+						<control type="label">
+							<width>930</width>
+							<height>40</height>
+							<align>center</align>
+							<font>font14_bold</font>
+							<scroll>true</scroll>
+							<label>$INFO[ListItem.Tagline]</label>
+							<visible>!String.IsEmpty(ListItem.Tagline)</visible>
+						</control>
+						<control type="label">
+							<width>930</width>
+							<height>40</height>
+							<align>center</align>
+							<font>font13_bold</font>
+							<label>$VAR[FloorSubLabelVar]</label>
+							<visible>!ListItem.IsCollection + [Container.Content(movies) + !ListItem.IsParentFolder]</visible>
+						</control>
+					</control>
+				</control>
+				<control type="group">
+					<visible>ListItem.IsCollection + Skin.HasSetting(Enable.Logo.MovieSetList)</visible>
+					<include>VisibleFadeAnimation</include>
+					<top>830</top>
+					<control type="label">
+						<width>100%</width>
+						<align>center</align>
+						<label>$INFO[Window(Home).Property(Set.Movies.Count),, $LOCALIZE[342]]</label>
+					</control>
+					<control type="textbox">
+						<align>center</align>
+						<top>145</top>
+						<width>100%</width>
+						<height>88</height>
+						<font>font14_textbox2</font>
+						<label>[B]$INFO[Window(Home).Property(Set.Movies.Title)][/B]</label>
+						<autoscroll time="2500" delay="2500" repeat="3000">true</autoscroll>
+					</control>
+				</control>
+				<control type="group">
+					<top>845</top>
+					<visible>[Container.Content(tvshows) + !Skin.HasSetting(noextendedinfotvshows)]</visible>
+					<include>VisibleFadeAnimation</include>
+					<control type="label">
+						<left>350</left>
+						<width>1220</width>
+						<align>center</align>
+						<label>$LOCALIZE[31010]: $INFO[Window(Home).Property(NextAired.NextNumber)] - $INFO[Window(Home).Property(NextAired.NextTitle)] ($INFO[Window(Home).Property(NextAired.NextDay)])</label>
+						<visible>!String.IsEmpty(Window(Home).Property(NextAired.NextDate))</visible>
+					</control>
+					<control type="label">
+						<left>350</left>
+						<width>1220</width>
+						<align>center</align>
+						<label>$INFO[Window(Home).Property(NextAired.Status)]</label>
+						<visible>String.IsEmpty(Window(Home).Property(NextAired.NextDate)) + !String.IsEmpty(Window(Home).Property(NextAired.Status))</visible>
+					</control>
+					<control type="label">
+						<left>400</left>
+						<top>75</top>
+						<width>1120</width>
+						<align>center</align>
+						<font>font14_bold</font>
+						<label>$LOCALIZE[20360]: $INFO[ListItem.Property(TotalEpisodes)][COLOR $VAR[UnWatchedEpColor]]$INFO[ListItem.Property(UnWatchedEpisodes),  ($LOCALIZE[16101]: ,)][/COLOR]</label>
+						<visible>Container.Content(tvshows) + !ListItem.IsParentFolder</visible>
+					</control>
+					<control type="label">
+						<left>460</left>
+						<top>150</top>
+						<width>1000</width>
+						<align>center</align>
+						<font>font13_bold</font>
+						<label>$INFO[ListItem.RatingAndVotes]</label>
+						<visible>Container.Content(tvshows) + !String.IsEmpty(ListItem.RatingAndVotes)</visible>
+					</control>
+				</control>
 			</control>
 		</control>
 	</include>

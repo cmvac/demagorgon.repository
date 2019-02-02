@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-	<include name="WallBackPanel">
+	<include name="IconsBackPanel">
 		<control type="image">
-			<description>background image</description>
-			<left>90</left>
-			<top>900</top>
-			<width>1740</width>
-			<height>784</height>
-			<texture border="40">panel_reflect.png</texture>
-		</control>
-		<control type="image">
-			<description>background image</description>
 			<left>90</left>
 			<top>148</top>
 			<width>1740</width>
@@ -19,11 +10,12 @@
 		</control>
 	</include>
 	<!-- Video Wall -->
-	<include name="VideoWall">
+	<include name="VideoIcons">
 		<control type="group">
 			<visible>Control.IsVisible(500) + !Window.IsActive(addoninformation)</visible>
 			<include>ViewAnimation</include>
-			<include>WallBackPanel</include>
+			<include>IconsBackPanel</include>
+			<top>-10</top>
 			<control type="panel" id="500">
 				<left>120</left>
 				<top>179</top>
@@ -218,9 +210,9 @@
 				</focusedlayout>
 			</control>
 			<control type="scrollbar" id="50060">
-				<left>1797</left>
+				<left>1800</left>
 				<top>179</top>
-				<width>14</width>
+				<width>12</width>
 				<height>720</height>
 				<onleft>50</onleft>
 				<onright>SetProperty(MediaMenu,True,Home)</onright>
@@ -228,28 +220,9 @@
 				<ondown>50060</ondown>
 				<onup>50060</onup>
 				<showonepage>false</showonepage>
-				<texturesliderbackground />
-				<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
-				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
-				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(50060) + !Container.Scrolling">Conditional</animation>
-			</control>
-			<control type="group">
-				<visible>![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(addons)]</visible>
-				<animation effect="slide" tween="cubic" time="720" start="0,806" end="0,0">VisibleChange</animation>
-				<control type="button">
-					<top>980</top>
-					<left>90</left>
-					<width>1740</width>
-					<height>90</height>
-					<font>font16_title_bold</font>
-					<textcolor>white</textcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<label2>$INFO[ListItem.Label2]</label2>
-					<textoffsetx>30</textoffsetx>
-					<texturenofocus />
-					<enable>no</enable>
-					<disabledcolor>white</disabledcolor>
-				</control>
+				<texturesliderbackground colordiffuse="1AFFFFFF">colors/white50.png</texturesliderbackground>
+				<texturesliderbar colordiffuse="1AFFFFFF">colors/white.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="$VAR[ThemeLabelColor]">colors/white.png</texturesliderbarfocus>
 			</control>
 			<control type="group">
 				<include content="InfoPopup">
@@ -260,11 +233,11 @@
 		</control>
 	</include>
 	<!-- Music Wall -->
-	<include name="MusicWall">
+	<include name="MusicIcons">
 		<control type="group">
 			<visible>Control.IsVisible(500) + !Window.IsActive(addoninformation)</visible>
 			<include>ViewAnimation</include>
-			<include>WallBackPanel</include>
+			<include>IconsBackPanel</include>
 			<control type="panel" id="500">
 				<left>120</left>
 				<top>179</top>
@@ -349,9 +322,9 @@
 				</focusedlayout>
 			</control>
 			<control type="scrollbar" id="50060">
-				<left>1801</left>
+				<left>1800</left>
 				<top>179</top>
-				<width>8</width>
+				<width>12</width>
 				<height>720</height>
 				<onleft>50</onleft>
 				<onright>SetProperty(MediaMenu,True,Home)</onright>
@@ -359,19 +332,18 @@
 				<ondown>50060</ondown>
 				<onup>50060</onup>
 				<showonepage>false</showonepage>
-				<texturesliderbackground />
-				<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
-				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
-				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(50060) + !Container.Scrolling">Conditional</animation>
+				<texturesliderbackground colordiffuse="1AFFFFFF">colors/white50.png</texturesliderbackground>
+				<texturesliderbar colordiffuse="1AFFFFFF">colors/white.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="$VAR[ThemeLabelColor]">colors/white.png</texturesliderbarfocus>
 			</control>
 		</control>
 	</include>
 	<!-- Addon Wall -->
-	<include name="AddonWall">
+	<include name="AddonIcons">
 		<control type="group">
 			<visible>Control.IsVisible(500) + !Window.IsActive(addoninformation)</visible>
 			<include>ViewAnimation</include>
-			<include>WallBackPanel</include>
+			<include>IconsBackPanel</include>
 			<control type="panel" id="500">
 				<left>120</left>
 				<top>179</top>
@@ -432,9 +404,9 @@
 				</focusedlayout>
 			</control>
 			<control type="scrollbar" id="50060">
-				<left>1801</left>
+				<left>1800</left>
 				<top>179</top>
-				<width>8</width>
+				<width>12</width>
 				<height>720</height>
 				<onleft>50</onleft>
 				<onright>SetProperty(MediaMenu,True,Home)</onright>
@@ -442,29 +414,19 @@
 				<ondown>50060</ondown>
 				<onup>50060</onup>
 				<showonepage>false</showonepage>
-				<texturesliderbackground />
-				<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
-				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
-				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(50060) + !Container.Scrolling">Conditional</animation>
+				<texturesliderbackground colordiffuse="1AFFFFFF">colors/white50.png</texturesliderbackground>
+				<texturesliderbar colordiffuse="1AFFFFFF">colors/white.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="$VAR[ThemeLabelColor]">colors/white.png</texturesliderbarfocus>
 			</control>
 		</control>
 	</include>
 	<!-- Picture Wall -->
-	<include name="PictureWall">
+	<include name="PictureIcons">
 		<control type="group">
 			<visible>Control.IsVisible(500) + !Window.IsActive(addoninformation)</visible>
 			<include>ViewAnimation</include>
 			<top>-85</top>
 			<control type="image">
-				<description>background image</description>
-				<left>90</left>
-				<top>1080</top>
-				<width>1740</width>
-				<height>964</height>
-				<texture border="40">panel_reflect.png</texture>
-			</control>
-			<control type="image">
-				<description>background image</description>
 				<left>90</left>
 				<top>148</top>
 				<width>1740</width>
@@ -567,20 +529,19 @@
 				</focusedlayout>
 			</control>
 			<control type="scrollbar" id="50060">
-				<left>1797</left>
+				<left>1800</left>
 				<top>179</top>
-				<width>14</width>
+				<width>12</width>
 				<height>900</height>
 				<onleft>50</onleft>
 				<onright>SetProperty(MediaMenu,True,Home)</onright>
 				<onright>SetFocus(9050)</onright>
 				<ondown>50060</ondown>
 				<onup>50060</onup>
+				<texturesliderbackground colordiffuse="1AFFFFFF">colors/white50.png</texturesliderbackground>
+				<texturesliderbar colordiffuse="1AFFFFFF">colors/white.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="$VAR[ThemeLabelColor]">colors/white.png</texturesliderbarfocus>
 				<showonepage>false</showonepage>
-				<texturesliderbackground />
-				<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
-				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
-				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(50060) + !Container.Scrolling">Conditional</animation>
 			</control>
 		</control>
 	</include>

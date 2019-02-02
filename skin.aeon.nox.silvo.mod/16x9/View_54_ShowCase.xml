@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<include name="View_54_ShowCase">
+		<control type="label" id="4444">
+			<label>$LOCALIZE[31966]</label>
+			<include>HiddenObject</include>
+			<visible>![Container.OnNext | Container.OnPrevious]</visible>
+			<animation effect="fade" end="100" time="120" delay="2000" condition="true">Visible</animation>
+			<animation effect="fade" end="100" time="120" delay="1600">WindowOpen</animation>
+			<animation effect="fade" end="100" time="120" delay="1600">Visible</animation>
+			<visible>Control.IsVisible(54) + Skin.HasSetting(Enable.ShowCaseSquare.CDArt) + !Container.Content(genres) + Container.Content(albums)</visible>
+		</control>
 		<control type="group">
 			<visible>Control.IsVisible(54) + !Window.IsActive(addoninformation)</visible>
 			<camera x="960" y="810" />
@@ -216,8 +225,8 @@
 					<include>MusicShowcaseItem0</include>
 				</control>
 			</control>
-			<include condition="Skin.HasSetting(HorizontalListNav)">scqfixed</include>
-			<include condition="!Skin.HasSetting(HorizontalListNav)">scqwrap</include>
+			<include condition="Skin.HasSetting(ShowCaseWrapList)">scqfixed</include>
+			<include condition="!Skin.HasSetting(ShowCaseWrapList)">scqwrap</include>
 			<control type="scrollbar" id="95461">
 				<left>110</left>
 				<top>980</top>
@@ -305,7 +314,7 @@
 	<!-- Music Showcase Items -->
 	<include name="MusicShowcaseItem-6">
 		<control type="group">
-			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(-6).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(-6).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 			<control type="image">
 				<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[MusicShowcaseItem-6Var]</texture>
 				<include>MusicShowcaseThumb</include>
@@ -318,7 +327,7 @@
 	</include>
 	<include name="MusicShowcaseItem-5">
 		<control type="group">
-			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(-5).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(-5).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 			<control type="image">
 				<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[MusicShowcaseItem-5Var]</texture>
 				<include>MusicShowcaseThumb</include>
@@ -333,7 +342,7 @@
 	</include>
 	<include name="MusicShowcaseItem-4">
 		<control type="group">
-			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(-4).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(-4).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 			<control type="image">
 				<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[MusicShowcaseItem-4Var]</texture>
 				<include>MusicShowcaseThumb</include>
@@ -348,7 +357,7 @@
 	</include>
 	<include name="MusicShowcaseItem-3">
 		<control type="group">
-			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(-3).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(-3).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 			<control type="image">
 				<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[MusicShowcaseItem-3Var]</texture>
 				<include>MusicShowcaseThumb</include>
@@ -363,7 +372,7 @@
 	</include>
 	<include name="MusicShowcaseItem-2">
 		<control type="group">
-			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(-2).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(-2).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 			<control type="image">
 				<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[MusicShowcaseItem-2Var]</texture>
 				<include>MusicShowcaseThumb</include>
@@ -378,7 +387,7 @@
 	</include>
 	<include name="MusicShowcaseItem-1">
 		<control type="group">
-			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(-1).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(-1).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 			<control type="image">
 				<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[MusicShowcaseItem-1Var]</texture>
 				<include>MusicShowcaseThumb</include>
@@ -396,7 +405,15 @@
 	</include>
 	<include name="MusicShowcaseItem0">
 		<control type="group">
-			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(0).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(0).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
+			<control type="image">
+				<left>31</left>
+				<top>31</top>
+				<width>343</width>
+				<height>343</height>
+				<texture background="true">$VAR[MusicShowcaseDiscItem0Var]</texture>
+				<include>ShowCaseModDiscAnimation</include>
+			</control>
 			<control type="image">
 				<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[MusicShowcaseItem0Var]</texture>
 				<include>MusicShowcaseThumb</include>
@@ -412,7 +429,7 @@
 	</include>
 	<include name="MusicShowcaseItem1">
 		<control type="group">
-			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(1).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(1).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 			<control type="image">
 				<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[MusicShowcaseItem1Var]</texture>
 				<include>MusicShowcaseThumb</include>
@@ -431,7 +448,7 @@
 	</include>
 	<include name="MusicShowcaseItem2">
 		<control type="group">
-			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(2).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(2).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 			<control type="image">
 				<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[MusicShowcaseItem2Var]</texture>
 				<include>MusicShowcaseThumb</include>
@@ -450,7 +467,7 @@
 	</include>
 	<include name="MusicShowcaseItem3">
 		<control type="group">
-			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(3).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(3).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 			<control type="image">
 				<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[MusicShowcaseItem3Var]</texture>
 				<include>MusicShowcaseThumb</include>
@@ -469,7 +486,7 @@
 	</include>
 	<include name="MusicShowcaseItem4">
 		<control type="group">
-			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(4).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(4).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 			<control type="image">
 				<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[MusicShowcaseItem4Var]</texture>
 				<include>MusicShowcaseThumb</include>
@@ -488,7 +505,7 @@
 	</include>
 	<include name="MusicShowcaseItem5">
 		<control type="group">
-			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(5).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(5).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 			<control type="image">
 				<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[MusicShowcaseItem5Var]</texture>
 				<include>MusicShowcaseThumb</include>
@@ -507,7 +524,7 @@
 	</include>
 	<include name="MusicShowcaseItem6">
 		<control type="group">
-			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(6).FolderPath) | !Skin.HasSetting(HorizontalListNav)</visible>
+			<visible>!String.IsEmpty(Container(54).ListItemNoWrap(6).FolderPath) | !Skin.HasSetting(ShowCaseWrapList)</visible>
 			<control type="image">
 				<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[MusicShowcaseItem6Var]</texture>
 				<include>MusicShowcaseThumb</include>
@@ -549,6 +566,10 @@
 		<value condition="Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/musicgenres/,.jpg]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
+	<variable name="MusicShowcaseDiscItem0Var">
+		<value condition="!String.IsEmpty(ListItem(0).Art(album.discart))">$INFO[ListItem(0).Art(album.discart)]</value>
+		<value>$INFO[ListItem(0).Art(discart)]</value>
+	</variable>
 	<variable name="MusicShowcaseItem1Var">
 		<value condition="Container.Content(genres)">$INFO[ListItem(1).Label,special://skin/extras/musicgenres/,.jpg]</value>
 		<value>$INFO[ListItem(1).Icon]</value>
@@ -583,15 +604,6 @@
 			<animation effect="slide" start="0,0" end="0,20" time="720" tween="cubic" condition="Control.IsVisible(52)">Conditional</animation>
 			<top>50</top>
 			<control type="image">
-				<description>background image</description>
-				<left>106</left>
-				<top>834</top>
-				<width>1706</width>
-				<height>734</height>
-				<texture border="40">panel_reflect.png</texture>
-			</control>
-			<control type="image">
-				<description>background image</description>
 				<left>106</left>
 				<top>130</top>
 				<width>1706</width>
@@ -699,17 +711,9 @@
 					<onright>50</onright>
 					<ondown>50</ondown>
 					<texturesliderbackground>scrollbar/texturesliderbackground3.png</texturesliderbackground>
-					<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar3.png</texturesliderbar>
+					<texturesliderbar colordiffuse="80FFFFFF" border="1">scrollbar/texturesliderbar3.png</texturesliderbar>
 					<texturesliderbarfocus border="1">scrollbar/texturesliderbar3.png</texturesliderbarfocus>
 					<showonepage>false</showonepage>
-					<orientation>vertical</orientation>
-				</control>
-				<control type="image">
-					<left>137</left>
-					<top>464</top>
-					<width>1643</width>
-					<height>60</height>
-					<texture border="1">separator2.png</texture>
 				</control>
 				<control type="image">
 					<left>1142</left>
@@ -795,17 +799,9 @@
 					<onright>50</onright>
 					<ondown>50</ondown>
 					<texturesliderbackground>scrollbar/texturesliderbackground3.png</texturesliderbackground>
-					<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar3.png</texturesliderbar>
+					<texturesliderbar colordiffuse="80FFFFFF" border="1">scrollbar/texturesliderbar3.png</texturesliderbar>
 					<texturesliderbarfocus border="1">scrollbar/texturesliderbar3.png</texturesliderbarfocus>
 					<showonepage>false</showonepage>
-					<orientation>vertical</orientation>
-				</control>
-				<control type="image">
-					<left>637</left>
-					<top>464</top>
-					<width>1141</width>
-					<height>60</height>
-					<texture border="1">separator2.png</texture>
 				</control>
 				<control type="image">
 					<left>1142</left>

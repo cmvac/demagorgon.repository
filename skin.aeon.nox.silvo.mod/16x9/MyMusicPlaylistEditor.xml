@@ -20,24 +20,16 @@
 				<effect type="fade" start="100" end="0" time="300" />
 			</animation>
 			<control type="image">
-				<top>900</top>
-				<width>885</width>
-				<height>784</height>
-				<texture border="40">panel_reflect.png</texture>
-			</control>
-			<control type="image">
 				<top>148</top>
 				<width>885</width>
 				<height>784</height>
 				<texture border="40">listpanel_back.png</texture>
 			</control>
 			<control type="label" id="12">
-				<description>current directory text label</description>
 				<top>910</top>
 				<width>821</width>
 				<height>90</height>
 				<font>font16_title</font>
-				<textcolor>white</textcolor>
 				<textoffsetx>30</textoffsetx>
 				<haspath>true</haspath>
 			</control>
@@ -47,14 +39,13 @@
 				<width>8</width>
 				<height>720</height>
 				<texturesliderbackground />
-				<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
+				<texturesliderbar colordiffuse="80FFFFFF" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
 				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
 				<onleft>50</onleft>
 				<onright>100</onright>
 				<ondown>60</ondown>
 				<onup>60</onup>
 				<showonepage>false</showonepage>
-				<orientation>vertical</orientation>
 			</control>
 			<control type="list" id="50">
 				<left>32</left>
@@ -69,18 +60,12 @@
 				<pagecontrol>60</pagecontrol>
 				<scrolltime tween="quadratic" easing="out">200</scrolltime>
 				<itemlayout height="60" width="821">
-					<control type="image">
-						<width>821</width>
-						<height>60</height>
-						<texture border="1">separator2.png</texture>
-					</control>
 					<control type="label">
 						<width>630</width>
 						<height>60</height>
 						<font>font14</font>
 						<textoffsetx>15</textoffsetx>
 						<textcolor>grey2</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
@@ -90,17 +75,11 @@
 						<font>font14</font>
 						<textoffsetx>15</textoffsetx>
 						<textcolor>grey2</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<align>right</align>
 						<label>$INFO[ListItem.Label2]</label>
 					</control>
 				</itemlayout>
 				<focusedlayout height="60" width="821">
-					<control type="image">
-						<width>821</width>
-						<height>60</height>
-						<texture border="1">separator2.png</texture>
-					</control>
 					<control type="image">
 						<width>821</width>
 						<height>60</height>
@@ -113,8 +92,6 @@
 						<height>60</height>
 						<font>font14</font>
 						<textoffsetx>15</textoffsetx>
-						<textcolor>white</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 					</control>
@@ -125,7 +102,6 @@
 						<font>font14</font>
 						<textoffsetx>15</textoffsetx>
 						<textcolor>grey</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<align>right</align>
 						<label>$INFO[ListItem.Label2]</label>
 						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
@@ -145,26 +121,18 @@
 				<effect type="fade" start="100" end="0" time="300" />
 			</animation>
 			<control type="image">
-				<top>900</top>
-				<width>885</width>
-				<height>784</height>
-				<texture border="40">panel_reflect.png</texture>
-			</control>
-			<control type="image">
 				<top>148</top>
 				<width>885</width>
 				<height>784</height>
 				<texture border="40">listpanel_back.png</texture>
 			</control>
 			<control type="label" id="101">
-				<description>current directory text label</description>
 				<left>871</left>
 				<top>910</top>
 				<width>821</width>
 				<height>90</height>
 				<font>font16_title</font>
 				<align>right</align>
-				<textcolor>white</textcolor>
 				<textoffsetx>30</textoffsetx>
 				<haspath>true</haspath>
 			</control>
@@ -174,7 +142,7 @@
 				<width>8</width>
 				<height>720</height>
 				<texturesliderbackground />
-				<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
+				<texturesliderbar colordiffuse="80FFFFFF" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
 				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
 				<onleft>100</onleft>
 				<onright>SetProperty(MediaMenu,True,Home)</onright>
@@ -182,7 +150,6 @@
 				<ondown>21</ondown>
 				<onup>21</onup>
 				<showonepage>false</showonepage>
-				<orientation>vertical</orientation>
 			</control>
 			<control type="list" id="100">
 				<left>32</left>
@@ -196,18 +163,12 @@
 				<pagecontrol>61</pagecontrol>
 				<scrolltime tween="quadratic" easing="out">200</scrolltime>
 				<itemlayout height="60" width="821">
-					<control type="image">
-						<width>821</width>
-						<height>60</height>
-						<texture border="1">separator2.png</texture>
-					</control>
 					<control type="label">
 						<width>630</width>
 						<height>60</height>
 						<font>font14</font>
 						<textoffsetx>15</textoffsetx>
 						<textcolor>grey2</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
@@ -217,17 +178,11 @@
 						<font>font14</font>
 						<textoffsetx>15</textoffsetx>
 						<textcolor>grey2</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<align>right</align>
 						<label>$INFO[ListItem.Label2]</label>
 					</control>
 				</itemlayout>
 				<focusedlayout height="60" width="821">
-					<control type="image">
-						<width>821</width>
-						<height>60</height>
-						<texture border="1">separator2.png</texture>
-					</control>
 					<control type="image">
 						<width>821</width>
 						<height>60</height>
@@ -240,8 +195,6 @@
 						<height>60</height>
 						<font>font14</font>
 						<textoffsetx>15</textoffsetx>
-						<textcolor>white</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(100)">Conditional</animation>
 					</control>
@@ -252,7 +205,6 @@
 						<font>font14</font>
 						<textoffsetx>15</textoffsetx>
 						<textcolor>grey</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<align>right</align>
 						<label>$INFO[ListItem.Label2]</label>
 						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(100)">Conditional</animation>

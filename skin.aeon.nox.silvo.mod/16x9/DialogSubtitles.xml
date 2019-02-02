@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">120</defaultcontrol>
 	<coordinates>
@@ -50,7 +50,6 @@
 					<label>$INFO[Container(120).NumItems,$LOCALIZE[31025] ]$INFO[Container(120).CurrentPage,[COLOR grey3] | ,]$INFO[Container(120).NumPages,/,[/COLOR]]</label>
 				</control>
 				<control type="label">
-					<description>Video label</description>
 					<left>397</left>
 					<top>640</top>
 					<width>1000</width>
@@ -104,17 +103,11 @@
 				<scrolltime tween="quadratic" easing="out">200</scrolltime>
 				<itemlayout width="1262" height="90">
 					<control type="image">
-						<top>30</top>
-						<width>1262</width>
-						<height>60</height>
-						<texture border="1">separator2.png</texture>
-					</control>
-					<control type="image">
 						<left>16</left>
 						<top>25</top>
 						<width>40</width>
 						<height>40</height>
-						<texture>$INFO[ListItem.Thumb,flags/subtitles/flags/,.png]</texture>
+						<texture>$INFO[ListItem.Thumb,flags/language/default/,.png]</texture>
 					</control>
 					<control type="image">
 						<left>80</left>
@@ -186,12 +179,6 @@
 				</itemlayout>
 				<focusedlayout width="1262" height="90">
 					<control type="image">
-						<top>30</top>
-						<width>1262</width>
-						<height>60</height>
-						<texture border="1">separator2.png</texture>
-					</control>
-					<control type="image">
 						<width>1262</width>
 						<height>90</height>
 						<texture colordiffuse="$VAR[HighlightBarColor]" border="5">listselect_fo.png</texture>
@@ -203,7 +190,7 @@
 						<top>25</top>
 						<width>40</width>
 						<height>40</height>
-						<texture>$INFO[ListItem.Thumb,flags/subtitles/flags/,.png]</texture>
+						<texture>$INFO[ListItem.Thumb,flags/language/default/,.png]</texture>
 					</control>
 					<control type="image">
 						<left>80</left>
@@ -277,10 +264,9 @@
 				<onleft>120</onleft>
 				<onright>150</onright>
 				<texturesliderbackground />
-				<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
+				<texturesliderbar colordiffuse="80FFFFFF" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
 				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
 				<showonepage>false</showonepage>
-				<orientation>vertical</orientation>
 			</control>
 			<control type="group">
 				<control type="image">
@@ -302,29 +288,16 @@
 					<viewtype label="535">list</viewtype>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
 					<itemlayout width="400" height="90">
-						<control type="image">
-							<top>30</top>
-							<width>400</width>
-							<height>60</height>
-							<texture border="1">separator2.png</texture>
-						</control>
 						<control type="label">
 							<width>600</width>
 							<height>90</height>
 							<textoffsetx>15</textoffsetx>
 							<font>font15</font>
 							<textcolor>grey2</textcolor>
-							<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 							<info>ListItem.Label</info>
 						</control>
 					</itemlayout>
 					<focusedlayout width="400" height="90">
-						<control type="image">
-							<top>30</top>
-							<width>400</width>
-							<height>60</height>
-							<texture border="1">separator2.png</texture>
-						</control>
 						<control type="image">
 							<width>400</width>
 							<height>90</height>
@@ -337,7 +310,6 @@
 							<height>90</height>
 							<textoffsetx>15</textoffsetx>
 							<font>font15</font>
-							<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 							<info>ListItem.Label</info>
 						</control>
 					</focusedlayout>

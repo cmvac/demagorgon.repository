@@ -2,17 +2,15 @@
 <includes>
 	<include name="CommonBackground">
 		<control type="group">
-			<animation effect="fade" time="600">WindowOpen</animation>
+			<animation effect="fade" time="500" delay="100">WindowOpen</animation>
 			<animation effect="fade" time="600">WindowClose</animation>
 			<include condition="Window.IsActive(Home)">HomeFanart</include>
 			<include condition="Window.IsActive(Home)">LiveCasesBackground</include>
-			<include condition="Window.IsActive(Home)">skinshortcuts-template-widget.1.backgroundFanart</include>
-			<include condition="Window.IsActive(Home)">skinshortcuts-template-widget.2.backgroundFanart</include>
 			<include condition="!Window.IsActive(Home)">GlobalFanart</include>
 			<include condition="Window.IsActive(videos) + !String.IsEmpty(Skin.String(VideoGenreFanartPath))">VideoGenreFanart</include>
 			<include condition="Window.IsActive(music) + !String.IsEmpty(Skin.String(MusicGenreFanartPath))">MusicGenreFanart</include>
 			<include condition="Window.IsActive(script-NextAired-TVGuide.xml) | Window.IsActive(script-NextAired-TVGuide2.xml)">TVShowNextAiredBackground</include>
-			<include condition="Window.IsActive(script-globalsearch-main.xml)">GlobalSearchBG</include>
+			<include condition="Window.IsActive(script-globalsearch.xml)">GlobalSearchBG</include>
 			<include condition="Window.IsActive(service-LibreELEC-Settings-mainWindow.xml)">LibreELECBG</include>
 			<control type="visualisation">
 				<include>FullscreenDimensions</include>
@@ -25,21 +23,17 @@
 		</control>
 		<control type="group">
 			<include>FullscreenDimensions</include>
-			<control type="image">
-				<texture background="true">special://skin/backgrounds/default_settings.jpg</texture>
-				<visible>Window.IsVisible(settings)</visible>
-			</control>
 			<control type="group">
-					<visible>[Player.HasVideo + !Skin.HasSetting(Disable.ShowBackgroundVideo) + !Window.IsVisible(TVChannels) + !Window.IsVisible(RadioChannels) + !SlideShow.IsActive]</visible>
+				<visible>[Player.HasVideo + !Skin.HasSetting(Disable.ShowBackgroundVideo) + !Window.IsVisible(TVChannels) + !Window.IsVisible(RadioChannels) + !SlideShow.IsActive]</visible>
 				<control type="image">
 					<texture>black.png</texture>
 				</control>
-				<control type="videowindow"/>
+				<control type="videowindow" />
 			</control>
 			<control type="image">
-				<texture>black.png</texture>
 				<visible>Control.IsVisible(502) | Control.IsVisible(503) | Control.IsVisible(504) | Control.IsVisible(505) | Control.IsVisible(508) | Control.IsVisible(609) | [Control.IsVisible(507) + Skin.HasSetting(alternatebiglistlayout)] | [Control.IsVisible(51) + Skin.HasSetting(Enable.AlternateInfowall)] | [Player.HasVideo + !Skin.HasSetting(Disable.ShowBackgroundVideo) + Control.IsVisible(509)] | Control.IsVisible(506) | Window.IsVisible(settings)</visible>
-				<animation effect="fade" start="100" end="53" time="240" condition="true">Conditional</animation>
+				<animation effect="fade" start="100" end="45" time="240" condition="true">Conditional</animation>
+				<texture>black.png</texture>
 			</control>
 		</control>
 		<control type="group">
@@ -58,22 +52,36 @@
 		</control>
 		<control type="group">
 			<include>WindowOpenCloseAnimation</include>
-			<visible>[Control.IsVisible(50) + ![!String.IsEmpty(Window(Home).Property(Music.WasFullscreen)) + Skin.HasSetting(launchmusicfullscreen) + !Window.IsActive(visualisation)]] | [Control.IsVisible(51) + !Skin.HasSetting(Enable.AlternateInfowall)] | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(499) | Control.IsVisible(500) | Control.IsVisible(601) | Control.IsVisible(602) | Control.IsVisible(509) | [Control.IsVisible(507) + !Skin.HasSetting(alternatebiglistlayout)] | Window.IsActive(script-NextAired-TVGuide.xml) | Window.IsActive(script-NextAired-TVGuide2.xml) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(systeminfo) | Window.IsActive(script-globalsearch-main.xml) | Window.IsActive(weather) | [Control.IsVisible(506) + Container.Content(movies) + String.IsEmpty(Skin.String(506.movies.ViewFloorStatus))] | [Control.IsVisible(506) + Container.Content(tvshows) + String.IsEmpty(Skin.String(506.tvshows.ViewFloorStatus))] | [Control.IsVisible(506) + Container.Content(seasons) + String.IsEmpty(Skin.String(506.seasons.ViewFloorStatus))] | [Control.IsVisible(506) + Container.Content(episodes) + String.IsEmpty(Skin.String(506.episodes.ViewFloorStatus))] | Window.IsActive(script-globalsearch-main.xml) | Window.IsActive(skinsettings) | Window.IsActive(filemanager) | [Window.IsActive(addoninformation) + Control.IsVisible(503)] | Window.IsActive(profiles) | Control.IsVisible(603)</visible>
-			<include>ViewAnimation</include>
-			<animation effect="slide" start="0,0" end="0,50" time="720" tween="cubic" easing="inout" condition="![[Control.IsVisible(52) + !Window.IsActive(systeminfo)] | Control.IsVisible(53) | Control.IsVisible(54) | Control.IsVisible(56) | Control.IsVisible(500) | Control.IsVisible(57)] | Window.IsActive(1140)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="0,90" time="720" tween="cubic" easing="inout" condition="Control.IsVisible(506) | Control.IsVisible(603)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="0,151" time="720" tween="cubic" easing="inout" condition="Window.IsVisible(script-skinshortcuts.xml)">Conditional</animation>
-			<animation effect="slide" end="0,70" time="0" reversible="false" condition="Control.IsVisible(53) + Container.Content(genres)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="0,30" time="720" tween="cubic" easing="inout" condition="Window.IsVisible(weather)">Conditional</animation>
-			<control type="image">
-				<top>400</top>
-				<width>100%</width>
-				<height>680</height>
-				<texture colordiffuse="$VAR[ThemeLabelColor]">floor.png</texture>
+			<control type="group">
+				<visible>[Control.IsVisible(50) + ![Window.Next(visualisation) + Window.IsActive(musicplaylist) + Skin.HasSetting(launchmusicfullscreen)]] | [Control.IsVisible(51) + !Skin.HasSetting(Enable.AlternateInfowall)] | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(499) | Control.IsVisible(500) | Control.IsVisible(601) | Control.IsVisible(602) | Control.IsVisible(509) | [Control.IsVisible(507) + !Skin.HasSetting(alternatebiglistlayout)] | Window.IsActive(script-NextAired-TVGuide.xml) | Window.IsActive(script-NextAired-TVGuide2.xml) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(systeminfo) | Window.IsActive(script-globalsearch.xml) | Window.IsActive(weather) | [Control.IsVisible(506) + Container.Content(movies) + String.IsEmpty(Skin.String(506.movies.ViewFloorStatus))] | [Control.IsVisible(506) + [Container.Content(tvshows) | Container.Content(seasons)] + String.IsEmpty(Skin.String(506.tvshows.ViewFloorStatus))] | [Control.IsVisible(506) + Container.Content(episodes) + String.IsEmpty(Skin.String(506.episodes.ViewFloorStatus))] | Window.IsActive(script-globalsearch.xml) | Window.IsActive(skinsettings) | Window.IsActive(filemanager) | [Window.IsActive(addoninformation) + Control.IsVisible(503)] | Window.IsActive(profiles) | Control.IsVisible(603)</visible>
+				<include>ViewAnimation</include>
+				<animation effect="slide" end="0,57" time="720" tween="cubic" easing="inout" condition="![Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(54) | Control.IsVisible(56) | Control.IsVisible(57) | Control.IsVisible(58)] | Window.IsActive(1140)">Conditional</animation>
+				<animation effect="slide" end="0,42" time="720" tween="cubic" easing="inout" condition="Control.IsVisible(53)">Conditional</animation>
+				<animation effect="slide" end="0,-60" time="720" tween="cubic" easing="inout" condition="Control.IsVisible(56) | Control.IsVisible(499) | Control.IsVisible(601)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,80" time="720" tween="cubic" easing="inout" condition="Control.IsVisible(507) | Control.IsVisible(603)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,94" time="720" tween="cubic" easing="inout" condition="Control.IsVisible(506)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,151" time="720" tween="cubic" easing="inout" condition="Window.IsActive(addoninformation)">Conditional</animation>
+				<animation effect="slide" end="0,50" time="0" reversible="false" condition="[Control.IsVisible(53) + Container.Content(genres)]">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,50" time="720" tween="cubic" easing="inout" condition="Window.IsVisible(weather) | Window.IsVisible(SettingsCategory.xml) | Window.IsActive(skinsettings) | Window.IsActive(systeminfo) | Window.IsActive(profiles) | Window.IsActive(script-NextAired-TVGuide.xml) | Window.IsActive(script-NextAired-TVGuide2.xml)">Conditional</animation>
+				<control type="image">
+					<width>100%</width>
+					<height>1266</height>
+					<texture colordiffuse="$VAR[ThemeLabelColor]">floor.png</texture>
+				</control>
 			</control>
-		</control>
-		<control type="group">
-			<include>WindowOpenCloseAnimation</include>
+			<control type="group">
+				<visible>Window.IsActive(settings) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(1140) | Window.IsActive(1117) | Window.IsActive(systeminfo) | Window.IsActive(profiles) | Window.IsActive(weather) | Window.IsActive(script-NextAired-TVGuide.xml) | Window.IsActive(script-NextAired-TVGuide2.xml)</visible>
+				<animation effect="slide" end="30" condition="Window.IsActive(profiles)">Conditional</animation>
+				<animation effect="slide" end="0,-25" condition="Window.IsActive(settings)">Conditional</animation>
+				<top>64</top>
+				<control type="image">
+					<left>55</left>
+					<top>900</top>
+					<width>400</width>
+					<height>130</height>
+					<texture>aeon-nox-logo.png</texture>
+				</control>
+			</control>
 			<control type="image">
 				<include>FullscreenDimensions</include>
 				<texture border="1">logo_back.png</texture>
@@ -83,9 +91,8 @@
 	</include>
 	<include name="VideoGenreFanart">
 		<control type="image" id="4980">
-			<description>Normal Default Background Image</description>
 			<include>FullscreenDimensions</include>
-			<include>AnimatedBackgroundAnimation</include>
+			<include condition="Skin.HasSetting(Enable.AnimatedBackgrounds)">AnimatedBackgroundAnimation</include>
 			<aspectratio>scale</aspectratio>
 			<fadetime>FanartCrossfadeTime</fadetime>
 			<texture background="true" fallback="special://skin/backgrounds/fallback_movies.jpg">$INFO[Skin.String(VideoGenreFanartPath)]$INFO[ListItem.Label,,.jpg]</texture>
@@ -94,9 +101,8 @@
 	</include>
 	<include name="MusicGenreFanart">
 		<control type="image">
-			<description>Normal Default Background Image</description>
 			<include>FullscreenDimensions</include>
-			<include>AnimatedBackgroundAnimation</include>
+			<include condition="Skin.HasSetting(Enable.AnimatedBackgrounds)">AnimatedBackgroundAnimation</include>
 			<aspectratio>scale</aspectratio>
 			<fadetime>FanartCrossfadeTime</fadetime>
 			<texture background="true" fallback="special://skin/backgrounds/fallback_music.jpg">$INFO[Skin.String(MusicGenreFanartPath)]$INFO[ListItem.Label,,.jpg]</texture>
@@ -113,61 +119,33 @@
 				<include condition="Window.IsActive(music) | Window.IsActive(musicplaylist)">MusicFallback</include>
 				<include condition="Window.IsActive(tvchannels) | Window.IsActive(tvguide) | Window.IsActive(tvrecordings) | Window.IsActive(tvsearch) | Window.IsActive(tvtimers)">LiveTVFallback</include>
 				<include condition="Window.IsActive(programs) | Window.IsActive(1133)">AppsFallback</include>
-				<include condition="Window.IsActive(SettingsCategory.xml) | Window.IsActive(systeminfo) | Window.IsActive(skinsettings) | Window.IsActive(settings) | Window.IsActive(addonbrowser) | Window.IsActive(filemanager) | Window.IsActive(eventlog)">SystemFallback</include>
+				<include condition="Window.IsActive(settings) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(systeminfo) | Window.IsActive(skinsettings) | Window.IsActive(addonbrowser) | Window.IsActive(filemanager) | Window.IsActive(eventlog)">SystemFallback</include>
 				<include condition="Window.IsActive(videos) | Window.IsActive(videoplaylist)">VideoFallback</include>
+				<include condition="Window.IsActive(games)">GamesFallback</include>
 				<item>
-					<onclick>noop</onclick>
 					<thumb>$INFO[Window(Home).Property(fakelabel)]</thumb>
 					<visible>no</visible>
 				</item>
 			</content>
 		</control>
-		<control type="group">
-			<visible>![Control.IsVisible(509) + Window.IsActive(videos)]</visible>
-			<control type="multiimage">
-				<include>AnimatedBackgroundAnimation</include>
-				<description>Normal Default Background Image</description>
-				<imagepath background="true">$VAR[GlobalBackgroundVar]</imagepath>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),5)">FanartTimePerImage5</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),6)">FanartTimePerImage6</include>
-				<include condition="String.IsEmpty(Skin.String(FanartTimePerImage))">FanartTimePerImage7</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),8)">FanartTimePerImage8</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),9)">FanartTimePerImage9</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),10)">FanartTimePerImage10</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),15)">FanartTimePerImage15</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),20)">FanartTimePerImage20</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),30)">FanartTimePerImage30</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),60)">FanartTimePerImage60</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),90)">FanartTimePerImage90</include>
-			</control>
-			<!-- Live Background Movie Set -->
-			<include condition="Skin.HasSetting(Enable.Set.LiveBackground)">LiveBackgroundSets</include>
+		<control type="multiimage">
+			<left>450</left>
+			<width>1536</width>
+			<height>864</height>
+			<imagepath background="true" diffuse="views/myflix/fanart_diffuse.png">$VAR[GlobalBackgroundVar]</imagepath>
+			<include condition="Skin.HasSetting(Enable.AnimatedBackgrounds)">AnimatedBackgroundAnimation</include>
+			<visible>Control.IsVisible(509)</visible>
+			<include>MultiImageTime</include>
 		</control>
-		<!-- MyFlix Background -->
 		<control type="group">
-			<visible>Control.IsVisible(509) + !Window.IsActive(skinsettings)</visible>
-			<control type="image">
-				<include>FullscreenDimensions</include>
-				<texture>black.png</texture>
-			</control>
+			<visible>!Control.IsVisible(509)</visible>
 			<control type="multiimage">
-				<description>MyFlix Background Image</description>
-				<left>450</left>
-				<width>1536</width>
-				<height>864</height>
-				<imagepath background="true" diffuse="views/myflix/fanart_diffuse.png">$VAR[GlobalBackgroundVar]</imagepath>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),5)">FanartTimePerImage5</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),6)">FanartTimePerImage6</include>
-				<include condition="String.IsEmpty(Skin.String(FanartTimePerImage))">FanartTimePerImage7</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),8)">FanartTimePerImage8</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),9)">FanartTimePerImage9</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),10)">FanartTimePerImage10</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),15)">FanartTimePerImage15</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),20)">FanartTimePerImage20</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),30)">FanartTimePerImage30</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),60)">FanartTimePerImage60</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),90)">FanartTimePerImage90</include>
+				<include>FullscreenDimensions</include>
+				<include condition="Skin.HasSetting(Enable.AnimatedBackgrounds)">AnimatedBackgroundAnimation</include>
+				<include>MultiImageTime</include>
+				<imagepath background="true">$VAR[GlobalBackgroundVar]</imagepath>
 			</control>
+			<include condition="Skin.HasSetting(Enable.Set.LiveBackground)">LiveBackgroundSets</include>
 		</control>
 	</include>
 	<include name="HomeFanart">
@@ -175,128 +153,54 @@
 			<include>FullscreenDimensions</include>
 			<texture>black.png</texture>
 		</control>
-		<control type="group">
+		<control type="multiimage">
 			<include>FullscreenDimensions</include>
-			<include>AnimatedBackgroundAnimation</include>
-			<control type="multiimage">
-				<description>Normal Default Background Image</description>
-				<include>VisibleFadeAnimation</include>
-				<imagepath background="true">$VAR[HomeBackgroundVar]</imagepath>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),5)">FanartTimePerImage5</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),6)">FanartTimePerImage6</include>
-				<include condition="String.IsEmpty(Skin.String(FanartTimePerImage))">FanartTimePerImage7</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),8)">FanartTimePerImage8</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),9)">FanartTimePerImage9</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),10)">FanartTimePerImage10</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),15)">FanartTimePerImage15</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),20)">FanartTimePerImage20</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),30)">FanartTimePerImage30</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),60)">FanartTimePerImage60</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),90)">FanartTimePerImage90</include>
-				<visible>[!Player.HasAudio + Skin.HasSetting(Enable.ArtistSlideshowOnHome)] | [!Skin.HasSetting(Enable.ArtistSlideshowOnHome)]</visible>
-			</control>
-			<control type="multiimage">
-				<include>VisibleFadeAnimation</include>
-				<imagepath background="true">$VAR[ArtistSlideshowOnHomeBackgroundVar]</imagepath>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),5)">FanartTimePerImage5</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),6)">FanartTimePerImage6</include>
-				<include condition="String.IsEmpty(Skin.String(FanartTimePerImage))">FanartTimePerImage7</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),8)">FanartTimePerImage8</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),9)">FanartTimePerImage9</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),10)">FanartTimePerImage10</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),15)">FanartTimePerImage15</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),20)">FanartTimePerImage20</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),30)">FanartTimePerImage30</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),60)">FanartTimePerImage60</include>
-				<include condition="String.IsEqual(Skin.String(FanartTimePerImage),90)">FanartTimePerImage90</include>
-				<visible>Player.HasAudio + Skin.HasSetting(Enable.ArtistSlideshowOnHome) + String.IsEmpty(Window(Home).Property(script.cinemavision.running))</visible>
-			</control>
-		</control>
-	</include>
-	<include name="WidgetHomeFanart">
-		<control type="group">
-			<visible>$PARAM[Visible] + ![Container($PARAM[id]).OnNext | Container($PARAM[id]).OnPrevious] + [[String.IsEmpty(Container(9000).ListItem.Property(widgetDisableFanart)) + ControlGroup(90010).HasFocus] | [String.IsEmpty(Container(9000).ListItem.Property(widgetDisableFanart.2)) + ControlGroup(90020).HasFocus]]</visible>
-			<include>FullscreenDimensions</include>
-			<include>AnimatedBackgroundAnimation</include>
-			<include>VisibleFadeAnimation</include>
-			<control type="multiimage">
-				<imagepath background="true">$PARAM[imagePath]</imagepath>
-				<visible>!$PARAM[isWeather]</visible>
-			</control>
-			<control type="group">
-				<visible>$PARAM[isWeather]</visible>
-				<control type="multiimage">
-					<imagepath background="true">$PARAM[imagePath]</imagepath>
-					<visible>!Skin.HasSetting(weatherfanart.multi)</visible>
-				</control>
-				<control type="multiimage">
-					<imagepath background="true">$PARAM[imagePathMulti]</imagepath>
-					<visible>Skin.HasSetting(weatherfanart.multi)</visible>
-				</control>
-			</control>
+			<include condition="Skin.HasSetting(Enable.AnimatedBackgrounds)">AnimatedBackgroundAnimation</include>
+			<imagepath background="true">$VAR[HomeBackgroundVar]</imagepath>
+			<include>MultiImageTime</include>
 		</control>
 	</include>
 	<include name="TVShowNextAiredBackground">
-		<control type="image">
-			<include>AnimatedBackgroundAnimation</include>
-			<texture background="true" fallback="special://skin/backgrounds/fallback_movies.jpg">$INFO[Skin.String(CustomDefaultBackground.path)]</texture>
-			<aspectratio>scale</aspectratio>
-			<fadetime>600</fadetime>
-			<visible>Control.HasFocus(9000) | Control.HasFocus(61) | Control.HasFocus(8)</visible>
-			<animation effect="fade" time="600">Visible</animation>
-			<animation effect="fade" time="600">Hidden</animation>
-			<animation effect="fade" time="200">WindowClose</animation>
-		</control>
 		<control type="group">
-			<visible>!String.IsEmpty(Window(Home).Property(TVGuide.BackgroundFanart))</visible>
-			<include content="TVGuideFanart">
-				<param name="FanartImageControlID">200</param>
-			</include>
-			<include content="TVGuideFanart">
-				<param name="FanartImageControlID">201</param>
-			</include>
-			<include content="TVGuideFanart">
-				<param name="FanartImageControlID">202</param>
-			</include>
-			<include content="TVGuideFanart">
-				<param name="FanartImageControlID">203</param>
-			</include>
-			<include content="TVGuideFanart">
-				<param name="FanartImageControlID">204</param>
-			</include>
-			<include content="TVGuideFanart">
-				<param name="FanartImageControlID">205</param>
-			</include>
-			<include content="TVGuideFanart">
-				<param name="FanartImageControlID">206</param>
-			</include>
-			<include content="TVGuideFanart">
-				<param name="FanartImageControlID">207</param>
-			</include>
-			<include content="TVGuideFanart">
-				<param name="FanartImageControlID">208</param>
-			</include>
-			<include content="TVGuideFanart">
-				<param name="FanartImageControlID">209</param>
-			</include>
-			<include content="TVGuideFanart">
-				<param name="FanartImageControlID">210</param>
-			</include>
-			<include content="TVGuideFanart">
-				<param name="FanartImageControlID">211</param>
-			</include>
-			<include content="TVGuideFanart">
-				<param name="FanartImageControlID">212</param>
-			</include>
-			<include content="TVGuideFanart">
-				<param name="FanartImageControlID">213</param>
-			</include>
-			<include content="TVGuideFanart">
-				<param name="FanartImageControlID">214</param>
-			</include>
-			<include content="TVGuideFanart">
-				<param name="FanartImageControlID">215</param>
-			</include>
+			<include>FullscreenDimensions</include>
+			<include condition="Skin.HasSetting(Enable.AnimatedBackgrounds)">AnimatedBackgroundAnimation</include>
+			<animation effect="fade" time="200">WindowClose</animation>
+			<control type="image">
+				<texture background="true" fallback="special://skin/backgrounds/fallback_movies.jpg">$INFO[Skin.String(CustomDefaultBackground.path)]</texture>
+				<aspectratio>scale</aspectratio>
+				<fadetime>600</fadetime>
+				<visible>!ControlGroup(9001).HasFocus</visible>
+				<animation effect="fade" time="600">VisibleChange</animation>
+			</control>
+			<control type="image">
+				<texture background="true" fallback="special://skin/backgrounds/fallback_movies.jpg">$INFO[Container.ListItem.Property(Fanart)]</texture>
+				<aspectratio>scale</aspectratio>
+				<fadetime>600</fadetime>
+				<visible>ControlGroup(9001).HasFocus</visible>
+				<animation effect="fade" time="600">VisibleChange</animation>
+				<visible>!String.IsEmpty(Window(Home).Property(TVGuide.BackgroundFanart))</visible>
+			</control>
+		</control>
+	</include>
+	<include name="GlobalSearchBG">
+		<control type="group">
+			<include>FullscreenDimensions</include>
+			<include condition="Skin.HasSetting(Enable.AnimatedBackgrounds)">AnimatedBackgroundAnimation</include>
+			<animation effect="fade" time="200">WindowClose</animation>
+			<control type="image">
+				<texture background="true" fallback="special://skin/backgrounds/fallback_movies.jpg">$INFO[Skin.String(CustomDefaultBackground.path)]</texture>
+				<aspectratio>scale</aspectratio>
+				<fadetime>600</fadetime>
+				<visible>!Control.HasFocus(50)</visible>
+				<animation effect="fade" time="600">VisibleChange</animation>
+			</control>
+			<control type="image">
+				<texture background="true" fallback="special://skin/backgrounds/fallback_movies.jpg">$VAR[GlobalBackgroundVar]</texture>
+				<aspectratio>scale</aspectratio>
+				<fadetime>600</fadetime>
+				<visible>Control.HasFocus(50)</visible>
+				<animation effect="fade" time="600">VisibleChange</animation>
+			</control>
 		</control>
 	</include>
 	<include name="SnowBackground">
@@ -547,121 +451,63 @@
 	</include>
 	<include name="WeatherFallback">
 		<item>
-			<onclick>noop</onclick>
 			<thumb>$INFO[Skin.String(weatherfanart.path)]$INFO[Window(Weather).Property(Current.FanartCode)]$VAR[WeatherBackgroundTypeVar]</thumb>
 		</item>
 	</include>
 	<include name="MusicFallback">
 		<item>
-			<onclick>noop</onclick>
 			<thumb>$INFO[Skin.String(Music.Fallback)]</thumb>
 		</item>
 	</include>
 	<include name="SystemFallback">
 		<item>
-			<onclick>noop</onclick>
-			<thumb>$INFO[Skin.String(System.Fallback)]</thumb>
+			<thumb>$VAR[SystemBackgroundVar]</thumb>
 		</item>
 	</include>
 	<include name="ProfilesFallback">
 		<item>
-			<onclick>noop</onclick>
 			<thumb>$VAR[LoginProfileBackgroundVar]</thumb>
 		</item>
 	</include>
 	<include name="LiveTVFallback">
 		<item>
-			<onclick>noop</onclick>
 			<thumb>$INFO[Skin.String(LiveTV.Fallback)]</thumb>
 		</item>
 	</include>
 	<include name="PicturesFallback">
 		<item>
-			<onclick>noop</onclick>
 			<thumb>$INFO[Skin.String(Pictures.Fallback)]</thumb>
 		</item>
 	</include>
 	<include name="AppsFallback">
 		<item>
-			<onclick>noop</onclick>
 			<thumb>$INFO[Skin.String(Apps.Fallback)]</thumb>
+		</item>
+	</include>
+	<include name="GamesFallback">
+		<item>
+			<thumb>$INFO[Skin.String(Games.Fallback)]</thumb>
 		</item>
 	</include>
 	<include name="VideoFallback">
 		<item>
-			<onclick>noop</onclick>
 			<thumb>$INFO[Skin.String(Movies.Fallback)]</thumb>
 			<visible>Container.Content(movies)</visible>
 		</item>
 		<item>
-			<onclick>noop</onclick>
 			<thumb>$INFO[Skin.String(TVShows.Fallback)]</thumb>
 			<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
 		</item>
 		<item>
-			<onclick>noop</onclick>
 			<thumb>$INFO[Skin.String(MusicVideos.Fallback)]</thumb>
 			<visible>Container.Content(musicvideos)</visible>
 		</item>
 		<item>
-			<onclick>noop</onclick>
 			<thumb>$INFO[Skin.String(Videos.Fallback)]</thumb>
 			<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies)]</visible>
 		</item>
 	</include>
-	<include name="GlobalSearchBG">
-		<control type="image">
-			<include>AnimatedBackgroundAnimation</include>
-			<texture background="true" fallback="special://skin/backgrounds/fallback_movies.jpg">$INFO[Skin.String(CustomDefaultBackground.path)]</texture>
-			<aspectratio>scale</aspectratio>
-			<fadetime>600</fadetime>
-			<visible>Control.HasFocus(9000) | Control.HasFocus(60)</visible>
-			<animation effect="fade" time="600">Visible</animation>
-			<animation effect="fade" time="600">Hidden</animation>
-			<animation effect="fade" time="200">WindowClose</animation>
-		</control>
-		<include content="GlobalSearchFanart">
-			<param name="FanartImageControlID">111</param>
-		</include>
-		<include content="GlobalSearchFanart">
-			<param name="FanartImageControlID">121</param>
-		</include>
-		<include content="GlobalSearchFanart">
-			<param name="FanartImageControlID">131</param>
-		</include>
-		<include content="GlobalSearchFanart">
-			<param name="FanartImageControlID">141</param>
-		</include>
-		<include content="GlobalSearchFanart">
-			<param name="FanartImageControlID">151</param>
-		</include>
-		<include content="GlobalSearchFanart">
-			<param name="FanartImageControlID">161</param>
-		</include>
-		<include content="GlobalSearchFanart">
-			<param name="FanartImageControlID">171</param>
-		</include>
-		<include content="GlobalSearchFanart">
-			<param name="FanartImageControlID">181</param>
-		</include>
-		<include content="GlobalSearchFanart">
-			<param name="FanartImageControlID">211</param>
-		</include>
-		<include content="GlobalSearchFanart">
-			<param name="FanartImageControlID">221</param>
-		</include>
-		<include content="GlobalSearchFanart">
-			<param name="FanartImageControlID">231</param>
-		</include>
-	</include>
 	<include name="LiveBackgroundSets">
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<aspectratio align="center" aligny="top">scale</aspectratio>
-			<texture background="true">$VAR[BoxsetModFanartVar]</texture>
-			<visible>ListItem.IsCollection</visible>
-			<fadetime>FanartCrossfadeTime</fadetime>
-		</control>
 		<control type="group">
 			<visible>ListItem.IsCollection</visible>
 			<animation effect="fade" time="600">WindowOpen</animation>
@@ -837,6 +683,45 @@
 			<animation effect="fade" time="200">WindowClose</animation>
 		</control>
 	</include>
+	<include name="MultiImageTime">
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),5)">FanartTimePerImage5</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),6)">FanartTimePerImage6</include>
+		<include condition="String.IsEmpty(Skin.String(FanartTimePerImage))">FanartTimePerImage7</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),8)">FanartTimePerImage8</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),9)">FanartTimePerImage9</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),10)">FanartTimePerImage10</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),15)">FanartTimePerImage15</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),20)">FanartTimePerImage20</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),30)">FanartTimePerImage30</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),60)">FanartTimePerImage60</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),90)">FanartTimePerImage90</include>
+	</include>
+	<include name="FadeLabelTime">
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),5)">FadelabelPauseAtEnd5</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),6)">FadelabelPauseAtEnd6</include>
+		<include condition="String.IsEmpty(Skin.String(FanartTimePerImage))">FadelabelPauseAtEnd7</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),8)">FadelabelPauseAtEnd8</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),9)">FadelabelPauseAtEnd9</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),10)">FadelabelPauseAtEnd10</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),15)">FadelabelPauseAtEnd15</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),20)">FadelabelPauseAtEnd20</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),30)">FadelabelPauseAtEnd30</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),60)">FadelabelPauseAtEnd60</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),90)">FadelabelPauseAtEnd90</include>
+	</include>
+	<!-- <include name="ListAutoscrollTime">
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),5)">ListAutoscroll5</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),6)">ListAutoscroll6</include>
+		<include condition="String.IsEmpty(Skin.String(FanartTimePerImage))">ListAutoscroll7</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),8)">ListAutoscroll8</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),9)">ListAutoscroll9</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),10)">ListAutoscroll10</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),15)">ListAutoscroll15</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),20)">ListAutoscroll20</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),30)">ListAutoscroll30</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),60)">ListAutoscroll60</include>
+		<include condition="String.IsEqual(Skin.String(FanartTimePerImage),90)">ListAutoscroll90</include>
+	</include> -->
 	<!-- Fanart Time Per Image -->
 	<include name="FanartTimePerImage5">
 		<timeperimage>5000</timeperimage>
@@ -905,4 +790,38 @@
 	<include name="FadelabelPauseAtEnd90">
 		<pauseatend>90000</pauseatend>
 	</include>
+	<!-- Home Random Fanart List Autoscroll -->
+	<!-- <include name="ListAutoscroll5">
+		<autoscroll time="5000">true</autoscroll>
+	</include>
+	<include name="ListAutoscroll6">
+		<autoscroll time="6000">true</autoscroll>
+	</include>
+	<include name="ListAutoscroll7">
+		<autoscroll time="7000">true</autoscroll>
+	</include>
+	<include name="ListAutoscroll8">
+		<autoscroll time="8000">true</autoscroll>
+	</include>
+	<include name="ListAutoscroll9">
+		<autoscroll time="9000">true</autoscroll>
+	</include>
+	<include name="ListAutoscroll10">
+		<autoscroll time="10000">true</autoscroll>
+	</include>
+	<include name="ListAutoscroll15">
+		<autoscroll time="15000">true</autoscroll>
+	</include>
+	<include name="ListAutoscroll20">
+		<autoscroll time="20000">true</autoscroll>
+	</include>
+	<include name="ListAutoscroll30">
+		<autoscroll time="30000">true</autoscroll>
+	</include>
+	<include name="ListAutoscroll60">
+		<autoscroll time="60000">true</autoscroll>
+	</include>
+	<include name="ListAutoscroll90">
+		<autoscroll time="90000">true</autoscroll>
+	</include> -->
 </includes>

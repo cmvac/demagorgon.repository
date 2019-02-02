@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<coordinates>
-		<system>1</system>
-		<left>0</left>
 		<top>-45</top>
 	</coordinates>
-	<zorder>10</zorder>
+	<zorder>2</zorder>
 	<onload condition="VideoPlayer.Content(livetv)">SetFocus(808)</onload>
 	<onload condition="!VideoPlayer.Content(livetv) + Skin.HasSetting(Disable.PlayerControlButtons)">SetFocus(706)</onload>
 	<onload condition="!VideoPlayer.Content(livetv) + !Skin.HasSetting(Disable.PlayerControlButtons)">SetFocus(602)</onload>
 	<controls>
 		<control type="group">
-			<visible>![Window.IsVisible(SliderDialog) | Window.IsVisible(PVROSDGuide) | Window.IsVisible(PVROSDTeletext) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(subtitlesearch) | Window.IsVisible(1115)]</visible>
-			<animation effect="fade" end="100" start="0" delay="150" time="200">Visible</animation>
-			<animation effect="fade" end="100" time="260">WindowOpen</animation>
-			<animation effect="fade" end="0" start="100" time="200">WindowClose</animation>
+			<visible>![Window.IsVisible(SliderDialog) | Window.IsVisible(pvrchannelguide) | Window.IsVisible(PVROSDTeletext) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(1115)]</visible>
+			<animation effect="fade" end="100" time="150" delay="100">Visible</animation>
+			<animation effect="fade" end="100" time="150" delay="100">WindowOpen</animation>
 			<control type="image">
 				<top>1010</top>
 				<width>1920</width>
@@ -23,7 +20,6 @@
 				<visible>VideoPlayer.Content(LiveTV)</visible>
 			</control>
 			<control type="slider">
-				<description>Seek Slider</description>
 				<top>1085</top>
 				<width>100%</width>
 				<height>23</height>
@@ -44,18 +40,9 @@
 					<itemgap>20</itemgap>
 					<onleft>202</onleft>
 					<onright>202</onright>
+					<onup>703</onup>
+					<ondown>706</ondown>
 					<visible>!VideoPlayer.Content(LiveTV)</visible>
-					<control type="button" id="700">
-						<textoffsety>60</textoffsety>
-						<texturefocus>osd/buttons/OSDBookMarksFO.png</texturefocus>
-						<texturenofocus>osd/buttons/OSDBookMarksNF.png</texturenofocus>
-						<label />
-						<width>100</width>
-						<height>100</height>
-						<font />
-						<onclick>ActivateWindow(videobookmarks)</onclick>
-						<oninfo>Dialog.Close(all,true)</oninfo>
-					</control>
 					<control type="button" id="701">
 						<texturefocus>osd/buttons/OSDAudioFO.png</texturefocus>
 						<texturenofocus>osd/buttons/OSDAudioNF.png</texturenofocus>
@@ -75,6 +62,17 @@
 						<font />
 						<onclick>ActivateWindow(osdvideosettings)</onclick>
 						<oninfo>Dialog.Close(all,true)</oninfo>
+					</control>
+					<control type="button" id="703">
+						<texturefocus>osd/buttons/OSDSubtitlesFO.png</texturefocus>
+						<texturenofocus>osd/buttons/OSDSubtitlesNF.png</texturenofocus>
+						<label />
+						<width>100</width>
+						<height>100</height>
+						<font />
+						<onclick>ActivateWindow(OSDSubtitleSettings)</onclick>
+						<oninfo>Dialog.Close(all,true)</oninfo>
+						<oninfo>ActivateWindow(SubtitleSearch)</oninfo>
 					</control>
 					<control type="button" id="600">
 						<texturefocus>osd/buttons/OSDPrevTrackFO.png</texturefocus>
@@ -160,14 +158,15 @@
 						<onclick condition="Window.IsActive(fullscreeninfo)">Dialog.Close(all,true)</onclick>
 						<oninfo>Dialog.Close(all,true)</oninfo>
 					</control>
-					<control type="button" id="703">
-						<texturefocus>osd/buttons/OSDSubtitlesFO.png</texturefocus>
-						<texturenofocus>osd/buttons/OSDSubtitlesNF.png</texturenofocus>
+					<control type="button" id="700">
+						<textoffsety>60</textoffsety>
+						<texturefocus>osd/buttons/OSDBookMarksFO.png</texturefocus>
+						<texturenofocus>osd/buttons/OSDBookMarksNF.png</texturenofocus>
 						<label />
 						<width>100</width>
 						<height>100</height>
 						<font />
-						<onclick>ActivateWindow(SubtitleSearch)</onclick>
+						<onclick>ActivateWindow(videobookmarks)</onclick>
 						<oninfo>Dialog.Close(all,true)</oninfo>
 					</control>
 					<control type="button" id="704">
@@ -250,6 +249,16 @@
 						<onclick>ActivateWindow(osdvideosettings)</onclick>
 						<oninfo>Dialog.Close(all,true)</oninfo>
 					</control>
+					<control type="button" id="813">
+						<texturefocus>osd/buttons/OSDSubtitlesFO.png</texturefocus>
+						<texturenofocus>osd/buttons/OSDSubtitlesNF.png</texturenofocus>
+						<label />
+						<width>100</width>
+						<height>100</height>
+						<font />
+						<onclick>ActivateWindow(OSDSubtitleSettings)</onclick>
+						<oninfo>Dialog.Close(all,true)</oninfo>
+					</control>
 					<control type="button" id="802">
 						<texturefocus>osd/buttons/OSDChannelUPFO.png</texturefocus>
 						<texturenofocus>osd/buttons/OSDChannelUPNF.png</texturenofocus>
@@ -328,10 +337,10 @@
 						<width>100</width>
 						<height>100</height>
 						<font />
-						<onclick>PlayerControl(Record)</onclick>
+						<onclick>PVR.ToggleRecordPlayingChannel</onclick>
 						<oninfo>Dialog.Close(all,true)</oninfo>
-						<visible>Player.CanRecord</visible>
-						<usealttexture>Player.Recording</usealttexture>
+						<visible>PVR.CanRecordPlayingChannel</visible>
+						<usealttexture>PVR.IsRecordingPlayingChannel</usealttexture>
 					</control>
 					<control type="button" id="807">
 						<texturefocus>osd/buttons/OSDChannelListFO.png</texturefocus>
@@ -352,7 +361,7 @@
 						<height>100</height>
 						<font />
 						<onclick>Dialog.Close(VideoOSD)</onclick>
-						<onclick>ActivateWindow(PVROSDGuide)</onclick>
+						<onclick>ActivateWindow(pvrchannelguide)</onclick>
 						<oninfo>Dialog.Close(all,true)</oninfo>
 					</control>
 					<control type="button" id="809">

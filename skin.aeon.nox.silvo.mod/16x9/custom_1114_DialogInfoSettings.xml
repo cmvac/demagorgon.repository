@@ -10,13 +10,11 @@
 	<include>DialogOpenCloseAnimation</include>
 	<controls>
 		<control type="image">
-			<description>background image</description>
 			<width>1522</width>
 			<height>660</height>
 			<texture border="40">dialogs/default/bg.png</texture>
 		</control>
 		<control type="label" id="2">
-			<description>header label</description>
 			<left>30</left>
 			<top>32</top>
 			<width>1462</width>
@@ -27,7 +25,6 @@
 			<textcolor>dialogheader</textcolor>
 		</control>
 		<control type="grouplist" id="90200">
-			<description>control area</description>
 			<left>33</left>
 			<top>88</top>
 			<width>1452</width>
@@ -37,73 +34,94 @@
 			<ondown>90200</ondown>
 			<onleft>6</onleft>
 			<onright>6</onright>
-			<control type="button" id="90208">
+			<control type="radiobutton" id="90201">
+				<width>1452</width>
+				<radioposx>1350</radioposx>
+				<label>$LOCALIZE[31487]</label>
+				<onclick>Skin.ToggleSetting(MoreVideoInfoDetails)</onclick>
+				<selected>Skin.HasSetting(MoreVideoInfoDetails)</selected>
+				<visible>!Window.IsActive(musicinformation)</visible>
+			</control>
+			<control type="radiobutton" id="90202">
+				<width>1452</width>
+				<radioposx>1350</radioposx>
+				<label>$LOCALIZE[31494]</label>
+				<onclick>Skin.ToggleSetting(Disable.VideoInfoPathDetails)</onclick>
+				<selected>Skin.HasSetting(Disable.VideoInfoPathDetails)</selected>
+				<visible>!Window.IsActive(musicinformation)</visible>
+			</control>
+			<control type="button" id="90203">
 				<width>1452</width>
 				<label>$LOCALIZE[31931]</label>
 				<label2>[COLOR $VAR[ThemeLabelColor]]$VAR[VideoPlotLocalizeVar][/COLOR]</label2>
 				<onclick>Skin.ToggleSetting(VideoInfoPlotToggle)</onclick>
-				<texturenofocus border="1">separator5.png</texturenofocus>
-				<visible>!Window.IsActive(music)</visible>
+				<visible>!Window.IsActive(musicinformation)</visible>
 			</control>
-			<control type="button" id="90201">
+			<control type="button" id="90204">
 				<width>1452</width>
 				<label>$LOCALIZE[31990]</label>
 				<label2>[COLOR $VAR[ThemeLabelColor]]$VAR[CinemaVisionButtonLabelVar][/COLOR]</label2>
 				<onclick>$VAR[CinemaVisionButtonOnClickVar]</onclick>
-				<texturenofocus border="1">separator5.png</texturenofocus>
 				<visible>System.HasAddon(script.cinemavision)</visible>
-				<visible>!Window.IsActive(music)</visible>
+				<visible>!Window.IsActive(musicinformation)</visible>
 			</control>
-			<control type="radiobutton" id="90209">
+			<control type="radiobutton" id="90205">
 				<width>1452</width>
-				<onclick>Skin.ToggleSetting(Disable.ExtendedInfoIntergration)</onclick>
+				<radioposx>1350</radioposx>
+				<onclick>Skin.ToggleSetting(Enable.ExtendedInfoIntergration)</onclick>
 				<onclick>Dialog.Close(1119)</onclick>
 				<onclick>Dialog.Close(movieinformation)</onclick>
-				<selected>Skin.HasSetting(Disable.ExtendedInfoIntergration)</selected>
-				<label>$LOCALIZE[31127]</label>
-				<texturenofocus border="1">separator5.png</texturenofocus>
+				<selected>Skin.HasSetting(Enable.ExtendedInfoIntergration)</selected>
+				<label>$LOCALIZE[31127] ($LOCALIZE[342])</label>
 				<visible>System.HasAddon(script.extendedinfo)</visible>
-				<visible>!Window.IsActive(music)</visible>
+				<visible>!Window.IsActive(musicinformation)</visible>
 			</control>
-			<!-- Replace With Extended Info -->
-			<!-- <control type="radiobutton" id="90203">
+			<control type="radiobutton" id="90206">
 				<width>1452</width>
-				<onclick condition="!Skin.HasSetting(Enable.UseExtendedInfo)">Dialog.Close(1119)</onclick>
-				<onclick condition="!Skin.HasSetting(Enable.UseExtendedInfo)">Dialog.Close(movieinformation)</onclick>
-				<onclick>Skin.ToggleSetting(Enable.UseExtendedInfo)</onclick>
-				<selected>Skin.HasSetting(Enable.UseExtendedInfo)</selected>
-				<label>$LOCALIZE[31196]</label>
-				<texturenofocus border="1">separator5.png</texturenofocus>
+				<radioposx>1350</radioposx>
+				<onclick>Skin.ToggleSetting(Enable.ExtendedInfoTVIntergration)</onclick>
+				<onclick>Dialog.Close(1119)</onclick>
+				<onclick>Dialog.Close(movieinformation)</onclick>
+				<selected>Skin.HasSetting(Enable.ExtendedInfoTVIntergration)</selected>
+				<label>$LOCALIZE[31127] ($LOCALIZE[20343])</label>
 				<visible>System.HasAddon(script.extendedinfo)</visible>
-				<visible>!Window.IsActive(music)</visible>
-			</control> -->
-			<control type="button" id="90210">
+				<visible>!Window.IsActive(musicinformation)</visible>
+			</control>
+			<control type="button" id="90207">
 				<width>1452</width>
 				<label>$LOCALIZE[31442]</label>
-				<label2>[COLOR $VAR[ThemeLabelColor]]$VAR[VideoInfoDimmerLabelVar][/COLOR]</label2>
-				<onclick>$VAR[VideoInfoDimmerOnClickVar]</onclick>
-				<texturenofocus border="1">separator5.png</texturenofocus>
+				<label2>[COLOR $VAR[ThemeLabelColor]]$VAR[DialogInfoDimmerLabelVar][/COLOR]</label2>
+				<onclick>SetProperty(CustomSelectDialogInfoDimmer,True)</onclick>
+				<onclick>ActivateWindow(1129)</onclick>
 				<visible>!Skin.HasSetting(Enable.BlurredVideoInfo)</visible>
 			</control>
-			<control type="radiobutton" id="90204">
+			<control type="radiobutton" id="90208">
 				<width>1452</width>
+				<radioposx>1350</radioposx>
 				<onclick condition="System.HasAddon(script.colorbox) + !Skin.HasSetting(Enable.BlurredVideoInfo)">Dialog.Close(1119)</onclick>
-				<onclick condition="System.HasAddon(script.colorbox) + !Skin.HasSetting(Enable.BlurredVideoInfo) + !Window.IsActive(music)">Dialog.Close(movieinformation)</onclick>
+				<onclick condition="System.HasAddon(script.colorbox) + !Skin.HasSetting(Enable.BlurredVideoInfo) + !Window.IsActive(musicinformation)">Dialog.Close(movieinformation)</onclick>
 				<onclick condition="System.HasAddon(script.colorbox) + !Skin.HasSetting(Enable.BlurredVideoInfo) + Window.IsActive(music) + !String.IsEqual(ListItem.DBTYPE,song)">Dialog.Close(musicinformation)</onclick>
 				<onclick condition="System.HasAddon(script.colorbox) + !Skin.HasSetting(Enable.BlurredVideoInfo) + Window.IsActive(music) + String.IsEqual(ListItem.DBTYPE,song)">Dialog.Close(songinformation)</onclick>
 				<onclick condition="System.HasAddon(script.colorbox)">Skin.ToggleSetting(Enable.BlurredVideoInfo)</onclick>
 				<onclick condition="!System.HasAddon(script.colorbox)">InstallAddon(script.colorbox)</onclick>
 				<selected>Skin.HasSetting(Enable.BlurredVideoInfo)</selected>
 				<label>$LOCALIZE[31174]</label>
-				<texturenofocus border="1">separator5.png</texturenofocus>
 			</control>
-			<control type="radiobutton" id="90206">
+			<control type="radiobutton" id="90209">
 				<width>1452</width>
+				<radioposx>1350</radioposx>
 				<onclick>Skin.ToggleSetting(discartoninfo)</onclick>
 				<selected>Skin.HasSetting(discartoninfo)</selected>
 				<label>$LOCALIZE[31601]</label>
-				<texturenofocus border="1">separator5.png</texturenofocus>
-				<visible>!Window.IsActive(music)</visible>
+				<visible>!Window.IsActive(musicinformation)</visible>
+			</control>
+			<control type="radiobutton" id="90210">
+				<width>1452</width>
+				<radioposx>1350</radioposx>
+				<onclick>Skin.ToggleSetting(CharacterOnInfo)</onclick>
+				<selected>Skin.HasSetting(CharacterOnInfo)</selected>
+				<label>Show clearart in tv information</label>
+				<visible>!Window.IsActive(musicinformation)</visible>
 			</control>
 		</control>
 		<control type="scrollbar" id="6">
@@ -112,12 +130,11 @@
 			<width>8</width>
 			<height>540</height>
 			<texturesliderbackground />
-			<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
+			<texturesliderbar colordiffuse="80FFFFFF" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
 			<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
 			<onleft>90200</onleft>
 			<onright>90200</onright>
 			<showonepage>false</showonepage>
-			<orientation>vertical</orientation>
 		</control>
 	</controls>
 </window>

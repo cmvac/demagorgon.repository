@@ -11,7 +11,6 @@
 					<top>75</top>
 					<width>1300</width>
 					<height>980</height>
-					<orientation>vertical</orientation>
 					<onleft>SetProperty(MediaMenu,True,Home)</onleft>
 					<onleft>SetFocus(9050)</onleft>
 					<onright>50860</onright>
@@ -35,7 +34,7 @@
 							<height>70</height>
 							<font>font30</font>
 							<textcolor>grey</textcolor>
-							<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
+							<shadowcolor>shadow</shadowcolor>
 							<label>$INFO[ListItem.TrackNumber]. $INFO[ListItem.Title]</label>
 						</control>
 					</itemlayout>
@@ -59,9 +58,8 @@
 							<width>1000</width>
 							<height>70</height>
 							<font>font30</font>
-							<textcolor>white</textcolor>
-							<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 							<label>[B]$INFO[ListItem.TrackNumber]. $INFO[ListItem.Title][/B]</label>
+							<shadowcolor>shadow</shadowcolor>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(508)">Conditional</animation>
 						</control>
 						<control type="label">
@@ -71,7 +69,7 @@
 							<height>70</height>
 							<font>font16_title</font>
 							<textcolor>$VAR[ThemeLabelColor]</textcolor>
-							<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
+							<shadowcolor>shadow</shadowcolor>
 							<label>$INFO[ListItem.Artist]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(508)">Conditional</animation>
 						</control>
@@ -81,8 +79,7 @@
 							<width>990</width>
 							<height>70</height>
 							<font>font16</font>
-							<textcolor>white</textcolor>
-							<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
+							<shadowcolor>shadow</shadowcolor>
 							<label>$INFO[ListItem.Album] $INFO[ListItem.Year,[,]]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(508)">Conditional</animation>
 						</control>
@@ -92,8 +89,7 @@
 							<width>990</width>
 							<height>110</height>
 							<font>font16</font>
-							<textcolor>white</textcolor>
-							<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
+							<shadowcolor>shadow</shadowcolor>
 							<label fallback="• • • •">$VAR[MusicListLabel4Var]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(508)">Conditional</animation>
 						</control>
@@ -126,10 +122,9 @@
 					<onright>SetProperty(MediaMenu,True,Home)</onright>
 					<onright>SetFocus(9050)</onright>
 					<texturesliderbackground />
-					<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
+					<texturesliderbar colordiffuse="80FFFFFF" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
 					<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
 					<showonepage>false</showonepage>
-					<orientation>vertical</orientation>
 					<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(50860) + !Container.Scrolling">Conditional</animation>
 				</control>
 			</control>

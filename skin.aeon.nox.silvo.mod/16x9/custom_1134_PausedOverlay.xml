@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window id="1134" type="dialog">
-	<visible>[VideoPlayer.IsFullscreen + Player.Paused + System.IdleTime(7.5) + !Skin.HasSetting(Disable.Netflix.Pause) + !System.HasModalDialog]</visible>
+	<visible>[VideoPlayer.IsFullscreen + Player.Paused + System.IdleTime(7.5) + !Skin.HasSetting(Disable.Netflix.Pause) + !System.HasActiveModalDialog]</visible>
 	<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
 	<controls>
 		<control type="image">
@@ -18,7 +18,7 @@
 			<animation effect="fade" end="0">WindowClose</animation>
 			<control type="image">
 				<left>1460</left>
-				<top>773</top>
+				<top>770</top>
 				<width>450</width>
 				<height>260</height>
 				<aspectratio aligny="bottom" align="center">keep</aspectratio>
@@ -146,7 +146,6 @@
 					<top>10</top>
 					<width>900</width>
 					<height>290</height>
-					<font>font15_textbox</font>
 					<textcolor>grey</textcolor>
 					<label>$INFO[VideoPlayer.PlotOutline]</label>
 					<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
@@ -158,7 +157,6 @@
 					<top>10</top>
 					<width>1200</width>
 					<height>290</height>
-					<font>font15_textbox</font>
 					<textcolor>grey</textcolor>
 					<label>$INFO[VideoPlayer.Plot]</label>
 					<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>

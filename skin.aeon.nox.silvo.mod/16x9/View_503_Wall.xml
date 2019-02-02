@@ -13,16 +13,15 @@
 				<onright>50360</onright>
 				<onup>503</onup>
 				<ondown>503</ondown>
-				<orientation>vertical</orientation>
 				<viewtype label="$LOCALIZE[31245]">icon</viewtype>
 				<pagecontrol>50360</pagecontrol>
 				<preloaditems>2</preloaditems>
 				<scrolltime tween="quadratic">400</scrolltime>
-				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(albums) | Container.Content(addons) | [Window.IsActive(music) + Container.Content(files)]</visible>
+				<visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(albums) | Container.Content(addons) | [Window.IsActive(music) + Container.Content(files)]</visible>
 				<itemlayout width="320" height="440" condition="![Container.Content(albums) | Container.Content(addons)] + ![Window.IsActive(music) + Container.Content(files)]">
 					<control type="group">
 						<left>11</left>
-						<top>80</top>
+						<top>60</top>
 						<control type="image">
 							<width>300</width>
 							<height>430</height>
@@ -31,7 +30,7 @@
 							<bordersize>20</bordersize>
 						</control>
 						<control type="image">
-							<left>207</left>
+							<left>211</left>
 							<top>19</top>
 							<width>80</width>
 							<height>80</height>
@@ -56,15 +55,15 @@
 							<top>-20</top>
 							<width>333</width>
 							<height>455</height>
-							<texture background="true" fallback="$VAR[CaseTypePathVar]p.png" colordiffuse="CCFFFFFF">$VAR[CaseTypePathVar]$VAR[GlobalCaseVar]</texture>
-							<visible>Skin.HasSetting(Enable.Wall.Cases)</visible>
+							<texture background="true" colordiffuse="CCFFFFFF">$VAR[CaseTypePathVar]$VAR[GlobalCaseVar]</texture>
+							<visible>[Skin.HasSetting(Enable.Wall.Cases) + !Container.Content(sets)] | [Skin.HasSetting(Enable.Wall.SetCases) + Container.Content(sets)]</visible>
 						</control>
 					</control>
 				</itemlayout>
 				<focusedlayout width="320" height="440" condition="![Container.Content(albums) | Container.Content(addons)] + ![Window.IsActive(music) + Container.Content(files)]">
 					<control type="group">
 						<left>11</left>
-						<top>80</top>
+						<top>60</top>
 						<animation effect="zoom" center="160,310" start="100" end="110" time="420" tween="back" reversible="false">Focus</animation>
 						<control type="image">
 							<width>300</width>
@@ -74,7 +73,7 @@
 							<bordersize>20</bordersize>
 						</control>
 						<control type="image">
-							<left>207</left>
+							<left>211</left>
 							<top>19</top>
 							<width>80</width>
 							<height>80</height>
@@ -101,8 +100,8 @@
 							<top>-20</top>
 							<width>333</width>
 							<height>455</height>
-							<texture background="true" fallback="$VAR[CaseTypePathVar]p.png">$VAR[CaseTypePathVar]$VAR[GlobalCaseVar]</texture>
-							<visible>Skin.HasSetting(Enable.Wall.Cases)</visible>
+							<texture background="true">$VAR[CaseTypePathVar]$VAR[GlobalCaseVar]</texture>
+							<visible>[Skin.HasSetting(Enable.Wall.Cases) + !Container.Content(sets)] | [Skin.HasSetting(Enable.Wall.SetCases) + Container.Content(sets)]</visible>
 						</control>
 					</control>
 				</focusedlayout>
@@ -170,20 +169,19 @@
 				</focusedlayout>
 			</control>
 			<control type="scrollbar" id="50360">
-				<left>1906</left>
+				<left>1908</left>
 				<top>100</top>
-				<width>14</width>
-				<height>900</height>
+				<width>12</width>
+				<height>832</height>
 				<onup>50360</onup>
 				<ondown>50360</ondown>
 				<onleft>50</onleft>
 				<onright>SetProperty(MediaMenu,True,Home)</onright>
 				<onright>SetFocus(9050)</onright>
-				<texturesliderbackground />
-				<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
-				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
+				<texturesliderbackground colordiffuse="1AFFFFFF">colors/white50.png</texturesliderbackground>
+				<texturesliderbar colordiffuse="1AFFFFFF">colors/white.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="$VAR[ThemeLabelColor]">colors/white.png</texturesliderbarfocus>
 				<showonepage>false</showonepage>
-				<orientation>vertical</orientation>
 			</control>
 			<control type="group">
 				<left>310</left>
@@ -264,7 +262,7 @@
 					<height>20</height>
 					<font>font15</font>
 					<textcolor>$VAR[ThemeLabelColor]</textcolor>
-					<label>$INFO[ListItem.Year]$INFO[ListItem.Duration, - , $LOCALIZE[12391]]</label>
+					<label>$INFO[ListItem.Year]$INFO[ListItem.Duration(mins), - , $LOCALIZE[12391]]</label>
 				</control>
 				<control type="label">
 					<left>50</left>
@@ -277,22 +275,28 @@
 				</control>
 			</control>
 		</control>
-	</include>
-	<include name="UpDownShadow">
 		<control type="group">
+			<visible>Control.IsVisible(503) + !Window.IsActive(addoninformation)</visible>
 			<animation effect="fade" time="300">WindowOpen</animation>
 			<animation effect="fade" time="300">WindowClose</animation>
-			<visible>Control.IsVisible(503)</visible>
 			<control type="image">
 				<width>100%</width>
 				<height>120</height>
 				<texture border="1">bottom_shadow.png</texture>
 			</control>
 			<control type="image">
-				<top>920</top>
+				<top>960</top>
 				<width>100%</width>
-				<height>160</height>
+				<height>120</height>
 				<texture border="1" flipy="true">bottom_shadow.png</texture>
+				<visible>Container.Content(albums) | Container.Content(addons) | [Window.IsActive(music) + Container.Content(files)]</visible>
+			</control>
+			<control type="image">
+				<top>472</top>
+				<width>100%</width>
+				<height>612</height>
+				<texture border="1">logo_back.png</texture>
+				<visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons)</visible>
 			</control>
 		</control>
 	</include>

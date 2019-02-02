@@ -1,8 +1,8 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <shortcuts>
 	<shortcut>
 		<defaultID>pictures</defaultID>
-		<label>10002</label>
+		<label>1</label>
 		<label2 />
 		<icon>special://skin/extras/icons/DefaultPicture.png</icon>
 		<thumb />
@@ -10,7 +10,7 @@
 	</shortcut>
 	<shortcut>
 		<defaultID>music</defaultID>
-		<label>10005</label>
+		<label>2</label>
 		<label2 />
 		<icon>special://skin/extras/icons/DefaultAudio.png</icon>
 		<thumb />
@@ -18,7 +18,7 @@
 	</shortcut>
 	<shortcut>
 		<defaultID>movies</defaultID>
-		<label>342</label>
+		<label>20342</label>
 		<label2 />
 		<icon>special://skin/extras/icons/DefaultMovies.png</icon>
 		<thumb />
@@ -34,7 +34,7 @@
 	</shortcut>
 	<shortcut>
 		<defaultID>livetv</defaultID>
-		<label>32022</label>
+		<label>31502</label>
 		<label2 />
 		<icon>special://skin/extras/icons/DefaultAddonPVRClient.png</icon>
 		<thumb />
@@ -42,7 +42,7 @@
 	</shortcut>
 	<shortcut>
 		<defaultID>videos</defaultID>
-		<label>10006</label>
+		<label>3</label>
 		<label2 />
 		<icon>special://skin/extras/icons/DefaultVideo.png</icon>
 		<thumb />
@@ -57,12 +57,38 @@
 		<action>ActivateWindow(1133)</action>
 	</shortcut>
 	<shortcut>
+		<defaultID>games</defaultID>
+		<label>15016</label>
+		<label2 />
+		<icon>special://skin/extras/icons/DefaultProgram.png</icon>
+		<thumb />
+		<action>ActivateWindow(games)</action>
+		<visible>System.GetBool(gamesgeneral.enable)</visible>
+	</shortcut>
+	<shortcut>
 		<defaultID>settings</defaultID>
 		<label>13000</label>
 		<label2 />
 		<icon>special://skin/extras/icons/DefaultAddonService.png</icon>
 		<thumb />
 		<action>ActivateWindow(Settings)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>search</defaultID>
+		<label>137</label>
+		<label2 />
+		<icon>special://skin/extras/icons/DefaultAddonsSearch.png</icon>
+		<thumb />
+		<action>ActivateWindow(1129)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>playdisc</defaultID>
+		<label>31958</label>
+		<label2 />
+		<icon>special://skin/extras/icons/Disc.png</icon>
+		<thumb />
+		<action>PlayDisc</action>
+		<visible>System.HasMediaDVD</visible>
 	</shortcut>
 	<shortcut>
 		<defaultID>power</defaultID>

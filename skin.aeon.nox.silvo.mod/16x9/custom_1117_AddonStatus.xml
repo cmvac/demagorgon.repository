@@ -3,12 +3,12 @@
 	<defaultcontrol always="true">9000</defaultcontrol>
 	<controls>
 		<control type="group">
-			<top>59</top>
+			<top>64</top>
 			<control type="list" id="9000">
-				<left>82</left>
+				<left>81</left>
 				<top>32</top>
 				<width>356</width>
-				<height>840</height>
+				<height>810</height>
 				<onleft>9010</onleft>
 				<onright>9010</onright>
 				<onup>9000</onup>
@@ -16,45 +16,28 @@
 				<pagecontrol />
 				<scrolltime tween="quadratic" easing="out">200</scrolltime>
 				<include>SettingsFadeAnimation</include>
-				<itemlayout height="90" width="356">
-					<control type="image">
-						<top>30</top>
-						<width>356</width>
-						<height>60</height>
-						<texture border="1">separator2.png</texture>
-					</control>
+				<itemlayout height="81" width="356">
 					<control type="label">
 						<width>356</width>
-						<height>90</height>
+						<height>81</height>
 						<font>font15</font>
 						<textoffsetx>20</textoffsetx>
-						<textcolor>grey2</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
-						<align>right</align>
+						<textcolor>grey</textcolor>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 				</itemlayout>
-				<focusedlayout height="90" width="356">
-					<control type="image">
-						<top>30</top>
-						<width>356</width>
-						<height>60</height>
-						<texture border="1">separator2.png</texture>
-					</control>
+				<focusedlayout height="81" width="356">
 					<control type="image">
 						<width>356</width>
-						<height>90</height>
+						<height>81</height>
 						<texture colordiffuse="$VAR[HighlightBarColor]" border="4">listselect_fo.png</texture>
 						<animation effect="fade" start="100" end="40" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(9000)">Conditional</animation>
 					</control>
 					<control type="label">
 						<width>356</width>
-						<height>90</height>
+						<height>81</height>
 						<font>font15</font>
 						<textoffsetx>20</textoffsetx>
-						<textcolor>white</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
-						<align>right</align>
 						<label>$INFO[ListItem.Label]</label>
 						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(9000)">Conditional</animation>
 					</control>
@@ -62,40 +45,31 @@
 				<content>
 					<item id="1">
 						<label>$LOCALIZE[31334]</label>
-						<onclick>noop</onclick>
 						<icon />
 					</item>
 					<item id="2">
 						<label>$LOCALIZE[31335]</label>
-						<onclick>noop</onclick>
 						<icon />
 					</item>
 					<item id="3">
 						<label>$LOCALIZE[31336]</label>
-						<onclick>noop</onclick>
 						<icon />
 					</item>
 				</content>
 			</control>
 			<control type="textbox">
-				<description>description area</description>
-				<left>552</left>
-				<top>850</top>
-				<width>1256</width>
-				<height>130</height>
-				<font>font16bold_textbox</font>
-				<textcolor>grey2</textcolor>
+				<include>SettingsTextboxValues</include>
 				<label>$VAR[AddonStatusDescriptionVar]</label>
 				<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
 				<animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout">Visible</animation>
 				<animation effect="fade" start="100" end="0" time="0" tween="sine" easing="inout">Hidden</animation>
+				<visible>ControlGroup(9010).HasFocus()</visible>
 			</control>
 			<control type="group" id="9010">
 				<control type="grouplist" id="9001">
-					<description>control area</description>
-					<left>522</left>
+					<left>437</left>
 					<top>32</top>
-					<width>1316</width>
+					<width>1401</width>
 					<height>810</height>
 					<pagecontrol>60</pagecontrol>
 					<onleft>9000</onleft>
@@ -119,37 +93,35 @@
 					</control>
 					<control type="button" id="102">
 						<include>SettingsButtonCommonValues</include>
-						<label>$INFO[System.AddonTitle(script.grab.fanart)]</label>
-						<label2>$INFO[System.AddonVersion(script.grab.fanart),v, [COLOR FF00991F]$LOCALIZE[31331][/COLOR]$LOCALIZE[31450]]</label2>
-						<onclick>Addon.OpenSettings(script.grab.fanart)</onclick>
-						<visible>System.HasAddon(script.grab.fanart)</visible>
-					</control>
-					<control type="button" id="103">
-						<include>SettingsButtonCommonValues</include>
-						<label>script.grab.fanart</label>
-						<label2>[COLOR invalid]$LOCALIZE[31332][/COLOR]$LOCALIZE[31451]</label2>
-						<onclick>InstallAddon(script.grab.fanart)</onclick>
-						<visible>!System.HasAddon(script.grab.fanart)</visible>
-					</control>
-					<control type="button" id="104">
-						<include>SettingsButtonCommonValues</include>
 						<label>$INFO[System.AddonTitle(service.library.data.provider)]</label>
 						<label2>$INFO[System.AddonVersion(service.library.data.provider),v, [COLOR FF00991F]$LOCALIZE[31331][/COLOR]$LOCALIZE[31450]]</label2>
 						<onclick>Addon.OpenSettings(service.library.data.provider)</onclick>
 						<visible>System.HasAddon(service.library.data.provider)</visible>
 					</control>
-					<control type="button" id="105">
+					<control type="button" id="103">
 						<include>SettingsButtonCommonValues</include>
 						<label>service.library.data.provider</label>
 						<label2>[COLOR invalid]$LOCALIZE[31332][/COLOR]$LOCALIZE[31451]</label2>
 						<onclick>InstallAddon(service.library.data.provider)</onclick>
 						<visible>!System.HasAddon(service.library.data.provider)</visible>
 					</control>
+					<control type="button" id="104">
+						<include>SettingsButtonCommonValues</include>
+						<label>$INFO[System.AddonTitle(script.grab.fanart)]</label>
+						<label2>$INFO[System.AddonVersion(script.grab.fanart),v, [COLOR FF00991F]$LOCALIZE[31331][/COLOR]]</label2>
+						<visible>System.HasAddon(script.grab.fanart)</visible>
+					</control>
+					<control type="button" id="105">
+						<include>SettingsButtonCommonValues</include>
+						<label>script.grab.fanart</label>
+						<label2>[COLOR invalid]$LOCALIZE[31332][/COLOR]$LOCALIZE[31451]</label2>
+						<onclick>InstallAddon(script.grab.fanart)</onclick>
+						<visible>!System.HasAddon(script.grab.fanart)</visible>
+					</control>
 					<control type="button" id="106">
 						<include>SettingsButtonCommonValues</include>
 						<label>$INFO[System.AddonTitle(resource.images.studios.white)]</label>
 						<label2>$INFO[System.AddonVersion(resource.images.studios.white),v, [COLOR FF00991F]$LOCALIZE[31331][/COLOR]]</label2>
-						<onclick>Addon.OpenSettings(resource.images.studios.white)</onclick>
 						<visible>System.HasAddon(resource.images.studios.white)</visible>
 					</control>
 					<control type="button" id="107">
@@ -163,7 +135,6 @@
 						<include>SettingsButtonCommonValues</include>
 						<label>$INFO[System.AddonTitle(resource.images.recordlabels.white)]</label>
 						<label2>$INFO[System.AddonVersion(resource.images.recordlabels.white),v, [COLOR FF00991F]$LOCALIZE[31331][/COLOR]]</label2>
-						<onclick>Addon.OpenSettings(resource.images.recordlabels.white)</onclick>
 						<visible>System.HasAddon(resource.images.recordlabels.white)</visible>
 					</control>
 					<control type="button" id="109">
@@ -175,10 +146,9 @@
 					</control>
 				</control>
 				<control type="grouplist" id="9002">
-					<description>control area</description>
-					<left>522</left>
+					<left>437</left>
 					<top>32</top>
-					<width>1316</width>
+					<width>1401</width>
 					<height>810</height>
 					<pagecontrol>60</pagecontrol>
 					<onleft>9000</onleft>
@@ -211,7 +181,8 @@
 						<include>SettingsButtonCommonValues</include>
 						<label>script.artwork.beef</label>
 						<label2>[COLOR invalid]$LOCALIZE[31332][/COLOR]$LOCALIZE[31451]</label2>
-						<onclick>InstallAddon(script.artwork.beef)</onclick>
+						<onclick condition="System.HasAddon(repository.rector.stuff)">InstallAddon(script.artwork.beef)</onclick>
+						<onclick condition="!System.HasAddon(repository.rector.stuff)">Notification($LOCALIZE[19098],script.artwork.beef is not available in the Kodi repositiory. The rmrector repo is needed to use the click to install feature, without it this script must be installed manually. Visit https://forum.kodi.tv/showthread.php?tid=258886 for more information.,5000,icon.png)</onclick>
 						<visible>!System.HasAddon(script.artwork.beef)</visible>
 					</control>
 					<control type="button" id="214">
@@ -228,6 +199,21 @@
 						<onclick>InstallAddon(script.cu.lrclyrics)</onclick>
 						<visible>!System.HasAddon(script.cu.lrclyrics)</visible>
 					</control>
+					<control type="button" id="204">
+						<include>SettingsButtonCommonValues</include>
+						<label>$INFO[System.AddonTitle(script.skin.helper.service)]</label>
+						<label2>$INFO[System.AddonVersion(script.skin.helper.service),v, [COLOR FF00991F]$LOCALIZE[31331][/COLOR]$LOCALIZE[31450]]</label2>
+						<onclick condition="!System.HasAddon(script.module.metadatautils)">InstallAddon(script.module.metadatautils)</onclick>
+						<onclick condition="System.HasAddon(script.module.metadatautils)">Addon.OpenSettings(script.module.metadatautils)</onclick>
+						<visible>System.HasAddon(script.skin.helper.service)</visible>
+					</control>
+					<control type="button" id="205">
+						<include>SettingsButtonCommonValues</include>
+						<label>script.skin.helper.service</label>
+						<label2>[COLOR invalid]$LOCALIZE[31332][/COLOR]$LOCALIZE[31451]</label2>
+						<onclick>InstallAddon(script.skin.helper.service)</onclick>
+						<visible>!System.HasAddon(script.skin.helper.service)</visible>
+					</control>
 					<control type="button" id="216">
 						<include>SettingsButtonCommonValues</include>
 						<label>$INFO[System.AddonTitle(script.skin.helper.widgets)]</label>
@@ -242,25 +228,11 @@
 						<onclick>InstallAddon(script.skin.helper.widgets)</onclick>
 						<visible>!System.HasAddon(script.skin.helper.widgets)</visible>
 					</control>
-					<control type="button" id="204">
-						<include>SettingsButtonCommonValues</include>
-						<label>$INFO[System.AddonTitle(script.skin.helper.service)]</label>
-						<label2>$INFO[System.AddonVersion(script.skin.helper.service),v, [COLOR FF00991F]$LOCALIZE[31331][/COLOR]]</label2>
-						<onclick>Addon.OpenSettings(script.skin.helper.service)</onclick>
-						<visible>System.HasAddon(script.skin.helper.service)</visible>
-					</control>
-					<control type="button" id="205">
-						<include>SettingsButtonCommonValues</include>
-						<label>script.skin.helper.service</label>
-						<label2>[COLOR invalid]$LOCALIZE[31332][/COLOR]$LOCALIZE[31451]</label2>
-						<onclick>InstallAddon(script.skin.helper.service)</onclick>
-						<visible>!System.HasAddon(script.skin.helper.service)</visible>
-					</control>
 					<control type="button" id="202">
 						<include>SettingsButtonCommonValues</include>
 						<label>$INFO[System.AddonTitle(script.skin.info.service)]</label>
 						<label2>$INFO[System.AddonVersion(script.skin.info.service),v, [COLOR FF00991F]$LOCALIZE[31331][/COLOR]]</label2>
-						<onclick>Addon.OpenSettings(script.skin.info.service)</onclick>
+						<!-- <onclick>Addon.OpenSettings(script.skin.info.service)</onclick> -->
 						<visible>System.HasAddon(script.skin.info.service)</visible>
 					</control>
 					<control type="button" id="203">
@@ -277,7 +249,7 @@
 						<include>SettingsButtonCommonValues</include>
 						<label>$INFO[System.AddonTitle(script.colorbox)]</label>
 						<label2>$INFO[System.AddonVersion(script.colorbox),v, [COLOR FF00991F]$LOCALIZE[31331][/COLOR]]</label2>
-						<onclick>Addon.OpenSettings(script.colorbox)</onclick>
+						<!-- <onclick>Addon.OpenSettings(script.colorbox)</onclick> -->
 						<visible>System.HasAddon(script.colorbox)</visible>
 					</control>
 					<control type="button" id="211">
@@ -291,7 +263,7 @@
 						<include>SettingsButtonCommonValues</include>
 						<label>$INFO[System.AddonTitle(script.image.resource.select)]</label>
 						<label2>$INFO[System.AddonVersion(script.image.resource.select),v, [COLOR FF00991F]$LOCALIZE[31331][/COLOR]]</label2>
-						<onclick>Addon.OpenSettings(script.image.resource.select)</onclick>
+						<!-- <onclick>Addon.OpenSettings(script.image.resource.select)</onclick> -->
 						<visible>System.HasAddon(script.image.resource.select)</visible>
 					</control>
 					<control type="button" id="213">
@@ -303,10 +275,9 @@
 					</control>
 				</control>
 				<control type="grouplist" id="9003">
-					<description>control area</description>
-					<left>522</left>
+					<left>437</left>
 					<top>32</top>
-					<width>1316</width>
+					<width>1401</width>
 					<height>810</height>
 					<pagecontrol>60</pagecontrol>
 					<onleft>9000</onleft>
@@ -370,28 +341,10 @@
 						<onclick>InstallAddon(script.cinemavision)</onclick>
 						<visible>!System.HasAddon(script.cinemavision)</visible>
 					</control>
-					<control type="button" id="310">
-						<include>SettingsButtonCommonValues</include>
-						<label>$INFO[System.AddonTitle(script.moviesetart)]</label>
-						<label2>$INFO[System.AddonVersion(script.moviesetart),v, [COLOR FF00991F]$LOCALIZE[31331][/COLOR]$LOCALIZE[31450]]</label2>
-						<onclick>Addon.OpenSettings(script.moviesetart)</onclick>
-						<visible>System.HasAddon(script.moviesetart)</visible>
-					</control>
-					<control type="button" id="311">
-						<include>SettingsButtonCommonValues</include>
-						<label>script.moviesetart</label>
-						<label2>[COLOR invalid]$LOCALIZE[31332][/COLOR]$LOCALIZE[31451]</label2>
-						<onclick condition="!System.HasAddon(repository.aeon.nox.silvo)">SetProperty(Notify,True,Home)</onclick>
-						<onclick condition="!System.HasAddon(repository.aeon.nox.silvo)">SetProperty(NotifyNoRepo,True,Home)</onclick>
-						<onclick condition="!System.HasAddon(repository.aeon.nox.silvo)">ActivateWindow(1126)</onclick>
-						<onclick condition="System.HasAddon(repository.aeon.nox.silvo)">InstallAddon(script.moviesetart)</onclick>
-						<visible>!System.HasAddon(script.moviesetart)</visible>
-					</control>
 					<control type="button" id="308">
 						<include>SettingsButtonCommonValues</include>
 						<label>$INFO[System.AddonTitle(script.libraryeditor)]</label>
 						<label2>$INFO[System.AddonVersion(script.libraryeditor),v, [COLOR FF00991F]$LOCALIZE[31331][/COLOR]]</label2>
-						<onclick>Addon.OpenSettings(script.libraryeditor)</onclick>
 						<visible>System.HasAddon(script.libraryeditor)</visible>
 					</control>
 					<control type="button" id="309">

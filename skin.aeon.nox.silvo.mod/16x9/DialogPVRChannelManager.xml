@@ -9,13 +9,11 @@
 	<include>DialogOpenCloseAnimation</include>
 	<controls>
 		<control type="image">
-			<description>background image</description>
 			<width>1602</width>
 			<height>880</height>
 			<texture border="40">dialogs/default/bg.png</texture>
 		</control>
 		<control type="label">
-			<description>header label</description>
 			<left>30</left>
 			<top>32</top>
 			<width>1462</width>
@@ -27,7 +25,6 @@
 			<visible>String.IsEmpty(Window.Property(IsRadio))</visible>
 		</control>
 		<control type="label">
-			<description>header label</description>
 			<left>30</left>
 			<top>32</top>
 			<width>1462</width>
@@ -59,16 +56,11 @@
 				<scrolltime>200</scrolltime>
 				<itemlayout height="60" width="630">
 					<control type="image">
-						<width>630</width>
-						<height>60</height>
-						<texture border="1">separator2.png</texture>
-					</control>
-					<control type="image">
 						<left>8</left>
 						<top>8</top>
 						<width>45</width>
 						<height>45</height>
-						<texture>$INFO[ListItem.Property(Icon)]</texture>
+						<texture background="true">$INFO[ListItem.Property(Icon)]</texture>
 						<visible>ListItem.Property(ActiveChannel)</visible>
 					</control>
 					<control type="image">
@@ -77,7 +69,7 @@
 						<width>45</width>
 						<height>45</height>
 						<colordiffuse>77FFFFFF</colordiffuse>
-						<texture>$INFO[ListItem.Property(Icon)]</texture>
+						<texture background="true">$INFO[ListItem.Property(Icon)]</texture>
 						<visible>!ListItem.Property(ActiveChannel)</visible>
 					</control>
 					<control type="label">
@@ -86,7 +78,6 @@
 						<height>60</height>
 						<font>font14</font>
 						<textcolor>grey2</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>$INFO[ListItem.Property(Number),(,) - ]$INFO[ListItem.Property(Name)]</label>
 						<visible>ListItem.Property(ActiveChannel)</visible>
 					</control>
@@ -96,7 +87,6 @@
 						<height>60</height>
 						<font>font14</font>
 						<textcolor>grey3</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>$INFO[ListItem.Property(Number),(,) - ]$INFO[ListItem.Property(Name)]</label>
 						<visible>!ListItem.Property(ActiveChannel)</visible>
 					</control>
@@ -111,12 +101,6 @@
 				</itemlayout>
 				<focusedlayout height="100" width="630">
 					<control type="image">
-						<top>40</top>
-						<width>630</width>
-						<height>60</height>
-						<texture border="1">separator2.png</texture>
-					</control>
-					<control type="image">
 						<width>630</width>
 						<height>100</height>
 						<texture colordiffuse="$VAR[HighlightBarColor]" border="5">listselect_fo.png</texture>
@@ -128,7 +112,7 @@
 						<top>8</top>
 						<width>45</width>
 						<height>45</height>
-						<texture>$INFO[ListItem.Property(Icon)]</texture>
+						<texture background="true">$INFO[ListItem.Property(Icon)]</texture>
 						<visible>ListItem.Property(ActiveChannel)</visible>
 					</control>
 					<control type="image">
@@ -137,7 +121,7 @@
 						<width>45</width>
 						<height>45</height>
 						<colordiffuse>77FFFFFF</colordiffuse>
-						<texture>$INFO[ListItem.Property(Icon)]</texture>
+						<texture background="true">$INFO[ListItem.Property(Icon)]</texture>
 						<visible>!ListItem.Property(ActiveChannel)</visible>
 					</control>
 					<control type="label">
@@ -145,7 +129,6 @@
 						<width>502</width>
 						<height>60</height>
 						<font>font14</font>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>$INFO[ListItem.Property(Number),(,) - ]$INFO[ListItem.Property(Name)]</label>
 						<visible>ListItem.Property(ActiveChannel)</visible>
 					</control>
@@ -154,7 +137,6 @@
 						<width>502</width>
 						<height>60</height>
 						<font>font14</font>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>$INFO[ListItem.Property(Number),(,) - ]$INFO[ListItem.Property(Name)]</label>
 						<visible>!ListItem.Property(ActiveChannel)</visible>
 					</control>
@@ -171,9 +153,7 @@
 						<top>50</top>
 						<width>615</width>
 						<height>50</height>
-						<font>font13</font>
 						<textcolor>grey2</textcolor>
-						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<label>$LOCALIZE[19210]: $INFO[ListItem.Property(ClientName)]</label>
 					</control>
 				</focusedlayout>
@@ -183,7 +163,6 @@
 			<left>676</left>
 			<top>86</top>
 			<control type="label">
-				<description>channel options Header</description>
 				<width>570</width>
 				<height>40</height>
 				<font>font14</font>
@@ -204,7 +183,6 @@
 				<texture border="5">dialogs/default/inner.png</texture>
 			</control>
 			<control type="grouplist" id="9002">
-				<description>control area</description>
 				<left>2</left>
 				<top>52</top>
 				<width>570</width>
@@ -245,7 +223,6 @@
 					<label>19267</label>
 				</control>
 				<control type="label" id="200">
-					<description>channel options Header</description>
 					<width>570</width>
 					<height>50</height>
 					<font>font14</font>
@@ -272,7 +249,6 @@
 				</control>
 			</control>
 			<control type="image" id="10">
-				<description>Current Channel Icon</description>
 				<left>510</left>
 				<top>180</top>
 				<width>45</width>

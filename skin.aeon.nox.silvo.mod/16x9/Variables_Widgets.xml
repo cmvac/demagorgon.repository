@@ -181,7 +181,6 @@
 	<variable name="WidgetCaseInfoVar">
 		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Glass)">$LOCALIZE[31721]</value>
 		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Case)">$LOCALIZE[31707]</value>
-		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),BD Case)">$LOCALIZE[31747]</value>
 		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Clear Case)">$LOCALIZE[31722]</value>
 		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Match widget panel)">$LOCALIZE[31746]</value>
 		<value>$LOCALIZE[231]</value>
@@ -194,24 +193,24 @@
 		<value condition="String.IsEqual(Skin.String(Widget.Back),Clear White)">FFFFFFFF</value>
 		<value condition="String.Contains(Skin.String(Widget.Back),Colored)">$VAR[WidgetBackgroundColor]</value>
 	</variable>
-	<!-- Widget Artwork -->
-	<variable name="HomeWidgetPortraitCaseVar">
-		<value condition="String.Contains(ListItem.Filename,4k)">4k.png</value>
-		<value condition="ListItem.IsStereoscopic | String.Contains(ListItem.Filename,3d) | String.Contains(ListItem.Filename,3dbd)">3d.png</value>
-		<value condition="String.Contains(ListItem.Filename,hddvd)">hddvd.png</value>
-		<value condition="String.Contains(ListItem.Filename,hdtv) | String.Contains(ListItem.Filename,hd tv)">hdtv.png</value>
-		<value condition="String.Contains(ListItem.Filename,webdl) | String.Contains(ListItem.Filename,web-dl) | String.Contains(ListItem.Filename,webtv) | String.Contains(ListItem.Filename,web-tv)">webdl.png</value>
-		<value condition="!String.IsEmpty(ListItem.VideoResolution)">$INFO[ListItem.VideoResolution]p.png</value>
-		<value condition="!String.IsEmpty(ListItem.Property(VideoResolution))">$INFO[ListItem.Property(VideoResolution)]p.png</value>
+	<variable name="HomeWidgetCaseVar">
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(WidgetType),tvshows)">tvseries.png</value>
-		<value condition="String.IsEmpty(ListItem.Property(VideoResolution)) + String.IsEmpty(ListItem.TVShowTitle) + [!String.IsEmpty(ListItem.Trailer) | String.Contains(ListItem.FolderPath,extendedinfo)]">trailers.png</value>
-		<value>p.png</value>
+		<value condition="Container.ListItem.IsCollection">set.png</value>
+		<value condition="Container.ListItem.IsStereoscopic">3d.png</value>
+		<value condition="String.Contains(Container.ListItem.Filename,hddvd)">hddvd.png</value>
+		<value condition="String.Contains(Container.ListItem.Filename,hdtv) | String.Contains(Container.ListItem.Filename,hd tv)">hdtv.png</value>
+		<value condition="String.Contains(Container.ListItem.Filename,webdl) | String.Contains(Container.ListItem.Filename,web-dl) | String.Contains(Container.ListItem.Filename,webtv) | String.Contains(Container.ListItem.Filename,web-tv)">webdl.png</value>
+		<value condition="!String.IsEmpty(Container.ListItem.VideoResolution)">$INFO[Container.ListItem.VideoResolution]p.png</value>
+		<value condition="!String.IsEmpty(Container.ListItem.Property(VideoResolution))">$INFO[Container.ListItem.Property(VideoResolution)]p.png</value>
+		<value condition="String.IsEmpty(Container.ListItem.Property(VideoResolution)) + String.IsEmpty(Container.ListItem.TVShowTitle) + [!String.IsEmpty(Container.ListItem.Trailer) | String.Contains(Container.ListItem.FolderPath,extendedinfo)]">trailers.png</value>
+		<value />
 	</variable>
+	<!-- Widget Artwork -->
 	<variable name="HomeWidgetPosterVar">
-		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
-		<value condition="!String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
-		<value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
-		<value>$INFO[ListItem.Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.Art(poster))">$INFO[Container.ListItem.Art(poster)]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.Art(tvshow.poster))">$INFO[Container.ListItem.Art(tvshow.poster)]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.Icon)">$INFO[Container.ListItem.Icon]</value>
+		<value>$INFO[Container.ListItem.Art(thumb)]</value>
 	</variable>
 	<variable name="HomeWidgetFanArtVar">
 		<value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
@@ -241,8 +240,16 @@
 		<value>$INFO[ListItem.Art(fanart)]</value>
 	</variable>
 	<variable name="HomeWidgetFakeDiscArtVar">
-		<value condition="ListItem.IsStereoscopic | String.Contains(ListItem.Filename,3d) | String.Contains(ListItem.Filename,3dbd)">common/discart/3d.png</value>
-		<value condition="String.IsEmpty(ListItem.Artist) + String.IsEmpty(ListItem.AlbumArtist) + String.IsEmpty(ListItem.Album)">$INFO[ListItem.VideoResolution,common/discart/,p.png]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(WidgetType),tvshows)">discart/tvseries.png</value>
+		<value condition="Container.ListItem.IsCollection">discart/set.png</value>
+		<value condition="Container.ListItem.IsStereoscopic">discart/3d.png</value>
+		<value condition="String.Contains(Container.ListItem.Filename,hddvd)">discart/hddvd.png</value>
+		<value condition="String.Contains(Container.ListItem.Filename,hdtv) | String.Contains(Container.ListItem.Filename,hd tv)">discart/hdtv.png</value>
+		<value condition="String.Contains(Container.ListItem.Filename,webdl) | String.Contains(Container.ListItem.Filename,web-dl) | String.Contains(Container.ListItem.Filename,webtv) | String.Contains(Container.ListItem.Filename,web-tv)">discart/webdl.png</value>
+		<value condition="!String.IsEmpty(Container.ListItem.VideoResolution)">discart/$INFO[Container.ListItem.VideoResolution]p.png</value>
+		<value condition="!String.IsEmpty(Container.ListItem.Property(VideoResolution))">discart/$INFO[Container.ListItem.Property(VideoResolution)]p.png</value>
+		<value condition="String.IsEmpty(Container.ListItem.Property(VideoResolution)) + String.IsEmpty(Container.ListItem.TVShowTitle) + [!String.IsEmpty(Container.ListItem.Trailer) | String.Contains(Container.ListItem.FolderPath,extendedinfo)]">discart/trailers.png</value>
+		<value />
 	</variable>
 	<variable name="HomeWidgetCharacterArtVar">
 		<value condition="!String.IsEmpty(ListItem.Art(tvshow.characterart))">$INFO[ListItem.Art(tvshow.characterart)]</value>
@@ -267,9 +274,77 @@
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
 	<variable name="HomeWidgetTitle2Var">
-		<value condition="!String.IsEmpty(ListItem.TVShowTitle)">$INFO[ListItem.TVShowTitle]</value>
-		<value condition="!String.IsEmpty(ListItem.Artist)">$INFO[ListItem.Artist]</value>
-		<value condition="!String.IsEmpty(ListItem.AlbumArtist)">$INFO[ListItem.AlbumArtist]</value>
-		<value>$INFO[ListItem.Label]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.TVShowTitle)">$INFO[Container.ListItem.TVShowTitle]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.Artist)">$INFO[Container.ListItem.Artist]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.AlbumArtist)">$INFO[Container.ListItem.AlbumArtist]</value>
+		<value>$INFO[Container.ListItem.Label]</value>
+	</variable>
+	<!-- Widget Info -->
+	<variable name="HomeWidgetInfoCaseVar">
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Glass) + String.IsEmpty(Container.ListItem.Property(Label3)) + String.IsEmpty(Container.ListItem.ChannelName) + String.IsEmpty(Container.ListItem.Artist) + String.IsEmpty(Container.ListItem.AlbumArtist) + String.IsEmpty(Container.ListItem.AddonName)">homewidgets/cases/glass/portrait.png</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Glass)">homewidgets/cases/glass/square.png</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Case) + String.IsEmpty(Container.ListItem.Property(Label3)) + String.IsEmpty(Container.ListItem.ChannelName) + String.IsEmpty(Container.ListItem.Artist) + String.IsEmpty(Container.ListItem.AlbumArtist) + String.IsEmpty(Container.ListItem.AddonName)">homewidgets/cases/default/infoposter/$VAR[HomeWidgetCaseVar]</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Case)">homewidgets/cases/default/square/cd.png</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Clear Case) + String.IsEmpty(Container.ListItem.Property(Label3)) + String.IsEmpty(Container.ListItem.ChannelName) + String.IsEmpty(Container.ListItem.Artist) + String.IsEmpty(Container.ListItem.AlbumArtist) + String.IsEmpty(Container.ListItem.AddonName)">homewidgets/cases/clearcase/poster/$VAR[HomeWidgetCaseVar]</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Clear Case)">homewidgets/cases/clearcase/square/cd.png</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Match widget panel) + String.IsEqual(Container(9000).ListItem.Property(widgetCase),Glass) + String.IsEmpty(Container.ListItem.Property(Label3)) + String.IsEmpty(Container.ListItem.ChannelName) + String.IsEmpty(Container.ListItem.Artist) + String.IsEmpty(Container.ListItem.AlbumArtist) + String.IsEmpty(Container.ListItem.AddonName)">homewidgets/cases/glass/portrait.png</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Match widget panel) + String.IsEqual(Container(9000).ListItem.Property(widgetCase),Glass)">homewidgets/cases/glass/square.png</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Match widget panel) + String.IsEqual(Container(9000).ListItem.Property(widgetCase),Case) + String.IsEmpty(Container.ListItem.Property(Label3)) + String.IsEmpty(Container.ListItem.ChannelName) + String.IsEmpty(Container.ListItem.Artist) + String.IsEmpty(Container.ListItem.AlbumArtist) + String.IsEmpty(Container.ListItem.AddonName)">homewidgets/cases/default/infoposter/$VAR[HomeWidgetCaseVar]</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Match widget panel) + String.IsEqual(Container(9000).ListItem.Property(widgetCase),Case)">homewidgets/cases/default/square/cd.png</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Match widget panel) + String.IsEqual(Container(9000).ListItem.Property(widgetCase),Clear Case) + String.IsEmpty(Container.ListItem.Property(Label3)) + String.IsEmpty(Container.ListItem.ChannelName) + String.IsEmpty(Container.ListItem.Artist) + String.IsEmpty(Container.ListItem.AlbumArtist) + String.IsEmpty(Container.ListItem.AddonName)">homewidgets/cases/clearcase/poster/$VAR[HomeWidgetCaseVar]</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Match widget panel) + String.IsEqual(Container(9000).ListItem.Property(widgetCase),Clear Case)">homewidgets/cases/clearcase/square/cd.png</value>
+		<value />
+	</variable>
+	<variable name="HomeWidgetInfoTitleVar">
+		<value condition="!String.IsEmpty(Container.ListItem.AddonName)">$INFO[Container.ListItem.AddonName]</value>
+		<value condition="[!Integer.IsGreater(ListItem.Season,9) + !Integer.IsGreater(ListItem.Episode,9)] + !String.StartsWith(ListItem.Episode,S) + !String.IsEmpty(Container.ListItem.Episode) + !String.IsEqual(ListItem.Label,ListItem.TVShowTitle)">$INFO[Container.ListItem.Season,S0]$INFO[Container.ListItem.Episode,E0] $INFO[Container.ListItem.Title]</value>
+		<value condition="[!Integer.IsGreater(ListItem.Season,9) + !Integer.IsGreater(ListItem.Episode,9)] + String.StartsWith(ListItem.Episode,S) + !String.IsEmpty(Container.ListItem.Episode) + !String.IsEqual(ListItem.Label,ListItem.TVShowTitle)">$INFO[Container.ListItem.Season,S0]$INFO[Container.ListItem.Episode] $INFO[Container.ListItem.Title]</value>
+		<value condition="[!Integer.IsGreater(ListItem.Season,9) + Integer.IsGreater(ListItem.Episode,9)] + !String.IsEmpty(Container.ListItem.Episode) + !String.IsEqual(ListItem.Label,ListItem.TVShowTitle)">$INFO[Container.ListItem.Season,S0]$INFO[Container.ListItem.Episode,E] $INFO[Container.ListItem.Title]</value>
+		<value condition="[Integer.IsGreater(ListItem.Season,9) + !Integer.IsGreater(ListItem.Episode,9)] + !String.IsEmpty(Container.ListItem.Episode) + !String.IsEqual(ListItem.Label,ListItem.TVShowTitle)">$INFO[Container.ListItem.Season,S]$INFO[Container.ListItem.Episode,E0] $INFO[Container.ListItem.Title]</value>
+		<value condition="[Integer.IsGreater(ListItem.Season,9) + Integer.IsGreater(ListItem.Episode,9)] + !String.IsEmpty(Container.ListItem.Episode) + !String.IsEqual(ListItem.Label,ListItem.TVShowTitle)">$INFO[Container.ListItem.Season,S]$INFO[Container.ListItem.Episode,E] $INFO[Container.ListItem.Title]</value>
+		<value>$INFO[Container.ListItem.Label]</value>
+	</variable>
+	<variable name="HomeWidgetInfoSubTitleVar">
+		<value condition="!String.IsEmpty(Container.ListItem.AddonSummary)">$INFO[Container.ListItem.AddonSummary]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.Property(Label3))">$INFO[Container.ListItem.Label2]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.Property(UnWatchedEpisodes))">$INFO[Container.ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[20360]]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.Tagline)">$INFO[Container.ListItem.Tagline]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.TVShowTitle) + !String.IsEqual(Container.ListItem.Label,Container.ListItem.TVShowTitle)">$INFO[Container.ListItem.TVShowTitle]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.Property(Artist_Mood))">$INFO[Container.ListItem.Property(Artist_Mood)]</value>
+		<value condition="!String.IsEqual(Container.ListItem.Label,Container.ListItem.Artist)">$INFO[Container.ListItem.Artist]</value>
+		<value condition="!String.IsEqual(Container.ListItem.Label,Container.ListItem.AlbumArtist)">$INFO[Container.ListItem.AlbumArtist]</value>
+		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Count))">$INFO[Window(Home).Property(SkinHelper.ListItem.Count),, $LOCALIZE[342]]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.Label2)">$INFO[Container.ListItem.Label2]</value>
+		<value />
+	</variable>
+	<variable name="HomeWidgetInfo1Var">
+		<value condition="!String.IsEmpty(Container.ListItem.AddonName)">$INFO[Container.ListItem.AddonCreator,$LOCALIZE[31001] ]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.Property(Label3))">$INFO[Container.ListItem.Property(Label3)]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.album)">$INFO[Container.ListItem.Album]</value>
+		<value condition="[!String.IsEmpty(Container.ListItem.Property(Album_Mood)) | !String.IsEmpty(Container.ListItem.Property(Album_Style)) | !String.IsEmpty(Container.ListItem.Property(Artist_Style))]">$INFO[Container.ListItem.Property(Album_Mood),,  •  ]$INFO[Container.ListItem.Property(Album_Style)]$INFO[Container.ListItem.Property(Artist_Style),  •  ]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.Premiered)">$INFO[Container.ListItem.Premiered]$INFO[Container.ListItem.RatingAndVotes,  •  $LOCALIZE[563]: ]$INFO[Container.ListItem.Duration,  •  $LOCALIZE[2050]: ]</value>
+		<value condition="[!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.AirDayTime.short)) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.NextEpisode.AirDate))]">$INFO[Window(Home).Property(SkinHelper.ListItem.AirDayTime.short),, ]$INFO[Window(Home).Property(SkinHelper.ListItem.NextEpisode.AirDate),(,)]$INFO[Window(Home).Property(SkinHelper.ListItem.Runtime),  •  $LOCALIZE[2050]: ]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.RatingAndVotes) + !String.IsEmpty(Container.ListItem.Property(Runtime))">$INFO[Container.ListItem.RatingAndVotes,$LOCALIZE[563]: ]$INFO[Container.ListItem.Property(Runtime),  •  $LOCALIZE[2050]: ]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.RatingAndVotes) + !String.IsEmpty(Container.ListItem.Duration)">$INFO[Container.ListItem.RatingAndVotes,$LOCALIZE[563]: ]$INFO[Container.ListItem.Duration,  •  $LOCALIZE[2050]: ]</value>
+		<value>$INFO[Container.ListItem.Duration,, $LOCALIZE[2050]]</value>
+	</variable>
+	<variable name="HomeWidgetInfo2Var">
+		<value condition="!String.IsEmpty(Container.ListItem.AddonType)">$INFO[Container.ListItem.AddonType]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.Property(Label4))">$INFO[Container.ListItem.Property(Label4)]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.Property(isSystemInfo))">[UPPERCASE]$LOCALIZE[13283][/UPPERCASE]$INFO[System.OSVersionInfo, ]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.Property(Artist_Genre))">$INFO[Container.ListItem.Property(Artist_Genre)]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.Genre)">$INFO[Container.ListItem.Genre]</value>
+		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))">$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</value>
+	</variable>
+	<variable name="HomeWidgetInfoPlotVar">
+		<value condition="!String.IsEmpty(Container.ListItem.AddonName)">$INFO[Container.ListItem.AddonDescription]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.Property(isSystemInfo))">$LOCALIZE[482]: $INFO[System.BuildVersion][CR][UPPERCASE]$LOCALIZE[13287][/UPPERCASE] $INFO[System.ScreenResolution][CR][UPPERCASE]$LOCALIZE[150]:[/UPPERCASE] $INFO[Network.IPAddress]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.Property(Label4))">[UPPERCASE]$LOCALIZE[33006][/UPPERCASE][CR]$INFO[Window(weather).Property(Current.Condition),,. ]$INFO[Window(weather).Property(Current.FeelsLike),$LOCALIZE[402] ]$INFO[System.TemperatureUnits,,. ]$INFO[Window(weather).Property(Current.Humidity),$LOCALIZE[406] ,. ]$INFO[Window(weather).Property(Current.Wind),$LOCALIZE[404] ,. ]$INFO[Window(weather).Property(Current.DewPoint),$LOCALIZE[405] ]$INFO[System.TemperatureUnits,,. ]$INFO[Window(weather).Property(Current.UVIndex),$LOCALIZE[403] ,. ]$INFO[Window(weather).Property(Today.Sunrise),$LOCALIZE[33027] ,. ]$INFO[Window(weather).Property(Today.Sunset),$LOCALIZE[33028] ,.]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.Property(Album_Description))">$INFO[Container.ListItem.Property(Album_Description)]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.Property(Artist_Description))">$INFO[Container.ListItem.Property(Artist_Description)]</value>
+		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plots))">$INFO[Window(Home).Property(SkinHelper.ListItem.PlotOutline)]</value>
+		<value condition="Skin.HasSetting(ViewInfoPlotToggle) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plots))">$INFO[Window(Home).Property(SkinHelper.ListItem.Plot)]</value>
+		<value condition="Skin.HasSetting(ViewInfoPlotToggle) + !String.IsEmpty(Container.ListItem.PlotOutline)">$INFO[Container.ListItem.PlotOutline]</value>
+		<value>$INFO[Container.ListItem.Plot]</value>
 	</variable>
 </includes>

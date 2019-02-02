@@ -69,12 +69,6 @@
 			<pagecontrol>60</pagecontrol>
 			<scrolltime tween="quadratic" easing="out">200</scrolltime>
 			<itemlayout height="100" width="628">
-				<control type="image">
-					<top>40</top>
-					<width>628</width>
-					<height>60</height>
-					<texture border="1">separator2.png</texture>
-				</control>
 				<control type="label">
 					<left>110</left>
 					<width>520</width>
@@ -82,7 +76,6 @@
 					<textoffsetx>15</textoffsetx>
 					<font>font14</font>
 					<textcolor>grey2</textcolor>
-					<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 					<label>$INFO[ListItem.Label]</label>
 				</control>
 				<control type="image">
@@ -92,22 +85,14 @@
 					<texture>$INFO[ListItem.Icon]</texture>
 				</control>
 				<control type="image">
-					<left>558</left>
+					<left>528</left>
 					<top>18</top>
-					<width>64</width>
-					<height>64</height>
+					<width>120</width>
+					<height>76</height>
 					<texture>$INFO[ListItem.Property(Radio)]</texture>
-					<colordiffuse>$VAR[ThemeLabelColor]</colordiffuse>
 				</control>
 			</itemlayout>
 			<focusedlayout height="100" width="628">
-				<control type="image">
-					<top>40</top>
-					<width>628</width>
-					<height>60</height>
-					<texture border="1">separator2.png</texture>
-					<include>VisibleFadeAnimation</include>
-				</control>
 				<control type="image">
 					<width>629</width>
 					<height>100</height>
@@ -121,8 +106,6 @@
 					<height>100</height>
 					<textoffsetx>15</textoffsetx>
 					<font>font14</font>
-					<textcolor>white</textcolor>
-					<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 					<scroll>true</scroll>
 					<label>$INFO[ListItem.Label]</label>
 					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(90100)">Conditional</animation>
@@ -134,12 +117,11 @@
 					<texture>$INFO[ListItem.Icon]</texture>
 				</control>
 				<control type="image">
-					<left>558</left>
+					<left>528</left>
 					<top>18</top>
-					<width>64</width>
-					<height>64</height>
+					<width>120</width>
+					<height>76</height>
 					<texture>$INFO[ListItem.Property(Radio)]</texture>
-					<colordiffuse>$VAR[ThemeLabelColor]</colordiffuse>
 				</control>
 			</focusedlayout>
 			<content>
@@ -148,14 +130,28 @@
 					<icon>overlays/showcase/resumable.png</icon>
 					<onclick>Skin.SetBool(Disable.Resumable)</onclick>
 					<property name="Radio">android/btn_radio_on_holo_dark.png</property>
-					<visible>!Skin.HasSetting(Disable.Resumable)</visible>
+					<visible>!Skin.HasSetting(Disable.Resumable) + !Skin.HasSetting(coloredflags)</visible>
 				</item>
 				<item>
 					<label>$LOCALIZE[13404]</label>
 					<icon>overlays/showcase/resumable.png</icon>
 					<onclick>Skin.Reset(Disable.Resumable)</onclick>
 					<property name="Radio">android/btn_radio_off_holo_dark.png</property>
-					<visible>Skin.HasSetting(Disable.Resumable)</visible>
+					<visible>Skin.HasSetting(Disable.Resumable) + !Skin.HasSetting(coloredflags)</visible>
+				</item>
+				<item>
+					<label>$LOCALIZE[13404]</label>
+					<icon>overlays/showcase/resumable_colored.png</icon>
+					<onclick>Skin.SetBool(Disable.Resumable)</onclick>
+					<property name="Radio">android/btn_radio_on_holo_dark.png</property>
+					<visible>!Skin.HasSetting(Disable.Resumable) + Skin.HasSetting(coloredflags)</visible>
+				</item>
+				<item>
+					<label>$LOCALIZE[13404]</label>
+					<icon>overlays/showcase/resumable_colored.png</icon>
+					<onclick>Skin.Reset(Disable.Resumable)</onclick>
+					<property name="Radio">android/btn_radio_off_holo_dark.png</property>
+					<visible>Skin.HasSetting(Disable.Resumable) + Skin.HasSetting(coloredflags)</visible>
 				</item>
 				<item>
 					<label>$LOCALIZE[16102]</label>
@@ -190,14 +186,28 @@
 					<icon>overlays/showcase/1/OverlayUnwatched.png</icon>
 					<onclick>ClearProperty(OverlayUnwatched,Home)</onclick>
 					<property name="Radio">android/btn_radio_on_holo_dark.png</property>
-					<visible>!String.IsEmpty(Window(Home).Property(OverlayUnwatched))</visible>
+					<visible>!String.IsEmpty(Window(Home).Property(OverlayUnwatched)) + !Skin.HasSetting(coloredflags)</visible>
 				</item>
 				<item>
 					<label>$LOCALIZE[16101]</label>
 					<icon>overlays/showcase/1/OverlayUnwatched.png</icon>
 					<onclick>SetProperty(OverlayUnwatched,True,Home)</onclick>
 					<property name="Radio">android/btn_radio_off_holo_dark.png</property>
-					<visible>String.IsEmpty(Window(Home).Property(OverlayUnwatched))</visible>
+					<visible>String.IsEmpty(Window(Home).Property(OverlayUnwatched)) + !Skin.HasSetting(coloredflags)</visible>
+				</item>
+				<item>
+					<label>$LOCALIZE[16101]</label>
+					<icon>overlays/showcase/4/OverlayUnwatched.png</icon>
+					<onclick>ClearProperty(OverlayUnwatched,Home)</onclick>
+					<property name="Radio">android/btn_radio_on_holo_dark.png</property>
+					<visible>!String.IsEmpty(Window(Home).Property(OverlayUnwatched)) + Skin.HasSetting(coloredflags)</visible>
+				</item>
+				<item>
+					<label>$LOCALIZE[16101]</label>
+					<icon>overlays/showcase/4/OverlayUnwatched.png</icon>
+					<onclick>SetProperty(OverlayUnwatched,True,Home)</onclick>
+					<property name="Radio">android/btn_radio_off_holo_dark.png</property>
+					<visible>String.IsEmpty(Window(Home).Property(OverlayUnwatched)) + Skin.HasSetting(coloredflags)</visible>
 				</item>
 				<item>
 					<label>$LOCALIZE[31109]</label>
@@ -226,7 +236,7 @@
 			<onup>60</onup>
 			<showonepage>false</showonepage>
 			<texturesliderbackground />
-			<texturesliderbar colordiffuse="55ffffff" border="4">scrollbar/texturesliderbar3.png</texturesliderbar>
+			<texturesliderbar colordiffuse="80FFFFFF" border="4">scrollbar/texturesliderbar3.png</texturesliderbar>
 			<texturesliderbarfocus border="4">scrollbar/texturesliderbar3.png</texturesliderbarfocus>
 		</control>
 	</controls>

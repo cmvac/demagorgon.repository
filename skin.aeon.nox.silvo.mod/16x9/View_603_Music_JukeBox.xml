@@ -10,7 +10,6 @@
 				<control type="group">
 					<left>50</left>
 					<control type="image">
-						<description>background image</description>
 						<left>-32</left>
 						<top>148</top>
 						<width>874</width>
@@ -29,12 +28,6 @@
 						<pagecontrol>60360</pagecontrol>
 						<scrolltime tween="quadratic" easing="out">200</scrolltime>
 						<itemlayout height="90" width="810">
-							<control type="image">
-								<top>47</top>
-								<width>810</width>
-								<height>45</height>
-								<texture border="1">separator2.png</texture>
-							</control>
 							<control type="label">
 								<left>15</left>
 								<top>5</top>
@@ -42,17 +35,10 @@
 								<height>70</height>
 								<font>font30</font>
 								<textcolor>grey2</textcolor>
-								<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 								<label>$INFO[ListItem.Label]</label>
 							</control>
 						</itemlayout>
 						<focusedlayout height="90" width="690">
-							<control type="image">
-								<top>47</top>
-								<width>810</width>
-								<height>45</height>
-								<texture border="1">separator2.png</texture>
-							</control>
 							<control type="image">
 								<width>810</width>
 								<height>90</height>
@@ -66,8 +52,6 @@
 								<width>775</width>
 								<height>70</height>
 								<font>font30</font>
-								<textcolor>white</textcolor>
-								<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 								<label>$INFO[ListItem.Label]</label>
 							</control>
 						</focusedlayout>
@@ -83,16 +67,14 @@
 						<onleft>SetFocus(9050)</onleft>
 						<onright>603</onright>
 						<texturesliderbackground />
-						<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
+						<texturesliderbar colordiffuse="80FFFFFF" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
 						<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
 						<showonepage>false</showonepage>
-						<orientation>vertical</orientation>
 					</control>
 				</control>
 				<control type="group">
 					<left>1064</left>
 					<control type="image">
-						<description>background image</description>
 						<left>-32</left>
 						<top>148</top>
 						<width>874</width>
@@ -112,12 +94,6 @@
 						<pagecontrol>61</pagecontrol>
 						<scrolltime tween="quadratic" easing="out">200</scrolltime>
 						<itemlayout height="90" width="810">
-							<control type="image">
-								<top>47</top>
-								<width>810</width>
-								<height>45</height>
-								<texture border="1">separator2.png</texture>
-							</control>
 							<control type="label">
 								<left>15</left>
 								<top>-10</top>
@@ -125,7 +101,6 @@
 								<height>70</height>
 								<font>font30</font>
 								<textcolor>grey</textcolor>
-								<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 								<label>$INFO[ListItem.TrackNumber,,. ]$INFO[ListItem.Label]</label>
 								<animation effect="slide" start="0,0" end="0,25" time="0" condition="String.IsEmpty(ListItem.Album)">Conditional</animation>
 							</control>
@@ -136,7 +111,6 @@
 								<height>60</height>
 								<font>font15</font>
 								<textcolor>grey2</textcolor>
-								<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 								<label>$INFO[ListItem.Album]</label>
 							</control>
 							<control type="label">
@@ -147,7 +121,6 @@
 								<font>font15</font>
 								<align>right</align>
 								<textcolor>grey2</textcolor>
-								<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 								<label>$INFO[ListItem.Duration]</label>
 							</control>
 							<control type="image">
@@ -162,12 +135,6 @@
 						</itemlayout>
 						<focusedlayout height="90" width="810">
 							<control type="image">
-								<top>47</top>
-								<width>810</width>
-								<height>45</height>
-								<texture border="1">separator2.png</texture>
-							</control>
-							<control type="image">
 								<width>810</width>
 								<height>90</height>
 								<texture colordiffuse="$VAR[HighlightBarColor]" border="4">listselect_fo.png</texture>
@@ -180,8 +147,6 @@
 								<width>655</width>
 								<height>70</height>
 								<font>font30</font>
-								<textcolor>white</textcolor>
-								<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 								<label>$INFO[ListItem.TrackNumber,,. ]$INFO[ListItem.Label]</label>
 								<animation effect="slide" start="0,0" end="0,10" time="0" condition="String.IsEmpty(ListItem.Album)">Conditional</animation>
 							</control>
@@ -192,7 +157,6 @@
 								<height>60</height>
 								<font>font15</font>
 								<textcolor>grey2</textcolor>
-								<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 								<label>$INFO[ListItem.Album]</label>
 							</control>
 							<control type="label">
@@ -203,7 +167,6 @@
 								<font>font15</font>
 								<align>right</align>
 								<textcolor>grey2</textcolor>
-								<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 								<label>$INFO[ListItem.Duration]</label>
 							</control>
 							<control type="image">
@@ -229,10 +192,9 @@
 						<onright>SetProperty(MediaMenu,True,Home)</onright>
 						<onright>SetFocus(9050)</onright>
 						<texturesliderbackground />
-						<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
+						<texturesliderbar colordiffuse="80FFFFFF" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
 						<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
 						<showonepage>false</showonepage>
-						<orientation>vertical</orientation>
 					</control>
 				</control>
 			</control>

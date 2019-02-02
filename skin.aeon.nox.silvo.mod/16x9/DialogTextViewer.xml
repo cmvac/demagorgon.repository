@@ -10,6 +10,12 @@
 			<ondown>PageDown(61)</ondown>
 			<include>HiddenObject</include>
 		</control>
+		<control type="image">
+			<include>FullscreenDimensions</include>
+			<texture border="1" colordiffuse="AAFFFFFF">black.png</texture>
+			<animation effect="fade" time="100">WindowOpen</animation>
+			<animation effect="fade" time="50">WindowClose</animation>
+		</control>
 		<control type="group">
 			<include>WindowSettingsFadeAnimation</include>
 			<left>270</left>
@@ -20,7 +26,6 @@
 				<texture border="40">listpanel_back.png</texture>
 			</control>
 			<control type="label" id="1">
-				<description>header label</description>
 				<left>62</left>
 				<top>32</top>
 				<width>1256</width>
@@ -30,12 +35,10 @@
 				<textcolor>dialogheader</textcolor>
 			</control>
 			<control type="textbox" id="5">
-				<description>textarea</description>
 				<left>62</left>
 				<top>72</top>
 				<width>1256</width>
 				<height>800</height>
-				<font>font15_textbox</font>
 				<textcolor>grey2</textcolor>
 				<pagecontrol>61</pagecontrol>
 			</control>
@@ -50,7 +53,6 @@
 				<texturesliderbackground />
 				<texturesliderbar border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
 				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
-				<orientation>vertical</orientation>
 			</control>
 		</control>
 	</controls>

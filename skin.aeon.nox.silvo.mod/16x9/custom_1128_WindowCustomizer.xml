@@ -4,7 +4,6 @@
 	<controls>
 		<control type="group">
 			<control type="button" id="8999">
-				<description>Close Window button</description>
 				<left>365</left>
 				<top>-11</top>
 				<width>64</width>
@@ -41,12 +40,12 @@
 					<onclick>Skin.ToggleSetting(Disable.Extrafanart)</onclick>
 					<selected>!Skin.HasSetting(Disable.Extrafanart)</selected>
 					<enable>!Skin.HasSetting(Disable.Fanart)</enable>
-					<visible>Window.IsMedia + System.HasAddon(script.artwork.beef)</visible>
+					<visible>Window.IsMedia</visible>
 				</control>
 				<control type="button" id="901005">
 					<description>Fallback</description>
 					<include>ButtonCommonValues</include>
-					<label>$VAR[FallbackBackgroundLabelVar]$LOCALIZE[31117]</label>
+					<label>$LOCALIZE[31117]: $VAR[BackgroundLabelVar]</label>
 					<onclick>Skin.Reset(ItemToEdit.MultiFanart)</onclick>
 					<onclick>SetProperty(No.Cases,True,Home)</onclick>
 					<onclick>$VAR[FallbackBackgroundOnClickVar]</onclick>

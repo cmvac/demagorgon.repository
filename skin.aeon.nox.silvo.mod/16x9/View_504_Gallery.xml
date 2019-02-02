@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-	<!--STRIP LAYOUT-->
 	<include name="View_504_Gallery">
-		<!--content detail-->
 		<control type="group">
 			<include>ViewAnimation</include>
 			<visible>Control.IsVisible(504)</visible>
-			<!--flags-->
 			<control type="label">
 				<left>398</left>
 				<top>600</top>
 				<label>[B]$INFO[ListItem.Label][/B]</label>
 				<width>1125</width>
 				<font>font16_title</font>
-				<textcolor>white2</textcolor>
+				<textcolor>white</textcolor>
+				<shadowcolor>shadow</shadowcolor>
 				<visible>!Window.IsActive(pictures)</visible>
 			</control>
 			<control type="label">
@@ -23,7 +21,8 @@
 				<label>[B]$INFO[ListItem.Label][/B]</label>
 				<width>1125</width>
 				<font>font16_title</font>
-				<textcolor>white2</textcolor>
+				<textcolor>white</textcolor>
+				<shadowcolor>shadow</shadowcolor>
 				<visible>Window.IsActive(pictures)</visible>
 			</control>
 			<control type="image">
@@ -32,17 +31,16 @@
 				<width>42</width>
 				<height>28</height>
 				<aspectratio>keep</aspectratio>
-				<texture>$VAR[UnFocusHDIndicator]</texture>
-				<visible>Container.Content(movies) + Skin.HasSetting(noindicatorgallerymovies)</visible>
-				<colordiffuse>white</colordiffuse>
+				<texture colordiffuse="white">$VAR[UnFocusHDIndicator]</texture>
+				<visible>Container.Content(movies) + Skin.HasSetting(noindicatorgallery)</visible>
 			</control>
 			<control type="label">
 				<left>398</left>
 				<top>860</top>
 				<width>1125</width>
 				<height>30</height>
-				<font>font13</font>
-				<textcolor>white2</textcolor>
+				<textcolor>white</textcolor>
+				<shadowcolor>shadow</shadowcolor>
 				<label>$VAR[FloorSubLabelVar]</label>
 				<visible>!Container.Content(artists)</visible>
 				<visible>!ListItem.IsCollection</visible>
@@ -52,29 +50,27 @@
 				<top>892</top>
 				<width>1125</width>
 				<height>30</height>
-				<font>font13</font>
-				<textcolor>white2</textcolor>
+				<textcolor>white</textcolor>
+				<shadowcolor>shadow</shadowcolor>
 				<label>$INFO[ListItem.Genre]</label>
 			</control>
-			<!-- Next Episode -->
 			<control type="label">
 				<top>890</top>
 				<left>398</left>
 				<width>1220</width>
 				<height>100</height>
-				<font>font13</font>
-				<textcolor>white2</textcolor>
+				<textcolor>white</textcolor>
+				<shadowcolor>shadow</shadowcolor>
 				<label>$INFO[Window(Home).Property(NextAired.NextNumber),$LOCALIZE[31010]: ,] - $INFO[Window(Home).Property(NextAired.NextTitle)] ($INFO[Window(Home).Property(NextAired.NextDay)])</label>
 				<visible>[!String.IsEmpty(Window(Home).Property(NextAired.NextDate)) + !Control.HasFocus(61)] + Skin.HasSetting(noextendedinfotvshows)</visible>
 			</control>
-			<!-- Next Aired Status -->
 			<control type="label">
 				<top>890</top>
 				<left>398</left>
 				<width>1220</width>
 				<height>100</height>
-				<font>font13</font>
-				<textcolor>white2</textcolor>
+				<textcolor>white</textcolor>
+				<shadowcolor>shadow</shadowcolor>
 				<label>$INFO[Window(Home).Property(NextAired.Status)]</label>
 				<visible>[String.IsEmpty(Window(Home).Property(NextAired.NextDate)) + !String.IsEmpty(Window(Home).Property(NextAired.Status)) + !Control.HasFocus(61)] + Skin.HasSetting(noextendedinfotvshows)</visible>
 			</control>
@@ -83,17 +79,15 @@
 				<top>860</top>
 				<width>1125</width>
 				<height>30</height>
-				<font>font13</font>
-				<textcolor>white2</textcolor>
+				<textcolor>white</textcolor>
+				<shadowcolor>shadow</shadowcolor>
 				<label>$INFO[ListItem.Property(Artist_Genre)]</label>
 				<visible>Container.Content(artists)</visible>
 			</control>
 		</control>
-		<!--strip top-->
 		<control type="group">
 			<visible>Control.IsVisible(504)</visible>
 			<include>ViewAnimation</include>
-			<!--container-->
 			<control type="fixedlist" id="504">
 				<viewtype label="$LOCALIZE[31251]">info</viewtype>
 				<left>-772</left>
@@ -210,7 +204,8 @@
 				<label>$VAR[VideoPlotVar]</label>
 				<font>font14_textbox</font>
 				<autoscroll time="2500" delay="3500" repeat="5000">true</autoscroll>
-				<textcolor>white2</textcolor>
+				<textcolor>white</textcolor>
+				<shadowcolor>shadow</shadowcolor>
 				<pagecontrol>50461</pagecontrol>
 				<visible>ListItem.IsCollection</visible>
 			</control>
@@ -223,13 +218,10 @@
 				<ondown>50461</ondown>
 				<onleft>504</onleft>
 				<onright>504</onright>
-				<texturesliderbackground />
-				<texturesliderbar border="6,0,6,0">scrollbar/texturesliderbar_hor.png</texturesliderbar>
-				<texturesliderbarfocus border="6,0,6,0">scrollbar/texturesliderbarfocus_hor.png</texturesliderbarfocus>
-				<textureslidernib />
-				<textureslidernibfocus />
+				<texturesliderbackground colordiffuse="1AFFFFFF">colors/white50.png</texturesliderbackground>
+				<texturesliderbar colordiffuse="1AFFFFFF">colors/white.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="$VAR[ThemeLabelColor]">colors/white.png</texturesliderbarfocus>
 				<showonepage>false</showonepage>
-				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(50461) + !Container.Scrolling">Conditional</animation>
 				<visible>ListItem.IsCollection</visible>
 			</control>
 		</control>
