@@ -10,7 +10,7 @@
 		<control type="group">
 			<include>WindowOpenCloseAnimation</include>
 			<include>ViewAnimation</include>
-			<visible>!Window.IsActive(addoninformation)</visible>
+			<visible>!Window.IsActive(addoninformation) + !Window.IsActive(service-LibreELEC-Settings-mainWindow) + !Window.IsActive(service-CoreELEC-Settings-mainWindow)</visible>
 			<control type="group">
 				<left>100</left>
 				<top>-40</top>
@@ -339,8 +339,8 @@
 		<control type="group">
 			<visible>!Skin.HasSetting(Disable.TopBar) + !Window.IsActive(volumebar)</visible>
 			<include>VisibleFadeAnimation</include>
-			<animation effect="slide" start="0,-90" end="0,0" time="720">WindowOpen</animation>
-			<animation effect="slide" end="0,-90" start="0,0" time="720">WindowClose</animation>
+			<animation effect="slide" start="0,-90" end="0,0" time="500">WindowOpen</animation>
+			<animation effect="slide" end="0,-90" start="0,0" time="500">WindowClose</animation>
 			<control type="grouplist">
 				<width>100%</width>
 				<height>90</height>

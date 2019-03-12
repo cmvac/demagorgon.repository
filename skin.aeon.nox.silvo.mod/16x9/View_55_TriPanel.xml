@@ -7,21 +7,21 @@
 			<include>ViewAnimation</include>
 			<top>-25</top>
 			<control type="group">
-				<left>1400</left>
-				<top>136</top>
-				<animation effect="slide" end="-500,0" time="640" easing="inout" tween="circle" condition="String.IsEqual(Skin.String(TriPanelLayout),$LOCALIZE[31162])">Conditional</animation>
+				<left>1118</left> - Posição da Caixa [ onde está o texto escrito ]
+				<top>165</top>
+				<animation effect="slide" end="-515,0" time="640" easing="inout" tween="circle" condition="String.IsEqual(Skin.String(TriPanelLayout),$LOCALIZE[31162])">Conditional</animation>
 				<animation effect="zoom" center="1400,500" start="100" end="110" time="240" tween="back" reversible="false" condition="String.IsEqual(Skin.String(TriPanelLayout),$LOCALIZE[31162])">Conditional</animation>
 				<control type="image">
 					<left>-32</left>
-					<top>60</top>
-					<width>512</width>
-					<height>752</height>
+					<top>10</top> - Altura Caixa [ onde está o texto escrito ]
+					<width>800</width> - Largura da caixa [ onde está o texto escrito ]
+					<height>775</height> - Comprimento da caixa (Para baixo) [ onde está o texto escrito ]
 					<texture colordiffuse="E6FFFFFF" border="40">listpanel_back.png</texture>
 				</control>
 				<control type="grouplist">
-					<top>92</top>
-					<width>448</width>
-					<height>270</height>
+					<top>50</top> - Altura do RUNTIME [ onde está o texto escrito ]
+					<width>10</width> - Largura do RUNTIME [ onde está o texto escrito ] - No 10 desaparece
+					<height>10</height> - Comprimento do RUNTIME [ onde está o texto escrito ] - No 10 desaparece
 					<visible>!ListItem.IsCollection</visible>
 					<control type="button">
 						<label>[COLOR $VAR[ThemeLabelColor]]$LOCALIZE[31000]:[/COLOR][CR]$INFO[ListItem.Director]</label>
@@ -97,20 +97,20 @@
 				</control>
 				<control type="textbox" id="70">
 					<label>$VAR[VideoPlotVar]</label>
-					<left>15</left>
-					<top>370</top>
-					<width>428</width>
-					<height>402</height>
+					<left>10</left> - Posição do Texto escrito
+					<top>90</top> - Altura do Texto escrito 
+					<width>715</width> - Largura do texto escrito
+					<height>675</height> - Comprimento do Texto escrito em baixo 
 					<font>font14_textbox</font>
 					<pagecontrol>95561</pagecontrol>
 					<include>DefaultButtonsValues</include>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll) + !Control.HasFocus(95561)</autoscroll>
 				</control>
 				<control type="scrollbar" id="95561">
-					<left>450</left>
-					<top>370</top>
+					<left>741</left> - Posição do SCROLL da caixa de texto 
+					<top>45</top> - Posição do SCROLL da caixa de texto ( para cima )
 					<width>12</width>
-					<height>408</height>
+					<height>710</height>  Posição do SCROLL da caixa de texto ( para baixo )
 					<onup>PageUp(70)</onup>
 					<ondown>PageUp(70)</ondown>
 					<onleft>50</onleft>
@@ -120,14 +120,14 @@
 					<texturesliderbarfocus colordiffuse="$VAR[ThemeLabelColor]">colors/white.png</texturesliderbarfocus>
 					<showonepage>false</showonepage>
 				</control>
-			</control>
+			</control>                           
 			<control type="group">
-				<left>846</left>
-				<top>154</top>
-				<animation effect="slide" end="547,0" time="640" easing="inout" tween="circle" condition="String.IsEqual(Skin.String(TriPanelLayout),$LOCALIZE[31162])">Conditional</animation>
+				<left>542</left> - POSIÇÃO DO POSTER ( no centro )
+				<top>125</top>
+				<animation effect="slide" end="816,0" time="640" easing="inout" tween="circle" condition="String.IsEqual(Skin.String(TriPanelLayout),$LOCALIZE[31162])">Conditional</animation>
 				<animation effect="zoom" center="850,700" start="100" end="90" time="240" tween="back" reversible="false" condition="String.IsEqual(Skin.String(TriPanelLayout),$LOCALIZE[31162])">Conditional</animation>
 				<control type="image">
-					<width>570</width>
+					<width>575</width>
 					<height>835</height>
 					<aspectratio aligny="bottom" align="right">scale</aspectratio>
 					<texture background="true">$VAR[PosterThumbVar]</texture>
@@ -155,18 +155,18 @@
 				</control>
 			</control>
 			<control type="group">
-				<left>76</left>
+				<left>40</left> - Posição da Caixa da Lista ( 1ª Caixa )
 				<top>60</top>
 				<control type="image">
 					<left>-32</left>
 					<top>60</top>
-					<width>870</width>
-					<height>906</height>
+					<width>560</width> - Largura da caixa da lista ( 1ª Caixa )
+					<height>906</height> - Comprimento da Caixa da Lista ( 1ª Caixa )
 					<texture colordiffuse="E6FFFFFF" border="40">listpanel_back.png</texture>
 				</control>
 				<control type="list" id="55">
 					<top>92</top>
-					<width>806</width>
+					<width>498</width> - Largura da barra de escolha ( 1ª caixa )
 					<height>840</height>
 					<onleft>SetProperty(MediaMenu,True,Home)</onleft>
 					<onleft>SetFocus(9050)</onleft>
@@ -187,21 +187,21 @@
 							<height>68</height>
 							<font>font15</font>
 							<textcolor>$VAR[ThemeLabelColor]</textcolor>
-							<label fallback="• • • •">$INFO[ListItem.Year]</label>
+							<label>$INFO[ListItem.Year]</label>
 							<visible>!ListItem.IsParentFolder</visible>
 							<visible>!ListItem.IsCollection</visible>
 						</control>
 						<control type="image">
 							<top>-18</top>
-							<width>105</width>
-							<height>105</height>
+							<width>85</width>
+							<height>85</height>
 							<aspectratio>keep</aspectratio>
 							<texture>overlays/showcase/set.png</texture>
 							<colordiffuse>grey</colordiffuse>
 							<visible>ListItem.IsCollection</visible>
 						</control>
 						<control type="label">
-							<left>110</left>
+							<left>25</left>  - Posição do Texto escrito
 							<width>500</width>
 							<height>68</height>
 							<font>font15</font>
@@ -220,10 +220,10 @@
 							<visible>!Skin.HasSetting(Enable.HideRatings) | [String.IsEqual(ListItem.Label2, ListItem.Rating) + String.IsEqual(Container.SortMethod,$LOCALIZE[563])]</visible>
 						</control>
 						<control type="image">
-							<left>742</left>
+							<left>470</left> - Posição dos quadrados de Visto ( 1ª Caixa )
 							<top>3</top>
-							<width>64</width>
-							<height>64</height>
+							<width>1</width> - Largura dos quadrados de Visto ( 1ª Caixa ) - 1 Desaparece
+							<height>1</height> - Comprimento dos quadrados de Visto ( 1ª Caixa ) - 1 Desaparece
 							<aspectratio>keep</aspectratio>
 							<texture colordiffuse="$VAR[ThemeLabelColor]">$VAR[ListItem.Overlay]</texture>
 						</control>
@@ -241,7 +241,7 @@
 							<width>90</width>
 							<height>68</height>
 							<font>font15</font>
-							<label fallback="• • • •">$INFO[ListItem.Year]</label>
+							<label>$INFO[ListItem.Year]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(55)">Conditional</animation>
 							<visible>!ListItem.IsParentFolder</visible>
 							<visible>!ListItem.IsCollection</visible>
@@ -255,8 +255,8 @@
 							<visible>ListItem.IsCollection</visible>
 						</control>
 						<control type="label">
-							<left>110</left>
-							<width>500</width>
+							<left>25</left>  - Posição do Texto escrito na 1ª caixa ( Quando Selecionado )
+							<width>498</width>
 							<height>68</height>
 							<font>font15</font>
 							<label>$INFO[ListItem.Label]</label>
@@ -274,10 +274,10 @@
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(55)">Conditional</animation>
 						</control>
 						<control type="image">
-							<left>742</left>
+							<left>600</left>  - Posição dos quadrado Favourites ( 1ª Caixas )
 							<top>3</top>
-							<width>64</width>
-							<height>64</height>
+							<width>1</width> - Largura dos quadrados de Visto ( 1ª Caixa ) - 1 Desaparece
+							<height>1</height> - Comprimento dos quadrados de Visto ( 1ª Caixa ) - 1 Desaparece
 							<aspectratio>keep</aspectratio>
 							<texture colordiffuse="$VAR[ThemeLabelColor]">$VAR[ListItem.Overlay]</texture>
 						</control>
@@ -289,7 +289,7 @@
 							<height>68</height>
 							<font>font15</font>
 							<textcolor>$VAR[ThemeLabelColor]</textcolor>
-							<label fallback="• • • •">$INFO[ListItem.Year]</label>
+							<label>$INFO[ListItem.Year]</label>
 							<visible>!ListItem.IsParentFolder</visible>
 						</control>
 						<control type="label">
@@ -311,7 +311,7 @@
 							<visible>!Skin.HasSetting(Enable.HideRatings)</visible>
 						</control>
 						<control type="image">
-							<left>742</left>
+							<left>600</left>
 							<top>3</top>
 							<width>64</width>
 							<height>64</height>
@@ -319,7 +319,7 @@
 							<texture colordiffuse="$VAR[ThemeLabelColor]">$VAR[ListItem.Overlay]</texture>
 						</control>
 						<control type="group">
-							<left>742</left>
+							<left>600</left>
 							<control type="image">
 								<top>3</top>
 								<width>64</width>
@@ -353,7 +353,7 @@
 							<width>90</width>
 							<height>68</height>
 							<font>font15</font>
-							<label fallback="• • • •">$INFO[ListItem.Year]</label>
+							<label>$INFO[ListItem.Year]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(55)">Conditional</animation>
 							<visible>!ListItem.IsParentFolder</visible>
 						</control>
@@ -376,7 +376,7 @@
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(55)">Conditional</animation>
 						</control>
 						<control type="image">
-							<left>742</left>
+							<left>600</left>
 							<top>3</top>
 							<width>64</width>
 							<height>64</height>
@@ -384,7 +384,7 @@
 							<texture colordiffuse="$VAR[ThemeLabelColor]">$VAR[ListItem.Overlay]</texture>
 						</control>
 						<control type="group">
-							<left>742</left>
+							<left>600</left>
 							<control type="image">
 								<top>3</top>
 								<width>64</width>
@@ -424,7 +424,7 @@
 							<visible>!Skin.HasSetting(Enable.HideRatings)</visible>
 						</control>
 						<control type="image">
-							<left>742</left>
+							<left>600</left>
 							<top>3</top>
 							<width>64</width>
 							<height>64</height>
@@ -459,7 +459,7 @@
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(55)">Conditional</animation>
 						</control>
 						<control type="image">
-							<left>742</left>
+							<left>600</left>
 							<top>3</top>
 							<width>64</width>
 							<height>64</height>
@@ -486,7 +486,7 @@
 							<label>$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20453]]</label>
 						</control>
 						<control type="image">
-							<left>742</left>
+							<left>600</left>
 							<top>3</top>
 							<width>64</width>
 							<height>64</height>
@@ -494,7 +494,7 @@
 							<texture colordiffuse="$VAR[ThemeLabelColor]">$VAR[ListItem.Overlay]</texture>
 						</control>
 						<control type="group">
-							<left>742</left>
+							<left>600</left>
 							<control type="image">
 								<top>3</top>
 								<width>64</width>
@@ -541,7 +541,7 @@
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(55)">Conditional</animation>
 						</control>
 						<control type="image">
-							<left>742</left>
+							<left>600</left>
 							<top>3</top>
 							<width>64</width>
 							<height>64</height>
@@ -549,7 +549,7 @@
 							<texture colordiffuse="$VAR[ThemeLabelColor]">$VAR[ListItem.Overlay]</texture>
 						</control>
 						<control type="group">
-							<left>742</left>
+							<left>600</left>
 							<control type="image">
 								<top>3</top>
 								<width>64</width>
@@ -571,7 +571,7 @@
 					</focusedlayout>
 				</control>
 				<control type="scrollbar" id="95560">
-					<left>808</left>
+					<left>499</left>  - Posição do SCROLL da caixa de texto ( 1ª Caixa )
 					<top>92</top>
 					<width>12</width>
 					<height>840</height>
@@ -784,7 +784,7 @@
 							<height>68</height>
 							<font>font15</font>
 							<textcolor>$VAR[ThemeLabelColor]</textcolor>
-							<label fallback="• • • •">$INFO[ListItem.Year]</label>
+							<label>$INFO[ListItem.Year]</label>
 							<visible>!String.IsEmpty(ListItem.Album)</visible>
 						</control>
 						<control type="label">
@@ -819,7 +819,7 @@
 							<width>90</width>
 							<height>68</height>
 							<font>font15</font>
-							<label fallback="• • • •">$INFO[ListItem.Year]</label>
+							<label>$INFO[ListItem.Year]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(55)">Conditional</animation>
 							<visible>!String.IsEmpty(ListItem.Album)</visible>
 						</control>

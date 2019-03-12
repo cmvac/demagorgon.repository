@@ -420,7 +420,7 @@
 			<onclick>Skin.ToggleSetting(Enable.IconsInfoPopup)</onclick>
 			<onclick condition="String.IsEmpty(Skin.String(InfoPopup.Delay))">Skin.SetString(InfoPopup.Delay,3)</onclick>
 			<selected>Skin.HasSetting(Enable.IconsInfoPopup)</selected>
-			<visible>[Container.Content(movies) | Container.Content(tvshows)]</visible>
+			<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]</visible>
 		</control>
 	</include>
 	<include name="LowListViewSettings">
@@ -631,7 +631,7 @@
 			<label>$LOCALIZE[31620]</label>
 			<onclick>$VAR[ViewFloorOnClickVar]</onclick>
 			<label2>[COLOR $VAR[ThemeLabelColor]]$VAR[ViewFloorLabelVar][/COLOR]</label2>
-			<visible>!Window.IsActive(music)</visible>
+			<visible>!Window.IsActive(music) + !Container.Content(sets)</visible>
 		</control>
 		<control type="radiobutton" id="1532">
 			<include>ButtonCommonValues</include>
@@ -910,6 +910,13 @@
 			<visible>!Window.IsActive(music)</visible>
 		</control>
 		<control type="radiobutton" id="1511">
+			<include>ButtonCommonValues</include>
+			<label>   - $LOCALIZE[31509]</label>
+			<onclick>Skin.ToggleSetting(Enable.TinyFullscreenWallPosters)</onclick>
+			<selected>Skin.HasSetting(Enable.TinyFullscreenWallPosters)</selected>
+			<visible>!Window.IsActive(music) + Skin.HasSetting(Enable.SmallerFullscreenWallPosters)</visible>
+		</control>
+		<control type="radiobutton" id="1520">
 			<include>ButtonCommonValues</include>
 			<label>$LOCALIZE[31292]</label>
 			<onclick>Skin.ToggleSetting(Enable.FullscreenWallInfoPopup)</onclick>

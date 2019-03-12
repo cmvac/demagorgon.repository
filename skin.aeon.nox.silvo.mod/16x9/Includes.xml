@@ -144,6 +144,7 @@
 			<onclick condition="Control.IsVisible(591)">SetProperty(actualViewtype,BigFan,Home)</onclick>
 			<onclick condition="Control.IsVisible(601)">SetProperty(actualViewtype,BannerPlex,Home)</onclick>
 			<onclick condition="Control.IsVisible(602)">SetProperty(actualViewtype,FanartList,Home)</onclick>
+			<onclick condition="Control.IsVisible(603)">SetProperty(actualViewtype,MusicJukebox,Home)</onclick>
 			<onclick condition="Control.IsVisible(609)">SetProperty(actualViewtype,FullscreenWall,Home)</onclick>
 			<onclick>ActivateWindow(1131)</onclick>
 		</control>
@@ -483,7 +484,7 @@
 			<animation effect="slide" start="0,0" end="0,-90" time="500" tween="cubic" condition="Control.IsVisible(609) + String.IsEmpty(Skin.String(609.NoTopBar)) + System.IdleTime(2)">Conditional</animation>
 			<animation effect="slide" start="0,-90" end="0,0" time="500" condition="Window.Previous(Home)">WindowOpen</animation>
 			<animation effect="slide" end="0,-90" start="0,0" time="500" condition="Window.Next(Home)">WindowClose</animation>
-			<visible>[Control.IsVisible(50) + String.IsEmpty(Skin.String(50.NoTopBar))] | [Control.IsVisible(51) + String.IsEmpty(Skin.String(51.NoTopBar))] | [Control.IsVisible(52) + String.IsEmpty(Skin.String(52.NoTopBar))] | [Control.IsVisible(53) + String.IsEmpty(Skin.String(53.NoTopBar))] | [Control.IsVisible(54) + String.IsEmpty(Skin.String(54.NoTopBar))] | [Control.IsVisible(55) + String.IsEmpty(Skin.String(55.NoTopBar))] | [Control.IsVisible(56) + String.IsEmpty(Skin.String(56.NoTopBar))] | [Control.IsVisible(57) + String.IsEmpty(Skin.String(57.NoTopBar))] | [Control.IsVisible(58) + String.IsEmpty(Skin.String(58.NoTopBar))] | [Control.IsVisible(59) + String.IsEmpty(Skin.String(59.NoTopBar))] | [Control.IsVisible(499) + String.IsEmpty(Skin.String(499.NoTopBar))] | [Control.IsVisible(500) + String.IsEmpty(Skin.String(500.NoTopBar))] | [Control.IsVisible(501) + String.IsEmpty(Skin.String(501.NoTopBar))] | [Control.IsVisible(502) + String.IsEmpty(Skin.String(502.NoTopBar))] | [Control.IsVisible(503) + String.IsEmpty(Skin.String(503.NoTopBar))] | [Control.IsVisible(504) + String.IsEmpty(Skin.String(504.NoTopBar))] | [Control.IsVisible(505) + String.IsEmpty(Skin.String(505.NoTopBar))] | [Control.IsVisible(507) + String.IsEmpty(Skin.String(507.NoTopBar))] | [Control.IsVisible(508) + String.IsEmpty(Skin.String(508.NoTopBar))] | [Control.IsVisible(591) + String.IsEmpty(Skin.String(591.NoTopBar))] | [Control.IsVisible(592) + String.IsEmpty(Skin.String(592.NoTopBar))] | [Control.IsVisible(601) + String.IsEmpty(Skin.String(601.NoTopBar))] | [Control.IsVisible(602) + String.IsEmpty(Skin.String(602.NoTopBar))] | [Control.IsVisible(603) + String.IsEmpty(Skin.String(603.NoTopBar))] | [Control.IsVisible(609) + String.IsEmpty(Skin.String(609.NoTopBar))] | [Control.IsVisible(506) + String.IsEmpty(Skin.String(506.NoTopBar))] | [Control.IsVisible(509) + String.IsEmpty(Skin.String(509.NoTopBar))] | !Window.IsMedia | Window.IsActive(script-NextAired-TVGuide.xml) | Window.IsActive(script-NextAired-TVGuide2.xml) | Window.IsActive(tvguide)</visible>
+			<visible>[Control.IsVisible(50) + String.IsEmpty(Skin.String(50.NoTopBar))] | [Control.IsVisible(51) + String.IsEmpty(Skin.String(51.NoTopBar))] | [Control.IsVisible(52) + String.IsEmpty(Skin.String(52.NoTopBar))] | [Control.IsVisible(53) + String.IsEmpty(Skin.String(53.NoTopBar))] | [Control.IsVisible(54) + String.IsEmpty(Skin.String(54.NoTopBar))] | [Control.IsVisible(55) + String.IsEmpty(Skin.String(55.NoTopBar))] | [Control.IsVisible(56) + String.IsEmpty(Skin.String(56.NoTopBar))] | [Control.IsVisible(57) + String.IsEmpty(Skin.String(57.NoTopBar))] | [Control.IsVisible(58) + String.IsEmpty(Skin.String(58.NoTopBar))] | [Control.IsVisible(59) + String.IsEmpty(Skin.String(59.NoTopBar))] | [Control.IsVisible(499) + String.IsEmpty(Skin.String(499.NoTopBar))] | [Control.IsVisible(500) + String.IsEmpty(Skin.String(500.NoTopBar))] | [Control.IsVisible(501) + String.IsEmpty(Skin.String(501.NoTopBar))] | [Control.IsVisible(502) + String.IsEmpty(Skin.String(502.NoTopBar))] | [Control.IsVisible(503) + String.IsEmpty(Skin.String(503.NoTopBar))] | [Control.IsVisible(504) + String.IsEmpty(Skin.String(504.NoTopBar))] | [Control.IsVisible(505) + String.IsEmpty(Skin.String(505.NoTopBar))] | [Control.IsVisible(507) + String.IsEmpty(Skin.String(507.NoTopBar))] | [Control.IsVisible(508) + String.IsEmpty(Skin.String(508.NoTopBar))] | [Control.IsVisible(591) + String.IsEmpty(Skin.String(591.NoTopBar))] | [Control.IsVisible(592) + String.IsEmpty(Skin.String(592.NoTopBar))] | [Control.IsVisible(601) + String.IsEmpty(Skin.String(601.NoTopBar))] | [Control.IsVisible(602) + String.IsEmpty(Skin.String(602.NoTopBar))] | [Control.IsVisible(603) + String.IsEmpty(Skin.String(603.NoTopBar))] | [Control.IsVisible(609) + String.IsEmpty(Skin.String(609.NoTopBar))] | [Control.IsVisible(506) + String.IsEmpty(Skin.String(506.NoTopBar))] | [Control.IsVisible(509) + String.IsEmpty(Skin.String(509.NoTopBar))] | [Control.IsVisible(603) + String.IsEmpty(Skin.String(603.NoTopBar))] | !Window.IsMedia | Window.IsActive(script-NextAired-TVGuide.xml) | Window.IsActive(script-NextAired-TVGuide2.xml) | Window.IsActive(tvguide)</visible>
 			<visible>!Skin.HasSetting(Disable.TopBar)</visible>
 			<control type="image">
 				<width>100%</width>
@@ -516,25 +517,17 @@
 					</control>
 					<control type="grouplist">
 						<left>56</left>
-						<width>730</width>
+						<width>780</width>
 						<height>90</height>
 						<orientation>horizontal</orientation>
 						<usecontrolcoords>true</usecontrolcoords>
-						<control type="label">
-							<width>auto</width>
-							<height>90</height>
-							<font>font13_title</font>
-							<textcolor>grey</textcolor>
-							<shadowcolor>shadow</shadowcolor>
-							<aligny>top</aligny>
-							<label>$VAR[BreadcrumbsVar]</label>
-						</control>
+						<itemgap>5</itemgap>
 						<control type="label">
 							<top>6</top>
-							<width>auto</width>
-							<height>auto</height>
+							<width>30</width>
+							<height>40</height>
 							<font>IconTiny</font>
-							<textcolor>grey2</textcolor>
+							<textcolor>grey</textcolor>
 							<shadowcolor>shadow</shadowcolor>
 							<aligny>top</aligny>
 							<label></label>
@@ -542,14 +535,24 @@
 						</control>
 						<control type="label">
 							<top>6</top>
-							<width>auto</width>
-							<height>auto</height>
+							<width>30</width>
+							<height>40</height>
 							<font>IconTiny</font>
-							<textcolor>grey2</textcolor>
+							<textcolor>grey</textcolor>
 							<shadowcolor>shadow</shadowcolor>
 							<aligny>top</aligny>
 							<label></label>
 							<visible>String.IsEqual(Control.GetLabel(10),$LOCALIZE[16102])</visible>
+						</control>
+						<control type="label">
+							<width min="100" max="750">auto</width>
+							<height>90</height>
+							<font>font13_title</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>shadow</shadowcolor>
+							<aligny>top</aligny>
+							<scroll>true</scroll>
+							<label>$VAR[BreadcrumbsVar]</label>
 						</control>
 					</control>
 				</control>
@@ -557,7 +560,7 @@
 					<visible>Player.HasMedia</visible>
 					<include>VisibleFadeAnimation</include>
 					<control type="progress">
-						<width>100.1%</width>
+						<width>100%</width>
 						<height>42</height>
 						<texturebg border="2" colordiffuse="B3FFFFFF">osd/texturebg.png</texturebg>
 						<lefttexture />
@@ -567,7 +570,7 @@
 						<info>Player.ProgressCache</info>
 					</control>
 					<control type="progress">
-						<width>100.1%</width>
+						<width>100%</width>
 						<height>37</height>
 						<texturebg border="2">osd/texturebg_cache.png</texturebg>
 						<lefttexture />
@@ -578,7 +581,7 @@
 						<visible>!Pvr.IsPlayingTv</visible>
 					</control>
 					<control type="progress">
-						<width>100.1%</width>
+						<width>100%</width>
 						<height>37</height>
 						<texturebg border="2">osd/texturebg_cache.png</texturebg>
 						<lefttexture />
@@ -2393,7 +2396,7 @@
 			<!-- Media Flag Bar Background -->
 			<control type="image">
 				<top>-240</top>
-				<width>1920</width>
+				<width>100%</width>
 				<height>360</height>
 				<texture border="1,1,1,40">topbar.png</texture>
 			</control>
@@ -2403,6 +2406,7 @@
 				<height>100</height>
 				<align>center</align>
 				<orientation>horizontal</orientation>
+				<visible>![Skin.HasSetting(VideoOSDOnTop) + Window.IsVisible(videoosd)] | [Window.IsVisible(SliderDialog) | Window.IsVisible(pvrchannelguide) | Window.IsVisible(PVROSDTeletext) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(1115)]</visible>
 				<control type="group">
 					<visible>!String.IsEmpty(VideoPlayer.Studio)</visible>
 					<width>274</width>
@@ -2458,26 +2462,29 @@
 			</control>
 		</control>
 		<control type="group">
-			<animation effect="slide" end="0,-90" time="240" tween="quadratic" condition="Window.IsActive(videoosd)">Conditional</animation>
-			<animation effect="slide" end="0,90" time="240" tween="quadratic" condition="Window.IsVisible(SliderDialog) | Window.IsVisible(pvrchannelguide) | Window.IsVisible(PVROSDTeletext) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(subtitlesearch) | Window.IsVisible(1115)">Conditional</animation>
+			<animation effect="slide" end="0,-90" time="240" tween="quadratic" condition="Window.IsActive(videoosd) + !Skin.HasSetting(VideoOSDOnTop)">Conditional</animation>
+			<animation effect="slide" end="0,90" time="240" tween="quadratic" condition="[Window.IsVisible(SliderDialog) | Window.IsVisible(pvrchannelguide) | Window.IsVisible(PVROSDTeletext) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(subtitlesearch) | Window.IsVisible(1115)] + !Skin.HasSetting(VideoOSDOnTop)">Conditional</animation>
 			<control type="image">
 				<left>-5%</left>
 				<top>765</top>
 				<width>110%</width>
 				<height>800</height>
-				<texture border="40">listpanel_back.png</texture>
+				<texture border="40" colordiffuse="E6FFFFFF">dialogs/default/bg.png</texture>
 				<visible>VideoPlayer.HasInfo</visible>
 				<animation effect="slide" end="0,-40" condition="VideoPlayer.HasInfo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos)]">Conditional</animation>
+				<animation effect="slide" end="0,-20" condition="Skin.HasSetting(Disable.FullscreenPoster)">Conditional</animation>
 			</control>
 		</control>
-	</include>
-	<include name="LibraryFullscreenInfo">
+		<!-- Library Info -->
 		<control type="group">
 			<top>600</top>
-			<animation effect="slide" end="0,-90" time="240" tween="quadratic" condition="Window.IsActive(videoosd)">Conditional</animation>
-			<animation effect="slide" end="0,90" time="240" tween="quadratic" condition="Window.IsVisible(SliderDialog) | Window.IsVisible(pvrchannelguide) | Window.IsVisible(PVROSDTeletext) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(subtitlesearch) | Window.IsVisible(1115)">Conditional</animation>
+			<visible>[VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos)]</visible>
+			<animation effect="slide" end="0,-90" time="240" tween="quadratic" condition="Window.IsActive(videoosd) + !Skin.HasSetting(VideoOSDOnTop)">Conditional</animation>
+			<animation effect="slide" end="0,90" time="240" tween="quadratic" condition="[Window.IsVisible(SliderDialog) | Window.IsVisible(pvrchannelguide) | Window.IsVisible(PVROSDTeletext) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(subtitlesearch) | Window.IsVisible(1115)] + !Skin.HasSetting(VideoOSDOnTop)">Conditional</animation>
 			<control type="group">
 				<top>-110</top>
+				<visible>!VideoPlayer.Content(musicvideos)</visible>
+				<visible>!Skin.HasSetting(Disable.FullscreenPoster)</visible>
 				<control type="image">
 					<left>20</left>
 					<top>-155</top>
@@ -2487,6 +2494,7 @@
 					<texture background="true" diffuse="thumbs/boxes/cdart_mask.png">$INFO[Player.Art(discart)]</texture>
 					<animation effect="fade" end="100" time="200" delay="100">WindowOpen</animation>
 					<animation effect="fade" start="100" time="200">WindowClose</animation>
+					<visible>!Skin.HasSetting(Disable.FullscreenDiscart)</visible>
 				</control>
 				<control type="image">
 					<width>390</width>
@@ -2494,7 +2502,6 @@
 					<texture background="true">$VAR[PlayerPosterVar]</texture>
 					<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
 					<bordersize>20</bordersize>
-					<visible>![VideoPlayer.Content(musicvideos) | PVR.IsPlayingRecording]</visible>
 				</control>
 			</control>
 			<control type="image">
@@ -2507,27 +2514,31 @@
 			</control>
 			<control type="group">
 				<left>250</left>
-				<top>30</top>
+				<top>25</top>
 				<control type="image" id="999149">
-					<left>1195</left>
-					<top>-109</top>
+					<left>1207</left>
+					<top>-100</top>
 					<width>450</width>
 					<height>260</height>
-					<aspectratio aligny="bottom" align="right">keep</aspectratio>
+					<aspectratio>keep</aspectratio>
 					<texture background="true">$VAR[PlayerArtworkVar]</texture>
 					<visible>!Skin.HasSetting(Disable.FullscreenInfoLogo)</visible>
+					<animation effect="slide" end="0,249" condition="Skin.HasSetting(Disable.FullscreenPoster)">Conditional</animation>
+					<animation effect="slide" end="-1440" condition="Skin.HasSetting(Disable.FullscreenPoster) + !Skin.HasSetting(SwapFullscreenInfo)">Conditional</animation>
 				</control>
 				<control type="group">
 					<left>150</left>
 					<top>165</top>
 					<height>500</height>
+					<animation effect="slide" end="80" condition="Skin.HasSetting(Disable.FullscreenPoster) + !Skin.HasSetting(SwapFullscreenInfo)">Conditional</animation>
+					<animation effect="slide" end="-380,-10" condition="Skin.HasSetting(Disable.FullscreenPoster) + Skin.HasSetting(SwapFullscreenInfo)">Conditional</animation>
 					<control type="grouplist">
-						<width>1500</width>
+						<width>1420</width>
 						<height>500</height>
 						<usecontrolcoords>true</usecontrolcoords>
 						<visible>String.IsEmpty(Window(fullscreeninfo).Property(ShowPlot)) + String.IsEmpty(Window(fullscreeninfo).Property(ShowCast))</visible>
 						<control type="label">
-							<width>1500</width>
+							<width>1420</width>
 							<height>60</height>
 							<font>font30_title_bold</font>
 							<textcolor>grey</textcolor>
@@ -2536,7 +2547,7 @@
 							<visible>!VideoPlayer.Content(episodes)</visible>
 						</control>
 						<control type="label">
-							<width>1500</width>
+							<width>1420</width>
 							<height>60</height>
 							<font>font30_title_bold</font>
 							<textcolor>grey</textcolor>
@@ -2545,7 +2556,7 @@
 							<visible>VideoPlayer.Content(episodes)</visible>
 						</control>
 						<control type="label">
-							<width>1500</width>
+							<width>1420</width>
 							<height>48</height>
 							<font>font15</font>
 							<textcolor>$VAR[ThemeLabelColor]</textcolor>
@@ -2554,7 +2565,7 @@
 							<visible>!String.IsEmpty(VideoPlayer.Tagline)</visible>
 						</control>
 						<control type="label">
-							<width>1500</width>
+							<width>1420</width>
 							<height>48</height>
 							<font>font15</font>
 							<textcolor>$VAR[ThemeLabelColor]</textcolor>
@@ -2562,7 +2573,7 @@
 							<visible>VideoPlayer.Content(episodes)</visible>
 						</control>
 						<control type="grouplist">
-							<width>1500</width>
+							<width>1420</width>
 							<height>70</height>
 							<itemgap>10</itemgap>
 							<orientation>horizontal</orientation>
@@ -2578,7 +2589,7 @@
 							</control>
 							<control type="grouplist">
 								<top>5</top>
-								<width>1500</width>
+								<width>1420</width>
 								<height>500</height>
 								<itemgap>10</itemgap>
 								<orientation>horizontal</orientation>
@@ -2754,7 +2765,7 @@
 							</control>
 						</control>
 						<control type="label">
-							<width>1500</width>
+							<width>1420</width>
 							<height>54</height>
 							<font>font15</font>
 							<textcolor>$VAR[ThemeLabelColor]</textcolor>
@@ -2764,12 +2775,12 @@
 					</control>
 					<control type="grouplist">
 						<top>10</top>
-						<width>1500</width>
+						<width>1420</width>
 						<height>500</height>
 						<usecontrolcoords>true</usecontrolcoords>
 						<itemgap>5</itemgap>
 						<control type="label">
-							<width>1500</width>
+							<width>1420</width>
 							<height>35</height>
 							<font>font15</font>
 							<textcolor>$VAR[ThemeLabelColor]</textcolor>
@@ -2777,7 +2788,7 @@
 							<visible>!String.IsEmpty(Window(fullscreeninfo).Property(ShowCast))</visible>
 						</control>
 						<control type="label">
-							<width>1500</width>
+							<width>1420</width>
 							<height>35</height>
 							<font>font15</font>
 							<textcolor>$VAR[ThemeLabelColor]</textcolor>
@@ -2785,7 +2796,7 @@
 							<visible>!String.IsEmpty(Window(fullscreeninfo).Property(ShowPlot))</visible>
 						</control>
 						<control type="textbox" id="400">
-							<width>1500</width>
+							<width>1420</width>
 							<height>170</height>
 							<font>font15_textbox2</font>
 							<label>$VAR[VideoPlayerPlotVar]</label>
@@ -2796,7 +2807,7 @@
 							<visible>!String.IsEmpty(Window(fullscreeninfo).Property(ShowPlot)) + String.IsEmpty(Window(fullscreeninfo).Property(ShowCast))</visible>
 						</control>
 						<control type="textbox" id="401">
-							<width>1500</width>
+							<width>1420</width>
 							<height>170</height>
 							<font>font15_textbox2</font>
 							<label>$INFO[VideoPlayer.CastAndRole]</label>
@@ -2812,11 +2823,11 @@
 				</control>
 			</control>
 		</control>
-	</include>
-	<include name="OtherFullscreenInfo">
+		<!-- Other Info -->
 		<control type="group">
 			<top>700</top>
 			<left>15</left>
+			<visible>VideoPlayer.HasInfo + ![VideoPlayer.Content(LiveTV) | VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos)]</visible>
 			<animation effect="slide" end="0,-90" time="240" tween="quadratic" condition="Window.IsActive(videoosd)">Conditional</animation>
 			<animation effect="slide" end="0,90" time="240" tween="quadratic" condition="Window.IsVisible(SliderDialog) | Window.IsVisible(pvrchannelguide) | Window.IsVisible(PVROSDTeletext) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(subtitlesearch) | Window.IsVisible(1115)">Conditional</animation>
 			<control type="image">
