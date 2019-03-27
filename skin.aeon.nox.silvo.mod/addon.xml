@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.aeon.nox.silvo.mod" version="7.0.0" name="Aeon Nox: SiLVO mod" provider-name="SiLVO">
+<addon id="skin.aeon.nox.silvo.mod" version="7.0.1" name="Aeon Nox: SiLVO mod" provider-name="SiLVO">
 	<requires>
 		<import addon="xbmc.gui" version="5.14.0" />
 		<import addon="script.skinshortcuts" version="1.0.10" />
