@@ -5,6 +5,10 @@
 	<onload condition="![Window.IsActive(home) + String.IsEqual(ListItem.DBTYPE,tvshow)] + String.IsEqual(Skin.String(CinemaVision.Button),$LOCALIZE[31232]) + System.HasAddon(script.cinemavision)">SetFocus(909)</onload>
 	<onload condition="Window.IsActive(home) + String.IsEqual(ListItem.DBTYPE,tvshow)">SetFocus(808)</onload>
 	<controls>
+		<!-- <control type="list" id="9888">
+			<include>HiddenList</include>
+			<content>plugin://plugin.video.themoviedb.helper/?info=find&amp;type=movie&amp;imdb_id=$INFO[ListItem.IMDBNumber]</content>
+		</control> -->
 		<control type="textbox" id="4">
 			<include>HiddenObject</include>
 		</control>
@@ -96,7 +100,6 @@
 								<aligny>center</aligny>
 								<font>font15</font>
 								<textcolor>$VAR[ThemeLabelColor]</textcolor>
-								<scroll>true</scroll>
 								<scrollout>false</scrollout>
 								<pauseatend>5500</pauseatend>
 								<label>$INFO[ListItem.Tagline]</label>
@@ -197,12 +200,11 @@
 						<orientation>horizontal</orientation>
 						<usecontrolcoords>true</usecontrolcoords>
 						<itemgap>8</itemgap>
-						<animation effect="slide" end="-40" condition="!Skin.HasSetting(Enable.HourMinuteDuration)">Conditional</animation>
 						<!-- Minute Duration -->
 						<control type="group">
-							<visible>!Skin.HasSetting(Enable.HourMinuteDuration)</visible>
-							<width>175</width>
-							<height>90</height>
+							<visible>!Skin.HasSetting(Enable.HourMinuteDuration) + [!String.IsEmpty(Window(Home).Property(NextAired.Runtime)) | !String.IsEmpty(ListItem.Duration)]</visible>
+							<width>155</width>
+							<height>100</height>
 							<control type="label">
 								<width>auto</width>
 								<height>60</height>
@@ -238,7 +240,7 @@
 							<font>font52_bold</font>
 							<textcolor>grey</textcolor>
 							<label>$VAR[ItemDurationVar]</label>
-							<visible>Skin.HasSetting(Enable.HourMinuteDuration)</visible>
+							<visible>Skin.HasSetting(Enable.HourMinuteDuration) + [!String.IsEmpty(Window(Home).Property(NextAired.Runtime)) | !String.IsEmpty(ListItem.Duration)]</visible>
 						</control>
 						<control type="label">
 							<width>auto</width>
@@ -389,61 +391,6 @@
 								</control>
 							</control>
 						</control>
-						<!-- Skin Helper RottenTomatoes/Metacritic Ratings -->
-						<control type="grouplist">
-							<visible>System.HasAddon(script.skin.helper.service) + String.IsEqual(ListItem.DBTYPE,movie)</visible>
-							<width>390</width>
-							<orientation>horizontal</orientation>
-							<usecontrolcoords>true</usecontrolcoords>
-							<itemgap>10</itemgap>
-							<control type="grouplist">
-								<top>20</top>
-								<width>175</width>
-								<orientation>horizontal</orientation>
-								<usecontrolcoords>true</usecontrolcoords>
-								<itemgap>10</itemgap>
-								<visible>String.IsEmpty(ListItem.Rating(tomatometerallcritics))</visible>
-								<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Image)) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Rating))</visible>
-								<control type="image">
-									<left>5</left>
-									<width>50</width>
-									<height>50</height>
-									<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Image),logos/rottentomatoes/,.png]</texture>
-									<colordiffuse>grey</colordiffuse>
-								</control>
-								<control type="label">
-									<top>10</top>
-									<height>30</height>
-									<width>auto</width>
-									<label>$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Rating),,%]</label>
-									<font>font48_bold</font>
-									<textcolor>grey</textcolor>
-								</control>
-							</control>
-							<control type="grouplist">
-								<top>21</top>
-								<width>175</width>
-								<orientation>horizontal</orientation>
-								<usecontrolcoords>true</usecontrolcoords>
-								<itemgap>10</itemgap>
-								<visible>String.IsEmpty(ListItem.Rating(metacritic))</visible>
-								<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating))</visible>
-								<control type="image">
-									<width>47</width>
-									<height>47</height>
-									<texture>logos/metacritic.png</texture>
-									<colordiffuse>grey</colordiffuse>
-								</control>
-								<control type="label">
-									<top>10</top>
-									<height>30</height>
-									<width>auto</width>
-									<label>$INFO[Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating),,%]</label>
-									<font>font48_bold</font>
-									<textcolor>grey</textcolor>
-								</control>
-							</control>
-						</control>
 					</control>
 					<!-- Separator -->
 					<control type="image">
@@ -458,9 +405,9 @@
 					<left>3</left>
 					<top>110</top>
 					<control type="button" id="64">
-						<top>82</top>
+						<top>83</top>
 						<width>1198</width>
-						<height>352</height>
+						<height>351</height>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<onunfocus>ClearProperty(MoreInfoTitle,movieinformation)</onunfocus>
 						<onunfocus>ClearProperty(MoreInfoContent,movieinformation)</onunfocus>
@@ -561,7 +508,7 @@
 								<label>$INFO[Window(Home).Property(NextAired.LatestNumber)]$INFO[Window(Home).Property(NextAired.LatestTitle), - ]$INFO[Window(Home).Property(NextAired.LatestDay), (,)]</label>
 								<label2>$LOCALIZE[31374]:</label2>
 								<onclick>SetProperty(MoreInfoTitle,$LOCALIZE[31374])</onclick>
-								<onclick>SetProperty(MoreInfoContent,$INFO[Window(Home).Property(NextAired.LatestNumber),, - ]$ESCINFO[Window(Home).Property(NextAired.LatestTitle)])</onclick>
+								<onclick>SetProperty(MoreInfoContent,$INFO[Window(Home).Property(NextAired.LatestNumber),, - ]$ESCINFO[Window(Home).Property(NextAired.LatestTitle)]$INFO[Window(Home).Property(NextAired.LatestDay), (,)])</onclick>
 								<onclick>SetFocus(64)</onclick>
 								<visible>String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(Window(Home).Property(NextAired.LatestNumber))</visible>
 							</item>
@@ -569,7 +516,7 @@
 								<label>$INFO[Window(Home).Property(NextAired.NextNumber)]$INFO[Window(Home).Property(NextAired.NextTitle), - ]$INFO[Window(Home).Property(NextAired.Nextday), (,)]</label>
 								<label2>$LOCALIZE[19031]:</label2>
 								<onclick>SetProperty(MoreInfoTitle,$LOCALIZE[19031])</onclick>
-								<onclick>SetProperty(MoreInfoContent,$INFO[Window(Home).Property(NextAired.NextNumber),, - ]$ESCINFO[Window(Home).Property(NextAired.NextTitle)])</onclick>
+								<onclick>SetProperty(MoreInfoContent,$INFO[Window(Home).Property(NextAired.NextNumber),, - ]$ESCINFO[Window(Home).Property(NextAired.NextTitle)]$INFO[Window(Home).Property(NextAired.Nextday), (,)])</onclick>
 								<onclick>SetFocus(64)</onclick>
 								<visible>String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(Window(Home).Property(NextAired.NextNumber))</visible>
 							</item>
@@ -646,12 +593,12 @@
 								<visible>!String.IsEmpty(ListItem.PlayCount)</visible>
 							</item>
 							<item>
-								<label>$INFO[Window(Home).Property(SkinHelper.ListItem.Tag)]</label>
+								<label>$INFO[ListItem.Tag]</label>
 								<label2>$LOCALIZE[20459]:</label2>
 								<onclick>SetProperty(MoreInfoTitle,$LOCALIZE[20459])</onclick>
-								<onclick>SetProperty(MoreInfoContent,$INFO[Window(Home).Property(SkinHelper.ListItem.Tag)])</onclick>
+								<onclick>SetProperty(MoreInfoContent,$INFO[ListItem.Tag])</onclick>
 								<onclick>SetFocus(64)</onclick>
-								<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Tag))</visible>
+								<visible>!String.IsEmpty(ListItem.Tag) + String.IsEqual(ListItem.DBTYPE,movie)</visible>
 							</item>
 							<item>
 								<label>[UPPERCASE]$INFO[ListItem.Property(AudioLanguage.1)]$INFO[ListItem.Property(AudioLanguage.2), / ]$INFO[ListItem.Property(AudioLanguage.3), / ]$INFO[ListItem.Property(AudioLanguage.4), / ]$INFO[ListItem.Property(AudioLanguage.5), / ]$INFO[ListItem.Property(AudioLanguage.6), / ]$INFO[ListItem.Property(AudioLanguage.7), / ][/UPPERCASE]</label>
@@ -805,6 +752,7 @@
 						<onclick>Dialog.Close(movieinformation)</onclick>
 						<onclick condition="String.IsEqual(ListItem.DBTYPE,movie) + String.IsEmpty(ListItem.SetID)">ActivateWindow(Videos,videodb://movies/titles/$INFO[Window(Home).Property(TVDBID)],return)</onclick>
 						<onclick condition="String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.SetID)">ActivateWindow(Videos,videodb://movies/sets/$INFO[ListItem.SetId]/?setid=$INFO[ListItem.SetId])</onclick>
+						<!-- <onclick condition="System.HasAddon(script.embuary.helper) + String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.SetID)">RunScript(script.embuary.helper,action=goto,path='"videodb://movies/sets/$INFO[ListItem.SetId]/?setid=$INFO[ListItem.SetId]"',target=videos)</onclick> -->
 						<onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[Window(Home).Property(TVDBID)],return)</onclick>
 						<visible>Window.IsActive(home) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow)]</visible>
 					</control>
@@ -1019,7 +967,7 @@
 								<control type="image">
 									<width>160</width>
 									<include>MediaFlagValues</include>
-									<texture>$VAR[MediaFlagsPathVar]/audiocodec/$INFO[ListItem.AudioCodec,,.png]</texture>
+									<texture>$VAR[MediaFlagsPathVar]/audiocodec/$VAR[AudioCodecFlagVar]</texture>
 									<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
 								</control>
 								<control type="image">
@@ -1162,9 +1110,9 @@
 					</control>
 					<include condition="!System.HasAddon(script.extendedinfo)">DefaultActorList</include>
 					<include condition="System.HasAddon(script.extendedinfo)">CustomActorList</include>
-					<include condition="System.HasAddon(script.extendedinfo) + Skin.HasSetting(Enable.ExtendedInfoIntergration) + String.IsEqual(ListItem.DBTYPE,movie)">ExtendedInfoMovieLists</include>
+					<include condition="System.HasAddon(script.embuary.helper) + Skin.HasSetting(Enable.ExtendedInfoIntergration) + String.IsEqual(ListItem.DBTYPE,movie)">ExtendedInfoMovieLists</include>
 					<include condition="String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.SetID)">ExtendedMovieSetPanel</include>
-					<include condition="System.HasAddon(script.extendedinfo) + Skin.HasSetting(Enable.ExtendedInfoTVIntergration) + String.IsEqual(ListItem.DBTYPE,tvshow)">ExtendedInfoSeriesLists</include>
+					<include condition="System.HasAddon(script.embuary.helper) + Skin.HasSetting(Enable.ExtendedInfoTVIntergration) + String.IsEqual(ListItem.DBTYPE,tvshow)">ExtendedInfoSeriesLists</include>
 					<include condition="String.IsEqual(ListItem.DBTYPE,tvshow) + Integer.IsGreater(ListItem.Property(TotalSeasons),0)">ExtendedSeasonPanel</include>
 				</control>
 			</control>
