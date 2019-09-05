@@ -14,9 +14,9 @@
 	<thumbnailBrowseDefault>special://skin/extras/icons/</thumbnailBrowseDefault>
 	<!-- Backgrounds -->
 	<backgroundBrowse>True</backgroundBrowse>
-	<!-- <background label="Kodi random movie fanart">Kodi.Movie.Fanart</background> -->
-	<!-- <background label="Kodi random TV show fanart">Kodi.TV.Fanart</background> -->
-	<!-- <background label="Kodi random music fanart">Kodi.Music.Fanart</background> -->
+	<background label="$LOCALIZE[31548]">Kodi.Movie.Fanart</background>
+	<background label="$LOCALIZE[31549]">Kodi.TV.Fanart</background>
+	<background label="$LOCALIZE[31550]">Kodi.Music.Fanart</background>
 	<background label="31062" condition="System.HasAddon(script.grab.fanart)">Movie.Fanart</background>
 	<background label="31063" condition="System.HasAddon(script.grab.fanart)">TV.Fanart</background>
 	<background label="31064" condition="System.HasAddon(script.grab.fanart)">Video.Fanart</background>
@@ -221,7 +221,7 @@
 		<node label="14236">
 			<!-- Movies -->
 			<node label="20342">
-				<shortcut label="20386" icon="logos/kodi-pl.png" widget="library" widgetType="movies" widgetTarget="video">special://skin/extras/playlists/randommovies.xsp</shortcut>
+				<shortcut label="31031" icon="logos/kodi-pl.png" widget="library" widgetType="movies" widgetTarget="video">special://skin/extras/playlists/randommovies.xsp</shortcut>
 				<shortcut label="20386" icon="logos/kodi-pl.png" widget="library" widgetType="movies" widgetTarget="video">special://skin/extras/playlists/recentmovies.xsp</shortcut>
 				<shortcut label="31732" icon="logos/kodi-pl.png" condition="Library.HasContent(Movies)" widget="library" widgetType="movies" widgetTarget="video">special://skin/extras/playlists/inprogressmovies.xsp</shortcut>
 				<shortcut label="31533" icon="logos/kodi-pl.png" condition="Library.HasContent(Movies)" widget="library" widgetType="movies" widgetTarget="video">special://skin/extras/playlists/unwatchedmovies.xsp</shortcut>
@@ -474,7 +474,7 @@
 	<propertySettings property="widgetBack" buttonID="1002" requires="widgetStyle" templateonly="True" showNone="False" title="$LOCALIZE[31702]" />
 	<property property="widgetBack" label="571">Default</property>
 	<property property="widgetBack" label="31723">Flat</property>
-	<property property="widgetBack" label="386">Clear</property>
+	<property property="widgetBack" label="31542">Clear</property>
 	<property property="widgetBack" label="31724">Clear White</property>
 	<property property="widgetBack" label="31725">Colored Default</property>
 	<property property="widgetBack" label="31726">Colored Flat</property>
@@ -485,7 +485,7 @@
 	<propertySettings property="widgetBack.2" buttonID="2002" requires="widgetStyle.2" templateonly="True" showNone="False" title="$LOCALIZE[31702]" />
 	<property property="widgetBack.2" label="571">Default</property>
 	<property property="widgetBack.2" label="31723">Flat</property>
-	<property property="widgetBack.2" label="386">Clear</property>
+	<property property="widgetBack.2" label="31542">Clear</property>
 	<property property="widgetBack.2" label="31724">Clear White</property>
 	<property property="widgetBack.2" label="31725">Colored Default</property>
 	<property property="widgetBack.2" label="31726">Colored Flat</property>

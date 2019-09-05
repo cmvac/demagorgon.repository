@@ -6,7 +6,7 @@
 	<controls>
 		<control type="image">
 			<include>FullscreenDimensions</include>
-			<texture colordiffuse="D9FFFFFF">black.png</texture>
+			<texture colordiffuse="AAFFFFFF">black.png</texture>
 			<animation effect="fade" time="300">WindowOpen</animation>
 			<animation effect="fade" time="300">WindowClose</animation>
 		</control>
@@ -29,7 +29,7 @@
 				<top>70</top>
 				<width>882</width>
 				<height>1</height>
-				<texture colordiffuse="$VAR[ThemeLabelColor]">new_pvr/osd_line_white.png</texture>
+				<texture colordiffuse="$VAR[ThemeLabelColor]">separator_horizontal.png</texture>
 			</control>
 			<control type="progress">
 				<left>30</left>
