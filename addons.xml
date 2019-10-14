@@ -375,8 +375,8 @@ Toda a fonte  vem de utilizadores do Youtube.
 
 <addon id="plugin.video.pt.docs.hd"
        name="PT.DocS.HD"
-       version="6.0"
-       provider-name="frenchdj, Demagorgon e bit.ly/[COLOR blue][B]AMO[/B][/COLOR][COLOR green]box[/COLOR]">
+       version="7.0"
+       provider-name="Demagorgon and Frenchdj ">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup" version="3.2.1"/>
@@ -400,6 +400,9 @@ Toda a fonte  vem de utilizadores do Youtube.
     <description>Documentarios em [COLOR lime][PT][/COLOR] e [COLOR yellow][BR][/COLOR] com qualidade HD.
 Playlists organizadas por categorias com assuntos historicos e da actualidade.
 Toda a fonte  vem de utilizadores do Youtube.
+
+7.0 - Nova versão com videos actualizados
+
 [B][COLOR lime][ Aconselhado a ultima versao do youtube 5.*.* ][/B][/COLOR]</description>
     <platform>all</platform>
   </extension>
