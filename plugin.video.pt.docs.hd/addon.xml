@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="plugin.video.pt.docs.hd"
        name="PT.DocS.HD"
-       version="7.0"
+       version="7.1"
        provider-name="Demagorgon and Frenchdj ">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>

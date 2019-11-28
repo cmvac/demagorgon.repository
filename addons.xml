@@ -33,7 +33,7 @@
 
 <addon id="plugin.audio.m80"
        name="M80 Radio"
-       version="1.3"
+       version="1.4"
        provider-name="Demagorgon">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -64,7 +64,7 @@
 
 <addon id="plugin.video.bandmania"
        name="Bandmania"
-       version="1.9"
+       version="1.91"
        provider-name="frenchdj, Demagorgon e bit.ly/[COLOR blue][B]AMO[/B][/COLOR][COLOR green]box[/COLOR]">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -134,8 +134,8 @@
 
 <addon id="plugin.video.foradabox"
        name="Fora da Box"
-       version="2.1"
-       provider-name="frenchdj, Demagorgon e bit.ly/[COLOR blue][B]AMO[/B][/COLOR][COLOR green]box[/COLOR]">
+       version="2.2"
+       provider-name="Demagorgon">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup" version="3.2.1"/>
@@ -346,7 +346,7 @@ Toda a fonte  vem de utilizadores do Youtube.
 
 <addon id="plugin.video.praiaspt"
        name="Praias PT"
-       version="2.0"
+       version="2.1"
        provider-name="Demagorgon e bit.ly/[COLOR blue][B]AMO[/B][/COLOR][COLOR green]box[/COLOR]">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -375,7 +375,7 @@ Toda a fonte  vem de utilizadores do Youtube.
 
 <addon id="plugin.video.pt.docs.hd"
        name="PT.DocS.HD"
-       version="7.0"
+       version="7.1"
        provider-name="Demagorgon and Frenchdj ">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -410,7 +410,7 @@ Toda a fonte  vem de utilizadores do Youtube.
 
 <addon id="plugin.video.rodasemotores"
        name="Rodas e Motores"
-       version="2.1"
+       version="2.2"
        provider-name="Demagorgon">
  <requires>
 	<import addon="xbmc.python" version="2.1.0"/>
