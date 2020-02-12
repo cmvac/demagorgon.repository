@@ -573,7 +573,7 @@ Toda a fonte  vem de utilizadores do Youtube.
 	</extension>
 </addon>
 
-<addon id="skin.aeon.nox.silvo.nero" version="7.1.7" name="[COLOR orange]Aeon Nox: SiLVO Nero[/COLOR]" provider-name="SiLVO,SKINBASE">
+<addon id="skin.aeon.nox.silvo.nero" version="7.2.7" name="[COLOR orange]Aeon Nox: SiLVO Nero[/COLOR]" provider-name="SiLVO,SKINBASE">
 	<requires>
 		<import addon="xbmc.gui" version="5.14.0" />
 		<import addon="script.skinshortcuts" version="1.0.10" />
