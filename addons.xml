@@ -430,6 +430,39 @@ Toda a fonte  vem de utilizadores do Youtube.
   </extension>
 </addon>
 
+<addon id="plugin.video.traquinas"
+       name="[COLOR white][B]Traquinas[/COLOR][/B]"
+       version="2.3"
+       provider-name="Vou ficar incognito por razões óbvias">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.beautifulsoup" version="3.2.1"/>
+    <import addon="script.module.simple.downloader" version="0.9.4"/>
+    <import addon="script.module.requests" />
+    <import addon="script.module.httplib2" />
+    <import addon="script.module.liveresolver" version="0.1.24" optional="true"/>
+    <import addon="script.module.youtube.dl" optional="true"/>
+    <import addon="plugin.video.youtube" optional="true" />
+    <import addon="script.module.resolveurl" optional="true"/>
+    <import addon="script.module.simplejson" />
+    <import addon="script.module.livestreamer" optional="true"/>
+    <import addon="script.module.slproxy" optional="true"/>
+    <import addon="script.module.pyamf" optional="true"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">[ User - traquinas / Password - traquinas ]</summary>
+    <summary>Traquinas Entertenimento</summary>
+    <description>Desenhos animados e filmes infantis em [PT] e [BR].
+Addon PRIVADO, somente ativo durante o estado de Emergência Nacional para que TODOS os nossos filhos tenham acesso aos DESENHOS ANIMADOS.
+
+[B][COLOR lime]Para que haja um bom funcionamento deste addon, o RESOLVE URL tem de estar activo e atualizado no kodi.[/COLOR][/B]</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon id="screensaver.praiaspt" name="PraiasPT" version="1.0" provider-name="demagorgon, forked from Enen92's Areal">
 	<requires>
 		<import addon="xbmc.python" version="2.19.0"/>
